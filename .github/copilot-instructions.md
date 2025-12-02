@@ -524,6 +524,53 @@ All demo code should follow these security principles:
 
 4. **Standard structure**: Prerequisites check → Bicep validation → Cost estimation → User confirmation → Deployment → Output display
 
+5. **Auto-detect SQL Admin**: Use current Azure user if `SqlAdminGroupObjectId` not provided:
+
+   ```powershell
+   if (-not $SqlAdminGroupObjectId) {
+       $signedInUser = az ad signed-in-user show 2>&1 | ConvertFrom-Json
+       $SqlAdminGroupObjectId = $signedInUser.id
+       $SqlAdminGroupName = $signedInUser.displayName
+   }
+   ```
+
+6. **Professional output formatting**: Use ASCII art banners, boxed sections, colored status:
+
+   ```powershell
+   # ASCII banner for project branding
+   Write-Host @"
+       ╔═══════════════════════════════════════════════════════════════════════╗
+       ║   PROJECT NAME - Azure Deployment                                     ║
+       ╚═══════════════════════════════════════════════════════════════════════╝
+   "@ -ForegroundColor Cyan
+
+   # Boxed configuration display
+   Write-Host "  ┌────────────────────────────────────────────────────────────────────┐"
+   Write-Host "  │  DEPLOYMENT CONFIGURATION                                          │"
+   Write-Host "  └────────────────────────────────────────────────────────────────────┘"
+
+   # Numbered progress steps
+   Write-Host "  [1/3] " -ForegroundColor DarkGray -NoNewline
+   Write-Host "Step description" -ForegroundColor Yellow
+
+   # Tree-style sub-steps
+   Write-Host "      └─ Sub-step detail" -ForegroundColor Gray
+
+   # Status indicators
+   Write-Host "  ✓ " -ForegroundColor Green -NoNewline; Write-Host "Success"
+   Write-Host "  ⚠ " -ForegroundColor Yellow -NoNewline; Write-Host "Warning"
+   Write-Host "  ✗ " -ForegroundColor Red -NoNewline; Write-Host "Error"
+   ```
+
+7. **Change summary from what-if**: Parse and display resource counts:
+
+   ```powershell
+   $whatIfText = $whatIfResult -join "`n"
+   $createCount = [regex]::Matches($whatIfText, "(?m)^\s*\+\s").Count
+
+   Write-Host "  │  + Create: $createCount resources" -ForegroundColor Green
+   ```
+
 ### When Editing PowerShell Scripts (General)
 
 - Use 4-space indentation, follow PSScriptAnalyzer rules

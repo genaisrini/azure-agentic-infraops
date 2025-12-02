@@ -306,6 +306,92 @@ az deployment group what-if \
   --parameters @parameters.json
 ```
 
+## Deployment Scripts
+
+Every Bicep project should include a `deploy.ps1` PowerShell deployment script with:
+
+### Required Features
+
+- **CmdletBinding with SupportsShouldProcess**: Enable `-WhatIf` mode automatically
+- **Parameter validation**: Use `[ValidateSet()]` and `[ValidateNotNullOrEmpty()]`
+- **Pre-flight checks**: Verify Azure CLI, Bicep CLI, and authentication
+- **Auto-detect SQL admin**: Use current user if `SqlAdminGroupObjectId` not provided
+- **Template validation**: Run `bicep build` and `bicep lint` before deployment
+- **What-if analysis**: Show planned changes with summary counts
+- **User confirmation**: Require explicit "yes" before deploying
+- **Formatted output**: Use colors, boxes, and progress indicators
+
+### Script Structure
+
+```powershell
+[CmdletBinding(SupportsShouldProcess)]
+param(
+    [Parameter(Mandatory = $true)]
+    [ValidateNotNullOrEmpty()]
+    [string]$ResourceGroupName,
+
+    [Parameter(Mandatory = $false)]
+    [ValidateSet('swedencentral', 'germanywestcentral')]
+    [string]$Location = 'swedencentral',
+
+    [Parameter(Mandatory = $false)]
+    [string]$SqlAdminGroupObjectId  # Auto-detects current user if not provided
+)
+
+# Use $WhatIfPreference (NOT explicit $WhatIf param) for what-if mode
+if ($WhatIfPreference) {
+    Write-Host "What-If mode - no changes made"
+    exit 0
+}
+```
+
+### Output Formatting Best Practices
+
+Use visual formatting for better user experience:
+
+```powershell
+# ASCII art banner for branding
+Write-Host @"
+    ╔═══════════════════════════════════════════╗
+    ║   PROJECT NAME - Azure Deployment          ║
+    ╚═══════════════════════════════════════════╝
+"@ -ForegroundColor Cyan
+
+# Boxed sections for organization
+Write-Host "  ┌────────────────────────────────────────┐" -ForegroundColor DarkGray
+Write-Host "  │  DEPLOYMENT CONFIGURATION              │" -ForegroundColor DarkGray
+Write-Host "  └────────────────────────────────────────┘" -ForegroundColor DarkGray
+
+# Color-coded status messages
+Write-Host "  ✓ " -ForegroundColor Green -NoNewline; Write-Host "Success message"
+Write-Host "  ⚠ " -ForegroundColor Yellow -NoNewline; Write-Host "Warning message"
+Write-Host "  ✗ " -ForegroundColor Red -NoNewline; Write-Host "Error message"
+
+# Numbered progress steps
+Write-Host "  [1/3] " -ForegroundColor DarkGray -NoNewline; Write-Host "Step description"
+
+# Tree-style sub-steps
+Write-Host "      └─ Sub-step detail" -ForegroundColor Gray
+
+# Info items with labels
+Write-Host "      • Label: " -ForegroundColor DarkGray -NoNewline; Write-Host "Value" -ForegroundColor Cyan
+```
+
+### Change Summary Display
+
+Parse what-if output and display formatted summary:
+
+```powershell
+$whatIfText = $whatIfResult -join "`n"
+$createCount = [regex]::Matches($whatIfText, "(?m)^\s*\+\s").Count
+$modifyCount = [regex]::Matches($whatIfText, "(?m)^\s*~\s").Count
+$deleteCount = [regex]::Matches($whatIfText, "(?m)^\s*-\s").Count
+
+Write-Host "  │  + Create: $createCount resources" -ForegroundColor Green
+Write-Host "  │  ~ Modify: $modifyCount resources" -ForegroundColor Yellow
+Write-Host "  │  - Delete: $deleteCount resources" -ForegroundColor Red
+```
+
 ## Documentation
 
 - Include `//` comments explaining complex logic

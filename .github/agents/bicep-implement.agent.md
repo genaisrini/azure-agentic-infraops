@@ -401,6 +401,45 @@ resource keyVault 'Microsoft.KeyVault/vaults@2023-07-01' = {
 **Generate deployment scripts**: Create deploy.ps1 for each main template with proper parameter handling
 **What-if before deploy**: Always run what-if analysis and summarize changes before actual deployment
 
+### Deployment Script Requirements
+
+Every Bicep implementation MUST include a `deploy.ps1` script with:
+
+1. **Professional formatting**: ASCII banner, boxed sections, colored output
+2. **CmdletBinding(SupportsShouldProcess)**: For automatic `-WhatIf` support
+3. **Auto-detect SQL admin**: Use current Azure user if `SqlAdminGroupObjectId` not provided
+4. **Pre-flight validation**: Check Azure CLI, Bicep CLI, authentication
+5. **Template validation**: Run `bicep build` and `bicep lint` before deployment
+6. **Change summary**: Parse what-if output to show create/modify/delete counts
+7. **User confirmation**: Require explicit "yes" before deployment
+8. **Resource endpoints**: Display all deployed resource URLs at completion
+9. **Next steps guidance**: List post-deployment configuration tasks
+
+**Script output structure:**
+
+```
+╔═══════════════════════════════════════════════════════════════════════╗
+║   PROJECT BANNER                                                       ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+┌────────────────────────────────────────────────────────────────────┐
+│  DEPLOYMENT CONFIGURATION                                          │
+└────────────────────────────────────────────────────────────────────┘
+
+  [1/3] Pre-flight check step
+      └─ Sub-step detail
+      • Label: Value
+
+┌─────────────────────────────────────────┐
+│  CHANGE SUMMARY                          │
+│  + Create: 60 resources                 │
+│  ~ Modify: 0 resources                  │
+│  - Delete: 0 resources                  │
+└─────────────────────────────────────────┘
+
+✓ DEPLOYMENT SUCCESSFUL
+```
+
 ## Naming Conventions & Uniqueness
 
 **CRITICAL: All Azure resources MUST use unique names with random suffix**
