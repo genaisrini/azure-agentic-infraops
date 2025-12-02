@@ -1,0 +1,316 @@
+name: Validate Repository
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint-markdown:
+    name: Lint Markdown
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run markdownlint
+        run: npx markdownlint-cli2 "**/*.md" "#node_modules"
+
+  validate-bicep:
+    name: Validate Bicep
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Bicep CLI
+        uses: azure/setup-bicep@v0.1.0
+
+      - name: Find and validate Bicep files
+        run: |
+          # Find all .bicep files (excluding node_modules)
+          BICEP_FILES=$(find . -name "*.bicep" -not -path "./node_modules/*" -type f 2>/dev/null || true)
+
+          if [ -z "$BICEP_FILES" ]; then
+            echo "No Bicep files found - skipping validation"
+            exit 0
+          fi
+
+          echo "Found Bicep files:"
+          echo "$BICEP_FILES"
+
+          # Validate each file
+          ERRORS=0
+          for file in $BICEP_FILES; do
+            echo "Validating: $file"
+            if ! bicep build "$file" --stdout > /dev/null 2>&1; then
+              echo "❌ Failed: $file"
+              bicep build "$file" 2>&1 || true
+              ERRORS=$((ERRORS + 1))
+            else
+              echo "✅ Passed: $file"
+            fi
+          done
+
+          if [ $ERRORS -gt 0 ]; then
+            echo "❌ $ERRORS Bicep file(s) failed validation"
+            exit 1
+          fi
+
+          echo "✅ All Bicep files validated successfully"
+
+  validate-agents:
+    name: Validate Agent Files
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install PyYAML
+        run: pip install pyyaml
+
+      - name: Validate agent YAML frontmatter
+        run: |
+          python << 'EOF'
+          import os
+          import sys
+          import yaml
+          import re
+
+          def extract_frontmatter(content):
+              """Extract YAML frontmatter from markdown content."""
+              # Match YAML frontmatter between --- markers
+              match = re.match(r'^---\s*\n(.*?)\n---\s*\n', content, re.DOTALL)
+              if match:
+                  return match.group(1)
+              return None
+
+          def validate_agent_file(filepath):
+              """Validate an agent file has valid YAML frontmatter."""
+              errors = []
+              
+              with open(filepath, 'r', encoding='utf-8') as f:
+                  content = f.read()
+              
+              frontmatter = extract_frontmatter(content)
+              if not frontmatter:
+                  errors.append(f"No YAML frontmatter found")
+                  return errors
+              
+              try:
+                  data = yaml.safe_load(frontmatter)
+              except yaml.YAMLError as e:
+                  errors.append(f"Invalid YAML: {e}")
+                  return errors
+              
+              # Check required fields
+              required_fields = ['name', 'description', 'tools']
+              for field in required_fields:
+                  if field not in data:
+                      errors.append(f"Missing required field: {field}")
+              
+              # Validate tools is a list
+              if 'tools' in data and not isinstance(data['tools'], list):
+                  errors.append("'tools' must be a list")
+              
+              return errors
+
+          # Find all agent files
+          agent_dir = '.github/agents'
+          if not os.path.exists(agent_dir):
+              print(f"Agent directory not found: {agent_dir}")
+              sys.exit(0)
+
+          agent_files = [f for f in os.listdir(agent_dir) if f.endswith('.agent.md')]
+
+          if not agent_files:
+              print("No agent files found")
+              sys.exit(0)
+
+          total_errors = 0
+          for filename in agent_files:
+              filepath = os.path.join(agent_dir, filename)
+              print(f"Validating: {filepath}")
+              
+              errors = validate_agent_file(filepath)
+              if errors:
+                  print(f"  ❌ {filename}:")
+                  for error in errors:
+                      print(f"     - {error}")
+                  total_errors += len(errors)
+              else:
+                  print(f"  ✅ {filename}: Valid")
+
+          if total_errors > 0:
+              print(f"\n❌ {total_errors} error(s) found in agent files")
+              sys.exit(1)
+
+          print(f"\n✅ All {len(agent_files)} agent files validated successfully")
+          EOF
+
+  test-mcp-server:
+    name: Test MCP Server
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: mcp/azure-pricing-mcp
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+
+      - name: Run tests
+        run: pytest tests/ -v --tb=short
+
+  check-links:
+    name: Check Internal Links
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check internal markdown links
+        run: |
+          python << 'EOF'
+          import os
+          import re
+          import sys
+          from pathlib import Path
+
+          def find_markdown_files(root_dir):
+              """Find all markdown files in the repository."""
+              md_files = []
+              for root, dirs, files in os.walk(root_dir):
+                  # Skip node_modules and .git
+                  dirs[:] = [d for d in dirs if d not in ['node_modules', '.git', '.venv', '__pycache__']]
+                  for file in files:
+                      if file.endswith('.md'):
+                          md_files.append(os.path.join(root, file))
+              return md_files
+
+          def extract_internal_links(content, filepath):
+              """Extract internal markdown links from content."""
+              links = []
+              # Match [text](path) but not external URLs
+              pattern = r'\[([^\]]*)\]\(([^)]+)\)'
+              for match in re.finditer(pattern, content):
+                  text, path = match.groups()
+                  # Skip external links, anchors only, and mailto
+                  if path.startswith(('http://', 'https://', 'mailto:', '#')):
+                      continue
+                  # Remove anchor from path
+                  path = path.split('#')[0]
+                  if path:
+                      links.append((path, match.start(), text))
+              return links
+
+          def check_link(link_path, source_file, root_dir):
+              """Check if a linked file exists."""
+              source_dir = os.path.dirname(source_file)
+              
+              # Handle relative paths
+              if link_path.startswith('./'):
+                  target = os.path.normpath(os.path.join(source_dir, link_path))
+              elif link_path.startswith('../'):
+                  target = os.path.normpath(os.path.join(source_dir, link_path))
+              elif link_path.startswith('/'):
+                  target = os.path.normpath(os.path.join(root_dir, link_path.lstrip('/')))
+              else:
+                  target = os.path.normpath(os.path.join(source_dir, link_path))
+              
+              return os.path.exists(target), target
+
+          # Main
+          root_dir = '.'
+          md_files = find_markdown_files(root_dir)
+
+          print(f"Checking {len(md_files)} markdown files for broken internal links...\n")
+
+          broken_links = []
+          for filepath in md_files:
+              with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
+                  content = f.read()
+              
+              links = extract_internal_links(content, filepath)
+              for link_path, pos, text in links:
+                  exists, target = check_link(link_path, filepath, root_dir)
+                  if not exists:
+                      broken_links.append({
+                          'source': filepath,
+                          'link': link_path,
+                          'target': target,
+                          'text': text
+                      })
+
+          if broken_links:
+              print("❌ Broken internal links found:\n")
+              for link in broken_links:
+                  print(f"  File: {link['source']}")
+                  print(f"  Link: [{link['text']}]({link['link']})")
+                  print(f"  Expected: {link['target']}")
+                  print()
+              print(f"❌ {len(broken_links)} broken link(s) found")
+              sys.exit(1)
+
+          print("✅ All internal links are valid")
+          EOF
+
+  # Summary job that depends on all others
+  validation-complete:
+    name: Validation Complete
+    needs:
+      [
+        lint-markdown,
+        validate-bicep,
+        validate-agents,
+        test-mcp-server,
+        check-links,
+      ]
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Check job results
+        run: |
+          if [[ "${{ needs.lint-markdown.result }}" == "failure" ]] || \
+             [[ "${{ needs.validate-bicep.result }}" == "failure" ]] || \
+             [[ "${{ needs.validate-agents.result }}" == "failure" ]] || \
+             [[ "${{ needs.test-mcp-server.result }}" == "failure" ]] || \
+             [[ "${{ needs.check-links.result }}" == "failure" ]]; then
+            echo "❌ One or more validation jobs failed"
+            exit 1
+          fi
+          echo "✅ All validation jobs passed"

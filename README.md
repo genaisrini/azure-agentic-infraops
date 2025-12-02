@@ -13,6 +13,13 @@
 > requirements to deployed Bicep templates—with architecture guidance, diagrams, validation,
 > and best practices built in.
 
+📖 **[Quick Start Guide](docs/QUICKSTART.md)** | 📋 **[Full Workflow Docs](docs/WORKFLOW.md)** | 🎯 **[Demo Prompts](demos/)**
+
+<!-- TODO: Add animated demo GIF showing the workflow in action
+     To create: Use https://github.com/charmbracelet/vhs or screen recording
+     Target: ~30 second GIF showing @plan → architecture → diagram → bicep flow
+-->
+
 ## The Workflow
 
 ```mermaid
