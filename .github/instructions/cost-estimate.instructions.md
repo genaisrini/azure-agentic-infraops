@@ -1,6 +1,6 @@
 ---
-description: 'Standards for Azure cost estimate documentation with architecture and business context'
-applyTo: '**/docs/*-cost-estimate.md'
+description: "Standards for Azure cost estimate documentation with architecture and business context"
+applyTo: "**/docs/*-cost-estimate.md"
 ---
 
 # Azure Cost Estimate Documentation Standards
@@ -28,7 +28,7 @@ Include metadata at the top of every cost estimate:
 **Generated**: {YYYY-MM-DD}
 **Region**: {primary-region} ({location-name})
 **Environment**: {Production|Staging|Development}
-**MCP Tools Used**: {list of azure-pricing/* tools used}
+**MCP Tools Used**: {list of azure-pricing/\* tools used}
 **Architecture Reference**: {link to WAF assessment or architecture doc}
 ```
 
@@ -39,13 +39,13 @@ Provide a quick overview for stakeholders:
 ```markdown
 ## Summary
 
-| Metric           | Value               |
-| ---------------- | ------------------- |
-| Monthly Estimate | ${min} - ${max}     |
-| Annual Estimate  | ${min} - ${max}     |
-| Primary Region   | {region}            |
-| Pricing Type     | List Price (PAYG)   |
-| WAF Score        | {X.X}/10            |
+| Metric           | Value             |
+| ---------------- | ----------------- |
+| Monthly Estimate | ${min} - ${max}   |
+| Annual Estimate  | ${min} - ${max}   |
+| Primary Region   | {region}          |
+| Pricing Type     | List Price (PAYG) |
+| WAF Score        | {X.X}/10          |
 
 ### Business Context
 
@@ -57,12 +57,12 @@ investments are necessary. Link costs to business outcomes.}
 
 Include a visual diagram and brief description:
 
-```markdown
+````markdown
 ## Architecture Overview
 
 ### Cost Distribution
 
-​```mermaid
+​`mermaid
 %%{init: {'theme':'neutral'}}%%
 pie showData
     title Monthly Cost Distribution
@@ -70,16 +70,16 @@ pie showData
     "Data Services" : 461
     "Messaging" : 200
     "Networking" : 145
-​```
+​`
 
 ### Key Design Decisions Affecting Cost
 
-| Decision | Cost Impact | Business Rationale |
-|----------|-------------|-------------------|
-| Zone redundancy | +$X/month | 99.9% SLA requirement |
-| Premium SKUs | +$X/month | Performance requirements |
-| Private endpoints | +$X/month | Security/compliance |
-```
+| Decision          | Cost Impact | Business Rationale       |
+| ----------------- | ----------- | ------------------------ |
+| Zone redundancy   | +$X/month   | 99.9% SLA requirement    |
+| Premium SKUs      | +$X/month   | Performance requirements |
+| Private endpoints | +$X/month   | Security/compliance      |
+````
 
 ### 4. Detailed Cost Breakdown
 
@@ -90,9 +90,9 @@ Organize costs by category with clear subtotals:
 
 ### Compute Services
 
-| Resource | SKU | Qty | $/Hour | $/Month | Notes |
-|----------|-----|-----|--------|---------|-------|
-| {name}   | {sku} | {n} | ${x}  | ${y}   | {context} |
+| Resource | SKU   | Qty | $/Hour | $/Month | Notes     |
+| -------- | ----- | --- | ------ | ------- | --------- |
+| {name}   | {sku} | {n} | ${x}   | ${y}    | {context} |
 
 **Compute Subtotal**: ~${total}/month
 ```
@@ -112,10 +112,10 @@ Compare costs across relevant regions:
 ```markdown
 ## Regional Comparison
 
-| Region | Monthly Cost | vs. Primary | Data Residency |
-|--------|--------------|-------------|----------------|
-| {region1} | ${x} | Baseline | {compliance} |
-| {region2} | ${y} | +X% | {compliance} |
+| Region    | Monthly Cost | vs. Primary | Data Residency |
+| --------- | ------------ | ----------- | -------------- |
+| {region1} | ${x}         | Baseline    | {compliance}   |
+| {region2} | ${y}         | +X%         | {compliance}   |
 ```
 
 ### 6. Savings Opportunities
@@ -127,11 +127,11 @@ Document reservation and savings plan options:
 
 ### {Resource Name}
 
-| Commitment | Hourly Rate | Monthly Cost | Annual Savings |
-|------------|-------------|--------------|----------------|
-| Pay-as-you-go | ${x} | ${y} | - |
-| 1-Year | ${x} | ${y} | ${z} (X%) |
-| 3-Year | ${x} | ${y} | ${z} (X%) |
+| Commitment    | Hourly Rate | Monthly Cost | Annual Savings |
+| ------------- | ----------- | ------------ | -------------- |
+| Pay-as-you-go | ${x}        | ${y}         | -              |
+| 1-Year        | ${x}        | ${y}         | ${z} (X%)      |
+| 3-Year        | ${x}        | ${y}         | ${z} (X%)      |
 ```
 
 ### 7. Environment Comparison
@@ -141,11 +141,11 @@ Show costs across environments:
 ```markdown
 ## Environment Cost Comparison
 
-| Environment | Monthly Cost | Notes |
-|-------------|--------------|-------|
-| Production | ${x} | Full SKUs, redundancy |
-| Staging | ${y} | Same SKUs, reduced instances |
-| Development | ${z} | Basic SKUs, no redundancy |
+| Environment | Monthly Cost | Notes                        |
+| ----------- | ------------ | ---------------------------- |
+| Production  | ${x}         | Full SKUs, redundancy        |
+| Staging     | ${y}         | Same SKUs, reduced instances |
+| Development | ${z}         | Basic SKUs, no redundancy    |
 
 **Total for all environments**: ~${total}/month
 ```

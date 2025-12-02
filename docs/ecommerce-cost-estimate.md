@@ -10,13 +10,13 @@
 
 ## Summary
 
-| Metric           | Value               |
-| ---------------- | ------------------- |
-| Monthly Estimate | $1,350 - $1,450     |
-| Annual Estimate  | $16,200 - $17,400   |
-| Primary Region   | swedencentral       |
-| Pricing Type     | List Price (PAYG)   |
-| WAF Score        | 8.0/10              |
+| Metric           | Value             |
+| ---------------- | ----------------- |
+| Monthly Estimate | $1,350 - $1,450   |
+| Annual Estimate  | $16,200 - $17,400 |
+| Primary Region   | swedencentral     |
+| Pricing Type     | List Price (PAYG) |
+| WAF Score        | 8.0/10            |
 
 ### Business Context
 
@@ -44,12 +44,12 @@ pie showData
 
 ### Key Design Decisions Affecting Cost
 
-| Decision                 | Cost Impact  | Business Rationale                     |
-| ------------------------ | ------------ | -------------------------------------- |
-| Zone redundancy (P1v4)   | +$206/month  | 99.9% SLA for revenue-critical app     |
-| Premium Service Bus      | +$550/month  | Private endpoints, order reliability   |
-| Cognitive Search S1      | +$245/month  | <100ms product search performance      |
-| Private endpoints (×5)   | +$37/month   | PCI-DSS network isolation requirement  |
+| Decision               | Cost Impact | Business Rationale                    |
+| ---------------------- | ----------- | ------------------------------------- |
+| Zone redundancy (P1v4) | +$206/month | 99.9% SLA for revenue-critical app    |
+| Premium Service Bus    | +$550/month | Private endpoints, order reliability  |
+| Cognitive Search S1    | +$245/month | <100ms product search performance     |
+| Private endpoints (×5) | +$37/month  | PCI-DSS network isolation requirement |
 
 ---
 
@@ -66,12 +66,12 @@ pie showData
 
 ### Data Services
 
-| Resource               | SKU          | Config  | $/Unit   | $/Month | Notes                        |
-| ---------------------- | ------------ | ------- | -------- | ------- | ---------------------------- |
-| Azure Cognitive Search | S1 Standard  | -       | $0.336/h | $245.28 | Product catalog search       |
-| Azure SQL Database     | S3 Standard  | 100 DTU | $4.84/d  | $145.16 | Transactional data           |
-| Azure Cache for Redis  | C2 Basic     | 2.5 GB  | $0.090/h | $65.70  | Session cache (10K users)    |
-| Azure Cache for Redis  | C2 Standard  | 2.5 GB  | $0.112/h | $81.76  | Alternative with replication |
+| Resource               | SKU         | Config  | $/Unit   | $/Month | Notes                        |
+| ---------------------- | ----------- | ------- | -------- | ------- | ---------------------------- |
+| Azure Cognitive Search | S1 Standard | -       | $0.336/h | $245.28 | Product catalog search       |
+| Azure SQL Database     | S3 Standard | 100 DTU | $4.84/d  | $145.16 | Transactional data           |
+| Azure Cache for Redis  | C2 Basic    | 2.5 GB  | $0.090/h | $65.70  | Session cache (10K users)    |
+| Azure Cache for Redis  | C2 Standard | 2.5 GB  | $0.112/h | $81.76  | Alternative with replication |
 
 **Data Subtotal**: ~$466/month (using Basic Redis)
 
@@ -126,13 +126,13 @@ pie showData
 
 Using `azure_region_recommend` for App Service P1v4:
 
-| Region             | Monthly Cost | vs. swedencentral | Data Residency   |
-| ------------------ | ------------ | ----------------- | ---------------- |
-| westus2            | $0.146/h     | -48%              | US West          |
-| eastus             | $0.146/h     | -48%              | US East          |
-| northeurope        | $0.175/h     | -38%              | EU (Ireland)     |
-| swedencentral      | $0.282/h     | Baseline          | EU (Sweden) ✅   |
-| germanywestcentral | ~$0.282/h    | Same              | EU (Germany)     |
+| Region             | Monthly Cost | vs. swedencentral | Data Residency |
+| ------------------ | ------------ | ----------------- | -------------- |
+| westus2            | $0.146/h     | -48%              | US West        |
+| eastus             | $0.146/h     | -48%              | US East        |
+| northeurope        | $0.175/h     | -38%              | EU (Ireland)   |
+| swedencentral      | $0.282/h     | Baseline          | EU (Sweden) ✅ |
+| germanywestcentral | ~$0.282/h    | Same              | EU (Germany)   |
 
 > 💡 **EU Data Residency**: swedencentral selected for GDPR compliance despite
 > higher costs vs. US regions. Germany is alternative for German data sovereignty.
@@ -143,40 +143,40 @@ Using `azure_region_recommend` for App Service P1v4:
 
 ### App Service P1v4 (per instance)
 
-| Commitment          | Hourly Rate | Monthly Cost | Annual Savings  |
-| ------------------- | ----------- | ------------ | --------------- |
-| Pay-as-you-go       | $0.282      | $205.86      | -               |
-| 1-Year Savings Plan | $0.2256     | $164.69      | $494 (20%)      |
-| 3-Year Savings Plan | $0.18048    | $131.75      | $889 (36%)      |
+| Commitment          | Hourly Rate | Monthly Cost | Annual Savings |
+| ------------------- | ----------- | ------------ | -------------- |
+| Pay-as-you-go       | $0.282      | $205.86      | -              |
+| 1-Year Savings Plan | $0.2256     | $164.69      | $494 (20%)     |
+| 3-Year Savings Plan | $0.18048    | $131.75      | $889 (36%)     |
 
 ### Azure Functions EP1
 
-| Commitment          | Hourly Rate | Monthly Cost | Annual Savings  |
-| ------------------- | ----------- | ------------ | --------------- |
-| Pay-as-you-go       | $0.169      | $123.37      | -               |
-| 1-Year Savings Plan | $0.14027    | $102.40      | $252 (17%)      |
-| 3-Year Savings Plan | $0.14027    | $102.40      | $252 (17%)      |
+| Commitment          | Hourly Rate | Monthly Cost | Annual Savings |
+| ------------------- | ----------- | ------------ | -------------- |
+| Pay-as-you-go       | $0.169      | $123.37      | -              |
+| 1-Year Savings Plan | $0.14027    | $102.40      | $252 (17%)     |
+| 3-Year Savings Plan | $0.14027    | $102.40      | $252 (17%)     |
 
 ### Potential Annual Savings with 3-Year Commitments
 
-| Resource              | PAYG Annual | 3-Year Annual | Savings      |
-| --------------------- | ----------- | ------------- | ------------ |
-| App Service (×2)      | $4,941      | $3,162        | $1,779 (36%) |
-| Azure Functions       | $1,480      | $1,229        | $251 (17%)   |
-| **Total Compute**     | **$6,421**  | **$4,391**    | **$2,030**   |
+| Resource          | PAYG Annual | 3-Year Annual | Savings      |
+| ----------------- | ----------- | ------------- | ------------ |
+| App Service (×2)  | $4,941      | $3,162        | $1,779 (36%) |
+| Azure Functions   | $1,480      | $1,229        | $251 (17%)   |
+| **Total Compute** | **$6,421**  | **$4,391**    | **$2,030**   |
 
 ---
 
 ## Cost Optimization Recommendations
 
-| Strategy                   | Potential Savings | Effort | Notes                        |
-| -------------------------- | ----------------- | ------ | ---------------------------- |
-| 3-Year Reserved Instances  | $2,030/year (32%) | Low    | Compute commitment           |
-| Linux App Service          | $1,100/year       | Medium | $0.19/h vs $0.282/h          |
-| Dev/Test Basic SKUs        | $800/month        | Medium | Non-prod environments        |
-| Service Bus Standard (dev) | $600/month        | Low    | Use Standard for non-prod    |
-| Right-size Redis           | $200/year         | Low    | Basic C1 for dev ($0.034/h)  |
-| Azure Hybrid Benefit (SQL) | Up to 55%         | Low    | If existing SQL licenses     |
+| Strategy                   | Potential Savings | Effort | Notes                       |
+| -------------------------- | ----------------- | ------ | --------------------------- |
+| 3-Year Reserved Instances  | $2,030/year (32%) | Low    | Compute commitment          |
+| Linux App Service          | $1,100/year       | Medium | $0.19/h vs $0.282/h         |
+| Dev/Test Basic SKUs        | $800/month        | Medium | Non-prod environments       |
+| Service Bus Standard (dev) | $600/month        | Low    | Use Standard for non-prod   |
+| Right-size Redis           | $200/year         | Low    | Basic C1 for dev ($0.034/h) |
+| Azure Hybrid Benefit (SQL) | Up to 55%         | Low    | If existing SQL licenses    |
 
 ---
 
