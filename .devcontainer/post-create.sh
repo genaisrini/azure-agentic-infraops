@@ -93,12 +93,15 @@ if [ -d "$MCP_DIR" ]; then
     if [ ! -d "$MCP_DIR/.venv" ]; then
         echo "  Creating virtual environment..."
         python3 -m venv "$MCP_DIR/.venv"
-        echo "  Installing dependencies..."
-        "$MCP_DIR/.venv/bin/pip" install --quiet -r "$MCP_DIR/requirements.txt" 2>&1 | tail -1 || true
-        echo "  ✅ Azure Pricing MCP venv created"
-    else
-        echo "  ✅ Azure Pricing MCP venv already exists"
     fi
+    
+    # Always install/upgrade package in editable mode for proper entry points
+    echo "  Installing MCP server package..."
+    cd "$MCP_DIR"
+    "$MCP_DIR/.venv/bin/pip" install --quiet --upgrade pip 2>&1 | tail -1 || true
+    "$MCP_DIR/.venv/bin/pip" install --quiet -e . 2>&1 | tail -1 || true
+    cd - > /dev/null
+    echo "  ✅ Azure Pricing MCP installed"
     
     # Health check - verify server starts
     echo "  Running health check..."

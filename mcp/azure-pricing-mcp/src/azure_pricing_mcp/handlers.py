@@ -55,14 +55,6 @@ def register_tool_handlers(server: Any, pricing_server: Any) -> None:
 
 async def _handle_price_search(pricing_server, arguments: dict) -> list[TextContent]:
     """Handle azure_price_search tool calls."""
-    # Always get customer discount and apply it
-    customer_discount = await pricing_server.get_customer_discount()
-    discount_percentage = customer_discount["discount_percentage"]
-
-    # Add discount to arguments if not already specified
-    if "discount_percentage" not in arguments:
-        arguments["discount_percentage"] = discount_percentage
-
     result = await pricing_server.search_azure_prices(**arguments)
 
     # Format the response

@@ -203,6 +203,22 @@ Using `azure_region_recommend` for App Service P1v4:
 
 ---
 
+## Pricing Data Accuracy
+
+> **📊 Data Source**: All prices are queried in real-time from the
+> [Azure Retail Prices API](https://learn.microsoft.com/en-us/rest/api/cost-management/retail-prices/azure-retail-prices),
+> Microsoft's official public pricing endpoint.
+>
+> **What's included**: Retail list prices (pay-as-you-go), Savings Plan pricing
+> (1-year and 3-year), and Spot pricing where available.
+>
+> **What's NOT included**: Enterprise Agreement (EA) discounts, CSP partner pricing,
+> negotiated contract rates, or Azure Hybrid Benefit savings. For official quotes,
+> verify with the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+> or your Microsoft account team.
+
+---
+
 ## References
 
 - [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)

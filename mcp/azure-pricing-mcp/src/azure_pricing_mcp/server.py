@@ -6,11 +6,14 @@ A Model Context Protocol server that provides tools for querying Azure retail pr
 """
 
 import asyncio
+import hashlib
+import json
 import logging
 import sys
 from typing import Any
 
 import aiohttp
+from cachetools import TTLCache
 from mcp.server import NotificationOptions, Server
 from mcp.server.stdio import stdio_server
 from mcp.types import Tool
@@ -32,7 +35,7 @@ MAX_RESULTS_PER_REQUEST = 1000
 # Retry and rate limiting configuration
 MAX_RETRIES = 3
 RATE_LIMIT_RETRY_BASE_WAIT = 5  # seconds
-DEFAULT_CUSTOMER_DISCOUNT = 10.0  # percent
+DEFAULT_CUSTOMER_DISCOUNT = 0.0  # percent (disabled by default)
 
 # Common service name mappings for fuzzy search
 # Maps user-friendly terms to official Azure service names
@@ -143,33 +146,70 @@ def normalize_sku_name(sku_name: str) -> tuple[list[str], str]:
 
 
 class AzurePricingServer:
-    """Azure Pricing MCP Server implementation."""
+    """Azure Pricing MCP Server implementation with singleton session and caching."""
+
+    _session: aiohttp.ClientSession | None = None
+    _session_lock: asyncio.Lock | None = None
+    # Cache responses for 1 hour (3600 seconds), max 100 entries
+    _cache: TTLCache = TTLCache(maxsize=100, ttl=3600)
 
     def __init__(self):
-        self.session: aiohttp.ClientSession | None = None
+        if AzurePricingServer._session_lock is None:
+            AzurePricingServer._session_lock = asyncio.Lock()
+
+    async def get_session(self) -> aiohttp.ClientSession:
+        """Get or create singleton HTTP session with connection pooling."""
+        if AzurePricingServer._session is None or AzurePricingServer._session.closed:
+            async with AzurePricingServer._session_lock:
+                if AzurePricingServer._session is None or AzurePricingServer._session.closed:
+                    # Configure timeout and connection pool
+                    timeout = aiohttp.ClientTimeout(total=30, connect=10)
+                    connector = aiohttp.TCPConnector(
+                        limit=10, limit_per_host=5)
+                    AzurePricingServer._session = aiohttp.ClientSession(
+                        timeout=timeout,
+                        connector=connector
+                    )
+        return AzurePricingServer._session
 
     async def __aenter__(self):
-        """Async context manager entry."""
-        self.session = aiohttp.ClientSession()
+        """Async context manager entry - session is managed as singleton."""
+        await self.get_session()
         return self
 
     async def __aexit__(self, exc_type, exc_val, exc_tb):
-        """Async context manager exit."""
-        if self.session:
-            await self.session.close()
+        """Async context manager exit - keep session alive for reuse."""
+        # Don't close session - it's a singleton for reuse across calls
+        pass
+
+    @staticmethod
+    async def close_session():
+        """Explicitly close the singleton session (for cleanup)."""
+        if AzurePricingServer._session and not AzurePricingServer._session.closed:
+            await AzurePricingServer._session.close()
+            AzurePricingServer._session = None
+
+    def _cache_key(self, url: str, params: dict[str, Any] | None) -> str:
+        """Generate cache key from URL and parameters."""
+        params_str = json.dumps(params or {}, sort_keys=True)
+        return hashlib.md5(f"{url}{params_str}".encode()).hexdigest()
 
     async def _make_request(
         self, url: str, params: dict[str, Any] | None = None, max_retries: int = MAX_RETRIES
     ) -> dict[str, Any]:
-        """Make HTTP request to Azure Pricing API with retry logic for rate limiting."""
-        if not self.session:
-            raise RuntimeError("HTTP session not initialized")
+        """Make HTTP request to Azure Pricing API with caching and retry logic."""
+        # Check cache first
+        cache_key = self._cache_key(url, params)
+        if cache_key in AzurePricingServer._cache:
+            logger.debug(f"Cache hit for {url}")
+            return AzurePricingServer._cache[cache_key]
 
+        session = await self.get_session()
         last_exception = None
 
         for attempt in range(max_retries + 1):  # 0, 1, 2, 3 (4 total attempts)
             try:
-                async with self.session.get(url, params=params) as response:
+                async with session.get(url, params=params) as response:
                     if response.status == 429:  # Too Many Requests
                         if attempt < max_retries:
                             wait_time = RATE_LIMIT_RETRY_BASE_WAIT * \
@@ -185,6 +225,9 @@ class AzurePricingServer:
 
                     response.raise_for_status()
                     json_data: dict[str, Any] = await response.json()
+
+                    # Cache successful response
+                    AzurePricingServer._cache[cache_key] = json_data
                     return json_data
 
             except aiohttp.ClientResponseError as e:

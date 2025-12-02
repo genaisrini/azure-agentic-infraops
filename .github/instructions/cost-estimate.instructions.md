@@ -57,7 +57,7 @@ investments are necessary. Link costs to business outcomes.}
 
 Include a visual diagram and brief description:
 
-````markdown
+```markdown
 ## Architecture Overview
 
 ### Cost Distribution
@@ -79,7 +79,7 @@ pie showData
 | Zone redundancy   | +$X/month   | 99.9% SLA requirement    |
 | Premium SKUs      | +$X/month   | Performance requirements |
 | Private endpoints | +$X/month   | Security/compliance      |
-````
+```
 
 ### 4. Detailed Cost Breakdown
 
@@ -162,6 +162,20 @@ Document pricing assumptions and link to sources:
 - Pricing: Azure retail list prices (pay-as-you-go)
 - Region: {region} ({compliance notes})
 - Prices queried: {date} via Azure Pricing MCP
+
+## Pricing Data Accuracy
+
+> **📊 Data Source**: All prices are queried in real-time from the
+> [Azure Retail Prices API](https://learn.microsoft.com/en-us/rest/api/cost-management/retail-prices/azure-retail-prices),
+> Microsoft's official public pricing endpoint.
+>
+> **What's included**: Retail list prices (pay-as-you-go), Savings Plan pricing
+> (1-year and 3-year), and Spot pricing where available.
+>
+> **What's NOT included**: Enterprise Agreement (EA) discounts, CSP partner pricing,
+> negotiated contract rates, or Azure Hybrid Benefit savings. For official quotes,
+> verify with the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+> or your Microsoft account team.
 
 ## References
 

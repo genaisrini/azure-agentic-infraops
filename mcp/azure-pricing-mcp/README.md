@@ -82,6 +82,16 @@ The following tools are available to agents:
 | 📊 **Real-time Data**         | Live data from Azure Retail Prices API                              |
 | 🐳 **Docker Support**         | Run in containers for easy deployment and isolation                 |
 
+### Pricing Data Accuracy
+
+> **📊 Data Source**: All prices come from the [Azure Retail Prices API](https://learn.microsoft.com/en-us/rest/api/cost-management/retail-prices/azure-retail-prices), Microsoft's official public pricing endpoint (no authentication required).
+>
+> **What's included**: Retail list prices (pay-as-you-go), Savings Plan pricing (1-year and 3-year), and Spot pricing where available.
+>
+> **What's NOT included**: Enterprise Agreement (EA) discounts, CSP partner pricing, Reserved Instance pricing (separate price type), negotiated contract rates, or Azure Hybrid Benefit savings.
+>
+> **For official quotes**: Always verify with the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) or your Microsoft account team.
+
 ---
 
 ## 🛠️ Available Tools
