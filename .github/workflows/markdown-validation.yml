@@ -4,14 +4,14 @@ on:
   push:
     branches: [main]
     paths:
-      - '**/*.md'
+      - "**/*.md"
   pull_request:
     branches: [main]
     paths:
-      - '**/*.md'
+      - "**/*.md"
   schedule:
-    - cron: '0 1 * * *'  # Run daily at 01:00 UTC
-  workflow_dispatch:  # Allow manual triggering
+    - cron: "0 1 * * *" # Run daily at 01:00 UTC
+  workflow_dispatch: # Allow manual triggering
 
 permissions:
   actions: write
@@ -30,7 +30,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: "20"
 
       - name: Install markdownlint-cli
         run: npm install -g markdownlint-cli
@@ -133,8 +133,8 @@ jobs:
             });
             console.log(`Created issue #${issue.number}: ${issue.html_url}`);
             core.setOutput('issue_number', issue.number);
-          env:
-            LINT_OUTPUT: ${{ steps.markdownlint.outputs.lint_output }}
+        env:
+          LINT_OUTPUT: ${{ steps.markdownlint.outputs.lint_output }}
 
       - name: Assign issue to Copilot
         if: (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && steps.markdownlint.outcome == 'failure' && steps.check_issue.outputs.exists == 'false' && steps.create_issue.outputs.issue_number != ''
