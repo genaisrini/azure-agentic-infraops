@@ -1,6 +1,6 @@
 # Documentation Hub
 
-> **Agentic InfraOps v3.1.0** | Last Updated: December 3, 2025
+> **Agentic InfraOps v3.1.0** | Last Updated: December 3, 2025 | 🔗 [aka.ms/agenticinfraops](https://aka.ms/agenticinfraops)
 
 Welcome to the Agentic InfraOps documentation center. This hub provides quick navigation to all documentation resources.
 

@@ -39,7 +39,7 @@ param environment string = 'dev'
 param tags object = {
   Environment: environment
   ManagedBy: 'Bicep'
-  Project: 'GitHub-Copilot-Demo'
+  Project: 'Agentic-InfraOps'
 }
 
 // =============================================================================

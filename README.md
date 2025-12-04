@@ -10,6 +10,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 [![Dev Container](https://img.shields.io/badge/Dev%20Container-Ready-blue?style=flat-square&logo=docker)](https://code.visualstudio.com/docs/devcontainers/containers)
 
+🔗 **Shortlink**: [aka.ms/agenticinfraops](https://aka.ms/agenticinfraops)
+
 ---
 
 > **Azure infrastructure engineered by agents. Verified. Well-Architected. Deployable.**

@@ -61,7 +61,7 @@ param allowPublicStorageAccess bool = false
 param tags object = {
   Environment: environment
   ManagedBy: 'Bicep'
-  Project: 'GitHub-Copilot-Demo'
+  Project: 'Agentic-InfraOps'
   DeployedBy: 'GitHub-Copilot'
   Repository: 'azure-agentic-infraops'
 }

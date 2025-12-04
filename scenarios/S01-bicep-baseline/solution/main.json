@@ -19,12 +19,7 @@
     "environment": {
       "type": "string",
       "defaultValue": "dev",
-      "allowedValues": [
-        "dev",
-        "staging",
-        "prod",
-        "demo"
-      ],
+      "allowedValues": ["dev", "staging", "prod", "demo"],
       "metadata": {
         "description": "Environment name (dev, staging, prod)"
       }
@@ -78,7 +73,7 @@
       "defaultValue": {
         "Environment": "[parameters('environment')]",
         "ManagedBy": "Bicep",
-        "Project": "GitHub-Copilot-Demo",
+        "Project": "Agentic-InfraOps",
         "DeployedBy": "GitHub-Copilot",
         "Repository": "azure-agentic-infraops"
       },
@@ -149,12 +144,7 @@
             "environment": {
               "type": "string",
               "defaultValue": "dev",
-              "allowedValues": [
-                "dev",
-                "staging",
-                "prod",
-                "demo"
-              ],
+              "allowedValues": ["dev", "staging", "prod", "demo"],
               "metadata": {
                 "description": "Environment name (dev, staging, prod)"
               }
@@ -164,7 +154,7 @@
               "defaultValue": {
                 "Environment": "[parameters('environment')]",
                 "ManagedBy": "Bicep",
-                "Project": "GitHub-Copilot-Demo"
+                "Project": "Agentic-InfraOps"
               },
               "metadata": {
                 "description": "Tags to apply to all resources"
@@ -339,9 +329,7 @@
               "tags": "[parameters('tags')]",
               "properties": {
                 "addressSpace": {
-                  "addressPrefixes": [
-                    "[parameters('addressPrefix')]"
-                  ]
+                  "addressPrefixes": ["[parameters('addressPrefix')]"]
                 },
                 "subnets": [
                   {
@@ -498,12 +486,7 @@
             "environment": {
               "type": "string",
               "defaultValue": "dev",
-              "allowedValues": [
-                "dev",
-                "staging",
-                "prod",
-                "demo"
-              ],
+              "allowedValues": ["dev", "staging", "prod", "demo"],
               "metadata": {
                 "description": "Environment name (dev, staging, prod)"
               }
@@ -525,10 +508,7 @@
             "accessTier": {
               "type": "string",
               "defaultValue": "Hot",
-              "allowedValues": [
-                "Hot",
-                "Cool"
-              ],
+              "allowedValues": ["Hot", "Cool"],
               "metadata": {
                 "description": "Storage account access tier"
               }
@@ -554,7 +534,7 @@
               "defaultValue": {
                 "Environment": "[parameters('environment')]",
                 "ManagedBy": "Bicep",
-                "Project": "GitHub-Copilot-Demo"
+                "Project": "Agentic-InfraOps"
               },
               "metadata": {
                 "description": "Tags to apply to all resources"
