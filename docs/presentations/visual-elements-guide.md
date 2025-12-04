@@ -86,13 +86,13 @@ flowchart LR
 
 **Data for chart:**
 
-| Category | Percentage | Color |
-|----------|------------|-------|
-| Compute | 34% | #0078D4 (Blue) |
-| Data Services | 29% | #107C10 (Green) |
-| Networking | 24% | #5C2D91 (Purple) |
-| Messaging | 13% | #D83B01 (Orange) |
-| Security | 1% | #FFB900 (Yellow) |
+| Category      | Percentage | Color            |
+| ------------- | ---------- | ---------------- |
+| Compute       | 34%        | #0078D4 (Blue)   |
+| Data Services | 29%        | #107C10 (Green)  |
+| Networking    | 24%        | #5C2D91 (Purple) |
+| Messaging     | 13%        | #D83B01 (Orange) |
+| Security      | 1%         | #FFB900 (Yellow) |
 
 ---
 
