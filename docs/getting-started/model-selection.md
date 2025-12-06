@@ -1,39 +1,136 @@
 # Choosing the Right AI Model
 
-> **TL;DR**: Use **Claude Sonnet 4.5** for most infrastructure work. Switch to **GPT 5.1** for quick questions
-> or **GPT 5.1 Codex** for code-heavy tasks. The model matters less than your prompt quality.
+**Your guide to selecting the best model for speed, quality, reasoning, and cost.**
+
+> **TL;DR**: Use **Claude Sonnet 4.5** for most infrastructure work. Use **Claude Opus 4.5** for complex
+> coding/agentic tasks. Switch to **GPT-5.1** for balanced work or **Gemini 3 Pro** for deep reasoning.
+> The model matters less than your prompt quality.
+
+---
 
 ## Quick Decision Guide
 
 ```mermaid
 %%{init: {'theme':'neutral'}}%%
 flowchart TD
-    A[What are you doing?] --> B{Code-heavy<br/>implementation?}
-    B -->|Yes| C[GPT 5.1 Codex]
-    B -->|No| D{Need speed for<br/>quick questions?}
-    D -->|Yes| E[GPT 5 mini or<br/>Claude Haiku 4.5]
-    D -->|No| F{Complex IaC<br/>or architecture?}
-    F -->|Yes| G[Claude Sonnet 4.5]
-    F -->|No| H[GPT 5.1 or<br/>Claude Sonnet 4.5]
+    START([🔍 What's your priority?]) --> Q1{Primary need?}
 
-    style C fill:#e1f5fe
-    style E fill:#fff3e0
-    style G fill:#e8f5e9
-    style H fill:#f3e5f5
+    Q1 --> |Speed & Volume| SPEED[Speed-Optimized]
+    Q1 --> |Coding & Agentic| CODE[Coding Focus]
+    Q1 --> |Deep Reasoning| REASON[Reasoning Focus]
+    Q1 --> |Balanced| BALANCED[General Purpose]
+
+    SPEED --> S1[Claude Haiku 4.5]
+    SPEED --> S2[GPT-5 mini]
+
+    CODE --> C1[Claude Opus 4.5]
+    CODE --> C2[Claude Sonnet 4.5]
+    CODE --> C3[GPT-5.1 Codex]
+
+    REASON --> R1[Gemini 3 Pro]
+    REASON --> R2[GPT-5.1]
+
+    BALANCED --> B1[GPT-5.1]
+    BALANCED --> B2[Claude Sonnet 4.5]
+
+    style S1 fill:#fff3e0
+    style S2 fill:#fff3e0
+    style C1 fill:#e8f5e9
+    style C2 fill:#e8f5e9
+    style C3 fill:#e1f5fe
+    style R1 fill:#fce4ec
+    style R2 fill:#fce4ec
+    style B1 fill:#f3e5f5
+    style B2 fill:#f3e5f5
 ```
 
 ---
 
-## Model Comparison for IT Pro Tasks
+## Table of Contents
 
-| Model | Best For | Context Window | Speed | Cost Efficiency |
-|-------|----------|----------------|-------|------------------|
-| **Claude Sonnet 4.5** | Balanced IaC work, agents, architecture | 200K tokens | Fast | ⭐⭐⭐⭐ |
-| **Claude Haiku 4.5** | Quick tasks, high volume, inline | 200K tokens | Fastest | ⭐⭐⭐⭐⭐ |
-| **GPT 5.1** | General purpose, large context | 1M tokens | Fast | ⭐⭐⭐⭐ |
-| **GPT 5.1 Codex** | Code generation, implementation | 1M tokens | Fast | ⭐⭐⭐ |
-| **GPT 5.1 Codex mini** | Lightweight code tasks | 1M tokens | Fastest | ⭐⭐⭐⭐⭐ |
-| **GPT 5 mini** | Quick questions, simple tasks | 1M tokens | Fastest | ⭐⭐⭐⭐⭐ |
+1. [Quick Recommendations](#quick-recommendations)
+2. [2025 Model Benchmarks](#2025-model-benchmarks)
+3. [Model Comparison Matrix](#model-comparison-matrix)
+4. [Recommended Model by Scenario](#recommended-model-by-scenario)
+5. [When to Use Each Model](#when-to-use-each-model)
+6. [Context Windows & Throughput](#context-windows--throughput)
+7. [Pricing Comparison](#pricing-comparison)
+8. [How to Switch Models in VS Code](#how-to-switch-models-in-vs-code)
+9. [Prompt & Cost Optimization](#prompt--cost-optimization)
+10. [Troubleshooting Model Issues](#troubleshooting-model-issues)
+11. [Live Leaderboards & Sources](#live-leaderboards--sources)
+
+---
+
+## Quick Recommendations
+
+| Priority | Recommended Model | Fallback |
+|----------|-------------------|----------|
+| ⚡ **Fastest + Cheapest** | Claude Haiku 4.5 | GPT-5 mini |
+| ⚖️ **Balanced (cost/quality/speed)** | GPT-5.1 | Claude Sonnet 4.5 |
+| 🧠 **Best Reasoning & Math** | Gemini 3 Pro | GPT-5.1 |
+| 💻 **Best for Coding/Agentic** | Claude Opus 4.5 | Claude Sonnet 4.5 |
+| 📄 **Long Context (1M+ tokens)** | Gemini 3 Pro | Claude Sonnet 4.5 (1M beta) |
+| 🎯 **Visual/Multimodal** | Claude Opus 4.5 | GPT-5.1 |
+
+> **Note:** Pricing and throughput vary by region and provider. Always confirm current limits in your deployment.
+
+---
+
+## 2025 Model Benchmarks
+
+Based on [LLM Stats](https://llm-stats.com), [Artificial Analysis](https://artificialanalysis.ai/leaderboards/models), and [Vellum LLM Leaderboard](https://www.vellum.ai/llm-leaderboard) (December 2025):
+
+### Overall Intelligence & Reasoning
+
+| Model | LMArena Elo | GPQA Diamond | ARC-AGI-2 | Humanity's Last Exam | Notes |
+|-------|-------------|--------------|-----------|----------------------|-------|
+| **Gemini 3 Pro** | 1501 ⭐ | 93.8% ⭐ | 45.1% ⭐ | 41% ⭐ | First to break 1500 Elo |
+| **Claude Opus 4.5** | ~1480 | 74-80% | 38% | 32% | Best for coding/agentic |
+| **GPT-5.1** | ~1470 | ~70% | 35% | 28% | Best balanced model |
+| **Claude Sonnet 4.5** | ~1460 | 69-72% | 32% | 25% | High-volume throughput |
+
+### Coding Benchmarks (SWE-bench Verified)
+
+| Model | SWE-bench Score | Agentic Endurance | Notes |
+|-------|-----------------|-------------------|-------|
+| **Claude Opus 4.5** | 80.9% ⭐ | 30+ hours | First to break 80% |
+| **Claude Sonnet 4.5** | 77.2% | 24+ hours | Best throughput for coding |
+| **GPT-5.1** | 76% | 20+ hours | Adaptive accuracy |
+| **Gemini 3 Pro** | ~75% | 15+ hours | Deep Think mode available |
+
+---
+
+## Model Comparison Matrix
+
+```mermaid
+%%{init: {'theme':'neutral'}}%%
+quadrantChart
+    title Model Tradeoffs: Speed vs Quality
+    x-axis Low Speed --> High Speed
+    y-axis Low Quality --> High Quality
+    quadrant-1 Premium Performance
+    quadrant-2 Best Overall
+    quadrant-3 Budget Options
+    quadrant-4 Speed Champions
+    Claude Opus 4.5: [0.35, 0.95]
+    Gemini 3 Pro: [0.40, 0.92]
+    GPT-5.1: [0.70, 0.88]
+    Claude Sonnet 4.5: [0.55, 0.85]
+    GPT-5 mini: [0.85, 0.70]
+    Claude Haiku 4.5: [0.90, 0.65]
+```
+
+### Detailed Comparison
+
+| Model | Speed | Quality | Reasoning | Coding | Cost | Best For |
+|-------|-------|---------|-----------|--------|------|----------|
+| **Gemini 3 Pro** | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | Math, science, complex reasoning |
+| **Claude Opus 4.5** | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | Coding, agentic workflows, visual |
+| **GPT-5.1** | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | Balanced general purpose |
+| **Claude Sonnet 4.5** | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | High-volume IaC and coding |
+| **GPT-5 mini** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | Quick questions, simple tasks |
+| **Claude Haiku 4.5** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | High-volume, latency-sensitive |
 
 ---
 
@@ -44,24 +141,23 @@ flowchart TD
 | **S01 Bicep Baseline** | Claude Sonnet 4.5 | Best balance of speed and quality for IaC |
 | **S02 Terraform Baseline** | Claude Sonnet 4.5 | Same reasoning as Bicep |
 | **S03 Five-Agent Workflow** | Claude Sonnet 4.5 | Optimized for agent handoffs and planning |
-| **S04 Documentation** | GPT 5.1 or Claude Haiku 4.5 | Fast generation for text-heavy tasks |
-| **S05 Service Validation** | GPT 5.1 Codex | PowerShell generation with large context |
-| **S06 Troubleshooting** | GPT 5 mini | Quick answers, diagnostic speed matters |
-| **S07 SBOM Generator** | GPT 5.1 | Straightforward task, good context |
-| **S08 Diagrams as Code** | GPT 5.1 Codex | Python code generation |
-| **S09 Coding Agent** | Claude Sonnet 4.5 | Best for issue-to-PR automation |
+| **S04 Documentation** | GPT-5.1 or Claude Haiku 4.5 | Fast generation for text-heavy tasks |
+| **S05 Service Validation** | GPT-5.1 Codex | PowerShell generation with large context |
+| **S06 Troubleshooting** | GPT-5 mini | Quick answers, diagnostic speed matters |
+| **S07 SBOM Generator** | GPT-5.1 | Straightforward task, good context |
+| **S08 Diagrams as Code** | GPT-5.1 Codex | Python code generation |
+| **S09 Coding Agent** | Claude Opus 4.5 | Best for issue-to-PR automation |
 
 ---
 
 ## When to Use Each Model
 
-### Claude Sonnet 4.5 (Default Recommendation)
+### Claude Sonnet 4.5 (Default for IaC)
 
 **Use when:**
 
 - Writing Bicep or Terraform templates
 - Working with custom agents (bicep-plan, bicep-implement)
-- Need to reference multiple files
 - Generating modular infrastructure code
 - Architecture design and planning
 
@@ -73,88 +169,85 @@ Create a Bicep module for Azure Key Vault with:
 - Soft delete enabled (90 days)
 - RBAC authorization
 - Diagnostic settings to Log Analytics
-Reference the network module for subnet ID.
 ```
 
-### Claude Haiku 4.5 (Speed Champion)
+### Claude Opus 4.5 (Premium Coding)
+
+**Use when:**
+
+- Complex multi-step agentic workflows
+- Advanced debugging and refactoring
+- Visual/multimodal understanding
+- High-stakes code generation
+
+### Gemini 3 Pro (Reasoning Champion)
+
+**Use when:**
+
+- Complex reasoning and planning
+- Math and scientific analysis
+- Deep Think mode for difficult problems
+- Large context (1M tokens)
+
+### GPT-5.1 (Balanced General Purpose)
+
+**Use when:**
+
+- Working with very large codebases
+- General questions and explanations
+- Cross-referencing many files simultaneously
+- Mixed code and documentation tasks
+
+### Claude Haiku 4.5 / GPT-5 mini (Speed Champions)
 
 **Use when:**
 
 - Inline code completions
 - High-volume simple tasks
 - Quick syntax fixes
-- Documentation generation
-
-**Example prompt:**
-
-```text
-Add a description decorator to each parameter in this Bicep file.
-```
-
-### GPT 5.1 (General Purpose + Large Context)
-
-**Use when:**
-
-- Working with very large codebases (1M token context)
-- General questions and explanations
-- Cross-referencing many files simultaneously
-- Mixed code and documentation tasks
-
-**Example prompt:**
-
-```text
-Analyze the entire infra/bicep/ folder and summarize
-the resource dependencies across all modules.
-```
-
-### GPT 5.1 Codex (Code Generation)
-
-**Use when:**
-
-- Heavy code generation tasks
-- Multi-file implementation
-- PowerShell and Python scripting
-- Refactoring across modules
-
-**Example prompt:**
-
-```text
-Generate a complete PowerShell deployment script for
-the contoso-patient-portal infrastructure with:
-- Parameter validation
-- WhatIf support
-- Error handling and retry logic
-```
-
-### GPT 5.1 Codex mini (Lightweight Code)
-
-**Use when:**
-
-- Quick code snippets
-- Simple function implementations
-- Code formatting and cleanup
-- Syntax corrections
-
-### GPT 5 mini (Quick Answers)
-
-**Use when:**
-
-- Quick syntax questions ("How do I loop in Bicep?")
-- Explaining error messages
 - Time-sensitive troubleshooting
-- Simple diagnostics
 
-**Example prompt:**
+---
 
-```text
-What's wrong with this Bicep? Getting BCP037 error:
-resource kv 'Microsoft.KeyVault/vaults@2023-07-01' = {
-  name: keyVaultName
-  properties: {
-    sku: 'standard'  // <-- error here
-  }
-}
-```
+## Context Windows & Throughput
+
+| Model | Max Input Context | Max Output | Output Speed | First Token Latency |
+|-------|-------------------|------------|--------------|---------------------|
+| **Gemini 3 Pro** | 1M tokens ⭐ | 64K | 130 tok/sec | 15-32s (Deep Think) |
+| **Claude Sonnet 4.5** | 1M tokens (beta) | 64K | ~70 tok/sec | ~2.2s |
+| **Claude Opus 4.5** | 200K tokens | 64K | 63-78 tok/sec | 1.9-2.1s |
+| **GPT-5.1** | 272K-400K tokens | 128K ⭐ | 150+ tok/sec ⭐ | <2s ⭐ |
+| **GPT-5 mini** | 1M tokens | 64K | 200+ tok/sec | <1s |
+| **Claude Haiku 4.5** | 200K tokens | 64K | 150+ tok/sec | <1s |
+
+### Context Window Guide
+
+| Context Size | Practical Meaning | Recommended Models |
+|--------------|-------------------|-------------------|
+| **1M tokens** | ~750,000 words, entire codebases | Gemini 3 Pro, Claude Sonnet 4.5 (beta) |
+| **200K-400K** | ~150,000-300,000 words, 50-150 files | GPT-5.1, Claude Opus 4.5 |
+| **128K** | ~96,000 words, 30-50 files | Most general-purpose tasks |
+
+---
+
+## Pricing Comparison
+
+> **⚠️ Prices as of December 2025.** Check [Artificial Analysis](https://artificialanalysis.ai/leaderboards/models) for current pricing.
+
+| Model | Input (per 1M tokens) | Output (per 1M tokens) | Effective Cost |
+|-------|----------------------|------------------------|----------------|
+| **GPT-5.1** | ~$3.44 | ~$10 | ⭐⭐⭐⭐ Best value |
+| **Gemini 3 Pro** | ~$4.50 | ~$13 | ⭐⭐⭐⭐ |
+| **Claude Sonnet 4.5** | ~$6 | ~$15 | ⭐⭐⭐ |
+| **Claude Opus 4.5** | ~$10 | ~$30 | ⭐⭐⭐ Premium |
+| **GPT-5 mini** | ~$0.50 | ~$2 | ⭐⭐⭐⭐⭐ Cheapest |
+| **Claude Haiku 4.5** | ~$0.80 | ~$4 | ⭐⭐⭐⭐⭐ |
+
+### Cost Optimization Tips
+
+- **High-volume, simple tasks:** Use Haiku or GPT-5 mini (80-90% cost savings)
+- **Complex reasoning:** Gemini 3 Pro offers best quality/cost ratio
+- **Coding workflows:** Claude Sonnet 4.5 balances cost and capability
 
 ---
 
@@ -185,50 +278,38 @@ Type the model name in your prompt:
 
 ---
 
-## Model Performance Tips
+## Prompt & Cost Optimization
 
-### Maximize Context Efficiency
+### Best Practices
 
-```text
-❌ "Fix the bug in my code"
+- **Keep prompts compact:** Use system messages for policy/style; avoid repeating instructions
+- **Chunk long inputs:** Retrieve only relevant context for grounding
+- **Set reasonable max tokens:** Favor shorter outputs unless necessary
+- **Cache frequent instructions:** Reuse references instead of re-sending long text
+- **Use file context:** Keep relevant files open, use `#file:network.bicep` to reference specific files
 
-✅ "Fix the BCP036 error in network.bicep line 45.
-    The subnet reference should use existing resource syntax.
-    Keep the current naming convention (snet-*-env)."
-```
-
-### Use Iterative Refinement
+### Example: Efficient Prompting
 
 ```text
-// Step 1: Generate base template
-"Create a basic App Service Bicep template"
+❌ Inefficient:
+"Please help me create a comprehensive Azure networking configuration
+with all the security best practices and make sure to include VNets,
+subnets, NSGs, route tables, and explain everything in detail..."
 
-// Step 2: Add specifics
-"Add private endpoint configuration to the App Service"
-
-// Step 3: Enhance
-"Add diagnostic settings and managed identity"
+✅ Efficient:
+"Create Bicep for hub-spoke VNet:
+- Hub: 10.0.0.0/16 with GatewaySubnet, AzureFirewallSubnet
+- Spoke: 10.1.0.0/16 with web, app, data subnets
+- NSGs: deny-all default, allow 443/80 to web
+Output: main.bicep only, minimal comments"
 ```
 
-### Leverage File Context
+### Testing Workflow
 
-- Keep relevant files open in VS Code
-- Use `#file:network.bicep` to reference specific files
-- Use `#selection` to highlight code you're asking about
-
----
-
-## Context Window Explained
-
-| Term | Meaning | Practical Impact |
-|------|---------|------------------|
-| **Context window** | Max tokens model can "see" | Larger = more files at once |
-| **1M tokens** | ~750,000 words | Can see entire large repos (GPT 5.1 family) |
-| **200K tokens** | ~150,000 words | Can see ~50-100 code files (Claude 4.5 models) |
-
-**For most IT Pro work**: All modern models have sufficient context. GPT 5.1 family
-with 1M tokens can analyze entire repositories at once, while Claude 4.5 models
-offer excellent quality for focused infrastructure work.
+1. **Collect 10-20 real prompts** representative of your use case
+2. **Test cheapest viable model first** (Haiku or GPT-5 mini)
+3. **Step up if quality insufficient** (GPT-5.1 → Claude Sonnet 4.5 → Claude Opus 4.5)
+4. **Lock in your choice** and add monitoring
 
 ---
 
@@ -250,12 +331,47 @@ offer excellent quality for focused infrastructure work.
 
 - Add more context to your prompt
 - Try a different model for comparison
-- Check if you're using a "mini" variant (GPT 5 mini, Codex mini are optimized for speed over depth)
+- Check if you're using a "mini" variant (optimized for speed over depth)
+
+### When to Reconsider Your Model
+
+| Symptom | Likely Cause | Action |
+|---------|--------------|--------|
+| Latency SLOs slipping | Model too heavy | Try Haiku, GPT-5 mini, or Gemini 3 Pro |
+| Costs spiking | Excessive tokens | Reduce max tokens, improve retrieval, downshift tier |
+| Quality issues | Model too light | Refine prompts, add tests, or move up a tier |
+| New model release | Market evolution | Re-run 10-20 prompt bake-off and compare |
+
+---
+
+## Live Leaderboards & Sources
+
+Stay current with the latest benchmarks and pricing:
+
+| Resource | URL | What It Tracks |
+|----------|-----|----------------|
+| **LLM Stats** | [llm-stats.com](https://llm-stats.com) | Comprehensive benchmarks |
+| **Artificial Analysis** | [artificialanalysis.ai](https://artificialanalysis.ai/leaderboards/models) | Speed, price, quality rankings |
+| **Vellum LLM Leaderboard** | [vellum.ai/llm-leaderboard](https://www.vellum.ai/llm-leaderboard) | Enterprise-focused comparisons |
+| **GitHub Copilot Model Comparison** | [docs.github.com](https://docs.github.com/en/copilot/reference/ai-models/model-comparison) | Copilot-specific guidance |
+| **LMArena** | [lmarena.ai](https://lmarena.ai) | Human preference rankings |
+
+### Key Benchmark Sources
+
+- **SWE-bench Verified:** Real-world GitHub issue resolution ([swebench.com](https://www.swebench.com))
+- **GPQA Diamond:** Graduate-level science/math reasoning
+- **ARC-AGI-2:** Abstract reasoning and pattern recognition
+- **Humanity's Last Exam:** Cutting-edge capability assessment
 
 ---
 
 ## Next Steps
 
 - [Prerequisites](prerequisites.md) - Ensure your environment is ready
-- [IT Pro Impact Story](../it-pro-impact-story.md) - Understand the bigger picture
+- [Quick Start](QUICKSTART.md) - Get started in 10 minutes
 - [S01 Bicep Baseline](../../scenarios/S01-bicep-baseline/) - Start your first scenario
+
+---
+
+**Last Updated:** December 2025
+**Feedback:** Open an issue with label `documentation`
