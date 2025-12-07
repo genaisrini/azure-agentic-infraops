@@ -400,22 +400,22 @@ How should I organize my Bicep files for a team of 5 engineers working on multip
 
 Before starting, gauge your audience:
 
-| Question | If "Yes" | Adjust Approach |
-|----------|----------|-----------------|
-| "Who has used ARM templates?" | Many hands | Skip JSON vs Bicep comparison |
-| "Who has VMware experience?" | Most | Lean into concept mapping |
-| "Who has deployed to Azure Portal?" | Everyone | Reference Portal equivalents |
-| "Who has used IaC before?" | Few | Spend more time on Phase 1 |
+| Question                            | If "Yes"   | Adjust Approach               |
+| ----------------------------------- | ---------- | ----------------------------- |
+| "Who has used ARM templates?"       | Many hands | Skip JSON vs Bicep comparison |
+| "Who has VMware experience?"        | Most       | Lean into concept mapping     |
+| "Who has deployed to Azure Portal?" | Everyone   | Reference Portal equivalents  |
+| "Who has used IaC before?"          | Few        | Spend more time on Phase 1    |
 
 ### Common Stumbling Points
 
-| Phase | Issue | How to Help |
-|-------|-------|-------------|
-| Phase 1 | "Why not just use the Portal?" | Emphasize repeatability, version control, team collaboration |
-| Phase 2 | Confusion about VNet vs Subnet | Draw diagram showing VNet as "building", Subnets as "floors" |
-| Phase 3 | NSG rule priority confusion | Explain "first match wins" with real example |
-| Phase 4 | Private endpoint complexity | Show before/after network diagrams |
-| Phase 5 | "Where do parameters come from?" | Show `main.bicepparam` file pattern |
+| Phase   | Issue                            | How to Help                                                  |
+| ------- | -------------------------------- | ------------------------------------------------------------ |
+| Phase 1 | "Why not just use the Portal?"   | Emphasize repeatability, version control, team collaboration |
+| Phase 2 | Confusion about VNet vs Subnet   | Draw diagram showing VNet as "building", Subnets as "floors" |
+| Phase 3 | NSG rule priority confusion      | Explain "first match wins" with real example                 |
+| Phase 4 | Private endpoint complexity      | Show before/after network diagrams                           |
+| Phase 5 | "Where do parameters come from?" | Show `main.bicepparam` file pattern                          |
 
 ### Facilitation Tips
 
@@ -427,12 +427,12 @@ Before starting, gauge your audience:
 
 ### Time Adjustments
 
-| Audience | Recommended Time | Focus Areas |
-|----------|------------------|-------------|
-| Experienced IaC users | 20 min | Skip Phase 1, focus on Bicep-specific features |
-| VMware admins | 35 min | Extended Phase 2 (concept mapping) |
-| Complete beginners | 45 min | All phases, extra Q&A time |
-| Mixed experience | 30 min | Standard flow, pair experienced with beginners |
+| Audience              | Recommended Time | Focus Areas                                    |
+| --------------------- | ---------------- | ---------------------------------------------- |
+| Experienced IaC users | 20 min           | Skip Phase 1, focus on Bicep-specific features |
+| VMware admins         | 35 min           | Extended Phase 2 (concept mapping)             |
+| Complete beginners    | 45 min           | All phases, extra Q&A time                     |
+| Mixed experience      | 30 min           | Standard flow, pair experienced with beginners |
 
 ### Post-Session Resources
 

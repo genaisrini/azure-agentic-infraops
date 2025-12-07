@@ -215,19 +215,19 @@ and creates implementation plans.
 
 ## Quick Reference Table
 
-| Acronym | Full Name | Category |
-|---------|-----------|----------|
-| ADR | Architecture Decision Record | Documentation |
-| AVM | Azure Verified Modules | IaC |
-| IaC | Infrastructure as Code | Methodology |
-| KQL | Kusto Query Language | Monitoring |
-| MCP | Model Context Protocol | AI Integration |
-| MTTR | Mean Time To Recovery | Operations |
-| NSG | Network Security Group | Networking |
-| PCI-DSS | Payment Card Industry Data Security Standard | Compliance |
-| SBOM | Software Bill of Materials | Security |
-| UAT | User Acceptance Testing | QA |
-| WAF | Well-Architected Framework | Architecture |
+| Acronym | Full Name                                    | Category       |
+| ------- | -------------------------------------------- | -------------- |
+| ADR     | Architecture Decision Record                 | Documentation  |
+| AVM     | Azure Verified Modules                       | IaC            |
+| IaC     | Infrastructure as Code                       | Methodology    |
+| KQL     | Kusto Query Language                         | Monitoring     |
+| MCP     | Model Context Protocol                       | AI Integration |
+| MTTR    | Mean Time To Recovery                        | Operations     |
+| NSG     | Network Security Group                       | Networking     |
+| PCI-DSS | Payment Card Industry Data Security Standard | Compliance     |
+| SBOM    | Software Bill of Materials                   | Security       |
+| UAT     | User Acceptance Testing                      | QA             |
+| WAF     | Well-Architected Framework                   | Architecture   |
 
 ---
 
