@@ -58,12 +58,12 @@ Review this Bicep module for HIPAA compliance issues.
 
 **When to use agents:**
 
-| Task | Use Agent |
-|------|-----------|
+| Task                       | Use Agent                                                      |
+| -------------------------- | -------------------------------------------------------------- |
 | New infrastructure project | `azure-principal-architect` → `bicep-plan` → `bicep-implement` |
-| Quick code fix | Inline or Chat |
-| Architecture review | `azure-principal-architect` |
-| Generate diagrams | `diagram-generator` |
+| Quick code fix             | Inline or Chat                                                 |
+| Architecture review        | `azure-principal-architect`                                    |
+| Generate diagrams          | `diagram-generator`                                            |
 
 ---
 
@@ -146,13 +146,13 @@ Apply the same pattern to create a new Key Vault module.
 
 ### Review Checklist for Bicep
 
-| Check | Why |
-|-------|-----|
-| API versions are recent (2023+) | Older versions lack features |
-| `supportsHttpsTrafficOnly: true` | Security baseline |
-| `minimumTlsVersion: 'TLS1_2'` | Compliance requirement |
-| Unique names use `uniqueString()` | Avoid naming collisions |
-| Outputs include both ID and name | Downstream modules need both |
+| Check                             | Why                          |
+| --------------------------------- | ---------------------------- |
+| API versions are recent (2023+)   | Older versions lack features |
+| `supportsHttpsTrafficOnly: true`  | Security baseline            |
+| `minimumTlsVersion: 'TLS1_2'`     | Compliance requirement       |
+| Unique names use `uniqueString()` | Avoid naming collisions      |
+| Outputs include both ID and name  | Downstream modules need both |
 
 ### Use Automated Validation
 
@@ -174,13 +174,13 @@ checkov -d .
 
 ### Watch for Common Copilot Mistakes
 
-| Issue | How to Catch | Fix |
-|-------|--------------|-----|
-| Outdated API versions | Review `@` versions | Update to latest |
-| Missing security defaults | Check for HTTPS, TLS | Add security properties |
-| Hardcoded names | Search for strings without params | Use parameters + uniqueString |
-| Missing dependencies | `bicep build` errors | Add `dependsOn` or use symbolic refs |
-| Wrong property names | Lint errors | Check ARM template reference |
+| Issue                     | How to Catch                      | Fix                                  |
+| ------------------------- | --------------------------------- | ------------------------------------ |
+| Outdated API versions     | Review `@` versions               | Update to latest                     |
+| Missing security defaults | Check for HTTPS, TLS              | Add security properties              |
+| Hardcoded names           | Search for strings without params | Use parameters + uniqueString        |
+| Missing dependencies      | `bicep build` errors              | Add `dependsOn` or use symbolic refs |
+| Wrong property names      | Lint errors                       | Check ARM template reference         |
 
 ---
 
@@ -196,12 +196,12 @@ Copilot uses open files as context. Before prompting:
 
 ### Use Chat Variables
 
-| Variable | Purpose | Example |
-|----------|---------|---------|
-| `@workspace` | Search entire workspace | `@workspace Find all Key Vault references` |
-| `#file` | Reference specific file | `#file:main.bicep Explain this module` |
-| `#selection` | Current selection | Select code, then `#selection Add error handling` |
-| `#terminalLastCommand` | Last terminal output | `#terminalLastCommand Why did this fail?` |
+| Variable               | Purpose                 | Example                                           |
+| ---------------------- | ----------------------- | ------------------------------------------------- |
+| `@workspace`           | Search entire workspace | `@workspace Find all Key Vault references`        |
+| `#file`                | Reference specific file | `#file:main.bicep Explain this module`            |
+| `#selection`           | Current selection       | Select code, then `#selection Add error handling` |
+| `#terminalLastCommand` | Last terminal output    | `#terminalLastCommand Why did this fail?`         |
 
 ### IT Pro Context Tips
 
@@ -278,13 +278,13 @@ Prompt 4: Make the address space configurable via parameters
 
 ## Common Anti-Patterns
 
-| Anti-Pattern | Problem | Better Approach |
-|--------------|---------|-----------------|
-| "Generate everything" | Output too broad, misses requirements | Break into small, specific requests |
-| Accepting without review | Bugs, security issues, outdated patterns | Always validate and test |
-| Ignoring context | Generic suggestions | Open relevant files, use @workspace |
-| One-shot complex prompts | Incomplete or wrong output | Iterate with follow-up prompts |
-| Not providing examples | Inconsistent formatting | Show the pattern you want |
+| Anti-Pattern             | Problem                                  | Better Approach                     |
+| ------------------------ | ---------------------------------------- | ----------------------------------- |
+| "Generate everything"    | Output too broad, misses requirements    | Break into small, specific requests |
+| Accepting without review | Bugs, security issues, outdated patterns | Always validate and test            |
+| Ignoring context         | Generic suggestions                      | Open relevant files, use @workspace |
+| One-shot complex prompts | Incomplete or wrong output               | Iterate with follow-up prompts      |
+| Not providing examples   | Inconsistent formatting                  | Show the pattern you want           |
 
 ---
 

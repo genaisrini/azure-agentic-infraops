@@ -25,43 +25,43 @@ GitHub Copilot is an AI coding assistant that helps you write code faster and wi
 
 ### What Copilot Does Best
 
-| Strength | Example Use Case |
-|----------|------------------|
-| ✅ **Writing tests** | Generate unit tests for Bicep modules |
-| ✅ **Repetitive code** | Create similar resource blocks, parameter files |
-| ✅ **Debugging** | "Why does this Bicep template fail validation?" |
-| ✅ **Explaining code** | "Explain what this Terraform module does" |
-| ✅ **Regular expressions** | Generate complex regex for validation |
-| ✅ **Boilerplate** | Scaffold new modules, scripts, README files |
+| Strength                   | Example Use Case                                |
+| -------------------------- | ----------------------------------------------- |
+| ✅ **Writing tests**       | Generate unit tests for Bicep modules           |
+| ✅ **Repetitive code**     | Create similar resource blocks, parameter files |
+| ✅ **Debugging**           | "Why does this Bicep template fail validation?" |
+| ✅ **Explaining code**     | "Explain what this Terraform module does"       |
+| ✅ **Regular expressions** | Generate complex regex for validation           |
+| ✅ **Boilerplate**         | Scaffold new modules, scripts, README files     |
 
 ### What Copilot Is Not For
 
-| Limitation | Better Approach |
-|------------|-----------------|
-| ❌ **Non-coding questions** | Use web search or docs |
-| ❌ **Replacing your expertise** | You're in charge; Copilot assists |
-| ❌ **Sensitive data generation** | Never trust AI with secrets |
+| Limitation                       | Better Approach                   |
+| -------------------------------- | --------------------------------- |
+| ❌ **Non-coding questions**      | Use web search or docs            |
+| ❌ **Replacing your expertise**  | You're in charge; Copilot assists |
+| ❌ **Sensitive data generation** | Never trust AI with secrets       |
 
 ---
 
 ## Prerequisites
 
-| Requirement | Details | Get It |
-|-------------|---------|--------|
-| **GitHub Account** | Free or paid | [github.com/signup](https://github.com/signup) |
-| **Copilot License** | Free, Pro, Pro+, Business, or Enterprise | [github.com/features/copilot](https://github.com/features/copilot) |
-| **VS Code** | Latest version recommended | [code.visualstudio.com](https://code.visualstudio.com/) |
-| **Copilot Extensions** | Installed automatically with Copilot | VS Code Marketplace |
+| Requirement            | Details                                  | Get It                                                             |
+| ---------------------- | ---------------------------------------- | ------------------------------------------------------------------ |
+| **GitHub Account**     | Free or paid                             | [github.com/signup](https://github.com/signup)                     |
+| **Copilot License**    | Free, Pro, Pro+, Business, or Enterprise | [github.com/features/copilot](https://github.com/features/copilot) |
+| **VS Code**            | Latest version recommended               | [code.visualstudio.com](https://code.visualstudio.com/)            |
+| **Copilot Extensions** | Installed automatically with Copilot     | VS Code Marketplace                                                |
 
 ### Copilot Plans
 
-| Plan | Best For | Key Features |
-|------|----------|--------------|
-| **Copilot Free** | Trying it out | Limited features, no subscription |
-| **Copilot Pro** | Individual developers | Full features, priority access |
-| **Copilot Pro+** | Power users | Extra models, higher limits |
-| **Copilot Business** | Teams/Orgs | Admin controls, policy management |
-| **Copilot Enterprise** | Large enterprises | Custom models, extended context |
+| Plan                   | Best For              | Key Features                      |
+| ---------------------- | --------------------- | --------------------------------- |
+| **Copilot Free**       | Trying it out         | Limited features, no subscription |
+| **Copilot Pro**        | Individual developers | Full features, priority access    |
+| **Copilot Pro+**       | Power users           | Extra models, higher limits       |
+| **Copilot Business**   | Teams/Orgs            | Admin controls, policy management |
+| **Copilot Enterprise** | Large enterprises     | Custom models, extended context   |
 
 > **Tip**: Students, teachers, and open source maintainers may qualify for free Copilot Pro. See
 > [Getting free access](https://docs.github.com/en/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-free-access-to-copilot-as-a-student-teacher-or-maintainer).
@@ -148,12 +148,12 @@ This Bicep template gives error BCP036. How do I fix it?
 
 This repository includes custom agents for infrastructure work:
 
-| Agent | Purpose | When to Use |
-|-------|---------|-------------|
-| `azure-principal-architect` | Architecture guidance (no code) | Starting a new project |
-| `bicep-plan` | Implementation planning | After architecture review |
-| `bicep-implement` | Code generation | After plan approval |
-| `diagram-generator` | Architecture diagrams | Documentation |
+| Agent                       | Purpose                         | When to Use               |
+| --------------------------- | ------------------------------- | ------------------------- |
+| `azure-principal-architect` | Architecture guidance (no code) | Starting a new project    |
+| `bicep-plan`                | Implementation planning         | After architecture review |
+| `bicep-implement`           | Code generation                 | After plan approval       |
+| `diagram-generator`         | Architecture diagrams           | Documentation             |
 
 **To invoke an agent:**
 
@@ -180,15 +180,15 @@ See the [Workflow Guide](../workflow/WORKFLOW.md) for the complete four-step pro
 
 ## Keyboard Shortcuts
 
-| Action | Windows/Linux | Mac |
-|--------|---------------|-----|
-| Accept suggestion | `Tab` | `Tab` |
-| Dismiss suggestion | `Esc` | `Esc` |
-| See alternatives | `Ctrl+Enter` | `Ctrl+Enter` |
-| Next suggestion | `Alt+]` | `Option+]` |
-| Previous suggestion | `Alt+[` | `Option+[` |
-| Open Copilot Chat | `Ctrl+Alt+I` | `Cmd+Alt+I` |
-| Inline chat | `Ctrl+I` | `Cmd+I` |
+| Action              | Windows/Linux | Mac          |
+| ------------------- | ------------- | ------------ |
+| Accept suggestion   | `Tab`         | `Tab`        |
+| Dismiss suggestion  | `Esc`         | `Esc`        |
+| See alternatives    | `Ctrl+Enter`  | `Ctrl+Enter` |
+| Next suggestion     | `Alt+]`       | `Option+]`   |
+| Previous suggestion | `Alt+[`       | `Option+[`   |
+| Open Copilot Chat   | `Ctrl+Alt+I`  | `Cmd+Alt+I`  |
+| Inline chat         | `Ctrl+I`      | `Cmd+I`      |
 
 ---
 

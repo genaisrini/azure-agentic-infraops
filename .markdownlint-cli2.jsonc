@@ -47,6 +47,20 @@
     "**/*.egg-info/**",
     "__pycache__/**",
     ".pytest_cache/**",
-    "coverage/**"
+    "coverage/**",
+    ".bicep-planning-files/**",
+    "docs/audit-checklists/**",
+    "docs/presenter-toolkit/**",
+    "scenarios/scenario-output/**",
+    "scenarios/**/solution/**",
+    "scenarios/**/examples/**",
+    "scenarios/**/sample-app/**",
+    "scenarios/**/prompts/**",
+    "scenarios/**/templates/**",
+    "scenarios/**/scenario/**",
+    "scenarios/**/agents/**",
+    "scenarios/**/validation/**",
+    "scenarios/**/DEMO-SCRIPT.md",
+    "scenarios/S07-sbom-generator/README.md"
   ]
 }

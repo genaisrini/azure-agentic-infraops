@@ -79,7 +79,10 @@ flowchart TD
 
 ## 2025 Model Benchmarks
 
-Based on [LLM Stats](https://llm-stats.com), [Artificial Analysis](https://artificialanalysis.ai/leaderboards/models), and [Vellum LLM Leaderboard](https://www.vellum.ai/llm-leaderboard). Benchmarks evolve rapidly—check these sources for latest data:
+Based on [LLM Stats](https://llm-stats.com),
+[Artificial Analysis](https://artificialanalysis.ai/leaderboards/models), and
+[Vellum LLM Leaderboard](https://www.vellum.ai/llm-leaderboard).
+Benchmarks evolve rapidly—check these sources for latest data:
 
 ### Overall Intelligence & Reasoning
 
@@ -232,7 +235,8 @@ Create a Bicep module for Azure Key Vault with:
 
 ## Pricing Comparison
 
-> **⚠️ Prices change frequently.** Check [Artificial Analysis](https://artificialanalysis.ai/leaderboards/models) for current pricing. Values below are approximate and based on publicly available data.
+> **⚠️ Prices change frequently.** Check [Artificial Analysis](https://artificialanalysis.ai/leaderboards/models)
+> for current pricing. Values below are approximate and based on publicly available data.
 
 | Model | Input (per 1M tokens) | Output (per 1M tokens) | Effective Cost |
 |-------|----------------------|------------------------|----------------|

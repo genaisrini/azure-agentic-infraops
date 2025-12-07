@@ -54,22 +54,22 @@ Always include the theme directive for dark mode compatibility:
 
 ### Good Example - Mermaid with theme directive
 
-````markdown
+```markdown
 ​`mermaid
 %%{init: {'theme':'neutral'}}%%
 graph LR
     A[Start] --> B[End]
 ​`
-````
+```
 
 ### Bad Example - Missing theme directive
 
-````markdown
+```markdown
 ​`mermaid
 graph LR
     A[Start] --> B[End]
 ​`
-````
+```
 
 ## Lists and Formatting
 

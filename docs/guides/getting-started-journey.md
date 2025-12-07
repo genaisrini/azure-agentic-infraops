@@ -2,7 +2,8 @@
 
 > **Version 3.1.0** | Last Updated: December 3, 2025
 >
-> **From zero to productive in 30 minutes.** This guide walks you through everything—from setup to your first deployment to mastering advanced workflows.
+> **From zero to productive in 30 minutes.** This guide walks you through everything—from setup
+> to your first deployment to mastering advanced workflows.
 
 ---
 
@@ -335,7 +336,8 @@ pwsh -File validation/validate.ps1
 
 📖 **Full troubleshooting guide:** [troubleshooting.md](troubleshooting.md)
 
-Covers: Dev Container issues, Copilot problems, Azure deployment errors, custom agents, network/proxy issues, and a complete error message reference.
+Covers: Dev Container issues, Copilot problems, Azure deployment errors, custom agents, network/proxy
+issues, and a complete error message reference.
 
 ---
 

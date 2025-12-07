@@ -18,27 +18,27 @@ resources.
 
 ## 🚀 Getting Started
 
-| Section                                                 | Description                            |
-| ------------------------------------------------------- | -------------------------------------- |
-| [Quick Start](guides/quickstart.md)                     | Get up and running in 10 minutes       |
-| [Prerequisites](guides/prerequisites.md)                | Required tools and setup               |
-| [Complete Journey](guides/getting-started-journey.md)   | Full onboarding from zero to productive |
-| [Model Selection](guides/model-selection.md)            | Choosing the right AI model            |
+| Section                                               | Description                             |
+| ----------------------------------------------------- | --------------------------------------- |
+| [Quick Start](guides/quickstart.md)                   | Get up and running in 10 minutes        |
+| [Prerequisites](guides/prerequisites.md)              | Required tools and setup                |
+| [Complete Journey](guides/getting-started-journey.md) | Full onboarding from zero to productive |
+| [Model Selection](guides/model-selection.md)          | Choosing the right AI model             |
 
 ## 🤖 GitHub Copilot
 
-| Section                                                 | Description                            |
-| ------------------------------------------------------- | -------------------------------------- |
-| [Copilot Getting Started](guides/copilot-getting-started.md) | Install, configure, first steps   |
+| Section                                                      | Description                          |
+| ------------------------------------------------------------ | ------------------------------------ |
+| [Copilot Getting Started](guides/copilot-getting-started.md) | Install, configure, first steps      |
 | [Copilot Best Practices](guides/copilot-best-practices.md)   | Prompting tips, validation, patterns |
 
 ## 📋 Workflow & Guides
 
-| Section                                      | Description                            |
-| -------------------------------------------- | -------------------------------------- |
-| [Workflow Guide](workflow/WORKFLOW.md)       | Complete 4-step agent workflow         |
-| [All Guides](guides/)                        | Consolidated guides hub                |
-| [Troubleshooting](guides/troubleshooting.md) | Common issues and solutions            |
+| Section                                      | Description                    |
+| -------------------------------------------- | ------------------------------ |
+| [Workflow Guide](workflow/WORKFLOW.md)       | Complete 4-step agent workflow |
+| [All Guides](guides/)                        | Consolidated guides hub        |
+| [Troubleshooting](guides/troubleshooting.md) | Common issues and solutions    |
 
 ## 📊 Reference Materials
 
