@@ -2,9 +2,9 @@
 
 **Current Version:** 3.6.0
 
-**Last Updated:** 2025-01-17
+**Last Updated:** 2025-12-17
 
-**Build:** workflow-7step
+**Build:** 778cb66
 
 ## Version History
 
@@ -22,9 +22,9 @@ This project follows [Semantic Versioning 2.0.0](https://semver.org/):
 
 Version bumps are automated via GitHub Actions based on [Conventional Commits](https://www.conventionalcommits.org/):
 
-| Commit Type                    | Version Bump | Example                    |
-| ------------------------------ | ------------ | -------------------------- |
-| `feat:`                        | Minor        | `feat: add new agent`      |
-| `fix:`                         | Patch        | `fix: correct typo`        |
-| `feat!:` or `BREAKING CHANGE:` | Major        | `feat!: redesign workflow` |
-| `docs:`, `chore:`, etc.        | None         | `docs: update README`      |
+| Commit Type | Version Bump | Example |
+|-------------|--------------|---------|
+| `feat:` | Minor | `feat: add new agent` |
+| `fix:` | Patch | `fix: correct typo` |
+| `feat!:` or `BREAKING CHANGE:` | Major | `feat!: redesign workflow` |
+| `docs:`, `chore:`, etc. | None | `docs: update README` |
