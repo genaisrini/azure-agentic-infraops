@@ -43,40 +43,43 @@
 ```mermaid
 %%{init: {'theme':'base', 'themeVariables': {'primaryColor': '#0078D4', 'primaryTextColor': '#ffffff', 'primaryBorderColor': '#005A9E', 'lineColor': '#6B7280', 'secondaryColor': '#00B4AB', 'tertiaryColor': '#8957E5', 'background': '#ffffff', 'mainBkg': '#ffffff', 'nodeBorder': '#005A9E', 'clusterBkg': '#F3F4F6', 'titleColor': '#1F2937', 'edgeLabelBackground': '#ffffff'}}}%%
 graph LR
-    P["🎯 @plan"]:::plan --> A["🏛️ azure-principal-architect"]:::architect
-    A --> B["📋 bicep-plan"]:::bicep
-    B --> I["⚙️ bicep-implement"]:::bicep
-    MCP["💰 Azure Pricing MCP"]:::pricing -.->|costs| A
+    P["🎯 @plan<br/>Step 1"]:::plan --> A["🏛️ architect<br/>Step 2"]:::architect
+    A --> D3["📊 Pre-Build<br/>Step 3"]:::artifact
+    D3 --> B["📋 bicep-plan<br/>Step 4"]:::bicep
+    B --> I["⚙️ implement<br/>Step 5"]:::bicep
+    I --> D6["📊 Post-Build<br/>Step 6"]:::artifact
+    MCP["💰 Pricing MCP"]:::pricing -.->|costs| A
     MCP -.->|validation| B
-    D["📊 diagram-generator"]:::diagram -.->|visuals| A
 
     classDef plan fill:#8957E5,stroke:#6B46C1,color:#fff
     classDef architect fill:#0078D4,stroke:#005A9E,color:#fff
     classDef bicep fill:#00B4AB,stroke:#008F89,color:#fff
     classDef pricing fill:#FF6B35,stroke:#E55A25,color:#fff
-    classDef diagram fill:#6B7280,stroke:#4B5563,color:#fff
+    classDef artifact fill:#6B7280,stroke:#4B5563,color:#fff
 ```
 
 <!-- markdownlint-enable MD013 -->
 
 **Agent Legend**
 
-| Color | Agent                            | Role                                   |
+| Color | Agent/Phase                      | Role                                   |
 | ----- | -------------------------------- | -------------------------------------- |
 | 🟣    | `@plan`                          | Gather and refine requirements         |
 | 🔵    | `azure-principal-architect`      | WAF assessment (NO code)               |
+| ⚫    | Pre/Post-Build Artifacts         | Diagrams & ADRs (`-design`/`-asbuilt`) |
 | 🟢    | `bicep-plan` / `bicep-implement` | Implementation plan & Bicep generation |
 | 🟠    | `Azure Pricing MCP`              | Real-time cost estimation              |
-| ⚫    | `diagram-generator`              | Architecture visualization             |
 
-| Step | Agent                       | What It Does                         | Optional                |
-| ---- | --------------------------- | ------------------------------------ | ----------------------- |
-| 1    | `@plan`                     | Gather requirements                  | -                       |
-| 2    | `azure-principal-architect` | WAF assessment (NO code)             | 💰 Pricing, 📊 Diagrams |
-| 3    | `bicep-plan`                | Implementation plan with AVM modules | 💰 Pricing              |
-| 4    | `bicep-implement`           | Generate & validate Bicep            | -                       |
+| Step | Agent/Phase                 | What It Does                          |
+| ---- | --------------------------- | ------------------------------------- |
+| 1    | `@plan`                     | Gather requirements                   |
+| 2    | `azure-principal-architect` | WAF assessment (NO code) 💰           |
+| 3    | Pre-Build Artifacts         | Design diagrams + ADRs (`-design`)    |
+| 4    | `bicep-plan`                | Implementation plan + governance 💰   |
+| 5    | `bicep-implement`           | Generate & validate Bicep             |
+| 6    | Post-Build Artifacts        | As-built diagrams + ADRs (`-asbuilt`) |
 
-> **Optional:** `adr-generator` for Architecture Decision Records after any step
+> **💰** = Azure Pricing MCP integration. Steps 3 & 6 are optional artifact phases.
 
 </details>
 
@@ -119,7 +122,7 @@ and workflows.
 
 | Directory                | Purpose                               |
 | ------------------------ | ------------------------------------- |
-| `.github/agents/`        | Agent definitions (5 custom agents)   |
+| `.github/agents/`        | Agent definitions (6-step workflow)   |
 | `mcp/azure-pricing-mcp/` | 💰 Real-time Azure pricing MCP server |
 | `infra/bicep/`           | Generated Bicep templates             |
 | `docs/`                  | Documentation, guides, diagrams       |
@@ -136,7 +139,7 @@ and workflows.
 | ---------------- | --------------------------------------------------------------------- |
 | **Beginner**     | Bicep/Terraform baselines, documentation generation, diagrams as code |
 | **Intermediate** | Service validation, troubleshooting, SBOM generation                  |
-| **Advanced**     | Full 5-agent workflow, async coding agent                             |
+| **Advanced**     | Full agentic workflow, async coding agent                             |
 
 📖 **[Full Scenarios Guide →](scenarios/README.md)**
 

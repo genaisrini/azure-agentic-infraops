@@ -5,26 +5,39 @@ graph LR
     end
     subgraph "Step 2: Architecture"
         A["azure-principal-<br/>architect"]
-        MCP["💰 Azure Pricing<br/>MCP"]
-        D["📊 diagram-<br/>generator"]
     end
-    subgraph "Step 3: Planning"
+    subgraph "Step 3: Pre-Build Artifacts"
+        D["📊 diagram-<br/>generator<br/>(-design)"]
+        ADR1["📝 adr-<br/>generator<br/>(-design)"]
+    end
+    subgraph "Step 4: Planning"
         B["bicep-plan"]
+        GOV["🔒 Azure Policy<br/>(governance)"]
     end
-    subgraph "Step 4: Implementation"
+    subgraph "Step 5: Implementation"
         I["bicep-implement"]
+    end
+    subgraph "Step 6: Post-Build Artifacts"
+        D2["📊 diagram-<br/>generator<br/>(-asbuilt)"]
+        ADR2["📝 adr-<br/>generator<br/>(-asbuilt)"]
     end
 
     P -->|requirements| A
+    A -.->|optional| D
     A --> B
+    D -.-> B
+    ADR1 -.-> B
+    GOV -.->|constraints| B
     B -->|plan| I
-
-    MCP -.->|"real-time<br/>pricing"| A
-    D -.->|"architecture<br/>visualization"| A
+    I -.->|optional| D2
 
     style P fill:#e1f5fe
     style A fill:#fff3e0
-    style MCP fill:#fff9c4
     style D fill:#f3e5f5
+    style ADR1 fill:#e0f2f1
     style B fill:#e8f5e9
+    style GOV fill:#e0f7fa
     style I fill:#fce4ec
+    style D2 fill:#f3e5f5
+    style ADR2 fill:#e0f2f1
+

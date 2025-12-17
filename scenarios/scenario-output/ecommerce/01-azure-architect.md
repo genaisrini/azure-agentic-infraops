@@ -230,6 +230,8 @@ Proceed to **`bicep-plan`** agent to create the Bicep implementation plan.
 ```
 Step 1: ✅ @plan (requirements gathered)
 Step 2: ✅ azure-principal-architect (this assessment)
-Step 3: ➡️ bicep-plan (create implementation plan)
-Step 4: ⬜ bicep-implement (generate Bicep templates)
+Step 3: ⬜ Pre-Build Artifacts (optional diagrams/ADRs)
+Step 4: ➡️ bicep-plan (create implementation plan)
+Step 5: ⬜ bicep-implement (generate Bicep templates)
+Step 6: ⬜ Post-Build Artifacts (optional diagrams/ADRs)
 ```

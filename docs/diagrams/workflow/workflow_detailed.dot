@@ -6,8 +6,8 @@ digraph DetailedWorkflow {
         fontname="Segoe UI, Arial, sans-serif"
         pad="1.0"
         splines="ortho"
-        nodesep="0.5"
-        ranksep="1.2"
+        nodesep="0.45"
+        ranksep="1.0"
         rankdir="LR"
         dpi="150"
         newrank="true"
@@ -36,64 +36,79 @@ digraph DetailedWorkflow {
     step1 [
         label="① Plan\n@plan"
         fillcolor="#0078D4"
-        width="1.8"
-        height="0.6"
-    ]
-
-    // Step 2 main
-    step2 [
-        label="② Architect\nazure-principal-architect"
-        fillcolor="#FF6B35"
-        width="2.5"
-        height="0.6"
-    ]
-    
-    // Step 2 optionals in a row
-    opt2a [label="Visualize\ndiagram-generator" fillcolor="#8b5cf6" fontsize="10"]
-    opt2b [label="Estimate\nPricing MCP" fillcolor="#fbbf24" fontcolor="#1a1a2e" fontsize="10"]
-    opt2c [label="Document\nadr-generator" fillcolor="#14b8a6" fontsize="10"]
-
-    // Step 3
-    step3 [
-        label="③ Plan Infrastructure\nbicep-plan"
-        fillcolor="#10b981"
-        width="2.2"
-        height="0.6"
-    ]
-
-    // Step 4
-    step4 [
-        label="④ Generate Code\nbicep-implement"
-        fillcolor="#ec4899"
-        width="2.2"
-        height="0.6"
-    ]
-    
-    opt4a [label="Document\nadr-generator" fillcolor="#14b8a6" fontsize="10"]
-
-    // Step 5
-    step5 [
-        label="⑤ Deploy"
-        fillcolor="#0078D4"
         width="1.6"
         height="0.6"
     ]
 
+    // Step 2
+    step2 [
+        label="② Architect\nazure-principal-architect"
+        fillcolor="#FF6B35"
+        width="2.4"
+        height="0.6"
+    ]
+
+    // Step 3 - Pre-Build Artifacts
+    step3 [
+        label="③ Pre-Build Artifacts\n(optional)"
+        fillcolor="#8b5cf6"
+        width="2.0"
+        height="0.6"
+        style="filled,rounded,dashed"
+    ]
+    
+    opt3a [label="📊 -design diagram\ndiagram-generator" fillcolor="#8b5cf6" fontsize="10"]
+    opt3b [label="📝 -design ADR\nadr-generator" fillcolor="#14b8a6" fontsize="10"]
+
+    // Step 4
+    step4 [
+        label="④ Plan Infrastructure\nbicep-plan"
+        fillcolor="#10b981"
+        width="2.0"
+        height="0.6"
+    ]
+    
+    opt4gov [label="🔒 Governance Discovery\nAzure Policy" fillcolor="#06b6d4" fontsize="10"]
+
+    // Step 5
+    step5 [
+        label="⑤ Generate Code\nbicep-implement"
+        fillcolor="#ec4899"
+        width="2.0"
+        height="0.6"
+    ]
+
+    // Step 6 - Post-Build Artifacts
+    step6 [
+        label="⑥ Post-Build Artifacts\n(optional)"
+        fillcolor="#f4722b"
+        width="2.0"
+        height="0.6"
+        style="filled,rounded,dashed"
+    ]
+    
+    opt6a [label="📊 -asbuilt diagram\ndiagram-generator" fillcolor="#8b5cf6" fontsize="10"]
+    opt6b [label="📝 -asbuilt ADR\nadr-generator" fillcolor="#14b8a6" fontsize="10"]
+
     // Main flow - thick colored arrows
     step1 -> step2 [color="#0078D4" penwidth="3"]
-    step2 -> step3 [color="#FF6B35" penwidth="3"]
-    step3 -> step4 [color="#10b981" penwidth="3"]
-    step4 -> step5 [color="#ec4899" penwidth="3"]
+    step2 -> step3 [color="#FF6B35" penwidth="2" style="dashed"]
+    step2 -> step4 [color="#FF6B35" penwidth="3"]
+    step3 -> step4 [color="#8b5cf6" penwidth="2" style="dashed"]
+    step4 -> step5 [color="#10b981" penwidth="3"]
+    step5 -> step6 [color="#ec4899" penwidth="2" style="dashed"]
 
     // Optional tools connections - above main flow
-    opt2a -> step2 [style="dashed" color="#8b5cf6" arrowhead="none" arrowtail="normal" dir="back"]
-    opt2b -> step2 [style="dashed" color="#fbbf24" arrowhead="none" arrowtail="normal" dir="back"]
-    opt2c -> step2 [style="dashed" color="#14b8a6" arrowhead="none" arrowtail="normal" dir="back"]
-    
-    // ADR for step 4
-    opt4a -> step4 [style="dashed" color="#14b8a6" arrowhead="none" arrowtail="normal" dir="back"]
+    opt3a -> step3 [style="dashed" color="#8b5cf6" arrowhead="none" arrowtail="normal" dir="back"]
+    opt3b -> step3 [style="dashed" color="#14b8a6" arrowhead="none" arrowtail="normal" dir="back"]
+    opt4gov -> step4 [style="dashed" color="#06b6d4" arrowhead="none" arrowtail="normal" dir="back"]
+    opt6a -> step6 [style="dashed" color="#8b5cf6" arrowhead="none" arrowtail="normal" dir="back"]
+    opt6b -> step6 [style="dashed" color="#14b8a6" arrowhead="none" arrowtail="normal" dir="back"]
 
-    // Layout for horizontal - optionals stacked vertically
-    { rank=same; opt2a; opt2b; opt2c }
-    opt2a -> opt2b -> opt2c [style="invis" weight="10"]
+    // Layout - optionals stacked vertically
+    { rank=same; opt3a; opt3b }
+    { rank=same; opt4gov }
+    { rank=same; opt6a; opt6b }
+    opt3a -> opt3b [style="invis" weight="10"]
+    opt6a -> opt6b [style="invis" weight="10"]
 }

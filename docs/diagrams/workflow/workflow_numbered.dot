@@ -7,10 +7,11 @@ digraph AgenticInfraOps {
         fontname="Segoe UI, Arial, sans-serif"
         pad="0.8"
         splines="ortho"
-        nodesep="0.6"
-        ranksep="1.0"
+        nodesep="0.5"
+        ranksep="0.9"
         rankdir="LR"
         dpi="150"
+        newrank="true"
     ]
     
     node [
@@ -36,95 +37,120 @@ digraph AgenticInfraOps {
     // STEP 1: PLAN
     // ============================================
     step1 [
-        label="1. Plan\n@plan (built-in)"
+        label="1. Plan\n@plan"
         fillcolor="#0078D4"
-        width="2"
+        width="1.5"
     ]
 
     // ============================================
-    // STEP 2: ARCHITECTURE  
+    // STEP 2: ARCHITECTURE
     // ============================================
     step2 [
-        label="2. Architecture\nazure-principal-architect"
+        label="2. Architect\nazure-principal-architect"
         fillcolor="#FF6B35"
-        width="2.5"
-    ]
-    
-    // Step 2 optional tools (horizontal row)
-    step2a [
-        label="2a. Visualize\ndiagram-generator"
-        fillcolor="#8b5cf6"
-    ]
-    
-    step2b [
-        label="2b. Estimate\nAzure Pricing MCP"
-        fillcolor="#fbbf24"
-        fontcolor="#1a1a2e"
-    ]
-    
-    step2c [
-        label="2c. Document\nadr-generator"
-        fillcolor="#14b8a6"
+        width="2.4"
     ]
 
     // ============================================
-    // STEP 3: BICEP PLANNING
+    // STEP 3: PRE-BUILD ARTIFACTS (Optional)
     // ============================================
     step3 [
-        label="3. Plan Infrastructure\nbicep-plan"
-        fillcolor="#10b981"
-        width="2.2"
-    ]
-
-    // ============================================
-    // STEP 4: CODE GENERATION
-    // ============================================
-    step4 [
-        label="4. Generate Code\nbicep-implement"
-        fillcolor="#ec4899"
-        width="2.2"
+        label="3. Pre-Build Artifacts\n(optional)"
+        fillcolor="#8b5cf6"
+        width="2.0"
+        style="filled,rounded,dashed"
     ]
     
-    step4a [
-        label="4a. Document\nadr-generator"
+    step3a [
+        label="📊 -design diagram\ndiagram-generator"
+        fillcolor="#8b5cf6"
+        fontsize="9"
+    ]
+    
+    step3b [
+        label="📝 -design ADR\nadr-generator"
         fillcolor="#14b8a6"
+        fontsize="9"
     ]
 
     // ============================================
-    // STEP 5: DEPLOY
+    // STEP 4: PLAN INFRASTRUCTURE
+    // ============================================
+    step4 [
+        label="4. Plan Infrastructure\nbicep-plan"
+        fillcolor="#10b981"
+        width="2.0"
+    ]
+    
+    step4opt [
+        label="🔒 Governance\nAzure Policy"
+        fillcolor="#06b6d4"
+        fontsize="9"
+    ]
+
+    // ============================================
+    // STEP 5: CODE GENERATION
     // ============================================
     step5 [
-        label="5. Deploy"
-        fillcolor="#0078D4"
-        width="1.8"
+        label="5. Generate Code\nbicep-implement"
+        fillcolor="#ec4899"
+        width="2.0"
+    ]
+
+    // ============================================
+    // STEP 6: POST-BUILD ARTIFACTS (Optional)
+    // ============================================
+    step6 [
+        label="6. Post-Build Artifacts\n(optional)"
+        fillcolor="#f4722b"
+        width="2.0"
+        style="filled,rounded,dashed"
+    ]
+    
+    step6a [
+        label="📊 -asbuilt diagram\ndiagram-generator"
+        fillcolor="#8b5cf6"
+        fontsize="9"
+    ]
+    
+    step6b [
+        label="📝 -asbuilt ADR\nadr-generator"
+        fillcolor="#14b8a6"
+        fontsize="9"
     ]
 
     // ============================================
     // MAIN FLOW (solid arrows)
     // ============================================
-    step1 -> step2 [color="#0078D4"]
-    step2 -> step3 [color="#FF6B35"]
-    step3 -> step4 [color="#10b981"]
-    step4 -> step5 [color="#ec4899"]
+    step1 -> step2 [color="#0078D4" penwidth="2.5"]
+    step2 -> step3 [color="#FF6B35" style="dashed" penwidth="2"]
+    step2 -> step4 [color="#FF6B35" penwidth="2.5"]
+    step3 -> step4 [color="#8b5cf6" style="dashed" penwidth="2"]
+    step4 -> step5 [color="#10b981" penwidth="2.5"]
+    step5 -> step6 [color="#ec4899" style="dashed" penwidth="2"]
 
     // ============================================
     // OPTIONAL CONNECTIONS (dashed arrows)
     // ============================================
-    // Step 2 optional tools
-    step2a -> step2 [style="dashed" color="#8b5cf6" dir="back"]
-    step2b -> step2 [style="dashed" color="#fbbf24" dir="back"]
-    step2c -> step2 [style="dashed" color="#14b8a6" dir="back"]
+    // Step 3 optional tools
+    step3a -> step3 [style="dashed" color="#8b5cf6" dir="back"]
+    step3b -> step3 [style="dashed" color="#14b8a6" dir="back"]
     
-    // Step 4 optional
-    step4a -> step4 [style="dashed" color="#14b8a6" dir="back"]
+    // Step 4 governance
+    step4opt -> step4 [style="dashed" color="#06b6d4" dir="back"]
+    
+    // Step 6 optional tools
+    step6a -> step6 [style="dashed" color="#8b5cf6" dir="back"]
+    step6b -> step6 [style="dashed" color="#14b8a6" dir="back"]
 
     // ============================================
-    // LAYOUT HINTS - Horizontal layout
+    // LAYOUT HINTS
     // ============================================
-    // Optional tools above their parent steps
-    { rank=same; step2a; step2b; step2c }
-    { rank=same; step4a }
+    { rank=same; step3a; step3b }
+    { rank=same; step4opt }
+    { rank=same; step6a; step6b }
     
-    // Invisible edges for vertical alignment of optionals
-    step2a -> step2b -> step2c [style="invis"]
+    // Invisible edges for vertical alignment
+    step3a -> step3b [style="invis"]
+    step6a -> step6b [style="invis"]
 }

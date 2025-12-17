@@ -197,10 +197,11 @@ making actual changes. Run with `az deployment group create --what-if`.
 
 ## Numbers & Symbols
 
-### 4-Step Workflow
+### 6-Step Agentic Workflow
 
-The core Agentic InfraOps workflow: `@plan` → `azure-principal-architect` → `bicep-plan` →
-`bicep-implement`. Each step has an approval gate before proceeding.
+The core Agentic InfraOps workflow: `@plan` → `azure-principal-architect` → Pre-Build Artifacts →
+`bicep-plan` → `bicep-implement` → Post-Build Artifacts. Each step has an approval gate before proceeding.
+Steps 3 and 6 (Pre/Post-Build Artifacts) are optional for generating diagrams and ADRs.
 
 📁 **See**: [Workflow Guide](workflow/WORKFLOW.md)
 

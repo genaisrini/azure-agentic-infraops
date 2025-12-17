@@ -44,7 +44,7 @@ Traditional infrastructure design involves:
 - 📚 **Documentation lag**: Code and docs out of sync
 - 🎯 **Scope creep**: No structured planning before implementation
 
-**With 4-Step Workflow (Plan-First with Approval Gates)**:
+**With 6-Step Agentic Workflow (Plan-First with Approval Gates)**:
 
 - 📋 **Research before code**: VS Code Plan Agent researches comprehensively before any changes
 - ✅ **Approval gates**: Review and approve each step before proceeding
@@ -66,7 +66,7 @@ Traditional infrastructure design involves:
 | [Presenter Toolkit](../../docs/presenter-toolkit/)                  | Demo delivery guides                 |
 | [S04: E-Commerce](../S04-ecommerce-platform/)                       | Next: full workflow with deployment  |
 
-## 🤖 The Four Steps (Plus Optional Agents)
+## 🤖 The Six Steps
 
 ### Step 1: Plan Agent (`@plan`) - _VS Code Built-in - Start Here_
 
@@ -113,15 +113,23 @@ The plan ensures all requirements are considered before any code changes.
 - **Handoff**: Architecture assessment → Bicep Planning Specialist
 - **Optional**: Generate Architecture Diagram → diagram-generator
 
-### Step 3: Bicep Planning Specialist (`bicep-plan`)
+### Step 3: Pre-Build Artifacts (Optional)
 
-- **Purpose**: Machine-readable implementation plan
+- **Purpose**: Generate design documentation before implementation
+- **Agents**: `diagram-generator` and `adr-generator`
+- **Output**: Architecture diagrams with `-design` suffix, ADRs for proposed decisions
+- **Handoff**: Continue to Bicep Planning Specialist
+
+### Step 4: Bicep Planning Specialist (`bicep-plan`)
+
+- **Purpose**: Machine-readable implementation plan with governance discovery
 - **Input**: Architecture assessment
-- **Output**: Resource definitions, dependencies, cost tables, deployment phases
+- **Output**: Resource definitions, dependencies, cost tables, governance constraints
+- **Governance**: Discovers Azure Policy constraints before planning
 - **Approval Gate**: Review implementation plan before code generation
 - **Handoff**: Implementation plan → Bicep Implementation Specialist
 
-### Step 4: Bicep Implementation Specialist (`bicep-implement`)
+### Step 5: Bicep Implementation Specialist (`bicep-implement`)
 
 - **Purpose**: near-production-ready Bicep templates
 - **Input**: Implementation plan
@@ -131,6 +139,13 @@ The plan ensures all requirements are considered before any code changes.
 - **Regional Default**: `swedencentral` (renewable energy)
 - **Naming Convention**: Generates unique suffixes using `uniqueString()` to prevent resource name collisions
 - **Optional**: Generate Architecture Diagram → diagram-generator
+
+### Step 6: Post-Build Artifacts (Optional)
+
+- **Purpose**: Generate as-built documentation after implementation
+- **Agents**: `diagram-generator` and `adr-generator`
+- **Output**: Architecture diagrams with `-asbuilt` suffix, ADRs for implemented decisions
+- **Use Case**: Document final state, any deviations from design
 
 ### Optional: ADR Generator (`adr-generator`)
 
@@ -384,7 +399,7 @@ The plan becomes a reusable `*.prompt.md` file.
 
 By the end of this demo, participants will:
 
-1. ✅ Understand the **5-agent workflow** for Azure infrastructure (starting with Plan Agent)
+1. ✅ Understand the **6-step agentic workflow** for Azure infrastructure (starting with Plan Agent)
 2. ✅ Use VS Code's built-in **Plan Agent** to research before implementing
 3. ✅ Generate and edit **`*.prompt.md` plan files** for reusable workflows
 4. ✅ Use agent handoff buttons/controls for seamless transitions
@@ -459,7 +474,7 @@ By the end of this demo, participants will:
 
 - **Hook**: "What if you could go from customer requirements to near-production-ready infrastructure in 30 minutes?"
 - Present traditional timeline (2-3 days)
-- Introduce 5-agent workflow concept (Plan Agent + 4 custom agents)
+- Introduce 6-step agentic workflow concept (6-step workflow with approval gates)
 
 ### During Demo (35 minutes)
 
@@ -517,7 +532,7 @@ agents handle time-consuming documentation and code generation.
 
 Demo is successful when audience:
 
-- [ ] Understands the **5-agent workflow** concept (starting with VS Code's built-in Plan Agent)
+- [ ] Understands the **6-step agentic workflow** concept (starting with VS Code's built-in Plan Agent)
 - [ ] Recognizes Plan Agent as a **built-in VS Code feature** (not a custom agent)
 - [ ] Understands how **`*.prompt.md` files** preserve and share implementation plans
 - [ ] Sees value in automatic context handoffs via UI controls
@@ -527,7 +542,7 @@ Demo is successful when audience:
 
 ## 📝 Feedback & Improvement
 
-This demo was created from an actual test execution of the 5-agent workflow. If you have suggestions for improvement:
+This demo was created from an actual test execution of the 6-step agentic workflow. If you have suggestions for improvement:
 
 1. Open an issue in the repository
 2. Describe your scenario/variation
@@ -556,8 +571,8 @@ Before starting, gauge your audience:
 | ------------------------ | ----------------------------- | ---------------------------------------------- |
 | Step 1 (@plan)           | "Where's the Plan Agent?"     | Show `Ctrl+Shift+A` agent picker               |
 | Step 2 (Architect)       | "Why no code?"                | Emphasize WAF guidance vs implementation       |
-| Step 3 (bicep-plan)      | "Too much output"             | Use collapsible sections, focus on key modules |
-| Step 4 (bicep-implement) | "Validation errors"           | Expected! Show iterative refinement            |
+| Step 4 (bicep-plan)      | "Too much output"             | Use collapsible sections, focus on key modules |
+| Step 5 (bicep-implement) | "Validation errors"           | Expected! Show iterative refinement            |
 | Handoffs                 | "Lost context between agents" | Demonstrate UI handoff buttons                 |
 
 ### Facilitation Tips

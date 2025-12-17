@@ -6,8 +6,8 @@ digraph SimpleWorkflow {
         fontname="Segoe UI"
         pad="0.4"
         splines="curved"
-        nodesep="0.5"
-        ranksep="0.6"
+        nodesep="0.4"
+        ranksep="0.5"
         rankdir="LR"
         dpi="150"
     ]
@@ -31,24 +31,28 @@ digraph SimpleWorkflow {
         arrowsize="0.7"
     ]
     
-    // Main workflow nodes
+    // Main 6-step workflow nodes
     plan [label="@plan" fillcolor="#0078D4"]
     architect [label="azure-principal-\narchitect" fillcolor="#FF6B35"]
+    pre_artifacts [label="Pre-Build\nArtifacts" fillcolor="#8b5cf6" style="filled,rounded,dashed"]
     bicep_plan [label="bicep-plan" fillcolor="#10b981"]
     bicep_implement [label="bicep-implement" fillcolor="#ec4899"]
+    post_artifacts [label="Post-Build\nArtifacts" fillcolor="#f4722b" style="filled,rounded,dashed"]
     
-    // Optional nodes
-    mcp [label="💰 Pricing MCP" fillcolor="#fbbf24" fontcolor="#1a1a2e"]
-    diagrams_node [label="📊 Diagrams" fillcolor="#8b5cf6"]
+    // Governance indicator
+    governance [label="🔒 Governance" fillcolor="#06b6d4"]
     
     // Main flow
-    plan -> architect -> bicep_plan -> bicep_implement
+    plan -> architect
+    architect -> pre_artifacts [style="dashed"]
+    architect -> bicep_plan
+    pre_artifacts -> bicep_plan [style="dashed"]
+    bicep_plan -> bicep_implement
+    bicep_implement -> post_artifacts [style="dashed"]
     
-    // Optional connections
-    mcp -> architect [style="dashed" constraint="false"]
-    mcp -> bicep_plan [style="dashed" constraint="false"]
-    diagrams_node -> architect [style="dashed" constraint="false"]
+    // Governance connection
+    governance -> bicep_plan [style="dashed" constraint="false"]
     
     // Layout hints
-    {rank=same; mcp; diagrams_node}
+    {rank=same; governance}
 }

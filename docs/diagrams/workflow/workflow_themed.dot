@@ -68,37 +68,33 @@ digraph AgenticInfraOps {
             label="azure-principal-architect\n(NO CODE)"
             fillcolor="#FF6B35"
         ]
-        
-        // Optional tools cluster
-        subgraph cluster_optional2 {
-            label="Optional"
-            fontcolor="#94a3b8"
-            fontsize="10"
-            bgcolor="#0f3460"
-            style="rounded,dashed"
-            pencolor="#334155"
-            
-            mcp [
-                label="💰 Azure Pricing MCP\n(real-time costs)"
-                fillcolor="#fbbf24"
-                fontcolor="#1a1a2e"
-            ]
-            
-            diagrams [
-                label="📊 diagram-generator\n(visualization)"
-                fillcolor="#8b5cf6"
-            ]
-            
-            adr1 [
-                label="📝 adr-generator\n(decisions)"
-                fillcolor="#14b8a6"
-            ]
-        }
     }
     
-    // Step 3: Planning
+    // Step 3: Pre-Build Artifacts
     subgraph cluster_step3 {
-        label="Step 3: Planning"
+        label="Step 3: Pre-Build Artifacts (Optional)"
+        fontcolor="#94a3b8"
+        fontname="Segoe UI Semibold"
+        fontsize="12"
+        bgcolor="#16213e"
+        style="rounded,dashed"
+        pencolor="#0f3460"
+        penwidth="2"
+        
+        diagrams_design [
+            label="📊 diagram-generator\n(-design)"
+            fillcolor="#8b5cf6"
+        ]
+        
+        adr_design [
+            label="📝 adr-generator\n(-design)"
+            fillcolor="#14b8a6"
+        ]
+    }
+    
+    // Step 4: Planning
+    subgraph cluster_step4 {
+        label="Step 4: Planning"
         fontcolor="white"
         fontname="Segoe UI Semibold"
         fontsize="12"
@@ -111,11 +107,25 @@ digraph AgenticInfraOps {
             label="bicep-plan\n(plan only)"
             fillcolor="#10b981"
         ]
+        
+        subgraph cluster_governance {
+            label="Governance Discovery"
+            fontcolor="#94a3b8"
+            fontsize="10"
+            bgcolor="#0f3460"
+            style="rounded,dashed"
+            pencolor="#334155"
+            
+            policy [
+                label="🔒 Azure Policy\n(constraints)"
+                fillcolor="#06b6d4"
+            ]
+        }
     }
     
-    // Step 4: Implementation
-    subgraph cluster_step4 {
-        label="Step 4: Implementation"
+    // Step 5: Implementation
+    subgraph cluster_step5 {
+        label="Step 5: Implementation"
         fontcolor="white"
         fontname="Segoe UI Semibold"
         fontsize="12"
@@ -128,38 +138,45 @@ digraph AgenticInfraOps {
             label="bicep-implement\n(code generation)"
             fillcolor="#ec4899"
         ]
+    }
+    
+    // Step 6: Post-Build Artifacts
+    subgraph cluster_step6 {
+        label="Step 6: Post-Build Artifacts (Optional)"
+        fontcolor="#94a3b8"
+        fontname="Segoe UI Semibold"
+        fontsize="12"
+        bgcolor="#16213e"
+        style="rounded,dashed"
+        pencolor="#0f3460"
+        penwidth="2"
         
-        // Optional ADR
-        subgraph cluster_optional4 {
-            label="Optional"
-            fontcolor="#94a3b8"
-            fontsize="10"
-            bgcolor="#0f3460"
-            style="rounded,dashed"
-            pencolor="#334155"
-            
-            adr2 [
-                label="📝 adr-generator"
-                fillcolor="#14b8a6"
-            ]
-        }
+        diagrams_asbuilt [
+            label="📊 diagram-generator\n(-asbuilt)"
+            fillcolor="#8b5cf6"
+        ]
+        
+        adr_asbuilt [
+            label="📝 adr-generator\n(-asbuilt)"
+            fillcolor="#14b8a6"
+        ]
     }
     
     // Main workflow edges
     plan -> architect [xlabel="requirements" color="#0078D4" fontcolor="#0078D4"]
+    architect -> diagrams_design [style="dashed" xlabel="optional" color="#FF6B35" fontcolor="#94a3b8"]
     architect -> bicep_plan [xlabel="architecture" color="#FF6B35" fontcolor="#FF6B35"]
+    diagrams_design -> bicep_plan [style="dashed" color="#8b5cf6"]
+    adr_design -> bicep_plan [style="dashed" color="#14b8a6"]
+    policy -> bicep_plan [style="dashed" xlabel="constraints" color="#06b6d4" fontcolor="#06b6d4"]
     bicep_plan -> bicep_implement [xlabel="plan" color="#10b981" fontcolor="#10b981"]
+    bicep_implement -> diagrams_asbuilt [style="dashed" xlabel="optional" color="#ec4899" fontcolor="#94a3b8"]
     
-    // Optional edges (dashed)
-    mcp -> architect [style="dashed" xlabel="pricing" color="#fbbf24" fontcolor="#fbbf24"]
-    diagrams -> architect [style="dashed" color="#8b5cf6"]
-    adr1 -> architect [style="dashed" color="#14b8a6"]
-    mcp -> bicep_plan [style="dashed" xlabel="costs" color="#fbbf24" fontcolor="#fbbf24"]
-    adr2 -> bicep_implement [style="dashed" color="#14b8a6"]
-    
-    // Invisible edges for layout
+    // Layout hints
     {rank=same; plan}
-    {rank=same; architect; mcp; diagrams; adr1}
-    {rank=same; bicep_plan}
-    {rank=same; bicep_implement; adr2}
+    {rank=same; architect}
+    {rank=same; diagrams_design; adr_design}
+    {rank=same; bicep_plan; policy}
+    {rank=same; bicep_implement}
+    {rank=same; diagrams_asbuilt; adr_asbuilt}
 }

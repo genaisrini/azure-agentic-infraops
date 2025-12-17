@@ -1,25 +1,29 @@
 # Workflow Documentation
 
-This folder contains the complete guide to the Agentic InfraOps six-step agent workflow.
+This folder contains the complete guide to the Agentic InfraOps six-step agentic workflow.
 
 ## Quick Reference
 
 ```mermaid
 %%{init: {'theme':'neutral'}}%%
 graph LR
-    A["@plan"] --> B["azure-principal-architect"]
-    B --> C["bicep-plan"]
-    C --> D["bicep-implement"]
+    A["@plan<br/>Step 1"] --> B["architect<br/>Step 2"]
+    B --> C["Pre-Build<br/>Step 3"]
+    C --> D["bicep-plan<br/>Step 4"]
+    D --> E["implement<br/>Step 5"]
+    E --> F["Post-Build<br/>Step 6"]
 ```
 
-| Step | Agent                       | Purpose                                   |
-| ---- | --------------------------- | ----------------------------------------- |
-| 1    | `@plan`                     | Generate implementation plan              |
-| 2    | `azure-principal-architect` | WAF assessment, architecture guidance     |
-| 3    | `bicep-plan`                | AVM module selection, implementation plan |
-| 4    | `bicep-implement`           | Generate validated Bicep templates        |
+| Step | Agent/Phase                 | Purpose                                      |
+| ---- | --------------------------- | -------------------------------------------- |
+| 1    | `@plan`                     | Generate implementation plan                 |
+| 2    | `azure-principal-architect` | WAF assessment, architecture guidance        |
+| 3    | Pre-Build Artifacts         | Design diagrams + ADRs (`-design` suffix)    |
+| 4    | `bicep-plan`                | AVM module selection, governance discovery   |
+| 5    | `bicep-implement`           | Generate validated Bicep templates           |
+| 6    | Post-Build Artifacts        | As-built diagrams + ADRs (`-asbuilt` suffix) |
 
-**Optional agents**: `diagram-generator` (architecture visuals), `adr-generator` (decision records)
+> **Note**: Steps 3 and 6 are optional artifact phases using `diagram-generator` and `adr-generator`.
 
 ## Main Documentation
 

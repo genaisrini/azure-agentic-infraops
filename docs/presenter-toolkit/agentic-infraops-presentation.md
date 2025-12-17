@@ -70,7 +70,7 @@ style: |
 
 ---
 
-# The 4-Step Agent Workflow
+# The 6-Step Agentic Workflow
 
 ![width:1100px](infographics/generated/workflow-diagram.png)
 
@@ -131,10 +131,11 @@ Agents ensure compliance with:
 
 ---
 
-# Step 3: bicep-plan
+# Step 4: bicep-plan
 
 **Custom Agent** creates implementation plan
 
+- Discovers Azure Policy constraints
 - Selects Azure Verified Modules (AVM)
 - Maps resource dependencies
 - Generates machine-readable plan
@@ -142,12 +143,13 @@ Agents ensure compliance with:
 
 ```
 📁 .bicep-planning-files/
+   ├── governance-constraints.md
    └── INFRA.patient-portal.md
 ```
 
 ---
 
-# Step 4: bicep-implement
+# Step 5: bicep-implement
 
 **Custom Agent** generates deploy-ready code
 
@@ -333,7 +335,7 @@ Azure Synapse and Power BI integration
 | --- | ------------------------ | -------- | ------------ |
 | S01 | Bicep Baseline           | 30 min   | Beginner     |
 | S02 | Terraform Baseline       | 30 min   | Beginner     |
-| S03 | Agentic Workflow      | 45 min   | Advanced     |
+| S03 | Agentic Workflow         | 45 min   | Advanced     |
 | S04 | Documentation Generation | 20 min   | Beginner     |
 | S05 | Service Validation       | 30 min   | Intermediate |
 
