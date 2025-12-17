@@ -1,6 +1,6 @@
 # Agentic InfraOps
 
-> **Version 3.2.0** | [Changelog](VERSION.md)
+> **Version 3.5.0** | [Changelog](VERSION.md)
 
 [![Agentic InfraOps](https://img.shields.io/badge/Agentic-InfraOps-FF6B35?style=for-the-badge&logo=robot&logoColor=white)](https://github.com/jonathan-vella/azure-agentic-infraops)
 [![Azure](https://img.shields.io/badge/Azure-Infrastructure-0078D4?style=for-the-badge&logo=microsoftazure)](https://azure.microsoft.com)
@@ -48,6 +48,7 @@ graph LR
     D3 --> B["📋 bicep-plan<br/>Step 4"]:::bicep
     B --> I["⚙️ implement<br/>Step 5"]:::bicep
     I --> D6["📊 Post-Build<br/>Step 6"]:::artifact
+    D6 -.-> W["📚 Docs<br/>Step 7"]:::docs
     MCP["💰 Pricing MCP"]:::pricing -.->|costs| A
     MCP -.->|validation| B
 
@@ -56,6 +57,7 @@ graph LR
     classDef bicep fill:#00B4AB,stroke:#008F89,color:#fff
     classDef pricing fill:#FF6B35,stroke:#E55A25,color:#fff
     classDef artifact fill:#6B7280,stroke:#4B5563,color:#fff
+    classDef docs fill:#10B981,stroke:#059669,color:#fff
 ```
 
 <!-- markdownlint-enable MD013 -->
@@ -69,6 +71,7 @@ graph LR
 | ⚫    | Pre/Post-Build Artifacts         | Diagrams & ADRs (`-design`/`-asbuilt`) |
 | 🟢    | `bicep-plan` / `bicep-implement` | Implementation plan & Bicep generation |
 | 🟠    | `Azure Pricing MCP`              | Real-time cost estimation              |
+| 🟩    | `workload-documentation`         | Customer-deliverable docs (optional)   |
 
 | Step | Agent/Phase                 | What It Does                          |
 | ---- | --------------------------- | ------------------------------------- |
@@ -78,8 +81,9 @@ graph LR
 | 4    | `bicep-plan`                | Implementation plan + governance 💰   |
 | 5    | `bicep-implement`           | Generate & validate Bicep             |
 | 6    | Post-Build Artifacts        | As-built diagrams + ADRs (`-asbuilt`) |
+| 7    | `workload-documentation`    | Design docs, runbooks, inventory ⭐   |
 
-> **💰** = Azure Pricing MCP integration. Steps 3 & 6 are optional artifact phases.
+> **💰** = Azure Pricing MCP integration. Steps 3, 6 & 7 are optional.
 
 </details>
 
@@ -120,13 +124,14 @@ and workflows.
 
 ## Project Structure
 
-| Directory                | Purpose                               |
-| ------------------------ | ------------------------------------- |
-| `.github/agents/`        | Agent definitions (6-step workflow)   |
-| `mcp/azure-pricing-mcp/` | 💰 Real-time Azure pricing MCP server |
-| `infra/bicep/`           | Generated Bicep templates             |
-| `docs/`                  | Documentation, guides, diagrams       |
-| `scenarios/`             | 11 hands-on learning scenarios        |
+| Directory                | Purpose                                      |
+| ------------------------ | -------------------------------------------- |
+| `.github/agents/`        | Agent definitions (7 agents for 7-step flow) |
+| `agent-output/`          | Generated artifacts per project              |
+| `mcp/azure-pricing-mcp/` | 💰 Real-time Azure pricing MCP server        |
+| `infra/bicep/`           | Generated Bicep templates                    |
+| `docs/`                  | Documentation, guides, diagrams              |
+| `scenarios/`             | 11 hands-on learning scenarios               |
 
 ---
 
