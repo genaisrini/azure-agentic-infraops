@@ -1,7 +1,7 @@
 # Workflow Prompts: Healthcare Patient Portal Scenario
 
 **Scenario:** Contoso Healthcare Inc. - HIPAA-compliant patient portal for appointment scheduling  
-**Use Case:** Demonstrates five-agent workflow starting with VS Code's built-in Plan Agent  
+**Use Case:** Demonstrates agentic workflow starting with VS Code's built-in Plan Agent  
 **Budget:** $800/month | **Users:** 10,000 patients, 50 staff | **Timeline:** 3 months
 
 > 💡 **Plan-First Approach:** This workflow starts with VS Code's built-in Plan Agent (`@plan`) to research
@@ -81,7 +81,7 @@ Please help me:
 3. List open questions that need clarification
 4. Recommend which specialized agents to use for each phase
 
-I'm using a five-agent workflow - please help me understand when to use:
+I'm using a agentic workflow - please help me understand when to use:
 - azure-principal-architect (WAF assessment)
 - bicep-plan (implementation planning)
 - bicep-implement (code generation)
@@ -679,4 +679,4 @@ Add to all stages:
 ---
 
 **Last Updated:** 2025-01-15  
-**Tested With:** GitHub Copilot custom agents (five-agent workflow)
+**Tested With:** GitHub Copilot custom agents (agentic workflow)

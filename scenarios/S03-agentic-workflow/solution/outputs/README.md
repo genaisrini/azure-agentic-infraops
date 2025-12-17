@@ -1,6 +1,6 @@
 # Pre-Generated Agent Outputs
 
-This folder contains example outputs from the five-agent workflow for the Contoso Healthcare
+This folder contains example outputs from the agentic workflow for the Contoso Healthcare
 patient portal scenario. These are provided for **reference and validation**, not as the primary
 learning tool.
 
@@ -14,10 +14,10 @@ These pre-generated outputs serve three purposes:
 
 ## Files
 
-| File | Stage | Agent | Description |
-|------|-------|-------|-------------|
-| `stage1-architecture-assessment.md` | Stage 1 | azure-principal-architect | WAF assessment and service recommendations |
-| `stage2-implementation-plan.md` | Stage 3 | bicep-plan | Resource breakdown with dependency diagrams |
+| File                                | Stage   | Agent                     | Description                                 |
+| ----------------------------------- | ------- | ------------------------- | ------------------------------------------- |
+| `stage1-architecture-assessment.md` | Stage 1 | azure-principal-architect | WAF assessment and service recommendations  |
+| `stage2-implementation-plan.md`     | Stage 3 | bicep-plan                | Resource breakdown with dependency diagrams |
 
 > **Note:** Stage 0 (@plan) and Stage 2 (adr_generator) outputs are not pre-generated because
 > they're highly dependent on the specific conversation flow and clarifying questions asked.
@@ -52,9 +52,9 @@ based on:
 ## Relationship to Other Files
 
 ```text
-scenarios/S03-five-agent-workflow/
+scenarios/S03-agentic-workflow/
 ├── examples/
-│   └── five-agent-conversation.md  ← Full conversation transcript (learning focus)
+│   └── agentic-workflow-conversation.md  ← Full conversation transcript (learning focus)
 ├── prompts/
 │   └── workflow-prompts.md          ← Prompts to use with agents
 ├── solution/
@@ -69,7 +69,7 @@ scenarios/S03-five-agent-workflow/
 
 ### Learning Path
 
-1. **Start with** `examples/five-agent-conversation.md` to see how discovery questions work
+1. **Start with** `examples/agentic-workflow-conversation.md` to see how discovery questions work
 2. **Use** `prompts/workflow-prompts.md` as reference when running your own sessions
 3. **Compare** your live outputs against these pre-generated outputs
 4. **Generate** your own Bicep templates using the bicep-implement agent
@@ -78,13 +78,13 @@ scenarios/S03-five-agent-workflow/
 
 Your live outputs should be similar but not identical. Look for:
 
-| Element | Should Match | May Differ |
-|---------|--------------|------------|
-| WAF pillar scores | Within ±1 point | Exact scores |
-| Recommended services | Core services (App Service, SQL, Key Vault) | Optional services |
-| Cost estimates | Within ±20% | Exact figures |
-| Mermaid diagrams | Resource types and dependencies | Layout and styling |
-| Security recommendations | TLS, encryption, managed identity | Additional hardening |
+| Element                  | Should Match                                | May Differ           |
+| ------------------------ | ------------------------------------------- | -------------------- |
+| WAF pillar scores        | Within ±1 point                             | Exact scores         |
+| Recommended services     | Core services (App Service, SQL, Key Vault) | Optional services    |
+| Cost estimates           | Within ±20%                                 | Exact figures        |
+| Mermaid diagrams         | Resource types and dependencies             | Layout and styling   |
+| Security recommendations | TLS, encryption, managed identity           | Additional hardening |
 
 ## Validation Checklist
 

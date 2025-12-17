@@ -800,5 +800,5 @@ This repository provides practical scenarios to help you prepare for the audit c
 | **3.1 Repeatable Deployment**   | [S01-bicep-baseline](../../scenarios/S01-bicep-baseline)           | Bicep implementation of Hub & Spoke ALZ        |
 | **3.1 Repeatable Deployment**   | [S02-terraform-baseline](../../scenarios/S02-terraform-baseline)   | Terraform implementation of Hub & Spoke ALZ    |
 | **4.1 Service Validation**      | [S06-service-validation](../../scenarios/S06-service-validation)   | Automated testing of migrated workloads        |
-| **3.3 Migration Tools**         | [S03-five-agent-workflow](../../scenarios/S03-five-agent-workflow) | Planning and executing migrations with Copilot |
+| **3.3 Migration Tools**         | [S03-agentic-workflow](../../scenarios/S03-agentic-workflow) | Planning and executing migrations with Copilot |
 | **2.2 Well-Architected Review** | [S07-troubleshooting](../../scenarios/S07-troubleshooting)         | Identifying and fixing architectural issues    |

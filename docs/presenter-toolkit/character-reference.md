@@ -54,7 +54,7 @@ Same workflow, same quality, whether it's AWS or Azure."
 
 ---
 
-### Jennifer Chen (S03 - Five-Agent Workflow)
+### Jennifer Chen (S03 - Agentic Workflow)
 
 > _"My clients pay for architecture, not typing. Every hour I spend on boilerplate
 > is an hour I'm not designing solutions."_
@@ -65,7 +65,7 @@ Same workflow, same quality, whether it's AWS or Azure."
 - **Success Metric**: Requirements to deployable code in < 1 hour
 
 **Demo Hook**: "Jennifer has a new client engagement. HIPAA compliance, tight budget,
-ambitious timeline. Watch how the 4-step workflow becomes her secret weapon."
+ambitious timeline. Watch how the 6-step workflow becomes her secret weapon."
 
 ---
 

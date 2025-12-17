@@ -101,7 +101,7 @@ Most scenarios use minimal resources, but check these quotas for larger demos:
 | Bicep syntax                     | S01 - Bicep Baseline scenario             |
 | Terraform basics                 | S02 - Terraform Baseline scenario         |
 | Copilot prompting                | Every scenario includes effective prompts |
-| Azure Well-Architected Framework | S03 - Five Agent Workflow                 |
+| Azure Well-Architected Framework | S03 - Agentic Workflow                 |
 
 ### Not Required
 

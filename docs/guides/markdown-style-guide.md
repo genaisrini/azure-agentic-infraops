@@ -28,7 +28,7 @@ Concise rules to keep docs consistent and readable.
 
 ## Tone and Audience
 - Concise, action-oriented, IT Pro focused.
-- Call out defaults when relevant: swedencentral (germanywestcentral fallback), AVM-first, four-step workflow.
+- Call out defaults when relevant: swedencentral (germanywestcentral fallback), AVM-first, six-step workflow.
 
 ## Validation
 - Run `markdownlint "**/*.md" --ignore node_modules` (MD013 set to 120).

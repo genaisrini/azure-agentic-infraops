@@ -265,6 +265,69 @@ Before finalizing the ADR, verify:
 
 ---
 
+## Workflow Integration
+
+### Position in Workflow
+
+This agent produces artifacts in **Step 3** (pre-build, `-design`) or **Step 6** (post-build, `-asbuilt`).
+
+```mermaid
+%%{init: {'theme':'neutral'}}%%
+graph TD
+    A[azure-principal-architect<br/>Step 2] --> D{Document decision?}
+    D -->|Yes| ADR[adr-generator<br/>-design suffix]
+    D -->|No| B[bicep-plan<br/>Step 4]
+    ADR --> B
+    I[bicep-implement<br/>Step 5] --> F{Final documentation?}
+    F -->|Yes| ADR2[adr-generator<br/>-asbuilt suffix]
+    F -->|No| Done[Complete]
+    ADR2 --> Done
+
+    style ADR fill:#fff3e0,stroke:#ff9800,stroke-width:2px
+    style ADR2 fill:#fff3e0,stroke:#ff9800,stroke-width:2px
+```
+
+**6-Step Workflow Overview:**
+
+| Step | Phase | This Agent's Role |
+|------|-------|-------------------|
+| 1 | @plan | — |
+| 2 | azure-principal-architect | Caller (triggers Step 3) |
+| 3 | **Pre-Build Artifacts** | Generate `-design` ADRs (proposed decisions) |
+| 4 | bicep-plan | — |
+| 5 | bicep-implement | Caller (triggers Step 6) |
+| 6 | **Post-Build Artifacts** | Generate `-asbuilt` ADRs (implemented decisions) |
+
+### Artifact Suffix Convention
+
+Apply the appropriate suffix based on when the ADR is generated:
+
+- **`-design`**: Pre-implementation ADRs (Step 3 artifacts)
+  - Example: `adr-0015-database-selection-design.md`
+  - Status: "Proposed" or "Accepted"
+  - Represents: Decisions made during architecture phase
+  - Called from: `azure-principal-architect` handoff
+
+- **`-asbuilt`**: Post-implementation ADRs (Step 6 artifacts)
+  - Example: `adr-0015-database-selection-asbuilt.md`
+  - Status: "Implemented"
+  - Represents: Actual decisions after implementation, including any deviations
+  - Called from: `bicep-implement` handoff
+
+**Suffix Rules:**
+
+1. When called from `azure-principal-architect` → use `-design` suffix
+2. When called from `bicep-implement` → use `-asbuilt` suffix
+3. When called standalone:
+   - Design/proposal/planning language → use `-design`
+   - Deployed/implemented/current state language → use `-asbuilt`
+   - If updating an existing `-design` ADR after implementation → create `-asbuilt` version
+
+**Important**: The `-asbuilt` ADR may differ from `-design` if implementation required changes.
+Document any deviations in the "Implementation Notes" section.
+
+---
+
 ## Patterns to Avoid
 
 | Anti-Pattern                 | Problem                                          | Solution                                                              |

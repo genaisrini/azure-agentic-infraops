@@ -206,7 +206,7 @@ The core Agentic InfraOps workflow: `@plan` → `azure-principal-architect` → 
 
 ### @plan
 
-VS Code's built-in planning agent. Starting point for the 4-step workflow. Gathers requirements
+VS Code's built-in planning agent. Starting point for the 6-step workflow. Gathers requirements
 and creates implementation plans.
 
 🔗 **External**: [VS Code Plan Agent](https://code.visualstudio.com/docs/copilot/chat/chat-planning)

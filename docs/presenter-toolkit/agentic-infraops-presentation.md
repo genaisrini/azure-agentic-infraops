@@ -333,7 +333,7 @@ Azure Synapse and Power BI integration
 | --- | ------------------------ | -------- | ------------ |
 | S01 | Bicep Baseline           | 30 min   | Beginner     |
 | S02 | Terraform Baseline       | 30 min   | Beginner     |
-| S03 | Five-Agent Workflow      | 45 min   | Advanced     |
+| S03 | Agentic Workflow      | 45 min   | Advanced     |
 | S04 | Documentation Generation | 20 min   | Beginner     |
 | S05 | Service Validation       | 30 min   | Intermediate |
 

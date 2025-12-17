@@ -37,7 +37,7 @@ resources.
 
 | Section                                      | Description                    |
 | -------------------------------------------- | ------------------------------ |
-| [Workflow Guide](workflow/WORKFLOW.md)       | Complete 4-step agent workflow |
+| [Workflow Guide](workflow/WORKFLOW.md)       | Complete 6-step agent workflow |
 | [All Guides](guides/)                        | Consolidated guides hub        |
 | [Troubleshooting](guides/troubleshooting.md) | Common issues and solutions    |
 

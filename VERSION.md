@@ -104,7 +104,7 @@ platform deployment with Azure Policy compliance fixes. Updated all App Service 
 - **Monthly Cost Estimates**: Updated to ~$2,212/mo (P1v4 pricing)
 - **README.md**: Complete rewrite with MCP badge and dedicated section
 - **WORKFLOW.md**: Restructured with MCP integration documentation
-- **Workflow Visualization**: 4-step with optional integrations pattern
+- **Workflow Visualization**: 6-step with optional integrations pattern
 
 ### Fixed
 
@@ -119,13 +119,13 @@ platform deployment with Azure Policy compliance fixes. Updated all App Service 
 
 ### Summary
 
-Repository restructured to focus exclusively on the 4-step agent workflow for Azure
+Repository restructured to focus exclusively on the 6-step agent workflow for Azure
 infrastructure development. Removed legacy scenarios and resources to provide a clean,
 focused experience.
 
 ### Changed
 
-- **Repository Focus**: Now centered on the 4-step agent workflow
+- **Repository Focus**: Now centered on the 6-step agent workflow
 - **Simplified Structure**: Removed scenarios, resources folders
 - **Clean Slate**: Empty `demos/`, `infra/bicep/`, `docs/adr/`, `docs/diagrams/` ready for generated content
 

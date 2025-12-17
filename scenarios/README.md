@@ -23,7 +23,7 @@
 | -------------------------------- | ------------------------------------------------------- |
 | **New to Copilot**               | [S01 Bicep Baseline](#s01-bicep-baseline)               |
 | **Want a quick demo**            | [S11 Quick Demos](S11-quick-demos/) - 15-30 min prompts |
-| **Experienced with IaC**         | [S03 Five-Agent Workflow](#s03-five-agent-workflow)     |
+| **Experienced with IaC**         | [S03 Agentic Workflow](#s03-agentic-workflow)           |
 | **Full workflow demo**           | [S04 E-Commerce Platform](#s04-e-commerce-platform)     |
 | **Focused on Terraform**         | [S02 Terraform Baseline](#s02-terraform-baseline)       |
 | **Looking for async automation** | [S10 Coding Agent](#s10-coding-agent)                   |
@@ -49,7 +49,7 @@ For simple, single-prompt scenarios, see the [S11 Quick Demos](S11-quick-demos/)
 | --- | --------------------------------------------------------- | --------------- | -------------------------------------- | --------- | ------------ |
 | S01 | [Bicep Baseline](#s01-bicep-baseline)                     | Elena Rodriguez | Build secure Azure network foundation  | 30 min    | Beginner     |
 | S02 | [Terraform Baseline](#s02-terraform-baseline)             | Jordan Martinez | Multi-cloud IaC with Terraform         | 30 min    | Beginner     |
-| S03 | [Five-Agent Workflow](#s03-five-agent-workflow)           | Jennifer Chen   | End-to-end infrastructure design       | 45-60 min | Advanced     |
+| S03 | [Agentic Workflow](#s03-agentic-workflow)                 | Jennifer Chen   | End-to-end infrastructure design       | 45-60 min | Advanced     |
 | S04 | [E-Commerce Platform](#s04-e-commerce-platform)           | Carlos Mendez   | PCI-DSS compliant retail platform      | 60-90 min | Advanced     |
 | S05 | [Documentation Generation](#s05-documentation-generation) | Priya Sharma    | Auto-generate docs from code           | 90 min    | Intermediate |
 | S06 | [Service Validation](#s06-service-validation)             | Marcus Chen     | Automated UAT and load testing         | 30 min    | Intermediate |
@@ -102,9 +102,9 @@ For simple, single-prompt scenarios, see the [S11 Quick Demos](S11-quick-demos/)
 
 ---
 
-### S03: Five-Agent Workflow
+### S03: Agentic Workflow
 
-**[📁 View Scenario](S03-five-agent-workflow/)**
+**[📁 View Scenario](S03-agentic-workflow/)**
 
 > **Character**: Jennifer Chen — Solutions Architect at Meridian Systems (SI Partner)
 
@@ -113,40 +113,43 @@ For simple, single-prompt scenarios, see the [S11 Quick Demos](S11-quick-demos/)
 
 **Challenge**: Design and implement a HIPAA-compliant patient portal for Contoso Healthcare.
 
-**The Five Agents**:
+**The 6-Step Agentic Workflow**:
 
 ```mermaid
 %%{init: {'theme':'neutral'}}%%
 flowchart LR
-    A["@plan<br/>Strategic Planning"] --> B["ADR Generator<br/>Decision Docs"]
-    B --> C["Azure Architect<br/>WAF Assessment"]
-    C --> D["Bicep Planner<br/>Module Design"]
-    D --> E["Bicep Implement<br/>Code Generation"]
+    A["@plan<br/>Step 1"] --> B["Azure Architect<br/>Step 2"]
+    B --> C["Pre-Build Artifacts<br/>Step 3"]
+    C --> D["Bicep Planner<br/>Step 4"]
+    D --> E["Bicep Implement<br/>Step 5"]
+    E --> F["Post-Build Artifacts<br/>Step 6"]
 
     style A fill:#e3f2fd,stroke:#1976d2
-    style B fill:#f3e5f5,stroke:#7b1fa2
-    style C fill:#e8f5e9,stroke:#388e3c
+    style B fill:#e8f5e9,stroke:#388e3c
+    style C fill:#f3e5f5,stroke:#7b1fa2
     style D fill:#fff3e0,stroke:#f57c00
     style E fill:#fce4ec,stroke:#c2185b
+    style F fill:#f3e5f5,stroke:#7b1fa2
 ```
 
-| Agent                       | Type     | Purpose                                |
-| --------------------------- | -------- | -------------------------------------- |
-| `@plan`                     | Built-in | Strategic planning with cost estimates |
-| `adr_generator`             | Custom   | Document architectural decisions       |
-| `azure-principal-architect` | Custom   | Azure WAF assessment                   |
-| `bicep-plan`                | Custom   | Infrastructure module design           |
-| `bicep-implement`           | Custom   | Generate production-ready Bicep        |
+| Step | Agent/Phase                 | Type     | Purpose                                |
+| ---- | --------------------------- | -------- | -------------------------------------- |
+| 1    | `@plan`                     | Built-in | Strategic planning with cost estimates |
+| 2    | `azure-principal-architect` | Custom   | Azure WAF assessment                   |
+| 3    | Pre-Build Artifacts         | Optional | Design diagrams + ADRs (`-design`)     |
+| 4    | `bicep-plan`                | Custom   | Infrastructure planning + governance   |
+| 5    | `bicep-implement`           | Custom   | Generate production-ready Bicep        |
+| 6    | Post-Build Artifacts        | Optional | As-built diagrams + ADRs (`-asbuilt`)  |
 
 > **Note:** The Plan Agent (`@plan`) is a **built-in VS Code feature**—see [VS Code docs](https://code.visualstudio.com/docs/copilot/chat/chat-planning).
-> The other four agents are custom agents defined in `.github/agents/`.
+> The other agents are custom agents defined in `.github/agents/`.
 
 **Time Comparison**:
 
-| Approach                 | Duration       |
-| ------------------------ | -------------- |
-| Traditional manual       | 18+ hours      |
-| With Five-Agent Workflow | **45 minutes** |
+| Approach              | Duration       |
+| --------------------- | -------------- |
+| Traditional manual    | 18+ hours      |
+| With Agentic Workflow | **45 minutes** |
 
 **Key Insight**: Structured agent handoffs preserve context and produce near-production-ready code.
 
@@ -370,7 +373,7 @@ Best for: IT Pros new to Infrastructure as Code
 ### Path 2: Advanced Workflow (4 hours)
 
 ```
-S03 Five-Agent Workflow → S04 E-Commerce Platform → S09 Diagrams as Code
+S03 Agentic Workflow → S04 E-Commerce Platform → S09 Diagrams as Code
 ```
 
 Best for: Architects and senior engineers
@@ -410,7 +413,7 @@ For detailed methodology and research sources, see
 | ----------------------- | ----------- | ------------ | ------- |
 | S01 Bicep Baseline      | 4-6 hours   | 30 min       | 87-92%  |
 | S02 Terraform Baseline  | 4-6 hours   | 30 min       | 87-92%  |
-| S03 Five-Agent Workflow | 18+ hours   | 45 min       | 96%     |
+| S03 Agentic Workflow    | 18+ hours   | 45 min       | 96%     |
 | S04 E-Commerce Platform | 24+ hours   | 60 min       | 96%     |
 | S05 Documentation Gen   | 20+ hours   | 90 min       | 93%     |
 | S06 Service Validation  | 4-6 hours   | 30 min       | 87-92%  |

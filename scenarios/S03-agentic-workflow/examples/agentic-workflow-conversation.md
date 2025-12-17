@@ -1,6 +1,6 @@
-# Five-Agent Workflow: Complete Conversation Transcript
+# Agentic Workflow: Complete Conversation Transcript
 
-This document shows a complete conversation demonstrating all five agents working together
+This document shows a complete conversation demonstrating the 6-step agentic workflow agents working together
 to design and implement Azure infrastructure for Contoso Healthcare's patient portal.
 
 **Character**: Jennifer Chen, Solutions Architect at Meridian Systems (SI Partner)  
@@ -1303,7 +1303,7 @@ bicep build main.bicep
 
 ---
 
-## Summary: Five-Agent Workflow Value
+## Summary: Agentic Workflow Value
 
 ### Time Comparison
 
@@ -1340,5 +1340,5 @@ prompts for healthcare, financial services, and retail scenarios.
 
 ---
 
-_This transcript demonstrates the complete five-agent workflow from planning to deployment.
+_This transcript demonstrates the complete agentic workflow from planning to deployment.
 The actual implementation is available in `../../infra/bicep/contoso-patient-portal/`._

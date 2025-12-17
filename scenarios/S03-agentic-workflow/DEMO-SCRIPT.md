@@ -1,4 +1,4 @@
-Demo Script: Five-Agent Workflow for Azure Infrastructure
+Demo Script: Agentic Workflow for Azure Infrastructure
 
 **Duration**: 45-60 minutes (full) | 20-25 minutes (abbreviated)  
 **Audience**: Solution Architects, Cloud Architects, Infrastructure Engineers  
@@ -19,7 +19,7 @@ By the end of this demo, the audience will:
 ### Environment Setup (10 minutes before)
 
 - [ ] VS Code open with GitHub Copilot installed
-- [ ] Open `scenarios/S03-five-agent-workflow/` directory
+- [ ] Open `scenarios/S03-agentic-workflow/` directory
 - [ ] GitHub Copilot Chat visible (`Ctrl+Alt+I`)
 - [ ] Verify **Plan** agent available in dropdown (built-in, no setup required)
 - [ ] Test custom agent selection (`Ctrl+Shift+A`) - verify all 4 custom agents available
@@ -380,7 +380,7 @@ bicep lint main.bicep
 **Time Comparison:**
 
 - Traditional: 18-20 hours
-- With five-agent workflow: 45 minutes - 1 hour
+- With agentic workflow: 45 minutes - 1 hour
 - **Time saved: 17+ hours per project**
 
 **Key Benefits of Starting with Plan Agent:**
@@ -437,7 +437,7 @@ A: The workflow pattern applies universally. You'd need to create cloud-specific
 
 **Where to Find Everything:**
 
-- Demo Files: `scenarios/S03-five-agent-workflow/`
+- Demo Files: `scenarios/S03-agentic-workflow/`
 - Agent Configuration: `.github/agents/`
 - Full Workflow Guide: `docs/workflow/WORKFLOW.md`
 - Bicep Templates: `infra/bicep/contoso-patient-portal/`

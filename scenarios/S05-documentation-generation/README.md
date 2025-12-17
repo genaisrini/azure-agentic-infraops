@@ -323,7 +323,7 @@ test resources, or work through the conversation transcript without live Azure a
 
 - **S01-bicep-baseline:** Infrastructure to document
 - **S02-terraform-baseline:** Alternative IaC to document
-- **S03-five-agent-workflow:** Multi-agent approach for complex projects
+- **S03-agentic-workflow:** Multi-agent approach for complex projects
 - **S06-troubleshooting:** Generate troubleshooting docs from real issues
 
 ---

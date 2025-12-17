@@ -1,6 +1,6 @@
 # Workflow Documentation
 
-This folder contains the complete guide to the Agentic InfraOps four-step agent workflow.
+This folder contains the complete guide to the Agentic InfraOps six-step agent workflow.
 
 ## Quick Reference
 

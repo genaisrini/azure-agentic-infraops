@@ -436,7 +436,7 @@ Share these with participants:
 - [Azure Verified Modules](https://registry.terraform.io/namespaces/Azure)
 - [Terratest Documentation](https://terratest.gruntwork.io/)
 - [S01: Bicep Baseline](../S01-bicep-baseline/)
-- [S03: Five-Agent Workflow](../S03-five-agent-workflow/)
+- [S03: Agentic Workflow](../S03-agentic-workflow/)
 
 ---
 

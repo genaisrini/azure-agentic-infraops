@@ -42,7 +42,7 @@ This guide specifies exactly where to insert images, screenshots, and diagrams i
 
 ---
 
-### Slide 9: Four-Step Agent Workflow
+### Slide 9: Six-Step Agent Workflow
 
 **Center/Full width:** Workflow diagram
 

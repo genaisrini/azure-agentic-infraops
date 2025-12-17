@@ -34,7 +34,7 @@ whether you're presenting to customers, colleagues, training sessions, or leader
 GitHub Copilot delivers **60-95% time savings** on infrastructure development tasks, with measured results
 across all 9 repository scenarios.
 
-**Highlights**: S03 Five-Agent Workflow achieves 96% savings (18 hours → 45 min).
+**Highlights**: S03 Agentic Workflow achieves 96% savings (18 hours → 45 min).
 
 📖 **Full data & methodology**: [Time Savings Evidence](../value-proposition/time-savings-evidence.md)
 
@@ -71,7 +71,7 @@ across all 9 repository scenarios.
 
 1. **Review** the latest scenarios (S01-S11) for new demo material
 2. **Customize** the ROI Calculator for your audience's context
-3. **Explore** advanced scenarios like S03 (Five-Agent Workflow) and S10 (Coding Agent)
+3. **Explore** advanced scenarios like S03 (Agentic Workflow) and S10 (Coding Agent)
 
 ## 🎯 Audience-Specific Tips
 

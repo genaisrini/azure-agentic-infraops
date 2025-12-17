@@ -1,4 +1,4 @@
-# ADR-001: Four-Step Agent Workflow Design
+# ADR-001: Six-Step Agent Workflow Design
 
 ## Status
 
@@ -28,7 +28,7 @@ design a workflow that:
 
 ## Decision
 
-We adopted a **four-step workflow** with approval gates:
+We adopted a **six-step workflow** with approval gates:
 
 ```
 @plan → azure-principal-architect → bicep-plan → bicep-implement

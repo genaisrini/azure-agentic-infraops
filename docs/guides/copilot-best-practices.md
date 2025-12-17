@@ -300,7 +300,7 @@ Copilot features evolve rapidly. Stay updated:
 
 ## Next Steps
 
-- **Workflow guide** → [Four-Step Agent Workflow](../workflow/WORKFLOW.md)
+- **Workflow guide** → [Six-Step Agent Workflow](../workflow/WORKFLOW.md)
 - **First scenario** → [S01 Bicep Baseline](../../scenarios/S01-bicep-baseline/)
 - **Troubleshooting** → [Troubleshooting Guide](troubleshooting.md)
 

@@ -50,7 +50,7 @@ This folder consolidates all operational guides for Agentic InfraOps, from getti
 
 ## Related Documentation
 
-- [Workflow Guide](../workflow/WORKFLOW.md) — Complete four-step agent workflow
+- [Workflow Guide](../workflow/WORKFLOW.md) — Complete six-step agent workflow
 - [Scenarios](../../scenarios/) — Learning scenarios and demos
 - [ADRs](../adr/) — Architecture Decision Records (ADR-003 AVM-first, ADR-004 regions)
 - [Value Proposition](../value-proposition/) — ROI, time savings, executive pitch

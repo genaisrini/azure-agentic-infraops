@@ -281,7 +281,7 @@ gh issue create \
 ## Related Scenarios
 
 - **[S01 Bicep Baseline](../S01-bicep-baseline)** — Learn Bicep fundamentals first
-- **[S03 Five Agent Workflow](../S03-five-agent-workflow)** — Interactive agent workflow
+- **[S03 Agentic Workflow](../S03-agentic-workflow)** — Interactive agent workflow
 - **[S05 Service Validation](../S05-service-validation)** — Test the alerts you create
 
 ---

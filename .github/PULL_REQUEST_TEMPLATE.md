@@ -25,7 +25,7 @@ Fixes #
 
 <!-- Which agent workflow was used to create these changes? -->
 
-- [ ] 4-step workflow: `@plan` → `azure-principal-architect` → `bicep-plan` → `bicep-implement`
+- [ ] 6-step workflow: `@plan` → `azure-principal-architect` → `bicep-plan` → `bicep-implement`
 - [ ] Direct implementation (simple change)
 - [ ] Copilot Coding Agent (autonomous)
 - [ ] Manual implementation

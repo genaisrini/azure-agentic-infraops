@@ -380,7 +380,7 @@ and how to fix it?
 ### Extended Learning
 - [Azure Bicep Documentation](https://learn.microsoft.com/azure/azure-resource-manager/bicep/)
 - [S02: Terraform Baseline](../S02-terraform-baseline/) - Multi-cloud alternative
-- [S03: Five-Agent Workflow](../S03-five-agent-workflow/) - Enterprise patterns
+- [S03: Agentic Workflow](../S03-agentic-workflow/) - Enterprise patterns
 
 ---
 

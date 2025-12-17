@@ -589,16 +589,29 @@ Before completing implementation, verify:
 
 ### Position in Workflow
 
-This agent is **Step 4** (final step) of the 4-step infrastructure workflow.
+This agent is **Step 5** of the 6-step agentic infrastructure workflow.
 
 ```mermaid
 %%{init: {'theme':'neutral'}}%%
 graph LR
-    P["@plan<br/>(built-in)"] --> A[azure-principal-architect]
-    A --> B[bicep-plan]
-    B --> I[bicep-implement]
+    P["@plan<br/>(Step 1)"] --> A[azure-principal-architect<br/>Step 2]
+    A --> D["Pre-Build Artifacts<br/>(Step 3)"]
+    D --> B[bicep-plan<br/>Step 4]
+    B --> I[bicep-implement<br/>Step 5]
+    I --> F["Post-Build Artifacts<br/>(Step 6)"]
     style I fill:#fce4ec,stroke:#e91e63,stroke-width:3px
 ```
+
+**6-Step Workflow Overview:**
+
+| Step | Agent/Phase | Purpose |
+|------|-------------|----------|
+| 1 | @plan | Requirements gathering |
+| 2 | azure-principal-architect | WAF assessment |
+| 3 | Pre-Build Artifacts | Design diagrams + ADRs (optional) |
+| 4 | bicep-plan | Implementation planning + governance discovery |
+| 5 | **bicep-implement** | Bicep code generation (YOU ARE HERE) |
+| 6 | Post-Build Artifacts | As-built diagrams + ADRs (optional) |
 
 ### Input
 

@@ -34,7 +34,7 @@ with real-time cost validation using the Azure Pricing MCP server.
 
 ## 🌟 Why This Matters
 
-This demo extends the 4-step workflow by adding:
+This demo extends the 6-step workflow by adding:
 
 - 💰 **Real-time pricing**: Azure Pricing MCP server for accurate cost estimates
 - 📊 **Architecture diagrams**: Python-based diagrams using `diagrams` library

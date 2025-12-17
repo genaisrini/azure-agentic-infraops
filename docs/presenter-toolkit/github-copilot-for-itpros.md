@@ -219,7 +219,7 @@ Experts skip boilerplate. Mid-level pros produce expert-quality work. Newcomers 
 
 ---
 
-# The Four-Step Agent Workflow
+# The Six-Step Agent Workflow
 
 ## From Requirements to Deployed Infrastructure
 

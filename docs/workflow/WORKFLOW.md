@@ -2,7 +2,7 @@
 
 > **Version 3.2.0** | Last Updated: December 7, 2025
 
-This document describes the 4-step agent workflow for Azure infrastructure development with Agentic InfraOps.
+This document describes the 6-step agent workflow for Azure infrastructure development with Agentic InfraOps.
 
 ---
 
@@ -17,33 +17,37 @@ graph TB
 
     subgraph "Step 2: Architecture"
         A["azure-principal-architect<br/>(NO CODE)"]
-        subgraph "Optional During Architecture"
-            MCP["💰 Azure Pricing MCP<br/>(real-time costs)"]
-            D["📊 diagram-generator<br/>(visualization)"]
-            ADR1["📝 adr-generator<br/>(decisions)"]
-        end
+        MCP["💰 Azure Pricing MCP"]
     end
 
-    subgraph "Step 3: Planning"
-        B["bicep-plan<br/>(plan only)"]
+    subgraph "Step 3: Pre-Build Artifacts"
+        D["📊 diagram-generator<br/>(-design suffix)"]
+        ADR1["📝 adr-generator<br/>(-design suffix)"]
     end
 
-    subgraph "Step 4: Implementation"
+    subgraph "Step 4: Planning"
+        B["bicep-plan<br/>(governance discovery)"]
+    end
+
+    subgraph "Step 5: Implementation"
         I["bicep-implement<br/>(code generation)"]
-        subgraph "Optional After Implementation"
-            ADR2["📝 adr-generator"]
-        end
+    end
+
+    subgraph "Step 6: Post-Build Artifacts"
+        D2["📊 diagram-generator<br/>(-asbuilt suffix)"]
+        ADR2["📝 adr-generator<br/>(-asbuilt suffix)"]
     end
 
     P -->|"requirements"| A
-    A -->|"architecture"| B
-    B -->|"plan"| I
-
     MCP -.->|"pricing data"| A
-    D -.->|"diagrams"| A
-    ADR1 -.->|"decisions"| A
-    MCP -.->|"cost validation"| B
-    ADR2 -.->|"decisions"| I
+    A -->|"architecture"| D
+    A -->|"architecture"| ADR1
+    D --> B
+    ADR1 --> B
+    A -->|"skip artifacts"| B
+    B -->|"plan"| I
+    I -->|"code complete"| D2
+    I -->|"code complete"| ADR2
 
     style P fill:#e1f5fe
     style A fill:#fff3e0
@@ -52,25 +56,42 @@ graph TB
     style ADR1 fill:#e8eaf6
     style B fill:#e8f5e9
     style I fill:#fce4ec
+    style D2 fill:#f3e5f5
     style ADR2 fill:#e8eaf6
 ```
 
 ## Workflow Steps
 
-| Step | Agent                       | Purpose                  | Creates                      | Approval Required |
-| ---- | --------------------------- | ------------------------ | ---------------------------- | ----------------- |
-| 1    | `@plan` (built-in)          | Gather requirements      | Requirements plan            | ✅ Yes            |
-| 2    | `azure-principal-architect` | WAF assessment & pricing | Architecture recommendations | ✅ Yes            |
-| 3    | `bicep-plan`                | Implementation planning  | `INFRA.md` plan file         | ✅ Yes            |
-| 4    | `bicep-implement`           | Code generation          | Bicep templates              | ✅ Yes            |
+| Step | Agent/Phase                 | Purpose                              | Creates                             | Required |
+| ---- | --------------------------- | ------------------------------------ | ----------------------------------- | -------- |
+| 1    | `@plan` (built-in)          | Gather requirements                  | Requirements plan                   | ✅ Yes   |
+| 2    | `azure-principal-architect` | WAF assessment & pricing             | Architecture recommendations        | ✅ Yes   |
+| 3    | Pre-Build Artifacts         | Visualize design, document decisions | `-design` diagrams + ADRs           | Optional |
+| 4    | `bicep-plan`                | Implementation planning + governance | `INFRA.md` + governance constraints | ✅ Yes   |
+| 5    | `bicep-implement`           | Code generation                      | Bicep templates                     | ✅ Yes   |
+| 6    | Post-Build Artifacts        | Document final state                 | `-asbuilt` diagrams + ADRs          | Optional |
 
-### Optional Integrations (During Step 2)
+### Step 3: Pre-Build Artifacts (Optional)
 
-| Tool/Agent             | When to Use                       | Triggered By                        |
-| ---------------------- | --------------------------------- | ----------------------------------- |
-| 💰 Azure Pricing MCP   | Get real-time Azure pricing       | Automatic during architecture phase |
-| 📊 `diagram-generator` | Create architecture visualization | Ask: "generate diagram"             |
-| 📝 `adr-generator`     | Document key decisions            | Ask: "create ADR for this decision" |
+| Tool/Agent             | Purpose                         | Output Suffix | Triggered By                        |
+| ---------------------- | ------------------------------- | ------------- | ----------------------------------- |
+| 📊 `diagram-generator` | Visualize proposed architecture | `-design`     | Ask: "generate diagram"             |
+| 📝 `adr-generator`     | Document design decisions       | `-design`     | Ask: "create ADR for this decision" |
+
+### Step 4: Governance Discovery (NEW)
+
+The `bicep-plan` agent now discovers Azure Policy constraints before creating the plan:
+
+1. Queries Azure Resource Graph for policy assignments
+2. Generates `.bicep-planning-files/governance-constraints.md` and `.json`
+3. Ensures implementation plan complies with org policies
+
+### Step 6: Post-Build Artifacts (Optional)
+
+| Tool/Agent             | Purpose                           | Output Suffix | Triggered By                         |
+| ---------------------- | --------------------------------- | ------------- | ------------------------------------ |
+| 📊 `diagram-generator` | Document deployed architecture    | `-asbuilt`    | Ask: "generate as-built diagram"     |
+| 📝 `adr-generator`     | Document implementation decisions | `-asbuilt`    | Ask: "create ADR for implementation" |
 
 ---
 
@@ -248,18 +269,24 @@ Implementer: [Executes deployment to Azure]
 
 ### diagram-generator
 
-- **Input**: Architecture context from azure-principal-architect
+- **Input**: Architecture context from azure-principal-architect OR bicep-implement
 - **Output**: Python diagram file in `docs/diagrams/{goal}/` + PNG image
-- **Triggered By**: User request during architecture phase ("generate diagram")
+- **Artifact Suffix**:
+  - `-design` when called from Step 2 (architecture phase)
+  - `-asbuilt` when called from Step 5 (implementation phase)
+- **Triggered By**: User request ("generate diagram", "create as-built diagram")
 - **Library**: Uses Python `diagrams` library
 
 ### bicep-plan
 
 - **Input**: Architecture assessment from azure-principal-architect
-- **Output**: Implementation plan in `.bicep-planning-files/INFRA.{goal}.md`
+- **Output**:
+  - Implementation plan in `.bicep-planning-files/INFRA.{goal}.md`
+  - Governance constraints in `.bicep-planning-files/governance-constraints.md` and `.json`
+- **Governance Discovery**: Queries Azure Policy via MCP before planning
 - **Integrations**: 💰 Uses Azure Pricing MCP for SKU cost validation
 - **Limitations**: ❌ Cannot create actual Bicep code
-- **Focus**: Detailed planning with AVM modules
+- **Focus**: Detailed planning with AVM modules + policy compliance
 
 ### bicep-implement
 
@@ -268,11 +295,15 @@ Implementer: [Executes deployment to Azure]
 - **Limitations**: Must follow the approved plan
 - **Validation**: Runs `bicep build` and `bicep lint`
 - **Focus**: Code generation and deployment
+- **Handoffs**: Can invoke diagram-generator and adr-generator for post-build artifacts
 
 ### adr-generator (Optional)
 
 - **Input**: Any architectural decision during the workflow
 - **Output**: ADR in `docs/adr/`
+- **Artifact Suffix**:
+  - `-design` when documenting design decisions (Step 3)
+  - `-asbuilt` when documenting implementation decisions (Step 6)
 - **When to Use**: Major technology choices, trade-off decisions, policy exceptions
 
 ---
@@ -290,18 +321,20 @@ into a single agent. This is useful for:
 
 ## File Locations
 
-| Artifact              | Location                                |
-| --------------------- | --------------------------------------- |
-| Implementation plans  | `.bicep-planning-files/INFRA.{goal}.md` |
-| Bicep templates       | `infra/bicep/{goal}/`                   |
-| Architecture diagrams | `docs/diagrams/{goal}/`                 |
-| MCP diagrams          | `docs/diagrams/mcp/`                    |
-| Cost estimates        | `docs/{project}-cost-estimate.md`       |
-| WAF assessments       | `docs/{project}-waf-assessment.md`      |
-| ADRs                  | `docs/adr/`                             |
-| Agent definitions     | `.github/agents/`                       |
-| MCP server            | `mcp/azure-pricing-mcp/`                |
-| MCP configuration     | `.vscode/mcp.json`                      |
+| Artifact               | Location                                            |
+| ---------------------- | --------------------------------------------------- |
+| Implementation plans   | `.bicep-planning-files/INFRA.{goal}.md`             |
+| Governance constraints | `.bicep-planning-files/governance-constraints.md`   |
+| Governance JSON        | `.bicep-planning-files/governance-constraints.json` |
+| Bicep templates        | `infra/bicep/{goal}/`                               |
+| Architecture diagrams  | `docs/diagrams/{goal}/`                             |
+| MCP diagrams           | `docs/diagrams/mcp/`                                |
+| Cost estimates         | `docs/{project}-cost-estimate.md`                   |
+| WAF assessments        | `docs/{project}-waf-assessment.md`                  |
+| ADRs                   | `docs/adr/`                                         |
+| Agent definitions      | `.github/agents/`                                   |
+| MCP server             | `mcp/azure-pricing-mcp/`                            |
+| MCP configuration      | `.vscode/mcp.json`                                  |
 
 ---
 

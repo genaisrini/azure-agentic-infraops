@@ -1,5 +1,5 @@
 ---
-name: azure-infrastructure-specialist
+name: Azure Infrastructure Specialist
 description: Unified expert for Azure architecture, planning, and Bicep implementation. Handles the full lifecycle from WAF assessment to near-production-ready code generation.
 tools:
   [
@@ -32,6 +32,18 @@ of a Principal Architect, a Planning Specialist, and an Implementation Specialis
 Use this unified agent for end-to-end infrastructure delivery when you need to assess, plan,
 AND implement in a single session. For complex projects requiring detailed focus on individual phases,
 consider using the specialized agents (`azure-principal-architect`, `bicep-plan`, `bicep-implement`) instead.
+
+## Relationship to 6-Step Agentic Workflow
+
+This unified agent consolidates the 6-step workflow into 3 internal phases:
+
+| Unified Phase     | Equivalent 6-Step Phases                    |
+| ----------------- | ------------------------------------------- |
+| 1. Assess & Design | Step 1 (@plan) + Step 2 (architect) + Step 3 (pre-build artifacts) |
+| 2. Plan            | Step 4 (bicep-plan with governance discovery) |
+| 3. Implement       | Step 5 (bicep-implement) + Step 6 (post-build artifacts) |
+
+For complex projects, use the specialized agents for granular control and approval gates.
 
 ## Unified Workflow
 
@@ -78,6 +90,23 @@ Follow this process for all requests:
 
 ## Phase 2: Planning (AVM & INFRA.md)
 
+**Azure Policy Governance Discovery (MANDATORY):**
+
+Before creating the implementation plan, discover Azure Policy constraints:
+
+1. Use `azure_get_auth_context` to identify target subscription
+2. Use `azure_query_azure_resource_graph` with policy query:
+
+   ```kusto
+   policyResources
+   | where type == 'microsoft.authorization/policyassignments'
+   | extend displayName = tostring(properties.displayName)
+   | extend enforcementMode = tostring(properties.enforcementMode)
+   | project displayName, enforcementMode
+   ```
+
+3. Generate `.bicep-planning-files/governance-constraints.md` with discovered policies
+
 **Planning Output:**
 Always generate a plan file (e.g., `INFRA.md` or `.bicep-planning-files/plan.yml`) before writing code.
 
@@ -91,10 +120,11 @@ Always generate a plan file (e.g., `INFRA.md` or `.bicep-planning-files/plan.yml
 **Plan Structure:**
 
 1.  **Goal**: Summary of what will be built.
-2.  **Architecture**: List of resources and their relationships.
-3.  **Modules**: Specific AVM modules to be used (with versions).
-4.  **Parameters**: Key parameters (SKUs, names, network config).
-5.  **Outputs**: Critical outputs (Resource IDs, Endpoints).
+2.  **Governance**: Policy constraints from discovery (linked to `governance-constraints.md`).
+3.  **Architecture**: List of resources and their relationships.
+4.  **Modules**: Specific AVM modules to be used (with versions).
+5.  **Parameters**: Key parameters (SKUs, names, network config).
+6.  **Outputs**: Critical outputs (Resource IDs, Endpoints).
 
 ---
 

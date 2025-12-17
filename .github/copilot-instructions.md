@@ -14,7 +14,7 @@ This file provides context and guidance for GitHub Copilot when assisting with t
 3. **Name Length Limits**: Key Vault ≤24 chars, Storage ≤24 chars (no hyphens), SQL ≤63 chars
 4. **Azure SQL Auth Policy**: Azure AD-only auth for SQL Server
 5. **Zone Redundancy**: App Service Plans need P1v4 SKU (not S1/P1v2) for zone redundancy
-6. **Four-Step Workflow**: `@plan` → `azure-principal-architect` → `bicep-plan` → `bicep-implement`
+6. **Six-Step Workflow**: `@plan` → `azure-principal-architect` → `bicep-plan` → `bicep-implement`
    (each step requires approval)
 7. **Deploy Script Pattern**: Use `[CmdletBinding(SupportsShouldProcess)]` + `$WhatIfPreference`
    (NOT explicit `$WhatIf` param)
@@ -87,35 +87,38 @@ The target audience is:
 - **Primary**: System Integrator (SI) partners delivering Azure infrastructure projects
 - **Secondary**: IT Pros learning cloud/IaC, customers evaluating agentic workflows
 
-## Four-Step Agent Workflow Architecture
+## Six-Step Agent Workflow Architecture
 
-This repository uses a **4-step agent workflow** for Azure infrastructure development,
-with optional pricing and diagram integrations:
+This repository uses a **6-step agent workflow** for Azure infrastructure development,
+with explicit artifact phases and governance discovery:
 
 ```mermaid
 %%{init: {'theme':'neutral'}}%%
 graph LR
-    P["@plan"] --> A[azure-principal-architect]
-    A --> B[bicep-plan]
-    B --> I[bicep-implement]
+    P["@plan<br/>Step 1"] --> A[azure-principal-architect<br/>Step 2]
+    A --> D["Pre-Build Artifacts<br/>Step 3"]
+    D --> B[bicep-plan<br/>Step 4]
+    B --> I[bicep-implement<br/>Step 5]
+    I --> F["Post-Build Artifacts<br/>Step 6"]
     MCP["💰 Azure Pricing MCP"] -.->|real-time costs| A
     MCP -.->|cost validation| B
-    D[diagram-generator] -.->|visualization| A
-    ADR[adr-generator] -.->|decisions| A
 ```
 
-| Step | Agent                       | Purpose                                             | Optional Integrations            |
+| Step | Agent/Phase                 | Purpose                                             | Artifacts/Integrations           |
 | ---- | --------------------------- | --------------------------------------------------- | -------------------------------- |
-| 1    | `@plan` (Built-in)          | Create implementation plans with cost estimates     | -                                |
-| 2    | `azure-principal-architect` | Azure Well-Architected Framework guidance (NO CODE) | 💰 Pricing MCP, 📊 Diagrams, ADR |
-| 3    | `bicep-plan`                | Infrastructure planning with AVM modules            | 💰 Pricing MCP                   |
-| 4    | `bicep-implement`           | Bicep code generation                               | ADR                              |
+| 1    | `@plan` (Built-in)          | Create implementation plans with cost estimates     | Requirements plan                |
+| 2    | `azure-principal-architect` | Azure Well-Architected Framework guidance (NO CODE) | 💰 Pricing MCP                   |
+| 3    | Pre-Build Artifacts         | Design diagrams (`-design`) + ADRs (optional)       | 📊 diagram-generator, 📝 ADR     |
+| 4    | `bicep-plan`                | Infrastructure planning + governance discovery      | 💰 Pricing MCP, governance files |
+| 5    | `bicep-implement`           | Bicep code generation                               | Bicep templates                  |
+| 6    | Post-Build Artifacts        | As-built diagrams (`-asbuilt`) + ADRs (optional)    | 📊 diagram-generator, 📝 ADR     |
 
-**Optional Integrations (during Step 2: Architecture):**
+**Key Concepts:**
 
-- **💰 Azure Pricing MCP** - Real-time Azure pricing via MCP server (automatic)
-- **📊 diagram-generator** - Python architecture diagrams (ask: "generate diagram")
-- **📝 adr-generator** - Document architectural decisions (ask: "create ADR")
+- **💰 Azure Pricing MCP** - Real-time Azure pricing via MCP server (automatic in Steps 2, 4)
+- **📊 `-design` suffix** - Pre-implementation diagrams/ADRs (Step 3)
+- **📊 `-asbuilt` suffix** - Post-implementation diagrams/ADRs (Step 6)
+- **Governance Discovery** - bicep-plan queries Azure Policy before planning (Step 4)
 
 **How to Use Custom Agents:**
 
@@ -136,19 +139,25 @@ Prompt: Create deployment plan for HIPAA-compliant patient portal
 Step 2: azure-principal-architect
 [Provides WAF assessment with scores - NO CODE CREATION]
 → Approve to continue
-→ Optional: Click "Generate Architecture Diagram" for visual
 
-Step 3: bicep-plan
-[Creates implementation plan in .bicep-planning-files/]
+Step 3: Pre-Build Artifacts (OPTIONAL)
+→ Ask: "Generate architecture diagram" for -design diagram
+→ Ask: "Create ADR for database selection" for -design ADR
+
+Step 4: bicep-plan
+[Discovers governance constraints, creates implementation plan]
 → Approve to continue
 
-Step 4: bicep-implement
+Step 5: bicep-implement
 [Generates Bicep templates, validates with bicep build/lint]
 → Approve to deploy or finalize
-→ Optional: Click "Generate Architecture Diagram" for documentation
+
+Step 6: Post-Build Artifacts (OPTIONAL)
+→ Ask: "Generate as-built diagram" for -asbuilt diagram
+→ Ask: "Create ADR documenting implementation" for -asbuilt ADR
 ```
 
-**Quick Workflow (Skip @plan):**
+**Quick Workflow (Skip artifacts):**
 
 ```
 Step 1: azure-principal-architect

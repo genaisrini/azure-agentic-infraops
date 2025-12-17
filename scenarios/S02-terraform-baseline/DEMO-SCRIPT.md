@@ -366,7 +366,7 @@ How does state locking prevent problems?
 ### Extended Learning
 - [Terraform Azure Provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
 - [S01: Bicep Baseline](../S01-bicep-baseline/) - Azure-native alternative
-- [S03: Five-Agent Workflow](../S03-five-agent-workflow/) - Enterprise patterns
+- [S03: Agentic Workflow](../S03-agentic-workflow/) - Enterprise patterns
 
 ---
 

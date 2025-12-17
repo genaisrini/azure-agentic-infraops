@@ -174,7 +174,7 @@ Step 3: @bicep-implement
 "Generate Bicep templates from the plan"
 ```
 
-See the [Workflow Guide](../workflow/WORKFLOW.md) for the complete four-step process.
+See the [Workflow Guide](../workflow/WORKFLOW.md) for the complete six-step process.
 
 ---
 

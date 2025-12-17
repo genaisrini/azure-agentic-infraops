@@ -34,11 +34,29 @@ Create Python diagram code that generates professional Azure architecture diagra
 
 ## When to Use This Agent
 
-| Trigger Point                          | Purpose                                               |
-| -------------------------------------- | ----------------------------------------------------- |
-| After architecture assessment (Step 2) | Visualize proposed architecture before implementation |
-| After Bicep implementation (Step 4)    | Document final deployed architecture                  |
-| Standalone request                     | Generate any Azure architecture diagram               |
+| Trigger Point                          | Purpose                                               | Artifact Suffix |
+| -------------------------------------- | ----------------------------------------------------- | --------------- |
+| After architecture assessment (Step 2) | Visualize proposed architecture before implementation | `-design`       |
+| After Bicep implementation (Step 5)    | Document final deployed architecture                  | `-asbuilt`      |
+| Standalone request                     | Generate any Azure architecture diagram               | (context-based) |
+
+### Artifact Suffix Convention
+
+Apply the appropriate suffix based on when the diagram is generated:
+
+- **`-design`**: Pre-implementation diagrams (Step 3 artifacts)
+  - Example: `architecture-design.py`, `architecture-design.png`
+  - Represents: Proposed architecture, conceptual design
+  - Called from: `azure-principal-architect` handoff
+
+- **`-asbuilt`**: Post-implementation diagrams (Step 6 artifacts)
+  - Example: `architecture-asbuilt.py`, `architecture-asbuilt.png`
+  - Represents: Actual deployed infrastructure
+  - Called from: `bicep-implement` handoff
+
+**Important**: When called directly (standalone request), determine intent from user prompt:
+- Design/proposal/planning language → use `-design`
+- Deployed/implemented/current state language → use `-asbuilt`
 
 ## Prerequisites
 
@@ -283,23 +301,34 @@ Before completing a diagram:
 
 ### Position in Workflow
 
-This agent is an **optional step** that can be invoked after Step 2 (architecture) or Step 4 (implementation).
+This agent produces artifacts in **Step 3** (pre-build, `-design`) or **Step 6** (post-build, `-asbuilt`).
 
 ```mermaid
 %%{init: {'theme':'neutral'}}%%
 graph TD
-    A[azure-principal-architect] --> D{Need diagram?}
-    D -->|Yes| G[diagram-generator]
-    D -->|No| B[bicep-plan]
+    A[azure-principal-architect<br/>Step 2] --> D{Need diagram?}
+    D -->|Yes| G[diagram-generator<br/>-design suffix]
+    D -->|No| B[bicep-plan<br/>Step 4]
     G --> B
-    I[bicep-implement] --> F{Document with diagram?}
-    F -->|Yes| G2[diagram-generator]
+    I[bicep-implement<br/>Step 5] --> F{Document with diagram?}
+    F -->|Yes| G2[diagram-generator<br/>-asbuilt suffix]
     F -->|No| Done[Complete]
     G2 --> Done
 
     style G fill:#e8eaf6,stroke:#3f51b5,stroke-width:2px
     style G2 fill:#e8eaf6,stroke:#3f51b5,stroke-width:2px
 ```
+
+**6-Step Workflow Overview:**
+
+| Step | Phase | This Agent's Role |
+|------|-------|-------------------|
+| 1 | @plan | — |
+| 2 | azure-principal-architect | Caller (triggers Step 3) |
+| 3 | **Pre-Build Artifacts** | Generate `-design` diagrams |
+| 4 | bicep-plan | — |
+| 5 | bicep-implement | Caller (triggers Step 6) |
+| 6 | **Post-Build Artifacts** | Generate `-asbuilt` diagrams |
 
 ### Approval Gate
 

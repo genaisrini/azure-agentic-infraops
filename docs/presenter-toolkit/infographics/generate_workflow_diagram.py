@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Agentic InfraOps - 4-Step Agent Workflow Diagram Generator
+Agentic InfraOps - 6-Step Agent Workflow Diagram Generator
 
 Creates a professional diagram showing the core agent workflow:
 @plan → azure-principal-architect → bicep-plan → bicep-implement
@@ -47,7 +47,7 @@ COLORS = {
 
 
 def create_workflow_diagram():
-    """Generate the 4-step workflow diagram."""
+    """Generate the 6-step workflow diagram."""
 
     # Create figure (landscape, presentation-friendly)
     fig = plt.figure(figsize=(16, 9), facecolor=COLORS['white'])
@@ -63,19 +63,19 @@ def create_workflow_diagram():
             color=COLORS['dark'], ha='center', va='center', style='italic')
 
     # === MAIN WORKFLOW STEPS ===
-    step_width = 3.0
-    step_height = 2.8
+    step_width = 2.2
+    step_height = 2.6
     step_y = 4.2
-    gap = 0.5
-    start_x = 0.8
+    gap = 0.35
+    start_x = 0.6
 
     steps = [
         {
             'num': '1',
             'title': '@plan',
             'subtitle': 'Requirements',
-            'agent': 'Built-in Plan Agent',
-            'desc': ['Gather requirements', 'Create implementation plan', 'Cost estimation'],
+            'agent': 'Built-in',
+            'desc': ['Gather requirements', 'Cost estimation'],
             'color': COLORS['step1'],
             'border': COLORS['step1_border'],
             'icon': '📋'
@@ -85,30 +85,50 @@ def create_workflow_diagram():
             'title': 'azure-principal-\narchitect',
             'subtitle': 'Architecture',
             'agent': 'Custom Agent',
-            'desc': ['WAF assessment', 'Security review', 'NO CODE output'],
+            'desc': ['WAF assessment', 'NO CODE output'],
             'color': COLORS['step2'],
             'border': COLORS['step2_border'],
             'icon': '🏗️'
         },
         {
             'num': '3',
+            'title': 'Pre-Build\nArtifacts',
+            'subtitle': '-design suffix',
+            'agent': 'Optional',
+            'desc': ['Design diagrams', 'Decision ADRs'],
+            'color': '#F3E5F5',  # Light purple
+            'border': '#7B1FA2',
+            'icon': '📊'
+        },
+        {
+            'num': '4',
             'title': 'bicep-plan',
             'subtitle': 'Planning',
             'agent': 'Custom Agent',
-            'desc': ['AVM module selection', 'Resource dependencies', 'Implementation plan'],
+            'desc': ['Governance discovery', 'AVM modules'],
             'color': COLORS['step3'],
             'border': COLORS['step3_border'],
             'icon': '📝'
         },
         {
-            'num': '4',
-            'title': 'bicep-implement',
+            'num': '5',
+            'title': 'bicep-\nimplement',
             'subtitle': 'Implementation',
             'agent': 'Custom Agent',
-            'desc': ['Generate Bicep code', 'Validate with lint', 'Deploy-ready templates'],
+            'desc': ['Generate Bicep', 'Validate & deploy'],
             'color': COLORS['step4'],
             'border': COLORS['step4_border'],
             'icon': '⚙️'
+        },
+        {
+            'num': '6',
+            'title': 'Post-Build\nArtifacts',
+            'subtitle': '-asbuilt suffix',
+            'agent': 'Optional',
+            'desc': ['As-built diagrams', 'Final ADRs'],
+            'color': '#F3E5F5',  # Light purple
+            'border': '#7B1FA2',
+            'icon': '📊'
         }
     ]
 
@@ -169,13 +189,16 @@ def create_workflow_diagram():
                     fontweight='bold')
 
     # === OPTIONAL INTEGRATIONS (below main flow) ===
-    ax.text(8, 1.9, 'Optional Integrations (During Architecture Phase)', fontsize=12,
+    ax.text(8, 1.9, 'Automatic Integrations', fontsize=12,
             fontweight='bold', color=COLORS['dark'], ha='center', va='center')
 
     integrations = [
-        {'name': '💰 Azure Pricing MCP', 'desc': 'Real-time cost estimates', 'x': 3.5},
-        {'name': '📊 diagram-generator', 'desc': 'Architecture visualization', 'x': 8},
-        {'name': '📝 adr-generator', 'desc': 'Decision documentation', 'x': 12.5},
+        {'name': '💰 Azure Pricing MCP',
+            'desc': 'Real-time costs (Steps 2, 4)', 'x': 4},
+        {'name': '🔒 Azure Policy',
+            'desc': 'Governance discovery (Step 4)', 'x': 8},
+        {'name': '✅ Bicep Validation',
+            'desc': 'Build & lint (Step 5)', 'x': 12},
     ]
 
     for integ in integrations:
@@ -189,16 +212,23 @@ def create_workflow_diagram():
         ax.text(integ['x'], 0.9, integ['desc'], fontsize=9,
                 color=COLORS['dark'], ha='center', va='center')
 
-    # Dashed lines connecting to Step 2
+    # Dashed lines connecting integrations to workflow
     step2_x = start_x + 1 * (step_width + gap) + step_width/2
-    step2_bottom = step_y - step_height/2
+    step4_x = start_x + 3 * (step_width + gap) + step_width/2
+    step5_x = start_x + 4 * (step_width + gap) + step_width/2
+    step_bottom = step_y - step_height/2
 
     for integ in integrations:
         ax.plot([integ['x'], integ['x']], [1.6, 2.3],
                 color=COLORS['secondary'], linewidth=1.5, linestyle='--', alpha=0.7)
-    ax.plot([3.5, 12.5], [2.3, 2.3],
+    ax.plot([4, 12], [2.3, 2.3],
             color=COLORS['secondary'], linewidth=1.5, linestyle='--', alpha=0.7)
-    ax.plot([step2_x, step2_x], [2.3, step2_bottom],
+    # Connect to steps 2, 4, and 5
+    ax.plot([step2_x, step2_x], [2.3, step_bottom],
+            color=COLORS['secondary'], linewidth=1.5, linestyle='--', alpha=0.7)
+    ax.plot([step4_x, step4_x], [2.3, step_bottom],
+            color=COLORS['secondary'], linewidth=1.5, linestyle='--', alpha=0.7)
+    ax.plot([step5_x, step5_x], [2.3, step_bottom],
             color=COLORS['secondary'], linewidth=1.5, linestyle='--', alpha=0.7)
 
     # === FOOTER ===
@@ -213,7 +243,7 @@ def main():
     output_dir = Path(__file__).parent / 'generated'
     output_dir.mkdir(exist_ok=True)
 
-    print("🎨 Generating 4-Step Workflow Diagram...")
+    print("🎨 Generating 6-Step Workflow Diagram...")
 
     fig = create_workflow_diagram()
 

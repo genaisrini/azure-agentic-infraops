@@ -104,7 +104,7 @@ but an amplifier of it.
 
 **Best For**: Hands-on workshops, training sessions
 
-**Use**: S03 (Five-Agent Workflow) or S09 (Coding Agent)
+**Use**: S03 (Agentic Workflow) or S09 (Coding Agent)
 
 **Focus**: Comprehensive workflow including ADRs, architecture review, and deployment.
 
@@ -190,7 +190,7 @@ pwsh --version        # Should show 7+
 | ------------------------- | --------- | ------------------ | ------------------------ |
 | S01 - Bicep Baseline      | 15-20 min | Quick demos        | Fast IaC generation      |
 | S02 - Terraform Baseline  | 15-20 min | Multi-cloud teams  | Cross-platform patterns  |
-| S03 - Five-Agent Workflow | 30-45 min | Deep dives         | Full agent orchestration |
+| S03 - Agentic Workflow | 30-45 min | Deep dives         | Full agent orchestration |
 | S04 - Documentation       | 10-15 min | Doc-heavy teams    | Automated README/ADR     |
 | S05 - Service Validation  | 10-15 min | Testing focus      | Validation scripts       |
 | S06 - Troubleshooting     | 15-20 min | Support teams      | Diagnostic assistance    |

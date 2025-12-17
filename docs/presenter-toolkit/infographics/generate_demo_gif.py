@@ -2,7 +2,7 @@
 """
 Generate Animated Demo GIF for Agentic InfraOps.
 
-Creates a simulated terminal animation showing the 4-step agent workflow
+Creates a simulated terminal animation showing the 6-step agentic workflow
 with realistic typing effects and command output.
 
 Requirements:

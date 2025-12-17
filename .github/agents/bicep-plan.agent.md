@@ -132,6 +132,157 @@ For each resource, document WAF alignment:
 - **Cost**: Optimization opportunities, reservation eligibility, dev/test pricing, auto-shutdown
 - **Operations**: Monitoring strategy, diagnostic settings, alerting rules, Log Analytics integration
 
+---
+
+## Azure Policy Governance Discovery (MANDATORY)
+
+**Before creating the implementation plan, discover Azure Policy constraints that affect deployment.**
+
+This step prevents deployment failures by identifying policy-enforced requirements upfront.
+
+### Discovery Process
+
+1. **Get target subscription context:**
+
+   Use `azure_get_auth_context` to identify the current subscription.
+
+2. **Query Azure Policy assignments:**
+
+   Use `azure_query_azure_resource_graph` with Resource Graph query:
+
+   ```kusto
+   policyResources
+   | where type == 'microsoft.authorization/policyassignments'
+   | extend policyDefinitionId = tostring(properties.policyDefinitionId)
+   | extend displayName = tostring(properties.displayName)
+   | extend enforcementMode = tostring(properties.enforcementMode)
+   | extend scope = tostring(properties.scope)
+   | project displayName, policyDefinitionId, enforcementMode, scope
+   | order by displayName asc
+   ```
+
+3. **Identify blocking policies for planned resources:**
+
+   For each resource type in the plan, check for policies affecting:
+
+   - Allowed locations/regions
+   - Required tags
+   - Allowed SKUs
+   - Network configurations (public access, private endpoints)
+   - Encryption requirements
+   - Authentication methods (Azure AD-only, etc.)
+
+4. **Generate governance constraints file:**
+
+   Save discovered constraints to `.bicep-planning-files/governance-constraints.md` AND
+   `.bicep-planning-files/governance-constraints.json` (dual format for human and machine readability).
+
+### Governance Constraints Output Format
+
+**Markdown format (`.bicep-planning-files/governance-constraints.md`):**
+
+```markdown
+# Governance Constraints
+
+_Discovered: {YYYY-MM-DD HH:MM UTC}_
+_Subscription: {subscription-name} ({subscription-id})_
+
+## Active Policy Assignments
+
+| Policy Name                     | Effect | Scope          | Impact on Plan              |
+| ------------------------------- | ------ | -------------- | --------------------------- |
+| Require TLS 1.2                 | Deny   | Subscription   | All resources must use TLS 1.2+ |
+| Azure AD-only for SQL           | Deny   | Resource Group | SQL Server must use AAD auth    |
+| Allowed locations - EU only     | Deny   | Subscription   | Only EU regions permitted       |
+
+## Resource-Specific Constraints
+
+### Storage Accounts
+
+- ❌ Public blob access: Denied by policy
+- ✅ HTTPS only: Required
+- ⚠️ Shared key access: May be denied (check org policy)
+
+### SQL Server
+
+- ❌ SQL authentication: Denied by policy
+- ✅ Azure AD-only authentication: Required
+- ✅ TLS 1.2: Required
+
+## Recommendations
+
+1. Use `allowSharedKeyAccess: false` for storage accounts
+2. Use `azureADOnlyAuthentication: true` for SQL servers
+3. Target `swedencentral` or `germanywestcentral` regions only
+```
+
+**JSON format (`.bicep-planning-files/governance-constraints.json`):**
+
+```json
+{
+  "discoveredAt": "2025-01-15T10:30:00Z",
+  "subscription": {
+    "name": "subscription-name",
+    "id": "subscription-id"
+  },
+  "policies": [
+    {
+      "name": "Require TLS 1.2",
+      "effect": "Deny",
+      "scope": "Subscription",
+      "resourceTypes": ["Microsoft.Storage/*", "Microsoft.Web/*"]
+    }
+  ],
+  "constraints": {
+    "storage": {
+      "publicBlobAccess": false,
+      "httpsOnly": true,
+      "sharedKeyAccess": false
+    },
+    "sql": {
+      "sqlAuthentication": false,
+      "azureADOnly": true,
+      "tlsVersion": "1.2"
+    },
+    "network": {
+      "allowedRegions": ["swedencentral", "germanywestcentral"],
+      "requirePrivateEndpoints": true
+    }
+  }
+}
+```
+
+### Integration with Implementation Plan
+
+After governance discovery:
+
+1. **Reference constraints in plan header:**
+
+   ```markdown
+   ## Governance Alignment
+
+   This plan complies with governance constraints discovered in
+   `.bicep-planning-files/governance-constraints.md`.
+
+   Key constraints applied:
+   - Azure AD-only auth for SQL (policy: "Azure AD-only for SQL")
+   - No public blob access (policy: "Deny public blob access")
+   - TLS 1.2+ required (policy: "Require TLS 1.2")
+   ```
+
+2. **Mark compliant configurations in resource specs:**
+
+   ```yaml
+   parameters:
+     required:
+       - name: azureADOnlyAuthentication
+         type: bool
+         value: true
+         governance: "Required by policy: Azure AD-only for SQL"
+   ```
+
+---
+
 ## Output file structure
 
 **Folder:** \.bicep-planning-files/\ (create if missing)
@@ -334,16 +485,29 @@ az resource delete --ids {resource-id}
 
 ### Position in Workflow
 
-This agent is **Step 3** of the 4-step infrastructure workflow.
+This agent is **Step 4** of the 6-step agentic infrastructure workflow.
 
 ```mermaid
 %%{init: {'theme':'neutral'}}%%
 graph LR
-    P["@plan<br/>(built-in)"] --> A[azure-principal-architect]
-    A --> B[bicep-plan]
-    B --> I[bicep-implement]
+    P["@plan<br/>(Step 1)"] --> A[azure-principal-architect<br/>Step 2]
+    A --> D["Pre-Build Artifacts<br/>(Step 3)"]
+    D --> B[bicep-plan<br/>Step 4]
+    B --> I[bicep-implement<br/>Step 5]
+    I --> F["Post-Build Artifacts<br/>(Step 6)"]
     style B fill:#e8f5e9,stroke:#4caf50,stroke-width:3px
 ```
+
+**6-Step Workflow Overview:**
+
+| Step | Agent/Phase | Purpose |
+|------|-------------|----------|
+| 1 | @plan | Requirements gathering |
+| 2 | azure-principal-architect | WAF assessment |
+| 3 | Pre-Build Artifacts | Design diagrams + ADRs (optional) |
+| 4 | **bicep-plan** | Implementation planning + governance discovery (YOU ARE HERE) |
+| 5 | bicep-implement | Bicep code generation |
+| 6 | Post-Build Artifacts | As-built diagrams + ADRs (optional) |
 
 ### Input
 

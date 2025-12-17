@@ -112,7 +112,7 @@ flowchart LR
 
 ## 🎯 Related Demo
 
-This scenario output supports **[S03: Five-Agent Workflow](../../S03-five-agent-workflow/)**.
+This scenario output supports **[S03: Agentic Workflow](../../S03-agentic-workflow/)**.
 
 See the demo for:
 

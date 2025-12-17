@@ -70,7 +70,7 @@ Use these as discussion prompts for smaller groups.
 
 **Q4. Which learning objectives were most valuable to you?** (Select all that apply)
 
-- [ ] Understanding the agentic workflow (4-step process)
+- [ ] Understanding the agentic workflow (6-step process)
 - [ ] Using GitHub Copilot for infrastructure development
 - [ ] Writing effective prompts for Copilot
 - [ ] Understanding Azure Well-Architected Framework alignment

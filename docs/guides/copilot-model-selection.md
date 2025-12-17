@@ -143,7 +143,7 @@ quadrantChart
 | --------------------------- | --------------------------- | ----------------------------------------- |
 | **S01 Bicep Baseline**      | Claude Sonnet 4.5           | Best balance of speed and quality for IaC |
 | **S02 Terraform Baseline**  | Claude Sonnet 4.5           | Same reasoning as Bicep                   |
-| **S03 Five-Agent Workflow** | Claude Sonnet 4.5           | Optimized for agent handoffs and planning |
+| **S03 Agentic Workflow** | Claude Sonnet 4.5           | Optimized for agent handoffs and planning |
 | **S04 Documentation**       | GPT-5.1 or Claude Haiku 4.5 | Fast generation for text-heavy tasks      |
 | **S05 Service Validation**  | GPT-5.1 Codex               | PowerShell generation with large context  |
 | **S06 Troubleshooting**     | GPT-5 mini                  | Quick answers, diagnostic speed matters   |

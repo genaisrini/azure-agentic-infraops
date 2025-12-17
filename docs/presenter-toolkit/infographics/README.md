@@ -35,7 +35,7 @@ Generated files are saved to `./generated/`:
 
 | File                               | Format  | Use Case                  |
 | ---------------------------------- | ------- | ------------------------- |
-| `workflow-diagram.png`             | 300 DPI | 4-step agent workflow     |
+| `workflow-diagram.png`             | 300 DPI | 6-step agent workflow     |
 | `workflow-diagram-web.png`         | 150 DPI | Web, presentations        |
 | `waf-scorecard.png`                | 300 DPI | WAF alignment radar chart |
 | `waf-scorecard-web.png`            | 150 DPI | Web, presentations        |
@@ -58,7 +58,7 @@ Generated files are saved to `./generated/`:
 
 ### 1. Workflow Diagram (`generate_workflow_diagram.py`) ⭐ NEW
 
-**What it creates:** The core 4-step agent workflow diagram showing:
+**What it creates:** The core 6-step agent workflow diagram showing:
 
 - @plan → azure-principal-architect → bicep-plan → bicep-implement
 - Approval gates between each step
@@ -107,7 +107,7 @@ Generated files are saved to `./generated/`:
 
 - Side-by-side workflow comparison
 - 6-step "before" workflow (red)
-- 4-step "after" workflow (green)
+- 6-step "after" workflow (green)
 - Key benefits and stats bar
 
 **Dimensions:** 20" × 12" (wide format)
@@ -212,7 +212,7 @@ reference: https://brand.azure.com/
 ```
 infographics/
 ├── README.md                       # This file
-├── generate_workflow_diagram.py    # ⭐ 4-step agent workflow diagram
+├── generate_workflow_diagram.py    # ⭐ 6-step agent workflow diagram
 ├── generate_waf_scorecard.py       # ⭐ WAF alignment radar chart
 ├── generate_roi_calculator.py      # ⭐ ROI and value proposition
 ├── generate_infographic.py         # Time savings infographic generator

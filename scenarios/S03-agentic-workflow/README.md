@@ -1,4 +1,4 @@
-# Demo 03: Four-Step Agent Workflow for Azure Infrastructure
+# Demo 03: Six-Step Agent Workflow for Azure Infrastructure
 
 ## Meet Jennifer Chen
 
@@ -7,14 +7,14 @@
 
 **Jennifer Chen** is a Solutions Architect at Meridian Systems, a Microsoft SI Partner specializing
 in healthcare. She has a new client engagement: Contoso Healthcare needs a HIPAA-compliant patient
-portal with a tight budget ($800/month) and ambitious timeline. Jennifer knows the 4-step agent
+portal with a tight budget ($800/month) and ambitious timeline. Jennifer knows the 6-step agent
 workflow will be her secret weapon—turning 18 hours of manual work into a 45-minute structured process.
 
 ---
 
 ## 🎯 Overview
 
-This demo showcases GitHub Copilot's **4-step agent workflow** for designing and implementing Azure infrastructure,
+This demo showcases GitHub Copilot's **6-step agent workflow** for designing and implementing Azure infrastructure,
 starting with VS Code's built-in **Plan Agent** and handing off to specialized custom agents.
 Each step includes an **approval gate** where you review and approve before proceeding.
 It demonstrates how architects and IT professionals can leverage plan-driven development
@@ -183,7 +183,7 @@ The plan ensures all requirements are considered before any code changes.
 1. **Navigate to prompts directory**:
 
    ```powershell
-   cd scenarios/S03-five-agent-workflow/prompts
+   cd scenarios/S03-agentic-workflow/prompts
    ```
 
 2. **Open VS Code**:
@@ -194,7 +194,7 @@ The plan ensures all requirements are considered before any code changes.
 
 3. **Open GitHub Copilot Chat** (`Ctrl+Alt+I`)
 
-4. **Follow the five-agent workflow**:
+4. **Follow the agentic workflow**:
 
    | Stage | Agent                       | Duration  | Key Output                               |
    | ----- | --------------------------- | --------- | ---------------------------------------- |
@@ -212,7 +212,7 @@ See [DEMO-SCRIPT.md](DEMO-SCRIPT.md) for detailed walkthrough.
 ## 📁 Demo Structure
 
 ```text
-S03-five-agent-workflow/
+S03-agentic-workflow/
 ├── README.md                           # This file
 ├── DEMO-SCRIPT.md                      # Step-by-step presentation guide
 ├── scenario/
@@ -338,7 +338,7 @@ The plan becomes a reusable `*.prompt.md` file.
 **Time Savings**:
 
 - Traditional approach: 18 hours
-- With five-agent workflow: 1 hour
+- With agentic workflow: 1 hour
 - **Time saved: 17 hours per project (94% reduction)**
 
 ## 🔑 Key Features Demonstrated
@@ -581,7 +581,7 @@ Before starting, gauge your audience:
 
 Share these with participants:
 
-- 📖 This README and `examples/five-agent-conversation.md`
+- 📖 This README and `examples/agentic-workflow-conversation.md`
 - 🎯 [Workflow Guide](../../docs/workflow/WORKFLOW.md)
 - 📚 [VS Code Plan Agent Docs](https://code.visualstudio.com/docs/copilot/chat/chat-planning)
 - 💬 Repository issues for questions

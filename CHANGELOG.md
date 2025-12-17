@@ -85,7 +85,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- **Breaking**: Repository restructured to focus on 4-step agent workflow
+- **Breaking**: Repository restructured to focus on 6-step agent workflow
 - Simplified folder structure (removed legacy scenarios folder)
 - Clean slate for `scenarios/`, `infra/bicep/`, `docs/adr/`, `docs/diagrams/`
 

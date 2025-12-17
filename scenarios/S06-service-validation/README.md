@@ -307,7 +307,7 @@ They adapt to any REST API with HTTP endpoints.
 ## Related Scenarios
 
 - **S01-bicep-baseline:** Deploy infrastructure to test
-- **S03-five-agent-workflow:** Multi-agent architecture planning
+- **S03-agentic-workflow:** Multi-agent architecture planning
 - **S05-documentation-generation:** Generate testing documentation
 - **S07-troubleshooting:** Debug issues found in testing
 

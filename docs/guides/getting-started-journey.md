@@ -27,7 +27,7 @@ flowchart LR
 | **Setup**          | Clone repo, open Dev Container, verify tools | 15 min    |
 | **First Scenario** | Complete S01 Bicep Baseline                  | 30 min    |
 | **Explore**        | Try scenarios matching your role             | 2-4 hours |
-| **Master**         | Five-Agent Workflow, Coding Agent            | Ongoing   |
+| **Master**         | Agentic Workflow, Coding Agent            | Ongoing   |
 
 ---
 
@@ -199,7 +199,7 @@ S07 SBOM Generator (20 min)
 _Best for: Senior architects, automation engineers_
 
 ```
-S03 Five-Agent Workflow (45 min)
+S03 Agentic Workflow (45 min)
         ↓
 S08 Diagrams as Code (20 min)
         ↓
@@ -218,7 +218,7 @@ S09 Coding Agent (30 min)
 
 ## Phase 4: Master (Ongoing)
 
-### The Five-Agent Workflow
+### The Agentic Workflow
 
 This is the advanced workflow that delivers **96% time savings** on complex projects.
 
@@ -258,7 +258,7 @@ flowchart LR
 3. **Follow agent handoffs** - Each agent suggests the next step via buttons
 4. **Review outputs** - Plan files, ADRs, architecture docs, Bicep code
 
-📖 **Full guide:** [S03 Five-Agent Workflow](../../scenarios/S03-five-agent-workflow/)
+📖 **Full guide:** [S03 Agentic Workflow](../../scenarios/S03-agentic-workflow/)
 
 ### GitHub Copilot Coding Agent
 
