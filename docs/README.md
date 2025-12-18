@@ -15,19 +15,21 @@ flowchart LR
     end
 
     subgraph Resources
-        QS["Quick Start"]
-        REF["Reference Docs"]
-        DEMO["Demo Toolkit"]
+        QS["📖 Quick Start"]
+        REF["📚 Reference Docs"]
+        DEMO["🎬 Demo Toolkit"]
     end
 
     B --> QS
     E --> REF
     P --> DEMO
-
-    click QS "https://github.com/jonathan-vella/azure-agentic-infraops/blob/main/docs/getting-started/QUICKSTART.md"
-    click REF "https://github.com/jonathan-vella/azure-agentic-infraops/tree/main/docs/reference"
-    click DEMO "https://github.com/jonathan-vella/azure-agentic-infraops/tree/main/docs/presenter-toolkit"
 ```
+
+| Path | Start Here |
+|------|------------|
+| 🟢 **Beginner** | [Quick Start](getting-started/QUICKSTART.md) |
+| 🟡 **Experienced** | [Reference Docs](reference/) |
+| 🔴 **Presenter** | [Demo Toolkit](presenter-toolkit/) |
 
 ---
 
