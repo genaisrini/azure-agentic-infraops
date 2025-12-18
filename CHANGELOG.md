@@ -5,6 +5,50 @@ All notable changes to **Agentic InfraOps** will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased] - Docs Rebuild Phase 1
+
+### Added
+
+- **docs/reference/** - Single-source-of-truth folder with 5 files:
+  - `defaults.md` - Regions, CAF naming, tags, SKUs, security baseline
+  - `agents-overview.md` - All 7 agents comparison table with examples
+  - `workflow.md` - Canonical 7-step workflow diagram
+  - `bicep-patterns.md` - Unique suffix, diagnostic settings, policy workarounds
+  - `README.md` - Folder index
+
+- **docs/getting-started/** - Consolidated getting-started folder:
+  - `quickstart.md` - Merged quickstart + prerequisites (10-min guide)
+  - `first-scenario.md` - Detailed S01 Bicep Baseline walkthrough
+  - `learning-paths.md` - Complete learning journey paths
+  - `README.md` - Folder index
+
+- **docs/presenter/** - Merged presenter folder (from presenter-toolkit + value-proposition):
+  - Unified README with quick navigation table
+  - 16 files from presenter-toolkit
+  - 3 files from value-proposition
+
+- **Persona-based navigation** in docs/README.md:
+  - Mermaid diagram showing 3 entry paths
+  - Beginner / Experienced / Presenter paths
+  - Quick Find table for common resources
+  - Collapsible folder structure sections
+
+- **Emoji difficulty tags** in scenarios/README.md:
+  - 🟢 Beginner, 🟡 Intermediate, 🔴 Advanced
+  - Difficulty legend explaining each level
+
+### Changed
+
+- Updated root README.md links to new docs structure
+- Updated copilot-instructions.md with Reference Documentation section
+- Updated diagrams/README.md with version and correct links
+- Fixed version 3.2.0 → 3.6.0 in 4 files
+
+### Removed
+
+- **docs/presenter-toolkit/** - Merged into docs/presenter/
+- **docs/value-proposition/** - Merged into docs/presenter/
+
 ## [3.7.0] - 2025-12-17
 
 - feat: Add static-webapp-test workflow validation example
