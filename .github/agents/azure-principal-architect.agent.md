@@ -186,7 +186,7 @@ For each recommendation:
 | `azure_discover_skus`    | List all available SKUs for a service          | What App Service Plan SKUs exist?     |
 | `azure_sku_discovery`    | Fuzzy SKU name matching                        | "vm" → "Virtual Machines"             |
 
-**Fallback**: If MCP tools are unavailable, use [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+**Fallback**: If MCP tools are unavailable, use [Azure Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/)
 
 **Workflow for Cost Estimation:**
 
@@ -227,7 +227,7 @@ Enterprise agreements and reservations provide additional savings.
 - Implement auto-shutdown for non-prod VMs (save ~50% on compute)
 - Use reserved instances for predictable workloads (save up to 72%)
 
-**Cost Estimation**: Use [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+**Cost Estimation**: Use [Azure Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/)
 for current regional pricing.
 ```
 
@@ -463,7 +463,7 @@ Also update the project's `agent-output/{project-name}/README.md` to track this 
 
 ## References
 
-- [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+- [Azure Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/)
 - [Azure Pricing MCP Architecture](../../docs/diagrams/mcp/azure_pricing_mcp_architecture.png)
 ```
 
