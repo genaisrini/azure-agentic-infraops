@@ -26,11 +26,11 @@ Complete toolkit for demonstrating Agentic InfraOps to customers, partners, and 
 
 ### Scenario Scripts
 
-| Scenario                | Duration | Audience  | Script                                                                |
-| ----------------------- | -------- | --------- | --------------------------------------------------------------------- |
-| S01 Bicep Baseline      | 15 min   | Technical | [Demo Script](../../scenarios/S01-bicep-baseline/DEMO-SCRIPT.md)      |
-| S03 Agentic Workflow  | 30 min   | Mixed     | [Demo Script](../../scenarios/S03-agentic-workflow/DEMO-SCRIPT.md)  |
-| S04 E-commerce Platform | 45 min   | Technical | [Demo Script](../../scenarios/S04-ecommerce-platform/DEMO-SCRIPT.md)  |
+| Scenario                | Duration | Audience  | Script                                                               |
+| ----------------------- | -------- | --------- | -------------------------------------------------------------------- |
+| S01 Bicep Baseline      | 15 min   | Technical | [Demo Script](../../scenarios/S01-bicep-baseline/DEMO-SCRIPT.md)     |
+| S03 Agentic Workflow    | 30 min   | Mixed     | [Demo Script](../../scenarios/S03-agentic-workflow/DEMO-SCRIPT.md)   |
+| S04 E-commerce Platform | 45 min   | Technical | [Demo Script](../../scenarios/S04-ecommerce-platform/DEMO-SCRIPT.md) |
 
 ---
 

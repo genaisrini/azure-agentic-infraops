@@ -27,7 +27,7 @@ These measurements come from the repository's documented scenarios (S01-S11):
 | ------------------------- | ----------- | ------------ | ------------- | --------- |
 | S01 - Bicep Baseline      | 4-6 hours   | 30-45 min    | 3.5-5.5 hours | 85-90%    |
 | S02 - Terraform Baseline  | 4-6 hours   | 30-45 min    | 3.5-5.5 hours | 85-90%    |
-| S03 - Agentic Workflow | 18 hours    | 45 min       | 17.25 hours   | 96%       |
+| S03 - Agentic Workflow    | 18 hours    | 45 min       | 17.25 hours   | 96%       |
 | S04 - E-Commerce Platform | 24 hours    | 60 min       | 23 hours      | 96%       |
 | S05 - Documentation Gen   | 20 hours    | 90 min       | 18.5 hours    | 93%       |
 | S06 - Service Validation  | 4-6 hours   | 30 min       | 3.5-5.5 hours | 85-90%    |

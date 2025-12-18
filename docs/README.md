@@ -36,7 +36,7 @@ flowchart LR
 **Goal**: Get running in 15 minutes, understand the basics
 
 | Step | Resource                                                     | Time   |
-|------|--------------------------------------------------------------|--------|
+| ---- | ------------------------------------------------------------ | ------ |
 | 1    | [Quick Start](getting-started/quickstart.md)                 | 10 min |
 | 2    | [Your First Scenario](getting-started/first-scenario.md)     | 15 min |
 | 3    | [Copilot Getting Started](guides/copilot-getting-started.md) | 10 min |
@@ -51,7 +51,7 @@ flowchart LR
 **Goal**: Understand agent workflow, run advanced scenarios
 
 | Step | Resource                                                       | Time   |
-|------|----------------------------------------------------------------|--------|
+| ---- | -------------------------------------------------------------- | ------ |
 | 1    | [Reference: Workflow](reference/workflow.md)                   | 5 min  |
 | 2    | [Reference: Agents Overview](reference/agents-overview.md)     | 5 min  |
 | 3    | Run [S03-agentic-workflow](../scenarios/S03-agentic-workflow/) | 30 min |
@@ -66,7 +66,7 @@ flowchart LR
 **Goal**: Prepare for customer/partner presentations
 
 | Step | Resource                                                    | Time   |
-|------|-------------------------------------------------------------|--------|
+| ---- | ----------------------------------------------------------- | ------ |
 | 1    | [Demo Delivery Guide](presenter/demo-delivery-guide.md)     | 15 min |
 | 2    | [Time Savings Evidence](presenter/time-savings-evidence.md) | 10 min |
 | 3    | [Objection Handling](presenter/objection-handling.md)       | 10 min |
@@ -79,7 +79,7 @@ flowchart LR
 ## 📊 Reference Materials (Single Source of Truth)
 
 | Document                                        | Purpose                               |
-|-------------------------------------------------|---------------------------------------|
+| ----------------------------------------------- | ------------------------------------- |
 | [Defaults](reference/defaults.md)               | Regions, naming, tags, SKUs, security |
 | [Workflow](reference/workflow.md)               | Canonical 7-step agent workflow       |
 | [Agents Overview](reference/agents-overview.md) | All agents comparison with examples   |
@@ -91,7 +91,7 @@ flowchart LR
 ## 🗂️ Additional Resources
 
 | Section                                      | Description                           |
-|----------------------------------------------|---------------------------------------|
+| -------------------------------------------- | ------------------------------------- |
 | [Workflow Guide](workflow/WORKFLOW.md)       | Complete 7-step workflow with Mermaid |
 | [Architecture Decisions](adr/)               | ADRs documenting design choices       |
 | [Cost Estimates](cost-estimates/)            | Azure pricing examples                |
@@ -104,7 +104,7 @@ flowchart LR
 ## 🛠️ Copilot Customization
 
 | Section                                                | Description                |
-|--------------------------------------------------------|----------------------------|
+| ------------------------------------------------------ | -------------------------- |
 | [Agent Definitions](../.github/agents/)                | Custom agent `.md` files   |
 | [Shared Foundation](../.github/agents/shared/)         | Common patterns for agents |
 | [Instructions](../.github/instructions/)               | Coding standards files     |

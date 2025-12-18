@@ -241,15 +241,15 @@ When handling objections, follow this structure:
 
 ## 🎯 Quick Response Table
 
-| Objection | One-Liner Response |
-|-----------|-------------------|
-| Too expensive | "2 hours saved per week pays for the subscription" |
-| Security concerns | "Your code isn't used for training, and we validate all output" |
-| Replace jobs | "It's an efficiency multiplier—handles boilerplate so you focus on architecture" |
-| Not accurate | "Even imperfect suggestions beat starting from scratch" |
-| Have templates | "Copilot enhances your existing templates, not replaces them" |
-| Team resistant | "Start with curious volunteers, let success spread organically" |
-| Tried before | "Current version with agents is dramatically better—let me show you" |
+| Objection         | One-Liner Response                                                               |
+| ----------------- | -------------------------------------------------------------------------------- |
+| Too expensive     | "2 hours saved per week pays for the subscription"                               |
+| Security concerns | "Your code isn't used for training, and we validate all output"                  |
+| Replace jobs      | "It's an efficiency multiplier—handles boilerplate so you focus on architecture" |
+| Not accurate      | "Even imperfect suggestions beat starting from scratch"                          |
+| Have templates    | "Copilot enhances your existing templates, not replaces them"                    |
+| Team resistant    | "Start with curious volunteers, let success spread organically"                  |
+| Tried before      | "Current version with agents is dramatically better—let me show you"             |
 
 ---
 

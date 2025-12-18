@@ -286,13 +286,13 @@ Delegate entire GitHub Issues to Copilot for autonomous implementation.
 
 ### Key Resources
 
-| Resource            | Location                                                                           | Purpose                   |
-| ------------------- | ---------------------------------------------------------------------------------- | ------------------------- |
-| **Prerequisites**   | [docs/getting-started/prerequisites.md](prerequisites.md)                    | Tool requirements         |
-| **Model Selection** | [docs/guides/copilot-model-selection.md](copilot-model-selection.md)         | Choose the right AI model |
-| **Scenarios**       | [scenarios/](../../scenarios/)                                               | Hands-on learning         |
-| **Demo Script**     | [S01 Demo Script](../../scenarios/S01-bicep-baseline/DEMO-SCRIPT.md)         | Presenter guide           |
-| **ROI Calculator**  | [docs/presenter/roi-calculator.md](../presenter/roi-calculator.md)           | Calculate savings         |
+| Resource            | Location                                                             | Purpose                   |
+| ------------------- | -------------------------------------------------------------------- | ------------------------- |
+| **Prerequisites**   | [docs/getting-started/prerequisites.md](prerequisites.md)            | Tool requirements         |
+| **Model Selection** | [docs/guides/copilot-model-selection.md](copilot-model-selection.md) | Choose the right AI model |
+| **Scenarios**       | [scenarios/](../../scenarios/)                                       | Hands-on learning         |
+| **Demo Script**     | [S01 Demo Script](../../scenarios/S01-bicep-baseline/DEMO-SCRIPT.md) | Presenter guide           |
+| **ROI Calculator**  | [docs/presenter/roi-calculator.md](../presenter/roi-calculator.md)   | Calculate savings         |
 
 ### Common Commands
 
