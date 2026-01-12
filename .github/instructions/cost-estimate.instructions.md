@@ -24,6 +24,37 @@ Target output style: structurally similar to `agent-output/ecommerce/01-cost-est
 - Prefer tables for compare-and-decide content.
 - If the workload is small, keep the same sections but shorten them.
 
+## Canonical Templates (Golden Source)
+
+The canonical cost-estimate structure is defined in these templates:
+
+- `.github/templates/03-des-cost-estimate.template.md` (design estimate)
+- `.github/templates/07-ab-cost-estimate.template.md` (as-built estimate)
+
+Agents MUST start from the appropriate template and fill it in.
+Do not re-embed long templates in agent bodies.
+
+### Core Heading Contract (Stable)
+
+Both templates MUST contain these exact H2 headings (`##`) in this order:
+
+1. `## 💰 Cost At-a-Glance`
+2. `## ✅ Decision Summary`
+3. `## 🔁 Requirements → Cost Mapping`
+4. `## 📊 Top 5 Cost Drivers`
+5. `## Architecture Overview`
+6. `## 🧾 What We Are Not Paying For (Yet)`
+7. `## ⚠️ Cost Risk Indicators`
+8. `## 🎯 Quick Decision Matrix`
+9. `## 💰 Savings Opportunities`
+10. `## Detailed Cost Breakdown`
+
+Notes:
+
+- Emoji + spacing must match exactly.
+- Use the unicode arrow `→` (not `->`) in the Requirements heading.
+- Additional H2 headings are allowed, but discouraged (prefer H3s).
+
 ## Required Header
 
 ```markdown

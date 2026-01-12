@@ -6,7 +6,8 @@
   "scripts": {
     "prepare": "husky",
     "lint:md": "markdownlint-cli2 '**/*.md' '#node_modules'",
-    "lint:md:fix": "markdownlint-cli2 --fix '**/*.md' '#node_modules'"
+    "lint:md:fix": "markdownlint-cli2 --fix '**/*.md' '#node_modules'",
+    "lint:cost-estimate-templates": "node scripts/validate-cost-estimate-templates.mjs"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.0.0",
