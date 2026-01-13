@@ -351,13 +351,23 @@ create a markdown file using the `createOrEditFiles` tool:
 
 **File Location**: `agent-output/{project-name}/02-architecture-assessment.md`
 
+**Template**: Use [../templates/02-architecture-assessment.template.md](../templates/02-architecture-assessment.template.md)
+
 Also update the project's `agent-output/{project-name}/README.md` to track this artifact.
+
+**Required Structure:**
+
+- Follow the template's H2 heading order exactly
+- Include all invariant sections: Requirements Validation, Executive Summary, WAF Pillar Assessment, etc.
+- See template for detailed section guidance
 
 ### Saving Step 1 Requirements
 
 **IMPORTANT**: At the start of Step 2, save the requirements from the @plan conversation to:
 
 **File Location**: `agent-output/{project-name}/01-requirements.md`
+
+**Template**: Use [../templates/01-requirements.template.md](../templates/01-requirements.template.md)
 
 This captures the requirements from Step 1 (@plan) for reference by subsequent agents.
 
@@ -393,10 +403,7 @@ Hard requirements:
 - Keep the 10 core H2 headings exactly and in order.
 - Include the colored Mermaid pie init exactly as in the template.
 
-### WAF Assessment File Structure
-
-```markdown
-# Azure Well-Architected Framework Assessment
+### WAF Assessment Key Elements
 
 ## {Project Name}
 
@@ -470,6 +477,7 @@ Hard requirements:
 ## Next Steps
 
 {workflow guidance}
+
 ```
 
 ### Guardrails
@@ -488,3 +496,4 @@ Hard requirements:
 - ✅ Reference Azure Architecture Center patterns
 - ✅ Ask clarifying questions when requirements are unclear
 - ✅ Wait for user approval before suggesting handoff to bicep-plan
+```

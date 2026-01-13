@@ -299,17 +299,17 @@ After governance discovery:
 
 **Folder:** `agent-output/{project-name}/` (create if missing, update project README.md)
 **Filename:** `04-implementation-plan.md`
-**Format:** Valid Markdown with YAML resource blocks
+**Format:** Valid Markdown
 
-## Implementation plan template
+**Template**: Use [../templates/04-implementation-plan.template.md](../templates/04-implementation-plan.template.md)
 
-## \\\\markdown
+**Required Structure:**
 
-## goal: [Title of what to achieve]
+- Follow the template's H2 heading order exactly
+- Include all invariant sections: Overview, Resource Inventory, Module Structure, Implementation Tasks, etc.
+- See template for detailed section guidance
 
-# Introduction
-
-[1–3 sentences summarizing the plan and its purpose]
+## Implementation plan key elements
 
 ## Resources
 
