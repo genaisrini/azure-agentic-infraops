@@ -7,8 +7,8 @@
 ## Current Status
 
 - [x] Regeneration #1: `simple-web-api` (2025-01-13) - Commit: `08be373`
-- [ ] Regeneration #2: Next project TBD
-- [ ] Switch to `STRICTNESS=standard`
+- [x] Regeneration #2: `static-webapp` (2026-01-13) - Commit: `7952f2e`
+- [x] Switch to `STRICTNESS=standard` - IN PROGRESS
 
 ## Files to Update
 

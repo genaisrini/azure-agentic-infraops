@@ -33,8 +33,7 @@ STAGED_WAVE1=$(echo "$STAGED_MD_FILES" | grep -E '(01-requirements|02-architectu
 
 if [ -n "$STAGED_WAVE1" ]; then
   echo "📋 Validating Wave 1 artifact structure..."
-  # RATCHET: Change to STRICTNESS=standard after 2 successful artifact regenerations pass validation
-  STRICTNESS=relaxed npm run lint:wave1-artifacts
+  STRICTNESS=standard npm run lint:wave1-artifacts
   
   if [ $? -ne 0 ]; then
     echo ""
