@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [3.8.0] - 2026-01-14
 
+- feat: refactor agents and add deploy agent (v3.8.0)
+
+## [3.8.0] - 2026-01-14
+
 ### Added
 
 - **Deploy agent** (`.github/agents/deploy.agent.md`) - New Step 6 agent for deployment workflows
