@@ -1,6 +1,6 @@
 ---
-description: 'Gather Azure workload requirements through structured interview'
-agent: 'project-planner'
+description: "Gather Azure workload requirements through structured interview"
+agent: "project-planner"
 tools:
   - createFile
   - editFiles
@@ -26,10 +26,10 @@ proceeding to architecture assessment.
 
 ## Inputs
 
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `${input:projectName}` | Project name (kebab-case) | Required |
-| `${input:projectType}` | Web App, API, Data Platform, IoT, AI/ML | Web App |
+| Variable               | Description                             | Default  |
+| ---------------------- | --------------------------------------- | -------- |
+| `${input:projectName}` | Project name (kebab-case)               | Required |
+| `${input:projectType}` | Web App, API, Data Platform, IoT, AI/ML | Web App  |
 
 ## Workflow
 
@@ -55,11 +55,11 @@ Gather information about:
 
 For each category, prompt the user if not provided:
 
-| Category | Key Questions |
-|----------|---------------|
-| **Availability** | SLA target? RTO? RPO? Maintenance window? |
-| **Performance** | Response time target? Throughput? Concurrent users? |
-| **Scalability** | Current vs. 12-month projection for users, data, transactions? |
+| Category         | Key Questions                                                  |
+| ---------------- | -------------------------------------------------------------- |
+| **Availability** | SLA target? RTO? RPO? Maintenance window?                      |
+| **Performance**  | Response time target? Throughput? Concurrent users?            |
+| **Scalability**  | Current vs. 12-month projection for users, data, transactions? |
 
 ### Step 4: Compliance & Security
 
