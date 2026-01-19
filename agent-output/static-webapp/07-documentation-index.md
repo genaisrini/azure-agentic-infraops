@@ -43,7 +43,7 @@ These documents were generated from the following agentic workflow outputs:
 | **Monthly Cost**   | ~$15                    |
 | **Target Users**   | 5-10 internal           |
 
-## Architecture Overview
+### Architecture Overview
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
@@ -60,7 +60,7 @@ These documents were generated from the following agentic workflow outputs:
 ## 4. Related Resources
 
 - **Infrastructure Code**: [`infra/bicep/static-webapp-test/`](../../infra/bicep/static-webapp-test/)
-- **Workflow Documentation**: [WORKFLOW.md](../../docs/workflow/WORKFLOW.md)
+- **Workflow Documentation**: [workflow.md](../../docs/reference/workflow.md)
 
 ## 5. Quick Links
 

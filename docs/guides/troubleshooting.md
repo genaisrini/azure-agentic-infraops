@@ -73,19 +73,16 @@ flowchart TD
 **Solutions:**
 
 1. **Check extension is enabled:**
-
    - Open Extensions (`Ctrl+Shift+X`)
    - Search "GitHub Copilot"
    - Ensure both "GitHub Copilot" and "GitHub Copilot Chat" are enabled
 
 2. **Reload VS Code:**
-
    - Press `Ctrl+Shift+P`
    - Type "Reload Window"
    - Select "Developer: Reload Window"
 
 3. **Check authentication:**
-
    - Click the Copilot icon in the status bar
    - Ensure you're signed in to GitHub
    - If prompted, re-authenticate
@@ -248,12 +245,10 @@ Explain VNet peering in terms I'd understand coming from traditional networking.
 **Solutions:**
 
 1. **Check Docker Desktop is running**
-
    - Windows/Mac: Look for Docker icon in system tray
    - Linux: Run `docker ps` to verify daemon is running
 
 2. **Increase Docker memory**
-
    - Docker Desktop → Settings → Resources → Memory
    - Recommend: 4GB minimum, 8GB for comfortable usage
 
@@ -264,7 +259,6 @@ Explain VNet peering in terms I'd understand coming from traditional networking.
    ```
 
 4. **Rebuild without cache**
-
    - Press `F1` → "Dev Containers: Rebuild Container Without Cache"
 
 5. **Check disk space**
@@ -386,7 +380,6 @@ az login --use-device-code
    ```
 
 2. **Check name length limits**
-
    - Key Vault: ≤24 characters
    - Storage Account: ≤24 characters, lowercase + numbers only, NO hyphens
    - SQL Server: ≤63 characters
@@ -458,12 +451,10 @@ resource sqlServer 'Microsoft.Sql/servers@2023-05-01-preview' = {
    ```
 
 2. **Try alternative region**
-
    - Default: `swedencentral`
    - Alternative: `germanywestcentral`
 
 3. **Request quota increase**
-
    - Azure Portal → Subscriptions → Usage + quotas → Request increase
 
 4. **Use smaller SKUs for dev/demo**
@@ -487,7 +478,6 @@ resource sqlServer 'Microsoft.Sql/servers@2023-05-01-preview' = {
 **Solutions:**
 
 1. **Reload VS Code Window**
-
    - `Ctrl+Shift+P` → "Developer: Reload Window"
    - Wait 10-15 seconds for agents to load
 
@@ -503,7 +493,6 @@ resource sqlServer 'Microsoft.Sql/servers@2023-05-01-preview' = {
    ```
 
 3. **Check file syntax**
-
    - Agent files must have correct YAML front matter
    - Open file and check for syntax errors
 
@@ -669,7 +658,7 @@ Quick lookup for common error messages:
 | Resource                                                  | Use For                        |
 | --------------------------------------------------------- | ------------------------------ |
 | [Getting Started Guide](getting-started-journey.md)       | End-to-end setup walkthrough   |
-| [Workflow Guide](../workflow/WORKFLOW.md)                 | Agent workflow documentation   |
+| [Workflow Guide](../reference/workflow.md)                | Agent workflow documentation   |
 | [Scenario READMEs](../../scenarios/)                      | Scenario-specific guidance     |
 | [GitHub Copilot Docs](https://docs.github.com/en/copilot) | Official Copilot documentation |
 
@@ -696,12 +685,11 @@ When opening an issue, include:
 
 Each scenario has unique troubleshooting content. For scenario-specific issues, see:
 
-- [S01: Bicep Baseline](../scenarios/S01-bicep-baseline/README.md#troubleshooting)
-- [S02: Terraform Baseline](../scenarios/S02-terraform-baseline/README.md#troubleshooting)
-- [S03: Agentic Workflow](../scenarios/S03-agentic-workflow/README.md#troubleshooting)
-- [S08: SBOM Generator](../../scenarios/S08-sbom-generator/README.md#troubleshooting)
-- [S09: Diagrams as Code](../../scenarios/S09-diagrams-as-code/README.md#troubleshooting)
-- [S10: Coding Agent](../../scenarios/S10-coding-agent/README.md#troubleshooting)
+- [S01: Bicep Baseline](../../scenarios/S01-bicep-baseline/README.md#troubleshooting)
+- [S02: Agentic Workflow](../../scenarios/S02-agentic-workflow/README.md#troubleshooting)
+- [S06: SBOM Generator](../../scenarios/S06-sbom-generator/README.md#troubleshooting)
+- [S07: Diagrams as Code](../../scenarios/S07-diagrams-as-code/README.md#troubleshooting)
+- [S08: Coding Agent](../../scenarios/S08-coding-agent/README.md#troubleshooting)
 
 ---
 

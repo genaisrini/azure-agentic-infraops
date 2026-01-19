@@ -1,6 +1,6 @@
 # Agentic InfraOps
 
-> **Version 3.8.1** | [Changelog](VERSION.md)
+> **Version 3.11.0** | [Changelog](VERSION.md)
 
 [![Agentic InfraOps](https://img.shields.io/badge/Agentic-InfraOps-FF6B35?style=for-the-badge&logo=robot&logoColor=white)](https://github.com/jonathan-vella/azure-agentic-infraops)
 [![Azure](https://img.shields.io/badge/Azure-Infrastructure-0078D4?style=for-the-badge&logo=microsoftazure)](https://azure.microsoft.com)
@@ -22,7 +22,7 @@
 > and Azure Verified Modules. Real-time pricing, compliance checks, and automation included.
 
 📖 **[Quick Start Guide](docs/getting-started/quickstart.md)** |
-📋 **[Full Workflow Docs](docs/workflow/WORKFLOW.md)** |
+📋 **[Full Workflow Docs](docs/reference/workflow.md)** |
 🎯 **[Scenarios](scenarios/)** |
 💰 **[Azure Pricing MCP](mcp/azure-pricing-mcp/)**
 
@@ -131,20 +131,20 @@ and workflows.
 | `mcp/azure-pricing-mcp/` | 💰 Real-time Azure pricing MCP server        |
 | `infra/bicep/`           | Generated Bicep templates                    |
 | `docs/`                  | Documentation, guides, diagrams              |
-| `scenarios/`             | 11 hands-on learning scenarios               |
+| `scenarios/`             | 8 hands-on learning scenarios                |
 
 ---
 
 <details>
 <summary><h2>🎯 Scenarios</h2></summary>
 
-**11 hands-on scenarios** from beginner to advanced (15-45 min each):
+**8 hands-on scenarios** from beginner to advanced (15-45 min each):
 
-| Level            | Topics                                                                |
-| ---------------- | --------------------------------------------------------------------- |
-| **Beginner**     | Bicep/Terraform baselines, documentation generation, diagrams as code |
-| **Intermediate** | Service validation, troubleshooting, SBOM generation                  |
-| **Advanced**     | Full agentic workflow, async coding agent                             |
+| Level            | Topics                                                              |
+| ---------------- | ------------------------------------------------------------------- |
+| **Beginner**     | Bicep baseline, diagrams as code                                    |
+| **Intermediate** | Documentation generation, service validation, troubleshooting, SBOM |
+| **Advanced**     | Full agentic workflow, async coding agent                           |
 
 📖 **[Full Scenarios Guide →](scenarios/README.md)**
 

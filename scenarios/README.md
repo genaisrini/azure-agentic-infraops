@@ -1,45 +1,32 @@
 # Scenarios Overview
 
-> **Version 3.7.8** | [Changelog](../VERSION.md)
+> **Version 3.11.0** | [Changelog](../VERSION.md)
 >
-> **Hands-on learning scenarios demonstrating Agentic InfraOps as an efficiency multiplier for IT Professionals.**
+> **Hands-on learning scenarios demonstrating Agentic InfraOps as an efficiency multiplier
+> for IT Professionals.**
 
 ---
 
 ## Defaults & Workflow
 
-> **Region**: `swedencentral` (fallback: `germanywestcentral`). See [ADR-004](../docs/adr/ADR-004-region-defaults.md).
+> **Region**: `swedencentral` (fallback: `germanywestcentral`).
+> See [ADR-004](../docs/adr/ADR-004-region-defaults.md).
 >
-> **Modules**: AVM-first for policy-compliant deployments. See [ADR-003](../docs/adr/ADR-003-avm-first-approach.md).
+> **Modules**: AVM-first for policy-compliant deployments.
+> See [ADR-003](../docs/adr/ADR-003-avm-first-approach.md).
 >
-> **Agent Workflow**: `Project Planner` → `azure-principal-architect` → `bicep-plan` → `bicep-implement`. See
-> [Workflow Guide](../docs/workflow/WORKFLOW.md).
+> **Agent Workflow**: `Project Planner` → `azure-principal-architect` → `bicep-plan` → `bicep-implement`.
+> See [Workflow Guide](../docs/reference/workflow.md).
 
 ---
 
 ## Quick Start
 
-| If you're...                     | Start with                                              |
-| -------------------------------- | ------------------------------------------------------- |
-| **New to Copilot**               | [S01 Bicep Baseline](#s01-bicep-baseline)               |
-| **Want a quick demo**            | [S11 Quick Demos](S11-quick-demos/) - 15-30 min prompts |
-| **Experienced with IaC**         | [S03 Agentic Workflow](#s03-agentic-workflow)           |
-| **Full workflow demo**           | [S04 E-Commerce Platform](#s04-e-commerce-platform)     |
-| **Focused on Terraform**         | [S02 Terraform Baseline](#s02-terraform-baseline)       |
-| **Looking for async automation** | [S10 Coding Agent](#s10-coding-agent)                   |
-
----
-
-## Quick Demos
-
-For simple, single-prompt scenarios, see the [S11 Quick Demos](S11-quick-demos/) folder:
-
-| Demo                                                       | Complexity      | Time   | Description                           |
-| ---------------------------------------------------------- | --------------- | ------ | ------------------------------------- |
-| [E-Commerce Prompts](S11-quick-demos/ecommerce-prompts.md) | 🟡 Intermediate | 30 min | PCI-DSS compliant multi-tier platform |
-| [Healthcare Portal](S11-quick-demos/healthcare-demo.md)    | 🔴 Advanced     | 30 min | HIPAA-compliant patient portal        |
-| [Analytics Platform](S11-quick-demos/analytics-demo.md)    | 🟡 Intermediate | 30 min | Data analytics with Synapse           |
-| [Static Website](S11-quick-demos/static-site-demo.md)      | 🟢 Beginner     | 15 min | Simple static web app                 |
+| If you're...                     | Start with                                    |
+| -------------------------------- | --------------------------------------------- |
+| **New to Copilot**               | [S01 Bicep Baseline](#s01-bicep-baseline)     |
+| **Experienced with IaC**         | [S02 Agentic Workflow](#s02-agentic-workflow) |
+| **Looking for async automation** | [S08 Coding Agent](#s08-coding-agent)         |
 
 ---
 
@@ -48,16 +35,13 @@ For simple, single-prompt scenarios, see the [S11 Quick Demos](S11-quick-demos/)
 | #   | Scenario                                                  | Character       | Challenge                              | Time      | Difficulty      |
 | --- | --------------------------------------------------------- | --------------- | -------------------------------------- | --------- | --------------- |
 | S01 | [Bicep Baseline](#s01-bicep-baseline)                     | Elena Rodriguez | Build secure Azure network foundation  | 30 min    | 🟢 Beginner     |
-| S02 | [Terraform Baseline](#s02-terraform-baseline)             | Jordan Martinez | Multi-cloud IaC with Terraform         | 30 min    | 🟢 Beginner     |
-| S03 | [Agentic Workflow](#s03-agentic-workflow)                 | Jennifer Chen   | End-to-end infrastructure design       | 45-60 min | 🔴 Advanced     |
-| S04 | [E-Commerce Platform](#s04-e-commerce-platform)           | Carlos Mendez   | PCI-DSS compliant retail platform      | 60-90 min | 🔴 Advanced     |
-| S05 | [Documentation Generation](#s05-documentation-generation) | Priya Sharma    | Auto-generate docs from code           | 90 min    | 🟡 Intermediate |
-| S06 | [Service Validation](#s06-service-validation)             | Marcus Chen     | Automated UAT and load testing         | 30 min    | 🟡 Intermediate |
-| S07 | [Troubleshooting](#s07-troubleshooting)                   | Maya Patel      | Diagnose infrastructure issues         | 25 min    | 🟡 Intermediate |
-| S08 | [SBOM Generator](#s08-sbom-generator)                     | Sarah Chen      | Software Bill of Materials             | 75 min    | 🟡 Intermediate |
-| S09 | [Diagrams as Code](#s09-diagrams-as-code)                 | David Kim       | Python-generated architecture diagrams | 20 min    | 🟢 Beginner     |
-| S10 | [Coding Agent](#s10-coding-agent)                         | Alex Petrov     | Async implementation via GitHub Issues | 30 min    | 🔴 Advanced     |
-| S11 | [Quick Demos](#s11-quick-demos)                           | —               | Single-prompt scenarios                | 15-30 min | 🟢🟡🔴 Varies   |
+| S02 | [Agentic Workflow](#s02-agentic-workflow)                 | Jennifer Chen   | End-to-end infrastructure design       | 45-60 min | 🔴 Advanced     |
+| S03 | [Documentation Generation](#s03-documentation-generation) | Priya Sharma    | Auto-generate docs from code           | 90 min    | 🟡 Intermediate |
+| S04 | [Service Validation](#s04-service-validation)             | Marcus Chen     | Automated UAT and load testing         | 30 min    | 🟡 Intermediate |
+| S05 | [Troubleshooting](#s05-troubleshooting)                   | Maya Patel      | Diagnose infrastructure issues         | 25 min    | 🟡 Intermediate |
+| S06 | [SBOM Generator](#s06-sbom-generator)                     | Sarah Chen      | Software Bill of Materials             | 75 min    | 🟡 Intermediate |
+| S07 | [Diagrams as Code](#s07-diagrams-as-code)                 | David Kim       | Python-generated architecture diagrams | 20 min    | 🟢 Beginner     |
+| S08 | [Coding Agent](#s08-coding-agent)                         | Alex Petrov     | Async implementation via GitHub Issues | 30 min    | 🔴 Advanced     |
 
 **Difficulty Legend:**
 
@@ -73,9 +57,11 @@ For simple, single-prompt scenarios, see the [S11 Quick Demos](S11-quick-demos/)
 
 **[📁 View Scenario](S01-bicep-baseline/)**
 
-> **Character**: Elena Rodriguez — Cloud Infrastructure Engineer with 10 years VMware experience, first Azure project
+> **Character**: Elena Rodriguez — Cloud Infrastructure Engineer with 10 years VMware experience,
+> first Azure project
 
-**Challenge**: Build a secure hub-spoke network foundation in 2 weeks with security requirements she's still learning.
+**Challenge**: Build a secure hub-spoke network foundation in 2 weeks with security requirements
+she's still learning.
 
 **What You'll Learn**:
 
@@ -89,28 +75,9 @@ For simple, single-prompt scenarios, see the [S11 Quick Demos](S11-quick-demos/)
 
 ---
 
-### S02: Terraform Baseline
+### S02: Agentic Workflow
 
-**[📁 View Scenario](S02-terraform-baseline/)**
-
-> **Character**: Jordan Martinez — Senior Infrastructure Engineer with multi-cloud responsibilities
-
-**Challenge**: Same hub-spoke topology as S01, but using Terraform for multi-cloud consistency.
-
-**What You'll Learn**:
-
-- HCL syntax and Terraform Azure Provider
-- State management with Azure Storage backend
-- Module patterns for reusable infrastructure
-- Security scanning with tfsec and Checkov
-
-**Key Insight**: Copilot accelerates Terraform development while maintaining multi-cloud portability.
-
----
-
-### S03: Agentic Workflow
-
-**[📁 View Scenario](S03-agentic-workflow/)**
+**[📁 View Scenario](S02-agentic-workflow/)**
 
 > **Character**: Jennifer Chen — Solutions Architect at Meridian Systems (SI Partner)
 
@@ -142,16 +109,13 @@ flowchart LR
 
 | Step | Agent/Phase                 | Type     | Purpose                                   |
 | ---- | --------------------------- | -------- | ----------------------------------------- |
-| 1    | `Project Planner`                     | Built-in | Requirements gathering → `01-*`           |
+| 1    | `Project Planner`           | Custom   | Requirements gathering → `01-*`           |
 | 2    | `azure-principal-architect` | Custom   | Azure WAF assessment → `02-*`             |
 | 3    | Design Artifacts            | Optional | Design diagrams + ADRs (`-des`) → `03-*`  |
 | 4    | `bicep-plan`                | Custom   | Infrastructure planning → `04-*`          |
 | 5    | `bicep-implement`           | Custom   | Generate production-ready Bicep → `05-*`  |
 | 6    | Deploy                      | Manual   | Deploy to Azure → `06-*`                  |
 | 7    | As-Built Artifacts          | Optional | As-built diagrams + ADRs (`-ab`) → `07-*` |
-
-> **Note:** The Plan Agent (`Project Planner`) is a **custom agent**—see [VS Code docs](https://code.visualstudio.com/docs/copilot/chat/chat-planning).
-> The other agents are custom agents defined in `.github/agents/`.
 
 **Time Comparison**:
 
@@ -164,294 +128,167 @@ flowchart LR
 
 ---
 
-### S04: E-Commerce Platform
+### S03: Documentation Generation
 
-**[📁 View Scenario](S04-ecommerce-platform/)**
+**[📁 View Scenario](S03-documentation-generation/)**
 
-> **Character**: Carlos Mendez — E-Commerce Architect at TechRetail Inc
+> **Character**: Priya Sharma — Cloud Solutions Architect at a Microsoft Partner
 
-> **Production Example**: [`infra/bicep/ecommerce/`](../infra/bicep/ecommerce/) — Multi-tier retail platform
-> with PCI-DSS compliance
-
-**Challenge**: Design and deploy a production-ready e-commerce platform with payment processing requirements.
-
-**The Complete Workflow**:
-
-```mermaid
-%%{init: {'theme':'neutral'}}%%
-flowchart LR
-    A["Project Planner<br/>Requirements"] --> B["Azure Architect<br/>WAF Assessment"]
-    B --> C["Pricing MCP<br/>Cost Analysis"]
-    C --> D["Diagram Gen<br/>Architecture"]
-    D --> E["Bicep Planner<br/>Module Design"]
-    E --> F["Bicep Implement<br/>Code Generation"]
-
-    style A fill:#e3f2fd,stroke:#1976d2
-    style B fill:#e8f5e9,stroke:#388e3c
-    style C fill:#fff9c4,stroke:#f9a825
-    style D fill:#f3e5f5,stroke:#7b1fa2
-    style E fill:#fff3e0,stroke:#f57c00
-    style F fill:#fce4ec,stroke:#c2185b
-```
-
-| Agent/Tool                  | Type     | Purpose                         |
-| --------------------------- | -------- | ------------------------------- |
-| `Project Planner`                     | Built-in | Strategic requirements planning |
-| `azure-principal-architect` | Custom   | Azure WAF & PCI-DSS assessment  |
-| Azure Pricing MCP           | MCP      | Real-time cost estimation       |
-| `diagram-generator`         | Custom   | Python architecture diagrams    |
-| `bicep-plan`                | Custom   | Infrastructure module design    |
-| `bicep-implement`           | Custom   | Generate production-ready Bicep |
-
-**Time Comparison**:
-
-| Approach              | Duration       |
-| --------------------- | -------------- |
-| Traditional manual    | 24+ hours      |
-| With Agentic Workflow | **60 minutes** |
-
-**Key Insight**: Complete workflow demonstration from requirements to deployed infrastructure with real-time pricing.
-
----
-
-### S05: Documentation Generation
-
-**[📁 View Scenario](S05-documentation-generation/)**
-
-> **Character**: Priya Sharma — Senior Technical Writer needing to document 50-server migration in 1 week
-
-**Challenge**: Transform Azure resource data into professional documentation using conversation patterns.
+**Challenge**: Generate comprehensive documentation for existing Azure infrastructure to satisfy
+compliance and knowledge transfer requirements.
 
 **What You'll Learn**:
 
-- Resource Graph patterns for documentation
-- Data-to-documentation flow
-- Mermaid diagrams from code
-- The 90/10 rule (what to automate vs. human judgment)
+- Auto-generate design documents from Azure resources
+- Create operations runbooks from infrastructure code
+- Produce resource inventories from Bicep templates
+- Generate compliance matrices for audits
 
-**Key Insight**: Documentation as a **conversation-driven** byproduct, not a separate task.
+**Key Insight**: Documentation as a **byproduct** of infrastructure development, not an afterthought.
 
 ---
 
-### S06: Service Validation
+### S04: Service Validation
 
-**[📁 View Scenario](S06-service-validation/)**
+**[📁 View Scenario](S04-service-validation/)**
 
-> **Character**: Marcus Chen — Senior QA Engineer at ValidationFirst Consulting
+> **Character**: Marcus Chen — Platform Engineer at HealthTech Systems
 
-**Challenge**: Validate Azure infrastructure meets requirements through automated UAT and load testing.
+**Challenge**: Implement automated User Acceptance Testing (UAT) and load testing for a healthcare
+application before production go-live.
 
 **What You'll Learn**:
 
-- PowerShell validation scripts with Pester
-- Load testing with Azure Load Testing
-- Automated test evidence collection
-- Pre-deployment validation patterns
+- AI-assisted test planning and execution
+- Load testing with k6 and Azure Load Testing
+- Functional testing with Playwright
+- Test result interpretation and sign-off
 
-**Key Insight**: Catch issues **before** they reach production.
+**Key Insight**: Copilot as a **QA partner** that helps design and execute comprehensive test suites.
 
 ---
 
-### S07: Troubleshooting
+### S05: Troubleshooting
 
-**[📁 View Scenario](S07-troubleshooting/)**
+**[📁 View Scenario](S05-troubleshooting/)**
 
-> **Character**: Maya Patel — On-Call SRE at RetailMax with 2 AM production incident
+> **Character**: Maya Patel — Cloud Operations Engineer
 
-**Challenge**: Diagnose and fix checkout failures under time pressure before Black Friday.
+**Challenge**: Diagnose and resolve infrastructure issues during an on-call incident.
 
 **What You'll Learn**:
 
-- AI-assisted log analysis with KQL
-- Azure Monitor and Log Analytics queries
-- Root cause identification patterns
-- Systematic debugging with Copilot
+- Diagnostic conversation patterns with Copilot
+- Azure resource health investigation
+- Log analysis and correlation
+- Root cause analysis workflows
 
-**Key Insight**: Better **questions** lead to faster diagnosis, not just faster queries.
+**Key Insight**: Copilot as a **diagnostic partner** that accelerates incident resolution.
 
 ---
 
-### S08: SBOM Generator
+### S06: SBOM Generator
 
-**[📁 View Scenario](S08-sbom-generator/)**
+**[📁 View Scenario](S06-sbom-generator/)**
 
-> **Character**: Sarah Chen — Security Engineer with 48-hour deadline for customer SBOM request
+> **Character**: Sarah Chen — Security Engineer at HealthTech Solutions
 
-**Challenge**: Create comprehensive Software Bill of Materials for compliance without prior SBOM experience.
+**Challenge**: Create a Software Bill of Materials (SBOM) for a healthcare application to satisfy
+security and compliance requirements.
 
 **What You'll Learn**:
 
-- SBOM fundamentals and CycloneDX format
-- Component discovery across application, container, and infrastructure layers
-- License compliance analysis
-- Validation techniques for SBOM completeness
+- SBOM generation for Azure deployments
+- Dependency analysis and vulnerability scanning
+- Component inventory documentation
+- Supply chain security practices
 
-**Key Insight**: Learn **how** to create SBOMs through conversation, not just get output.
+**Key Insight**: SBOMs as a **security baseline** for Azure infrastructure deployments.
 
 ---
 
-### S09: Diagrams as Code
+### S07: Diagrams as Code
 
-**[📁 View Scenario](S09-diagrams-as-code/)**
+**[📁 View Scenario](S07-diagrams-as-code/)**
 
-> **Character**: David Kim — Solutions Architect with design review in 2 hours
+> **Character**: David Kim — Solutions Architect at TechVentures Ltd
 
-**Challenge**: Create version-controlled Azure architecture diagrams without prior diagrams-as-code experience.
+**Challenge**: Create version-controlled, reproducible architecture diagrams using Python.
 
 **What You'll Learn**:
 
-- Python Diagrams library for Azure
-- Architecture visualization patterns
-- Diagram automation in CI/CD
-- Consistent visual language
+- Python `diagrams` library for Azure architecture
+- Diagram-as-code patterns and best practices
+- Integration with the 7-step agent workflow
+- Regenerating diagrams as infrastructure evolves
 
-**Key Insight**: Diagrams that **never go stale** because they're generated from code.
+**Key Insight**: Diagrams that **evolve with code**, not separate presentation artifacts.
 
 ---
 
-### S10: Coding Agent
+### S08: Coding Agent
 
-**[📁 View Scenario](S10-coding-agent/)**
+**[📁 View Scenario](S08-coding-agent/)**
 
-> **Character**: Alex Petrov — Cloud Operations Engineer with 24 hours to add monitoring before go-live
+> **Character**: Alex Petrov — Cloud Operations Engineer at Contoso Healthcare
 
-**Challenge**: Implement monitoring infrastructure while handling other priorities.
+**Challenge**: Implement monitoring and alerting before production go-live, using async automation
+via GitHub Issues.
 
 **What You'll Learn**:
 
-- GitHub Issue → Copilot assignment
-- Autonomous codebase analysis
-- Pull Request review workflow
-- Async development patterns
+- GitHub Copilot coding agent for infrastructure tasks
+- Async implementation via GitHub Issues
+- Issue-to-PR automation workflows
+- Agent collaboration patterns
 
-**⚠️ Requirements**: GitHub Copilot Business/Enterprise with Coding Agent enabled
-
-**Key Insight**: Delegate implementation to Copilot, focus on review and approval.
-
----
-
-### S11: Quick Demos
-
-**[📁 View Scenario](S11-quick-demos/)**
-
-**Challenge**: Quick single-prompt demonstrations for time-constrained presentations.
-
-**Available Demos**:
-
-| Demo               | Complexity      | Time   | Description                           |
-| ------------------ | --------------- | ------ | ------------------------------------- |
-| E-Commerce Prompts | 🟡 Intermediate | 30 min | PCI-DSS compliant multi-tier platform |
-| Healthcare Portal  | 🔴 Advanced     | 30 min | HIPAA-compliant patient portal        |
-| Analytics Platform | 🟡 Intermediate | 30 min | Data analytics with Synapse           |
-| Static Website     | 🟢 Beginner     | 15 min | Simple static web app                 |
-
-**Key Insight**: Proof-of-value demos that fit any meeting schedule.
-
----
-
-## Scenario Structure
-
-Each scenario follows a consistent structure:
-
-```
-scenarios/SXX-scenario-name/
-├── README.md              # Overview, character, learning objectives
-├── DEMO-SCRIPT.md         # Step-by-step walkthrough with 🎓 Learning Moments
-├── solution/              # Reference implementation
-│   └── README.md          # Solution explanation
-├── examples/              # Conversation transcripts
-│   └── copilot-conversation.md
-├── prompts/               # Effective prompts for this scenario
-│   └── effective-prompts.md
-└── validation/            # Post-completion validation
-    └── validate.ps1
-```
+**Key Insight**: Offload implementation to an **async agent** while focusing on higher-value work.
 
 ---
 
 ## Learning Paths
 
-### Path 1: IaC Fundamentals (2 hours)
+### For Beginners (2-3 hours)
 
-```
-S01 Bicep Baseline → S05 Documentation → S06 Validation
-```
-
-Best for: IT Pros new to Infrastructure as Code
-
-### Path 2: Advanced Workflow (4 hours)
-
-```
-S03 Agentic Workflow → S04 E-Commerce Platform → S09 Diagrams as Code
+```mermaid
+%%{init: {'theme':'neutral'}}%%
+flowchart LR
+    S01["S01: Bicep Baseline"] --> S07["S07: Diagrams as Code"]
+    S07 --> S02["S02: Agentic Workflow"]
 ```
 
-Best for: Architects and senior engineers
+### For Experienced Practitioners (4-6 hours)
 
-### Path 3: Multi-Cloud (2 hours)
-
+```mermaid
+%%{init: {'theme':'neutral'}}%%
+flowchart LR
+    S02["S02: Agentic Workflow"] --> S03["S03: Documentation"]
+    S03 --> S04["S04: Service Validation"]
+    S04 --> S08["S08: Coding Agent"]
 ```
-S01 Bicep Baseline → S02 Terraform Baseline → Compare approaches
-```
-
-Best for: Teams evaluating IaC tools
-
-### Path 4: Operations Focus (2 hours)
-
-```
-S06 Service Validation → S07 Troubleshooting → S08 SBOM Generator
-```
-
-Best for: DevOps and platform engineers
-
-### Path 5: Complete Demo (3 hours)
-
-```
-S04 E-Commerce Platform → S09 Diagrams as Code → S10 Coding Agent
-```
-
-Best for: Live demonstrations and workshops
 
 ---
 
-## Time Savings Summary
+## Time Savings Evidence
 
-For detailed methodology and research sources, see
-[Time Savings Evidence](../docs/presenter/time-savings-evidence.md).
-
-| Scenario                | Traditional | With Copilot | Savings |
-| ----------------------- | ----------- | ------------ | ------- |
-| S01 Bicep Baseline      | 4-6 hours   | 30 min       | 87-92%  |
-| S02 Terraform Baseline  | 4-6 hours   | 30 min       | 87-92%  |
-| S03 Agentic Workflow    | 18+ hours   | 45 min       | 96%     |
-| S04 E-Commerce Platform | 24+ hours   | 60 min       | 96%     |
-| S05 Documentation Gen   | 20+ hours   | 90 min       | 93%     |
-| S06 Service Validation  | 4-6 hours   | 30 min       | 87-92%  |
-| S07 Troubleshooting     | 30 hours    | 5 hours      | 83%     |
-| S08 SBOM Generator      | 6 hours     | 75 min       | 79%     |
-| S09 Diagrams as Code    | 45 min      | 20 min       | 56%     |
-| S10 Coding Agent        | 8+ hours    | 30 min       | 94%     |
+| Scenario               | Traditional | Agentic | Savings |
+| ---------------------- | ----------- | ------- | ------- |
+| S01 Bicep Baseline     | 4 hours     | 30 min  | 88%     |
+| S02 Agentic Workflow   | 18+ hours   | 45 min  | 96%     |
+| S03 Documentation      | 8 hours     | 90 min  | 81%     |
+| S04 Service Validation | 6 hours     | 30 min  | 92%     |
+| S07 Diagrams as Code   | 45 min      | 20 min  | 56%     |
+| S08 Coding Agent       | 8+ hours    | 30 min  | 94%     |
 
 ---
 
-## Contributing
+## Related Resources
 
-Want to add a new scenario? See [CONTRIBUTING.md](../CONTRIBUTING.md) for guidelines.
-
-Each scenario should:
-
-- Feature a relatable IT Pro character with a real challenge
-- Include discovery-based learning (not just script generation)
-- Provide measurable time savings
-- Include validation scripts
+- [Workflow Guide](../docs/reference/workflow.md)
+- [Agents Overview](../docs/reference/agents-overview.md)
+- [Bicep Patterns](../docs/reference/bicep-patterns.md)
+- [Getting Started](../docs/getting-started/quickstart.md)
 
 ---
 
-## Document Info
-
-|                |                             |
-| -------------- | --------------------------- |
-| **Created**    | November 2025               |
-| **Updated**    | December 2025               |
-| **Scenarios**  | 11 (S01-S11)                |
-| **Total Time** | ~8-10 hours (all scenarios) |
-| **Maintainer** | Repository maintainers      |
+_Scenarios updated for Agentic InfraOps v3.11.0_

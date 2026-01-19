@@ -346,7 +346,7 @@ _10 total scenarios from beginner to advanced_
 # Resources
 
 📖 **Documentation**: [docs/README.md](../README.md)
-📋 **Workflow Guide**: [docs/workflow/WORKFLOW.md](../workflow/WORKFLOW.md)
+📋 **Workflow Guide**: [docs/reference/workflow.md](../reference/workflow.md)
 💰 **Pricing MCP**: [mcp/azure-pricing-mcp/](../../mcp/azure-pricing-mcp/)
 🎯 **Scenarios**: [scenarios/](../../scenarios/)
 

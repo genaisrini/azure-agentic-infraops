@@ -35,7 +35,6 @@
 ## Related Resources
 
 - **Bicep Code**: [`infra/bicep/ecommerce/`](../../infra/bicep/ecommerce/)
-- **Legacy Outputs**: [`scenarios/scenario-output/ecommerce/`](../../scenarios/scenario-output/ecommerce/)
 
 ## Project Overview
 

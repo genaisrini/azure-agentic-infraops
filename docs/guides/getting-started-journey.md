@@ -135,9 +135,9 @@ _Best for: IT Pros new to Infrastructure as Code_
 ```
 S01 Bicep Baseline (30 min)
         ↓
-S04 Documentation Generation (20 min)
+S03 Documentation Generation (20 min)
         ↓
-S05 Service Validation (30 min)
+S04 Service Validation (30 min)
 ```
 
 **Total time:** ~80 minutes
@@ -150,25 +150,25 @@ S05 Service Validation (30 min)
 
 ---
 
-#### Path B: Multi-Cloud IaC
+#### Path B: Agentic Workflow
 
-_Best for: Teams evaluating Bicep vs. Terraform_
+_Best for: Teams wanting AI-assisted infrastructure development_
 
 ```
 S01 Bicep Baseline (30 min)
         ↓
-S02 Terraform Baseline (30 min)
+S02 Agentic Workflow (45 min)
         ↓
-Compare approaches
+S08 Coding Agent (30 min)
 ```
 
-**Total time:** ~70 minutes
+**Total time:** ~105 minutes
 
 **What you'll learn:**
 
 - Azure-native Bicep patterns
-- Terraform multi-cloud approach
-- When to use each tool
+- Multi-agent orchestration
+- Autonomous implementation with Coding Agent
 
 ---
 
@@ -177,11 +177,11 @@ Compare approaches
 _Best for: DevOps, SRE, Platform Engineers_
 
 ```
-S05 Service Validation (30 min)
+S04 Service Validation (30 min)
         ↓
-S06 Troubleshooting (25 min)
+S05 Troubleshooting (25 min)
         ↓
-S07 SBOM Generator (20 min)
+S06 SBOM Generator (20 min)
 ```
 
 **Total time:** ~75 minutes
@@ -199,11 +199,11 @@ S07 SBOM Generator (20 min)
 _Best for: Senior architects, automation engineers_
 
 ```
-S03 Agentic Workflow (45 min)
+S02 Agentic Workflow (45 min)
         ↓
-S08 Diagrams as Code (20 min)
+S07 Diagrams as Code (20 min)
         ↓
-S09 Coding Agent (30 min)
+S08 Coding Agent (30 min)
 ```
 
 **Total time:** ~95 minutes
@@ -258,7 +258,7 @@ flowchart LR
 3. **Follow agent handoffs** - Each agent suggests the next step via buttons
 4. **Review outputs** - Plan files, ADRs, architecture docs, Bicep code
 
-📖 **Full guide:** [S03 Agentic Workflow](../../scenarios/S03-agentic-workflow/)
+📖 **Full guide:** [S02 Agentic Workflow](../../scenarios/S02-agentic-workflow/)
 
 ### GitHub Copilot Coding Agent
 
@@ -276,7 +276,7 @@ Delegate entire GitHub Issues to Copilot for autonomous implementation.
 3. Copilot analyzes codebase and implements
 4. Review the PR Copilot creates
 
-📖 **Full guide:** [S10 Coding Agent](../../scenarios/S10-coding-agent/)
+📖 **Full guide:** [S08 Coding Agent](../../scenarios/S08-coding-agent/)
 
 ---
 

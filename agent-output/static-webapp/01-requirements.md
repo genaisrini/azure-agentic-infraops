@@ -102,14 +102,16 @@
 - [x] Public endpoints acceptable (internal tool with Azure AD auth)
 - [ ] WAF required
 
-## Cost Constraints
+## Budget
 
-### Budget
+| Field          | Value |
+| -------------- | ----- |
+| Monthly Budget | ~$50  |
+| Annual Budget  | ~$600 |
+| Hard/Soft      | Soft  |
 
-| Period  | Budget | Hard/Soft Limit |
-| ------- | ------ | --------------- |
-| Monthly | $50    | Soft            |
-| Annual  | $600   | Soft            |
+> **Note**: The Azure Pricing MCP server generates detailed cost estimates during
+> architecture assessment (Step 2).
 
 ### Cost Optimization Priorities
 
@@ -117,12 +119,6 @@
 2. [x] Use consumption-based pricing where possible
 3. [ ] Reserved instances consideration
 4. [ ] Spot instances for non-critical workloads
-
-### FinOps Considerations
-
-- Cost alerts at 80% budget threshold
-- Tag all resources for cost tracking
-- Use Azure Cost Management for monitoring
 
 ## Operational Requirements
 

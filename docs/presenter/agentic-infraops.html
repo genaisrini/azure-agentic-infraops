@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-US">
   <head>
     <title>Agentic InfraOps</title>
@@ -501,11 +501,12 @@
         body[data-bespoke-view="presenter"] .bespoke-marp-presenter-container {
           display: grid;
           font-family: Helvetica, Arial, sans-serif;
-          grid-template: "current dragbar next" minmax(140px, 1fr) "current dragbar note" 2fr "info    dragbar note" 3em;
-          grid-template-columns: minmax(
-              3px,
-              var(--bespoke-marp-presenter-split-ratio, 66%)
-            ) 0 minmax(3px, 1fr);
+          grid-template:
+            "current dragbar next" minmax(140px, 1fr)
+            "current dragbar note" 2fr "info    dragbar note" 3em;
+          grid-template-columns:
+            minmax(3px, var(--bespoke-marp-presenter-split-ratio, 66%))
+            0 minmax(3px, 1fr);
           height: 100%;
           left: 0;
           position: absolute;
@@ -1195,8 +1196,9 @@
         --base-text-weight-normal: 400;
         --base-text-weight-medium: 500;
         --base-text-weight-semibold: 600;
-        --fontStack-monospace: ui-monospace, SFMono-Regular, SF Mono, Menlo,
-          Consolas, Liberation Mono, monospace;
+        --fontStack-monospace:
+          ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
+          Liberation Mono, monospace;
         --fgColor-accent: Highlight;
       } /*!
  * Marp default theme.
@@ -1221,8 +1223,16 @@
         -webkit-text-size-adjust: 100%;
         background-color: var(--bgColor-default);
         color: var(--fgColor-default);
-        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Noto Sans,
-          Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+        font-family:
+          -apple-system,
+          BlinkMacSystemFont,
+          Segoe UI,
+          Noto Sans,
+          Helvetica,
+          Arial,
+          sans-serif,
+          Apple Color Emoji,
+          Segoe UI Emoji;
         font-size: 16px;
         line-height: 1.5;
         margin: 0;
@@ -2320,7 +2330,10 @@
       }
       div#\:\$p > svg > foreignObject > section g-emoji {
         display: inline-block;
-        font-family: Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+        font-family:
+          Apple Color Emoji,
+          Segoe UI Emoji,
+          Segoe UI Symbol;
         font-size: 1em;
         font-style: normal !important;
         font-weight: var(--base-text-weight-normal, 400);
@@ -3167,46 +3180,16 @@ a {
               --color: white;
               --class: lead;
               --theme: default;
-              --style:section {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-              }
-              h1 {
-                color: #0078d4;
-                font-size: 2.2em;
-              }
-              h2 {
-                color: #5c2d91;
-                font-size: 1.6em;
-              }
-              a {
-                color: #0078d4;
-              }
-              .azure-blue {
-                color: #0078d4;
-              }
-              .azure-green {
-                color: #107c10;
-              }
-              .azure-purple {
-                color: #5c2d91;
-              }
-              .azure-orange {
-                color: #d83b01;
-              }
-              .small {
-                font-size: 0.8em;
-              }
-              .center {
-                text-align: center;
-              }
-              .columns {
-                display: flex;
-                gap: 2em;
-              }
-              .column {
-                flex: 1;
-              }
-              color: white;
+              --style:
+                section {font-family: &quot;Segoe UI&quot;, Tahoma, Geneva,
+                Verdana,
+                sans-serif;} h1 {color: #0078d4; font-size: 2.2em;} h2
+                  {color: #5c2d91; font-size: 1.6em;} a {color: #0078d4;}
+                  .azure-blue {color: #0078d4;} .azure-green {color: #107c10;}
+                  .azure-purple {color: #5c2d91;} .azure-orange
+                  {color: #d83b01;} .small {font-size: 0.8em;} .center
+                  {text-align: center;} .columns {display: flex; gap: 2em;}
+                  .column {flex: 1;} color: white;
               background-color: #0078d4;
               background-image: none;
             "
@@ -3266,46 +3249,16 @@ a {
               --background-color: #ffffff;
               --color: #201f1e;
               --theme: default;
-              --style:section {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-              }
-              h1 {
-                color: #0078d4;
-                font-size: 2.2em;
-              }
-              h2 {
-                color: #5c2d91;
-                font-size: 1.6em;
-              }
-              a {
-                color: #0078d4;
-              }
-              .azure-blue {
-                color: #0078d4;
-              }
-              .azure-green {
-                color: #107c10;
-              }
-              .azure-purple {
-                color: #5c2d91;
-              }
-              .azure-orange {
-                color: #d83b01;
-              }
-              .small {
-                font-size: 0.8em;
-              }
-              .center {
-                text-align: center;
-              }
-              .columns {
-                display: flex;
-                gap: 2em;
-              }
-              .column {
-                flex: 1;
-              }
-              color: #201f1e;
+              --style:
+                section {font-family: &quot;Segoe UI&quot;, Tahoma, Geneva,
+                Verdana,
+                sans-serif;} h1 {color: #0078d4; font-size: 2.2em;} h2
+                  {color: #5c2d91; font-size: 1.6em;} a {color: #0078d4;}
+                  .azure-blue {color: #0078d4;} .azure-green {color: #107c10;}
+                  .azure-purple {color: #5c2d91;} .azure-orange
+                  {color: #d83b01;} .small {font-size: 0.8em;} .center
+                  {text-align: center;} .columns {display: flex; gap: 2em;}
+                  .column {flex: 1;} color: #201f1e;
               background-color: #ffffff;
               background-image: none;
               --marpit-advanced-background-split: 45%;
@@ -3320,7 +3273,7 @@ a {
             >
               <figure
                 style="
-                  background-image: url('infographics/generated/workflow-diagram-web.png');
+                  background-image: url(&quot;infographics/generated/workflow-diagram-web.png&quot;);
                 "
               ></figure>
             </div></section></foreignObject
@@ -3361,46 +3314,16 @@ a {
               --background-color: #ffffff;
               --color: #201f1e;
               --theme: default;
-              --style:section {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-              }
-              h1 {
-                color: #0078d4;
-                font-size: 2.2em;
-              }
-              h2 {
-                color: #5c2d91;
-                font-size: 1.6em;
-              }
-              a {
-                color: #0078d4;
-              }
-              .azure-blue {
-                color: #0078d4;
-              }
-              .azure-green {
-                color: #107c10;
-              }
-              .azure-purple {
-                color: #5c2d91;
-              }
-              .azure-orange {
-                color: #d83b01;
-              }
-              .small {
-                font-size: 0.8em;
-              }
-              .center {
-                text-align: center;
-              }
-              .columns {
-                display: flex;
-                gap: 2em;
-              }
-              .column {
-                flex: 1;
-              }
-              color: #201f1e;
+              --style:
+                section {font-family: &quot;Segoe UI&quot;, Tahoma, Geneva,
+                Verdana,
+                sans-serif;} h1 {color: #0078d4; font-size: 2.2em;} h2
+                  {color: #5c2d91; font-size: 1.6em;} a {color: #0078d4;}
+                  .azure-blue {color: #0078d4;} .azure-green {color: #107c10;}
+                  .azure-purple {color: #5c2d91;} .azure-orange
+                  {color: #d83b01;} .small {font-size: 0.8em;} .center
+                  {text-align: center;} .columns {display: flex; gap: 2em;}
+                  .column {flex: 1;} color: #201f1e;
               background-color: #ffffff;
               background-image: none;
               --marpit-advanced-background-split: 45%;
@@ -3510,46 +3433,16 @@ a {
               --background-color: #ffffff;
               --color: #201f1e;
               --theme: default;
-              --style:section {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-              }
-              h1 {
-                color: #0078d4;
-                font-size: 2.2em;
-              }
-              h2 {
-                color: #5c2d91;
-                font-size: 1.6em;
-              }
-              a {
-                color: #0078d4;
-              }
-              .azure-blue {
-                color: #0078d4;
-              }
-              .azure-green {
-                color: #107c10;
-              }
-              .azure-purple {
-                color: #5c2d91;
-              }
-              .azure-orange {
-                color: #d83b01;
-              }
-              .small {
-                font-size: 0.8em;
-              }
-              .center {
-                text-align: center;
-              }
-              .columns {
-                display: flex;
-                gap: 2em;
-              }
-              .column {
-                flex: 1;
-              }
-              color: #201f1e;
+              --style:
+                section {font-family: &quot;Segoe UI&quot;, Tahoma, Geneva,
+                Verdana,
+                sans-serif;} h1 {color: #0078d4; font-size: 2.2em;} h2
+                  {color: #5c2d91; font-size: 1.6em;} a {color: #0078d4;}
+                  .azure-blue {color: #0078d4;} .azure-green {color: #107c10;}
+                  .azure-purple {color: #5c2d91;} .azure-orange
+                  {color: #d83b01;} .small {font-size: 0.8em;} .center
+                  {text-align: center;} .columns {display: flex; gap: 2em;}
+                  .column {flex: 1;} color: #201f1e;
               background-color: #ffffff;
               background-image: none;
             "
@@ -3627,46 +3520,16 @@ a {
               --background-color: #ffffff;
               --color: #201f1e;
               --theme: default;
-              --style:section {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-              }
-              h1 {
-                color: #0078d4;
-                font-size: 2.2em;
-              }
-              h2 {
-                color: #5c2d91;
-                font-size: 1.6em;
-              }
-              a {
-                color: #0078d4;
-              }
-              .azure-blue {
-                color: #0078d4;
-              }
-              .azure-green {
-                color: #107c10;
-              }
-              .azure-purple {
-                color: #5c2d91;
-              }
-              .azure-orange {
-                color: #d83b01;
-              }
-              .small {
-                font-size: 0.8em;
-              }
-              .center {
-                text-align: center;
-              }
-              .columns {
-                display: flex;
-                gap: 2em;
-              }
-              .column {
-                flex: 1;
-              }
-              color: #201f1e;
+              --style:
+                section {font-family: &quot;Segoe UI&quot;, Tahoma, Geneva,
+                Verdana,
+                sans-serif;} h1 {color: #0078d4; font-size: 2.2em;} h2
+                  {color: #5c2d91; font-size: 1.6em;} a {color: #0078d4;}
+                  .azure-blue {color: #0078d4;} .azure-green {color: #107c10;}
+                  .azure-purple {color: #5c2d91;} .azure-orange
+                  {color: #d83b01;} .small {font-size: 0.8em;} .center
+                  {text-align: center;} .columns {display: flex; gap: 2em;}
+                  .column {flex: 1;} color: #201f1e;
               background-color: #ffffff;
               background-image: none;
             "
@@ -3720,46 +3583,16 @@ a {
               --background-color: #ffffff;
               --color: #201f1e;
               --theme: default;
-              --style:section {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-              }
-              h1 {
-                color: #0078d4;
-                font-size: 2.2em;
-              }
-              h2 {
-                color: #5c2d91;
-                font-size: 1.6em;
-              }
-              a {
-                color: #0078d4;
-              }
-              .azure-blue {
-                color: #0078d4;
-              }
-              .azure-green {
-                color: #107c10;
-              }
-              .azure-purple {
-                color: #5c2d91;
-              }
-              .azure-orange {
-                color: #d83b01;
-              }
-              .small {
-                font-size: 0.8em;
-              }
-              .center {
-                text-align: center;
-              }
-              .columns {
-                display: flex;
-                gap: 2em;
-              }
-              .column {
-                flex: 1;
-              }
-              color: #201f1e;
+              --style:
+                section {font-family: &quot;Segoe UI&quot;, Tahoma, Geneva,
+                Verdana,
+                sans-serif;} h1 {color: #0078d4; font-size: 2.2em;} h2
+                  {color: #5c2d91; font-size: 1.6em;} a {color: #0078d4;}
+                  .azure-blue {color: #0078d4;} .azure-green {color: #107c10;}
+                  .azure-purple {color: #5c2d91;} .azure-orange
+                  {color: #d83b01;} .small {font-size: 0.8em;} .center
+                  {text-align: center;} .columns {display: flex; gap: 2em;}
+                  .column {flex: 1;} color: #201f1e;
               background-color: #ffffff;
               background-image: none;
             "
@@ -3816,46 +3649,16 @@ a {
               --background-color: #ffffff;
               --color: #201f1e;
               --theme: default;
-              --style:section {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-              }
-              h1 {
-                color: #0078d4;
-                font-size: 2.2em;
-              }
-              h2 {
-                color: #5c2d91;
-                font-size: 1.6em;
-              }
-              a {
-                color: #0078d4;
-              }
-              .azure-blue {
-                color: #0078d4;
-              }
-              .azure-green {
-                color: #107c10;
-              }
-              .azure-purple {
-                color: #5c2d91;
-              }
-              .azure-orange {
-                color: #d83b01;
-              }
-              .small {
-                font-size: 0.8em;
-              }
-              .center {
-                text-align: center;
-              }
-              .columns {
-                display: flex;
-                gap: 2em;
-              }
-              .column {
-                flex: 1;
-              }
-              color: #201f1e;
+              --style:
+                section {font-family: &quot;Segoe UI&quot;, Tahoma, Geneva,
+                Verdana,
+                sans-serif;} h1 {color: #0078d4; font-size: 2.2em;} h2
+                  {color: #5c2d91; font-size: 1.6em;} a {color: #0078d4;}
+                  .azure-blue {color: #0078d4;} .azure-green {color: #107c10;}
+                  .azure-purple {color: #5c2d91;} .azure-orange
+                  {color: #d83b01;} .small {font-size: 0.8em;} .center
+                  {text-align: center;} .columns {display: flex; gap: 2em;}
+                  .column {flex: 1;} color: #201f1e;
               background-color: #ffffff;
               background-image: none;
             "
@@ -3943,46 +3746,16 @@ a {
               --background-color: #ffffff;
               --color: #201f1e;
               --theme: default;
-              --style:section {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-              }
-              h1 {
-                color: #0078d4;
-                font-size: 2.2em;
-              }
-              h2 {
-                color: #5c2d91;
-                font-size: 1.6em;
-              }
-              a {
-                color: #0078d4;
-              }
-              .azure-blue {
-                color: #0078d4;
-              }
-              .azure-green {
-                color: #107c10;
-              }
-              .azure-purple {
-                color: #5c2d91;
-              }
-              .azure-orange {
-                color: #d83b01;
-              }
-              .small {
-                font-size: 0.8em;
-              }
-              .center {
-                text-align: center;
-              }
-              .columns {
-                display: flex;
-                gap: 2em;
-              }
-              .column {
-                flex: 1;
-              }
-              color: #201f1e;
+              --style:
+                section {font-family: &quot;Segoe UI&quot;, Tahoma, Geneva,
+                Verdana,
+                sans-serif;} h1 {color: #0078d4; font-size: 2.2em;} h2
+                  {color: #5c2d91; font-size: 1.6em;} a {color: #0078d4;}
+                  .azure-blue {color: #0078d4;} .azure-green {color: #107c10;}
+                  .azure-purple {color: #5c2d91;} .azure-orange
+                  {color: #d83b01;} .small {font-size: 0.8em;} .center
+                  {text-align: center;} .columns {display: flex; gap: 2em;}
+                  .column {flex: 1;} color: #201f1e;
               background-color: #ffffff;
               background-image: none;
             "
@@ -4048,46 +3821,16 @@ a {
               --background-color: #ffffff;
               --color: #201f1e;
               --theme: default;
-              --style:section {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-              }
-              h1 {
-                color: #0078d4;
-                font-size: 2.2em;
-              }
-              h2 {
-                color: #5c2d91;
-                font-size: 1.6em;
-              }
-              a {
-                color: #0078d4;
-              }
-              .azure-blue {
-                color: #0078d4;
-              }
-              .azure-green {
-                color: #107c10;
-              }
-              .azure-purple {
-                color: #5c2d91;
-              }
-              .azure-orange {
-                color: #d83b01;
-              }
-              .small {
-                font-size: 0.8em;
-              }
-              .center {
-                text-align: center;
-              }
-              .columns {
-                display: flex;
-                gap: 2em;
-              }
-              .column {
-                flex: 1;
-              }
-              color: #201f1e;
+              --style:
+                section {font-family: &quot;Segoe UI&quot;, Tahoma, Geneva,
+                Verdana,
+                sans-serif;} h1 {color: #0078d4; font-size: 2.2em;} h2
+                  {color: #5c2d91; font-size: 1.6em;} a {color: #0078d4;}
+                  .azure-blue {color: #0078d4;} .azure-green {color: #107c10;}
+                  .azure-purple {color: #5c2d91;} .azure-orange
+                  {color: #d83b01;} .small {font-size: 0.8em;} .center
+                  {text-align: center;} .columns {display: flex; gap: 2em;}
+                  .column {flex: 1;} color: #201f1e;
               background-color: #ffffff;
               background-image: none;
               --marpit-advanced-background-split: 50%;
@@ -4102,7 +3845,7 @@ a {
             >
               <figure
                 style="
-                  background-image: url('infographics/generated/waf-scorecard.png');
+                  background-image: url(&quot;infographics/generated/waf-scorecard.png&quot;);
                 "
               ></figure>
             </div></section></foreignObject
@@ -4143,46 +3886,16 @@ a {
               --background-color: #ffffff;
               --color: #201f1e;
               --theme: default;
-              --style:section {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-              }
-              h1 {
-                color: #0078d4;
-                font-size: 2.2em;
-              }
-              h2 {
-                color: #5c2d91;
-                font-size: 1.6em;
-              }
-              a {
-                color: #0078d4;
-              }
-              .azure-blue {
-                color: #0078d4;
-              }
-              .azure-green {
-                color: #107c10;
-              }
-              .azure-purple {
-                color: #5c2d91;
-              }
-              .azure-orange {
-                color: #d83b01;
-              }
-              .small {
-                font-size: 0.8em;
-              }
-              .center {
-                text-align: center;
-              }
-              .columns {
-                display: flex;
-                gap: 2em;
-              }
-              .column {
-                flex: 1;
-              }
-              color: #201f1e;
+              --style:
+                section {font-family: &quot;Segoe UI&quot;, Tahoma, Geneva,
+                Verdana,
+                sans-serif;} h1 {color: #0078d4; font-size: 2.2em;} h2
+                  {color: #5c2d91; font-size: 1.6em;} a {color: #0078d4;}
+                  .azure-blue {color: #0078d4;} .azure-green {color: #107c10;}
+                  .azure-purple {color: #5c2d91;} .azure-orange
+                  {color: #d83b01;} .small {font-size: 0.8em;} .center
+                  {text-align: center;} .columns {display: flex; gap: 2em;}
+                  .column {flex: 1;} color: #201f1e;
               background-color: #ffffff;
               background-image: none;
               --marpit-advanced-background-split: 50%;
@@ -4280,46 +3993,16 @@ a {
               --background-color: #ffffff;
               --color: #201f1e;
               --theme: default;
-              --style:section {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-              }
-              h1 {
-                color: #0078d4;
-                font-size: 2.2em;
-              }
-              h2 {
-                color: #5c2d91;
-                font-size: 1.6em;
-              }
-              a {
-                color: #0078d4;
-              }
-              .azure-blue {
-                color: #0078d4;
-              }
-              .azure-green {
-                color: #107c10;
-              }
-              .azure-purple {
-                color: #5c2d91;
-              }
-              .azure-orange {
-                color: #d83b01;
-              }
-              .small {
-                font-size: 0.8em;
-              }
-              .center {
-                text-align: center;
-              }
-              .columns {
-                display: flex;
-                gap: 2em;
-              }
-              .column {
-                flex: 1;
-              }
-              color: #201f1e;
+              --style:
+                section {font-family: &quot;Segoe UI&quot;, Tahoma, Geneva,
+                Verdana,
+                sans-serif;} h1 {color: #0078d4; font-size: 2.2em;} h2
+                  {color: #5c2d91; font-size: 1.6em;} a {color: #0078d4;}
+                  .azure-blue {color: #0078d4;} .azure-green {color: #107c10;}
+                  .azure-purple {color: #5c2d91;} .azure-orange
+                  {color: #d83b01;} .small {font-size: 0.8em;} .center
+                  {text-align: center;} .columns {display: flex; gap: 2em;}
+                  .column {flex: 1;} color: #201f1e;
               background-color: #ffffff;
               background-image: none;
             "
@@ -4385,46 +4068,16 @@ a {
               --background-color: #ffffff;
               --color: #201f1e;
               --theme: default;
-              --style:section {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-              }
-              h1 {
-                color: #0078d4;
-                font-size: 2.2em;
-              }
-              h2 {
-                color: #5c2d91;
-                font-size: 1.6em;
-              }
-              a {
-                color: #0078d4;
-              }
-              .azure-blue {
-                color: #0078d4;
-              }
-              .azure-green {
-                color: #107c10;
-              }
-              .azure-purple {
-                color: #5c2d91;
-              }
-              .azure-orange {
-                color: #d83b01;
-              }
-              .small {
-                font-size: 0.8em;
-              }
-              .center {
-                text-align: center;
-              }
-              .columns {
-                display: flex;
-                gap: 2em;
-              }
-              .column {
-                flex: 1;
-              }
-              color: #201f1e;
+              --style:
+                section {font-family: &quot;Segoe UI&quot;, Tahoma, Geneva,
+                Verdana,
+                sans-serif;} h1 {color: #0078d4; font-size: 2.2em;} h2
+                  {color: #5c2d91; font-size: 1.6em;} a {color: #0078d4;}
+                  .azure-blue {color: #0078d4;} .azure-green {color: #107c10;}
+                  .azure-purple {color: #5c2d91;} .azure-orange
+                  {color: #d83b01;} .small {font-size: 0.8em;} .center
+                  {text-align: center;} .columns {display: flex; gap: 2em;}
+                  .column {flex: 1;} color: #201f1e;
               background-color: #ffffff;
               background-image: none;
             "
@@ -4487,46 +4140,16 @@ a {
               --background-color: #ffffff;
               --color: #201f1e;
               --theme: default;
-              --style:section {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-              }
-              h1 {
-                color: #0078d4;
-                font-size: 2.2em;
-              }
-              h2 {
-                color: #5c2d91;
-                font-size: 1.6em;
-              }
-              a {
-                color: #0078d4;
-              }
-              .azure-blue {
-                color: #0078d4;
-              }
-              .azure-green {
-                color: #107c10;
-              }
-              .azure-purple {
-                color: #5c2d91;
-              }
-              .azure-orange {
-                color: #d83b01;
-              }
-              .small {
-                font-size: 0.8em;
-              }
-              .center {
-                text-align: center;
-              }
-              .columns {
-                display: flex;
-                gap: 2em;
-              }
-              .column {
-                flex: 1;
-              }
-              color: #201f1e;
+              --style:
+                section {font-family: &quot;Segoe UI&quot;, Tahoma, Geneva,
+                Verdana,
+                sans-serif;} h1 {color: #0078d4; font-size: 2.2em;} h2
+                  {color: #5c2d91; font-size: 1.6em;} a {color: #0078d4;}
+                  .azure-blue {color: #0078d4;} .azure-green {color: #107c10;}
+                  .azure-purple {color: #5c2d91;} .azure-orange
+                  {color: #d83b01;} .small {font-size: 0.8em;} .center
+                  {text-align: center;} .columns {display: flex; gap: 2em;}
+                  .column {flex: 1;} color: #201f1e;
               background-color: #ffffff;
               background-image: none;
             "
@@ -4613,46 +4236,16 @@ a {
               --background-color: #ffffff;
               --color: #201f1e;
               --theme: default;
-              --style:section {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-              }
-              h1 {
-                color: #0078d4;
-                font-size: 2.2em;
-              }
-              h2 {
-                color: #5c2d91;
-                font-size: 1.6em;
-              }
-              a {
-                color: #0078d4;
-              }
-              .azure-blue {
-                color: #0078d4;
-              }
-              .azure-green {
-                color: #107c10;
-              }
-              .azure-purple {
-                color: #5c2d91;
-              }
-              .azure-orange {
-                color: #d83b01;
-              }
-              .small {
-                font-size: 0.8em;
-              }
-              .center {
-                text-align: center;
-              }
-              .columns {
-                display: flex;
-                gap: 2em;
-              }
-              .column {
-                flex: 1;
-              }
-              color: #201f1e;
+              --style:
+                section {font-family: &quot;Segoe UI&quot;, Tahoma, Geneva,
+                Verdana,
+                sans-serif;} h1 {color: #0078d4; font-size: 2.2em;} h2
+                  {color: #5c2d91; font-size: 1.6em;} a {color: #0078d4;}
+                  .azure-blue {color: #0078d4;} .azure-green {color: #107c10;}
+                  .azure-purple {color: #5c2d91;} .azure-orange
+                  {color: #d83b01;} .small {font-size: 0.8em;} .center
+                  {text-align: center;} .columns {display: flex; gap: 2em;}
+                  .column {flex: 1;} color: #201f1e;
               background-color: #ffffff;
               background-image: none;
               --marpit-advanced-background-split: 50%;
@@ -4667,7 +4260,7 @@ a {
             >
               <figure
                 style="
-                  background-image: url('infographics/generated/roi-calculator.png');
+                  background-image: url(&quot;infographics/generated/roi-calculator.png&quot;);
                 "
               ></figure>
             </div></section></foreignObject
@@ -4708,46 +4301,16 @@ a {
               --background-color: #ffffff;
               --color: #201f1e;
               --theme: default;
-              --style:section {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-              }
-              h1 {
-                color: #0078d4;
-                font-size: 2.2em;
-              }
-              h2 {
-                color: #5c2d91;
-                font-size: 1.6em;
-              }
-              a {
-                color: #0078d4;
-              }
-              .azure-blue {
-                color: #0078d4;
-              }
-              .azure-green {
-                color: #107c10;
-              }
-              .azure-purple {
-                color: #5c2d91;
-              }
-              .azure-orange {
-                color: #d83b01;
-              }
-              .small {
-                font-size: 0.8em;
-              }
-              .center {
-                text-align: center;
-              }
-              .columns {
-                display: flex;
-                gap: 2em;
-              }
-              .column {
-                flex: 1;
-              }
-              color: #201f1e;
+              --style:
+                section {font-family: &quot;Segoe UI&quot;, Tahoma, Geneva,
+                Verdana,
+                sans-serif;} h1 {color: #0078d4; font-size: 2.2em;} h2
+                  {color: #5c2d91; font-size: 1.6em;} a {color: #0078d4;}
+                  .azure-blue {color: #0078d4;} .azure-green {color: #107c10;}
+                  .azure-purple {color: #5c2d91;} .azure-orange
+                  {color: #d83b01;} .small {font-size: 0.8em;} .center
+                  {text-align: center;} .columns {display: flex; gap: 2em;}
+                  .column {flex: 1;} color: #201f1e;
               background-color: #ffffff;
               background-image: none;
               --marpit-advanced-background-split: 50%;
@@ -4844,46 +4407,16 @@ a {
               --background-color: #ffffff;
               --color: #201f1e;
               --theme: default;
-              --style:section {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-              }
-              h1 {
-                color: #0078d4;
-                font-size: 2.2em;
-              }
-              h2 {
-                color: #5c2d91;
-                font-size: 1.6em;
-              }
-              a {
-                color: #0078d4;
-              }
-              .azure-blue {
-                color: #0078d4;
-              }
-              .azure-green {
-                color: #107c10;
-              }
-              .azure-purple {
-                color: #5c2d91;
-              }
-              .azure-orange {
-                color: #d83b01;
-              }
-              .small {
-                font-size: 0.8em;
-              }
-              .center {
-                text-align: center;
-              }
-              .columns {
-                display: flex;
-                gap: 2em;
-              }
-              .column {
-                flex: 1;
-              }
-              color: #201f1e;
+              --style:
+                section {font-family: &quot;Segoe UI&quot;, Tahoma, Geneva,
+                Verdana,
+                sans-serif;} h1 {color: #0078d4; font-size: 2.2em;} h2
+                  {color: #5c2d91; font-size: 1.6em;} a {color: #0078d4;}
+                  .azure-blue {color: #0078d4;} .azure-green {color: #107c10;}
+                  .azure-purple {color: #5c2d91;} .azure-orange
+                  {color: #d83b01;} .small {font-size: 0.8em;} .center
+                  {text-align: center;} .columns {display: flex; gap: 2em;}
+                  .column {flex: 1;} color: #201f1e;
               background-color: #ffffff;
               background-image: none;
               --marpit-advanced-background-split: 55%;
@@ -4898,7 +4431,7 @@ a {
             >
               <figure
                 style="
-                  background-image: url('infographics/generated/time-savings-infographic-web.png');
+                  background-image: url(&quot;infographics/generated/time-savings-infographic-web.png&quot;);
                 "
               ></figure>
             </div></section></foreignObject
@@ -4939,46 +4472,16 @@ a {
               --background-color: #ffffff;
               --color: #201f1e;
               --theme: default;
-              --style:section {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-              }
-              h1 {
-                color: #0078d4;
-                font-size: 2.2em;
-              }
-              h2 {
-                color: #5c2d91;
-                font-size: 1.6em;
-              }
-              a {
-                color: #0078d4;
-              }
-              .azure-blue {
-                color: #0078d4;
-              }
-              .azure-green {
-                color: #107c10;
-              }
-              .azure-purple {
-                color: #5c2d91;
-              }
-              .azure-orange {
-                color: #d83b01;
-              }
-              .small {
-                font-size: 0.8em;
-              }
-              .center {
-                text-align: center;
-              }
-              .columns {
-                display: flex;
-                gap: 2em;
-              }
-              .column {
-                flex: 1;
-              }
-              color: #201f1e;
+              --style:
+                section {font-family: &quot;Segoe UI&quot;, Tahoma, Geneva,
+                Verdana,
+                sans-serif;} h1 {color: #0078d4; font-size: 2.2em;} h2
+                  {color: #5c2d91; font-size: 1.6em;} a {color: #0078d4;}
+                  .azure-blue {color: #0078d4;} .azure-green {color: #107c10;}
+                  .azure-purple {color: #5c2d91;} .azure-orange
+                  {color: #d83b01;} .small {font-size: 0.8em;} .center
+                  {text-align: center;} .columns {display: flex; gap: 2em;}
+                  .column {flex: 1;} color: #201f1e;
               background-color: #ffffff;
               background-image: none;
               --marpit-advanced-background-split: 55%;
@@ -5110,46 +4613,16 @@ a {
               --background-color: #ffffff;
               --color: #201f1e;
               --theme: default;
-              --style:section {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-              }
-              h1 {
-                color: #0078d4;
-                font-size: 2.2em;
-              }
-              h2 {
-                color: #5c2d91;
-                font-size: 1.6em;
-              }
-              a {
-                color: #0078d4;
-              }
-              .azure-blue {
-                color: #0078d4;
-              }
-              .azure-green {
-                color: #107c10;
-              }
-              .azure-purple {
-                color: #5c2d91;
-              }
-              .azure-orange {
-                color: #d83b01;
-              }
-              .small {
-                font-size: 0.8em;
-              }
-              .center {
-                text-align: center;
-              }
-              .columns {
-                display: flex;
-                gap: 2em;
-              }
-              .column {
-                flex: 1;
-              }
-              color: #201f1e;
+              --style:
+                section {font-family: &quot;Segoe UI&quot;, Tahoma, Geneva,
+                Verdana,
+                sans-serif;} h1 {color: #0078d4; font-size: 2.2em;} h2
+                  {color: #5c2d91; font-size: 1.6em;} a {color: #0078d4;}
+                  .azure-blue {color: #0078d4;} .azure-green {color: #107c10;}
+                  .azure-purple {color: #5c2d91;} .azure-orange
+                  {color: #d83b01;} .small {font-size: 0.8em;} .center
+                  {text-align: center;} .columns {display: flex; gap: 2em;}
+                  .column {flex: 1;} color: #201f1e;
               background-color: #ffffff;
               background-image: none;
             "
@@ -5205,46 +4678,16 @@ a {
               --background-color: #ffffff;
               --color: #201f1e;
               --theme: default;
-              --style:section {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-              }
-              h1 {
-                color: #0078d4;
-                font-size: 2.2em;
-              }
-              h2 {
-                color: #5c2d91;
-                font-size: 1.6em;
-              }
-              a {
-                color: #0078d4;
-              }
-              .azure-blue {
-                color: #0078d4;
-              }
-              .azure-green {
-                color: #107c10;
-              }
-              .azure-purple {
-                color: #5c2d91;
-              }
-              .azure-orange {
-                color: #d83b01;
-              }
-              .small {
-                font-size: 0.8em;
-              }
-              .center {
-                text-align: center;
-              }
-              .columns {
-                display: flex;
-                gap: 2em;
-              }
-              .column {
-                flex: 1;
-              }
-              color: #201f1e;
+              --style:
+                section {font-family: &quot;Segoe UI&quot;, Tahoma, Geneva,
+                Verdana,
+                sans-serif;} h1 {color: #0078d4; font-size: 2.2em;} h2
+                  {color: #5c2d91; font-size: 1.6em;} a {color: #0078d4;}
+                  .azure-blue {color: #0078d4;} .azure-green {color: #107c10;}
+                  .azure-purple {color: #5c2d91;} .azure-orange
+                  {color: #d83b01;} .small {font-size: 0.8em;} .center
+                  {text-align: center;} .columns {display: flex; gap: 2em;}
+                  .column {flex: 1;} color: #201f1e;
               background-color: #ffffff;
               background-image: none;
             "
@@ -5305,46 +4748,16 @@ a {
               --background-color: #ffffff;
               --color: #201f1e;
               --theme: default;
-              --style:section {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-              }
-              h1 {
-                color: #0078d4;
-                font-size: 2.2em;
-              }
-              h2 {
-                color: #5c2d91;
-                font-size: 1.6em;
-              }
-              a {
-                color: #0078d4;
-              }
-              .azure-blue {
-                color: #0078d4;
-              }
-              .azure-green {
-                color: #107c10;
-              }
-              .azure-purple {
-                color: #5c2d91;
-              }
-              .azure-orange {
-                color: #d83b01;
-              }
-              .small {
-                font-size: 0.8em;
-              }
-              .center {
-                text-align: center;
-              }
-              .columns {
-                display: flex;
-                gap: 2em;
-              }
-              .column {
-                flex: 1;
-              }
-              color: #201f1e;
+              --style:
+                section {font-family: &quot;Segoe UI&quot;, Tahoma, Geneva,
+                Verdana,
+                sans-serif;} h1 {color: #0078d4; font-size: 2.2em;} h2
+                  {color: #5c2d91; font-size: 1.6em;} a {color: #0078d4;}
+                  .azure-blue {color: #0078d4;} .azure-green {color: #107c10;}
+                  .azure-purple {color: #5c2d91;} .azure-orange
+                  {color: #d83b01;} .small {font-size: 0.8em;} .center
+                  {text-align: center;} .columns {display: flex; gap: 2em;}
+                  .column {flex: 1;} color: #201f1e;
               background-color: #ffffff;
               background-image: none;
             "
@@ -5404,46 +4817,16 @@ a {
               --background-color: #ffffff;
               --color: #201f1e;
               --theme: default;
-              --style:section {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-              }
-              h1 {
-                color: #0078d4;
-                font-size: 2.2em;
-              }
-              h2 {
-                color: #5c2d91;
-                font-size: 1.6em;
-              }
-              a {
-                color: #0078d4;
-              }
-              .azure-blue {
-                color: #0078d4;
-              }
-              .azure-green {
-                color: #107c10;
-              }
-              .azure-purple {
-                color: #5c2d91;
-              }
-              .azure-orange {
-                color: #d83b01;
-              }
-              .small {
-                font-size: 0.8em;
-              }
-              .center {
-                text-align: center;
-              }
-              .columns {
-                display: flex;
-                gap: 2em;
-              }
-              .column {
-                flex: 1;
-              }
-              color: #201f1e;
+              --style:
+                section {font-family: &quot;Segoe UI&quot;, Tahoma, Geneva,
+                Verdana,
+                sans-serif;} h1 {color: #0078d4; font-size: 2.2em;} h2
+                  {color: #5c2d91; font-size: 1.6em;} a {color: #0078d4;}
+                  .azure-blue {color: #0078d4;} .azure-green {color: #107c10;}
+                  .azure-purple {color: #5c2d91;} .azure-orange
+                  {color: #d83b01;} .small {font-size: 0.8em;} .center
+                  {text-align: center;} .columns {display: flex; gap: 2em;}
+                  .column {flex: 1;} color: #201f1e;
               background-color: #ffffff;
               background-image: none;
             "
@@ -5544,46 +4927,16 @@ a {
               --background-color: #ffffff;
               --color: #201f1e;
               --theme: default;
-              --style:section {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-              }
-              h1 {
-                color: #0078d4;
-                font-size: 2.2em;
-              }
-              h2 {
-                color: #5c2d91;
-                font-size: 1.6em;
-              }
-              a {
-                color: #0078d4;
-              }
-              .azure-blue {
-                color: #0078d4;
-              }
-              .azure-green {
-                color: #107c10;
-              }
-              .azure-purple {
-                color: #5c2d91;
-              }
-              .azure-orange {
-                color: #d83b01;
-              }
-              .small {
-                font-size: 0.8em;
-              }
-              .center {
-                text-align: center;
-              }
-              .columns {
-                display: flex;
-                gap: 2em;
-              }
-              .column {
-                flex: 1;
-              }
-              color: #201f1e;
+              --style:
+                section {font-family: &quot;Segoe UI&quot;, Tahoma, Geneva,
+                Verdana,
+                sans-serif;} h1 {color: #0078d4; font-size: 2.2em;} h2
+                  {color: #5c2d91; font-size: 1.6em;} a {color: #0078d4;}
+                  .azure-blue {color: #0078d4;} .azure-green {color: #107c10;}
+                  .azure-purple {color: #5c2d91;} .azure-orange
+                  {color: #d83b01;} .small {font-size: 0.8em;} .center
+                  {text-align: center;} .columns {display: flex; gap: 2em;}
+                  .column {flex: 1;} color: #201f1e;
               background-color: #ffffff;
               background-image: none;
             "
@@ -5686,46 +5039,16 @@ a {
               --background-color: #ffffff;
               --color: #201f1e;
               --theme: default;
-              --style:section {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-              }
-              h1 {
-                color: #0078d4;
-                font-size: 2.2em;
-              }
-              h2 {
-                color: #5c2d91;
-                font-size: 1.6em;
-              }
-              a {
-                color: #0078d4;
-              }
-              .azure-blue {
-                color: #0078d4;
-              }
-              .azure-green {
-                color: #107c10;
-              }
-              .azure-purple {
-                color: #5c2d91;
-              }
-              .azure-orange {
-                color: #d83b01;
-              }
-              .small {
-                font-size: 0.8em;
-              }
-              .center {
-                text-align: center;
-              }
-              .columns {
-                display: flex;
-                gap: 2em;
-              }
-              .column {
-                flex: 1;
-              }
-              color: #201f1e;
+              --style:
+                section {font-family: &quot;Segoe UI&quot;, Tahoma, Geneva,
+                Verdana,
+                sans-serif;} h1 {color: #0078d4; font-size: 2.2em;} h2
+                  {color: #5c2d91; font-size: 1.6em;} a {color: #0078d4;}
+                  .azure-blue {color: #0078d4;} .azure-green {color: #107c10;}
+                  .azure-purple {color: #5c2d91;} .azure-orange
+                  {color: #d83b01;} .small {font-size: 0.8em;} .center
+                  {text-align: center;} .columns {display: flex; gap: 2em;}
+                  .column {flex: 1;} color: #201f1e;
               background-color: #ffffff;
               background-image: none;
             "
@@ -5785,46 +5108,16 @@ a {
               --background-color: #ffffff;
               --color: #201f1e;
               --theme: default;
-              --style:section {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-              }
-              h1 {
-                color: #0078d4;
-                font-size: 2.2em;
-              }
-              h2 {
-                color: #5c2d91;
-                font-size: 1.6em;
-              }
-              a {
-                color: #0078d4;
-              }
-              .azure-blue {
-                color: #0078d4;
-              }
-              .azure-green {
-                color: #107c10;
-              }
-              .azure-purple {
-                color: #5c2d91;
-              }
-              .azure-orange {
-                color: #d83b01;
-              }
-              .small {
-                font-size: 0.8em;
-              }
-              .center {
-                text-align: center;
-              }
-              .columns {
-                display: flex;
-                gap: 2em;
-              }
-              .column {
-                flex: 1;
-              }
-              color: #201f1e;
+              --style:
+                section {font-family: &quot;Segoe UI&quot;, Tahoma, Geneva,
+                Verdana,
+                sans-serif;} h1 {color: #0078d4; font-size: 2.2em;} h2
+                  {color: #5c2d91; font-size: 1.6em;} a {color: #0078d4;}
+                  .azure-blue {color: #0078d4;} .azure-green {color: #107c10;}
+                  .azure-purple {color: #5c2d91;} .azure-orange
+                  {color: #d83b01;} .small {font-size: 0.8em;} .center
+                  {text-align: center;} .columns {display: flex; gap: 2em;}
+                  .column {flex: 1;} color: #201f1e;
               background-color: #ffffff;
               background-image: none;
             "
@@ -5888,46 +5181,16 @@ a {
               --background-color: #ffffff;
               --color: #201f1e;
               --theme: default;
-              --style:section {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-              }
-              h1 {
-                color: #0078d4;
-                font-size: 2.2em;
-              }
-              h2 {
-                color: #5c2d91;
-                font-size: 1.6em;
-              }
-              a {
-                color: #0078d4;
-              }
-              .azure-blue {
-                color: #0078d4;
-              }
-              .azure-green {
-                color: #107c10;
-              }
-              .azure-purple {
-                color: #5c2d91;
-              }
-              .azure-orange {
-                color: #d83b01;
-              }
-              .small {
-                font-size: 0.8em;
-              }
-              .center {
-                text-align: center;
-              }
-              .columns {
-                display: flex;
-                gap: 2em;
-              }
-              .column {
-                flex: 1;
-              }
-              color: #201f1e;
+              --style:
+                section {font-family: &quot;Segoe UI&quot;, Tahoma, Geneva,
+                Verdana,
+                sans-serif;} h1 {color: #0078d4; font-size: 2.2em;} h2
+                  {color: #5c2d91; font-size: 1.6em;} a {color: #0078d4;}
+                  .azure-blue {color: #0078d4;} .azure-green {color: #107c10;}
+                  .azure-purple {color: #5c2d91;} .azure-orange
+                  {color: #d83b01;} .small {font-size: 0.8em;} .center
+                  {text-align: center;} .columns {display: flex; gap: 2em;}
+                  .column {flex: 1;} color: #201f1e;
               background-color: #ffffff;
               background-image: none;
             "
@@ -5995,46 +5258,16 @@ a {
               --background-color: #ffffff;
               --color: #201f1e;
               --theme: default;
-              --style:section {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-              }
-              h1 {
-                color: #0078d4;
-                font-size: 2.2em;
-              }
-              h2 {
-                color: #5c2d91;
-                font-size: 1.6em;
-              }
-              a {
-                color: #0078d4;
-              }
-              .azure-blue {
-                color: #0078d4;
-              }
-              .azure-green {
-                color: #107c10;
-              }
-              .azure-purple {
-                color: #5c2d91;
-              }
-              .azure-orange {
-                color: #d83b01;
-              }
-              .small {
-                font-size: 0.8em;
-              }
-              .center {
-                text-align: center;
-              }
-              .columns {
-                display: flex;
-                gap: 2em;
-              }
-              .column {
-                flex: 1;
-              }
-              color: #201f1e;
+              --style:
+                section {font-family: &quot;Segoe UI&quot;, Tahoma, Geneva,
+                Verdana,
+                sans-serif;} h1 {color: #0078d4; font-size: 2.2em;} h2
+                  {color: #5c2d91; font-size: 1.6em;} a {color: #0078d4;}
+                  .azure-blue {color: #0078d4;} .azure-green {color: #107c10;}
+                  .azure-purple {color: #5c2d91;} .azure-orange
+                  {color: #d83b01;} .small {font-size: 0.8em;} .center
+                  {text-align: center;} .columns {display: flex; gap: 2em;}
+                  .column {flex: 1;} color: #201f1e;
               background-color: #ffffff;
               background-image: none;
             "
@@ -6124,46 +5357,16 @@ a {
               --background-color: #ffffff;
               --color: #201f1e;
               --theme: default;
-              --style:section {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-              }
-              h1 {
-                color: #0078d4;
-                font-size: 2.2em;
-              }
-              h2 {
-                color: #5c2d91;
-                font-size: 1.6em;
-              }
-              a {
-                color: #0078d4;
-              }
-              .azure-blue {
-                color: #0078d4;
-              }
-              .azure-green {
-                color: #107c10;
-              }
-              .azure-purple {
-                color: #5c2d91;
-              }
-              .azure-orange {
-                color: #d83b01;
-              }
-              .small {
-                font-size: 0.8em;
-              }
-              .center {
-                text-align: center;
-              }
-              .columns {
-                display: flex;
-                gap: 2em;
-              }
-              .column {
-                flex: 1;
-              }
-              color: #201f1e;
+              --style:
+                section {font-family: &quot;Segoe UI&quot;, Tahoma, Geneva,
+                Verdana,
+                sans-serif;} h1 {color: #0078d4; font-size: 2.2em;} h2
+                  {color: #5c2d91; font-size: 1.6em;} a {color: #0078d4;}
+                  .azure-blue {color: #0078d4;} .azure-green {color: #107c10;}
+                  .azure-purple {color: #5c2d91;} .azure-orange
+                  {color: #d83b01;} .small {font-size: 0.8em;} .center
+                  {text-align: center;} .columns {display: flex; gap: 2em;}
+                  .column {flex: 1;} color: #201f1e;
               background-color: #ffffff;
               background-image: none;
             "
@@ -6188,7 +5391,7 @@ a {
                 data-marp-twemoji=""
               />
               <strong>Workflow Guide</strong>:
-              <a href="../workflow/WORKFLOW.md">docs/workflow/WORKFLOW.md</a
+              <a href="../reference/workflow.md">docs/reference/workflow.md</a
               ><br />
               <img
                 class="emoji"
@@ -6256,46 +5459,16 @@ a {
               --background-color: #ffffff;
               --color: #201f1e;
               --theme: default;
-              --style:section {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-              }
-              h1 {
-                color: #0078d4;
-                font-size: 2.2em;
-              }
-              h2 {
-                color: #5c2d91;
-                font-size: 1.6em;
-              }
-              a {
-                color: #0078d4;
-              }
-              .azure-blue {
-                color: #0078d4;
-              }
-              .azure-green {
-                color: #107c10;
-              }
-              .azure-purple {
-                color: #5c2d91;
-              }
-              .azure-orange {
-                color: #d83b01;
-              }
-              .small {
-                font-size: 0.8em;
-              }
-              .center {
-                text-align: center;
-              }
-              .columns {
-                display: flex;
-                gap: 2em;
-              }
-              .column {
-                flex: 1;
-              }
-              color: #201f1e;
+              --style:
+                section {font-family: &quot;Segoe UI&quot;, Tahoma, Geneva,
+                Verdana,
+                sans-serif;} h1 {color: #0078d4; font-size: 2.2em;} h2
+                  {color: #5c2d91; font-size: 1.6em;} a {color: #0078d4;}
+                  .azure-blue {color: #0078d4;} .azure-green {color: #107c10;}
+                  .azure-purple {color: #5c2d91;} .azure-orange
+                  {color: #d83b01;} .small {font-size: 0.8em;} .center
+                  {text-align: center;} .columns {display: flex; gap: 2em;}
+                  .column {flex: 1;} color: #201f1e;
               background-color: #ffffff;
               background-image: none;
             "
@@ -6361,46 +5534,16 @@ a {
               --background-color: #ffffff;
               --color: #201f1e;
               --theme: default;
-              --style:section {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-              }
-              h1 {
-                color: #0078d4;
-                font-size: 2.2em;
-              }
-              h2 {
-                color: #5c2d91;
-                font-size: 1.6em;
-              }
-              a {
-                color: #0078d4;
-              }
-              .azure-blue {
-                color: #0078d4;
-              }
-              .azure-green {
-                color: #107c10;
-              }
-              .azure-purple {
-                color: #5c2d91;
-              }
-              .azure-orange {
-                color: #d83b01;
-              }
-              .small {
-                font-size: 0.8em;
-              }
-              .center {
-                text-align: center;
-              }
-              .columns {
-                display: flex;
-                gap: 2em;
-              }
-              .column {
-                flex: 1;
-              }
-              color: #201f1e;
+              --style:
+                section {font-family: &quot;Segoe UI&quot;, Tahoma, Geneva,
+                Verdana,
+                sans-serif;} h1 {color: #0078d4; font-size: 2.2em;} h2
+                  {color: #5c2d91; font-size: 1.6em;} a {color: #0078d4;}
+                  .azure-blue {color: #0078d4;} .azure-green {color: #107c10;}
+                  .azure-purple {color: #5c2d91;} .azure-orange
+                  {color: #d83b01;} .small {font-size: 0.8em;} .center
+                  {text-align: center;} .columns {display: flex; gap: 2em;}
+                  .column {flex: 1;} color: #201f1e;
               background-color: #ffffff;
               background-image: none;
             "
@@ -6459,46 +5602,16 @@ a {
               --color: white;
               --class: lead;
               --theme: default;
-              --style:section {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-              }
-              h1 {
-                color: #0078d4;
-                font-size: 2.2em;
-              }
-              h2 {
-                color: #5c2d91;
-                font-size: 1.6em;
-              }
-              a {
-                color: #0078d4;
-              }
-              .azure-blue {
-                color: #0078d4;
-              }
-              .azure-green {
-                color: #107c10;
-              }
-              .azure-purple {
-                color: #5c2d91;
-              }
-              .azure-orange {
-                color: #d83b01;
-              }
-              .small {
-                font-size: 0.8em;
-              }
-              .center {
-                text-align: center;
-              }
-              .columns {
-                display: flex;
-                gap: 2em;
-              }
-              .column {
-                flex: 1;
-              }
-              color: white;
+              --style:
+                section {font-family: &quot;Segoe UI&quot;, Tahoma, Geneva,
+                Verdana,
+                sans-serif;} h1 {color: #0078d4; font-size: 2.2em;} h2
+                  {color: #5c2d91; font-size: 1.6em;} a {color: #0078d4;}
+                  .azure-blue {color: #0078d4;} .azure-green {color: #107c10;}
+                  .azure-purple {color: #5c2d91;} .azure-orange
+                  {color: #d83b01;} .small {font-size: 0.8em;} .center
+                  {text-align: center;} .columns {display: flex; gap: 2em;}
+                  .column {flex: 1;} color: white;
               background-color: #0078d4;
               background-image: none;
             "
@@ -6559,46 +5672,16 @@ a {
               --background-color: #ffffff;
               --color: #201f1e;
               --theme: default;
-              --style:section {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-              }
-              h1 {
-                color: #0078d4;
-                font-size: 2.2em;
-              }
-              h2 {
-                color: #5c2d91;
-                font-size: 1.6em;
-              }
-              a {
-                color: #0078d4;
-              }
-              .azure-blue {
-                color: #0078d4;
-              }
-              .azure-green {
-                color: #107c10;
-              }
-              .azure-purple {
-                color: #5c2d91;
-              }
-              .azure-orange {
-                color: #d83b01;
-              }
-              .small {
-                font-size: 0.8em;
-              }
-              .center {
-                text-align: center;
-              }
-              .columns {
-                display: flex;
-                gap: 2em;
-              }
-              .column {
-                flex: 1;
-              }
-              color: #201f1e;
+              --style:
+                section {font-family: &quot;Segoe UI&quot;, Tahoma, Geneva,
+                Verdana,
+                sans-serif;} h1 {color: #0078d4; font-size: 2.2em;} h2
+                  {color: #5c2d91; font-size: 1.6em;} a {color: #0078d4;}
+                  .azure-blue {color: #0078d4;} .azure-green {color: #107c10;}
+                  .azure-purple {color: #5c2d91;} .azure-orange
+                  {color: #d83b01;} .small {font-size: 0.8em;} .center
+                  {text-align: center;} .columns {display: flex; gap: 2em;}
+                  .column {flex: 1;} color: #201f1e;
               background-color: #ffffff;
               background-image: none;
             "
@@ -6676,46 +5759,16 @@ a {
               --background-color: #ffffff;
               --color: #201f1e;
               --theme: default;
-              --style:section {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-              }
-              h1 {
-                color: #0078d4;
-                font-size: 2.2em;
-              }
-              h2 {
-                color: #5c2d91;
-                font-size: 1.6em;
-              }
-              a {
-                color: #0078d4;
-              }
-              .azure-blue {
-                color: #0078d4;
-              }
-              .azure-green {
-                color: #107c10;
-              }
-              .azure-purple {
-                color: #5c2d91;
-              }
-              .azure-orange {
-                color: #d83b01;
-              }
-              .small {
-                font-size: 0.8em;
-              }
-              .center {
-                text-align: center;
-              }
-              .columns {
-                display: flex;
-                gap: 2em;
-              }
-              .column {
-                flex: 1;
-              }
-              color: #201f1e;
+              --style:
+                section {font-family: &quot;Segoe UI&quot;, Tahoma, Geneva,
+                Verdana,
+                sans-serif;} h1 {color: #0078d4; font-size: 2.2em;} h2
+                  {color: #5c2d91; font-size: 1.6em;} a {color: #0078d4;}
+                  .azure-blue {color: #0078d4;} .azure-green {color: #107c10;}
+                  .azure-purple {color: #5c2d91;} .azure-orange
+                  {color: #d83b01;} .small {font-size: 0.8em;} .center
+                  {text-align: center;} .columns {display: flex; gap: 2em;}
+                  .column {flex: 1;} color: #201f1e;
               background-color: #ffffff;
               background-image: none;
             "
@@ -6926,7 +5979,9 @@ a {
                     a = {},
                     i = function (e, t) {
                       return (
-                        ((t = t || {}).index = o.indexOf(e)), (t.slide = e), t
+                        ((t = t || {}).index = o.indexOf(e)),
+                        (t.slide = e),
+                        t
                       );
                     },
                     s = function (e, t) {
@@ -6953,7 +6008,8 @@ a {
                       off: s,
                       on: function (e, t) {
                         return (
-                          (a[e] || (a[e] = [])).push(t), s.bind(null, e, t)
+                          (a[e] || (a[e] = [])).push(t),
+                          s.bind(null, e, t)
                         );
                       },
                       fire: c,
@@ -6966,7 +6022,7 @@ a {
                       parent: r,
                       slides: o,
                       destroy: function (e) {
-                        c("destroy", i(n, e)), (a = {});
+                        (c("destroy", i(n, e)), (a = {}));
                       },
                     };
                   return (
@@ -7017,7 +6073,11 @@ a {
           h = (() => {
             const e = "bespoke-marp";
             try {
-              return localStorage.setItem(e, e), localStorage.removeItem(e), !0;
+              return (
+                localStorage.setItem(e, e),
+                localStorage.removeItem(e),
+                !0
+              );
             } catch {
               return !1;
             }
@@ -7031,14 +6091,14 @@ a {
           },
           b = (e, t) => {
             try {
-              return localStorage.setItem(e, t), !0;
+              return (localStorage.setItem(e, t), !0);
             } catch {
               return !1;
             }
           },
           w = (e) => {
             try {
-              return localStorage.removeItem(e), !0;
+              return (localStorage.removeItem(e), !0);
             } catch {
               return !1;
             }
@@ -7048,7 +6108,7 @@ a {
             t ? e.setAttribute(n, "true") : e.removeAttribute(n);
           },
           k = (e) => {
-            e.parent.classList.add(`${u}parent`),
+            (e.parent.classList.add(`${u}parent`),
               e.slides.forEach((e) => e.classList.add(`${u}slide`)),
               e.on("activate", (t) => {
                 const n = `${u}active`,
@@ -7057,16 +6117,16 @@ a {
                   a = !o.contains(n);
                 if (
                   (e.slides.forEach((e) => {
-                    e.classList.remove(n), x(e, !0);
+                    (e.classList.remove(n), x(e, !0));
                   }),
                   o.add(n),
                   x(r, !1),
                   a)
                 ) {
                   const e = `${n}-ready`;
-                  o.add(e), document.body.clientHeight, o.remove(e);
+                  (o.add(e), document.body.clientHeight, o.remove(e));
                 }
-              });
+              }));
           },
           $ = (e) => {
             let t = 0,
@@ -7080,7 +6140,7 @@ a {
             });
             const r = (r) => void 0 !== e.fragments[t][n + r],
               o = (r, o) => {
-                (t = r),
+                ((t = r),
                   (n = o),
                   e.fragments.forEach((e, t) => {
                     e.forEach((e, n) => {
@@ -7096,7 +6156,7 @@ a {
                         : e.removeAttribute(i);
                     });
                   }),
-                  (e.fragmentIndex = o);
+                  (e.fragmentIndex = o));
                 const a = {
                   slide: e.slides[r],
                   index: r,
@@ -7105,20 +6165,20 @@ a {
                 };
                 e.fire("fragment", a);
               };
-            e.on("next", ({ fragment: a = !0 }) => {
+            (e.on("next", ({ fragment: a = !0 }) => {
               if (a) {
-                if (r(1)) return o(t, n + 1), !1;
+                if (r(1)) return (o(t, n + 1), !1);
                 const a = t + 1;
                 e.fragments[a] && o(a, 0);
               } else {
                 const r = e.fragments[t].length;
-                if (n + 1 < r) return o(t, r - 1), !1;
+                if (n + 1 < r) return (o(t, r - 1), !1);
                 const a = e.fragments[t + 1];
                 a && o(t + 1, a.length - 1);
               }
             }),
               e.on("prev", ({ fragment: a = !0 }) => {
-                if (r(-1) && a) return o(t, n - 1), !1;
+                if (r(-1) && a) return (o(t, n - 1), !1);
                 const i = t - 1;
                 e.fragments[i] && o(i, e.fragments[i].length - 1);
               }),
@@ -7133,13 +6193,13 @@ a {
                 }
                 o(t, r);
               }),
-              o(0, 0);
+              o(0, 0));
           },
           E = document,
           L = () => !(!E.fullscreenEnabled && !E.webkitFullscreenEnabled),
           S = () => !(!E.fullscreenElement && !E.webkitFullscreenElement),
           P = (e) => {
-            (e.fullscreen = () => {
+            ((e.fullscreen = () => {
               L() &&
                 (async () => {
                   S()
@@ -7158,7 +6218,7 @@ a {
                   t.metaKey ||
                   !L() ||
                   (e.fullscreen(), t.preventDefault());
-              });
+              }));
           },
           _ = `${u}inactive`,
           T =
@@ -7168,11 +6228,11 @@ a {
                 o = (e) => n(`marp-${e ? "" : "in"}active`);
               let a;
               const i = () => {
-                a && clearTimeout(a),
+                (a && clearTimeout(a),
                   (a = setTimeout(() => {
-                    r.add(_), o();
+                    (r.add(_), o());
                   }, e)),
-                  r.contains(_) && (r.remove(_), o(!0));
+                  r.contains(_) && (r.remove(_), o(!0)));
               };
               for (const e of ["mousedown", "mousemove", "touchend"])
                 document.addEventListener(e, i);
@@ -7230,7 +6290,7 @@ a {
               t.parent.addEventListener("wheel", (a) => {
                 let i = !1;
                 const s = (e, t) => {
-                  e &&
+                  (e &&
                     (i =
                       i ||
                       ((e, t) =>
@@ -7248,7 +6308,7 @@ a {
                             "scroll" === r
                           );
                         })(getComputedStyle(e), t))(e, t)),
-                    e?.parentElement && s(e.parentElement, t);
+                    e?.parentElement && s(e.parentElement, t));
                 };
                 if (
                   (0 !== a.deltaX && s(a.target, "X"),
@@ -7263,17 +6323,17 @@ a {
                     return;
                   if (a.deltaMode === a.DOM_DELTA_PIXEL && c < 4) return;
                 } else if (a.deltaMode === a.DOM_DELTA_PIXEL && c < 12) return;
-                r && clearTimeout(r),
+                (r && clearTimeout(r),
                   (r = setTimeout(() => {
                     n = 0;
-                  }, e));
+                  }, e)));
                 const l = Date.now() - o < e,
                   d = c <= n;
                 if (((n = c), l || d)) return;
                 let u;
-                (a.deltaX > 0 || a.deltaY > 0) && (u = "next"),
+                ((a.deltaX > 0 || a.deltaY > 0) && (u = "next"),
                   (a.deltaX < 0 || a.deltaY < 0) && (u = "prev"),
-                  u && (t[u](), (o = Date.now()));
+                  u && (t[u](), (o = Date.now())));
               });
             },
           C = (e = `.${u}osc`) => {
@@ -7286,12 +6346,12 @@ a {
               L() || n("fullscreen", (e) => (e.style.display = "none")),
               h ||
                 n("presenter", (e) => {
-                  (e.disabled = !0),
+                  ((e.disabled = !0),
                     (e.title =
-                      "Presenter view is disabled due to restricted localStorage.");
+                      "Presenter view is disabled due to restricted localStorage."));
                 }),
               (e) => {
-                t.addEventListener("click", (t) => {
+                (t.addEventListener("click", (t) => {
                   if (t.target instanceof HTMLElement) {
                     const { bespokeMarpOsc: n } = t.target.dataset;
                     n && t.target.blur();
@@ -7299,10 +6359,10 @@ a {
                     "next" === n
                       ? e.next(r)
                       : "prev" === n
-                      ? e.prev(r)
-                      : "fullscreen" === n
-                      ? e?.fullscreen()
-                      : "presenter" === n && e.openPresenterView();
+                        ? e.prev(r)
+                        : "fullscreen" === n
+                          ? e?.fullscreen()
+                          : "presenter" === n && e.openPresenterView();
                   }
                 }),
                   e.parent.appendChild(t),
@@ -7316,13 +6376,13 @@ a {
                   e.on(
                     "fragment",
                     ({ index: t, fragments: r, fragmentIndex: o }) => {
-                      n("prev", (e) => (e.disabled = 0 === t && 0 === o)),
+                      (n("prev", (e) => (e.disabled = 0 === t && 0 === o)),
                         n(
                           "next",
                           (n) =>
                             (n.disabled =
                               t === e.slides.length - 1 && o === r.length - 1)
-                        );
+                        ));
                     }
                   ),
                   e.on("marp-active", () => x(t, !1)),
@@ -7335,7 +6395,7 @@ a {
                       n("fullscreen", (e) =>
                         e.classList.toggle("exit", L() && S())
                       )
-                    );
+                    ));
               }
             );
           },
@@ -7347,8 +6407,8 @@ a {
                 const [t, n] = r.split(",");
                 let o = Number.parseInt(t, 10),
                   a = Number.parseInt(n, 10) + 1;
-                a >= e.fragments[o].length && ((o += 1), (a = 0)),
-                  e.slide(o, { fragment: a });
+                (a >= e.fragments[o].length && ((o += 1), (a = 0)),
+                  e.slide(o, { fragment: a }));
               }
             });
           };
@@ -7404,7 +6464,7 @@ a {
                   for (var o = arguments.length; o-- > 2; )
                     n.push(arguments[o]);
                   if ("function" == typeof e)
-                    return (t.children = n.reverse()), e(t);
+                    return ((t.children = n.reverse()), e(t));
                   if (e) {
                     if (((r += "<" + e), t))
                       for (var a in t)
@@ -7426,7 +6486,7 @@ a {
                       }
                     r += e ? "</" + e + ">" : "";
                   }
-                  return (V[r] = !0), r;
+                  return ((V[r] = !0), r);
                 }))),
             U.exports),
           H = e(X);
@@ -7455,9 +6515,10 @@ a {
             document.title = "[Presenter view]" + (t ? ` - ${t}` : "");
             const n = {},
               r = (e) => (
-                (n[e] = n[e] || document.querySelector(`.${e}`)), n[e]
+                (n[e] = n[e] || document.querySelector(`.${e}`)),
+                n[e]
               );
-            document.body.appendChild(
+            (document.body.appendChild(
               ((e) => {
                 const t = document.createElement("div");
                 return (
@@ -7538,11 +6599,11 @@ a {
             ),
               ((e) => {
                 let t = !1;
-                r(J.dragbar).addEventListener("mousedown", () => {
-                  (t = !0), r(J.dragbar).classList.add("active");
+                (r(J.dragbar).addEventListener("mousedown", () => {
+                  ((t = !0), r(J.dragbar).classList.add("active"));
                 }),
                   window.addEventListener("mouseup", () => {
-                    (t = !1), r(J.dragbar).classList.remove("active");
+                    ((t = !1), r(J.dragbar).classList.remove("active"));
                   }),
                   window.addEventListener("mousemove", (e) => {
                     if (!t) return;
@@ -7553,7 +6614,7 @@ a {
                       `${Math.max(0, Math.min(100, n))}%`
                     );
                   }),
-                  r(J.nextContainer).addEventListener("click", () => e.next());
+                  r(J.nextContainer).addEventListener("click", () => e.next()));
                 const n = r(J.next),
                   o =
                     ((a = n),
@@ -7564,44 +6625,44 @@ a {
                       ));
                 var a;
                 n.addEventListener("load", () => {
-                  r(J.nextContainer).classList.add("active"),
+                  (r(J.nextContainer).classList.add("active"),
                     o(e.slide(), e.fragmentIndex),
                     e.on("fragment", ({ index: e, fragmentIndex: t }) =>
                       o(e, t)
-                    );
+                    ));
                 });
                 const i = document.querySelectorAll(".bespoke-marp-note");
-                i.forEach((e) => {
-                  e.addEventListener("keydown", (e) => e.stopPropagation()),
-                    r(J.noteWrapper).appendChild(e);
+                (i.forEach((e) => {
+                  (e.addEventListener("keydown", (e) => e.stopPropagation()),
+                    r(J.noteWrapper).appendChild(e));
                 }),
                   e.on("activate", () =>
                     i.forEach((t) =>
                       t.classList.toggle("active", t.dataset.index == e.slide())
                     )
-                  );
+                  ));
                 let s = 0;
                 const c = (e) => {
-                    (s = Math.max(-5, s + e)),
+                    ((s = Math.max(-5, s + e)),
                       r(J.noteContainer).style.setProperty(
                         "--bespoke-marp-note-font-scale",
                         (1.2 ** s).toFixed(4)
-                      );
+                      ));
                   },
                   l = () => c(1),
                   d = () => c(-1),
                   u = r(J.noteButtonsBigger),
                   f = r(J.noteButtonsSmaller);
-                u.addEventListener("click", () => {
-                  u.blur(), l();
+                (u.addEventListener("click", () => {
+                  (u.blur(), l());
                 }),
                   f.addEventListener("click", () => {
-                    f.blur(), d();
+                    (f.blur(), d());
                   }),
                   document.addEventListener(
                     "keydown",
                     (e) => {
-                      "+" === e.key && l(), "-" === e.key && d();
+                      ("+" === e.key && l(), "-" === e.key && d());
                     },
                     !0
                   ),
@@ -7609,23 +6670,23 @@ a {
                     r(J.infoPageText).textContent = `${t + 1} / ${
                       e.slides.length
                     }`;
-                  });
+                  }));
                 const m = r(J.infoPagePrev),
                   g = r(J.infoPageNext);
-                m.addEventListener("click", (t) => {
-                  m.blur(), e.prev({ fragment: !t.shiftKey });
+                (m.addEventListener("click", (t) => {
+                  (m.blur(), e.prev({ fragment: !t.shiftKey }));
                 }),
                   g.addEventListener("click", (t) => {
-                    g.blur(), e.next({ fragment: !t.shiftKey });
+                    (g.blur(), e.next({ fragment: !t.shiftKey }));
                   }),
                   e.on(
                     "fragment",
                     ({ index: t, fragments: n, fragmentIndex: r }) => {
-                      (m.disabled = 0 === t && 0 === r),
+                      ((m.disabled = 0 === t && 0 === r),
                         (g.disabled =
-                          t === e.slides.length - 1 && r === n.length - 1);
+                          t === e.slides.length - 1 && r === n.length - 1));
                     }
-                  );
+                  ));
                 let p = new Date();
                 const v = () => {
                   const e = new Date(),
@@ -7634,22 +6695,22 @@ a {
                     o = t((n / 1e3) % 60),
                     a = t((n / 1e3 / 60) % 60),
                     i = t((n / 36e5) % 24);
-                  (r(J.infoTime).textContent = e.toLocaleTimeString()),
-                    (r(J.infoTimer).textContent = `${i}:${a}:${o}`);
+                  ((r(J.infoTime).textContent = e.toLocaleTimeString()),
+                    (r(J.infoTimer).textContent = `${i}:${a}:${o}`));
                 };
-                v(),
+                (v(),
                   setInterval(v, 250),
                   r(J.infoTimer).addEventListener("click", () => {
                     p = new Date();
-                  });
-              })(e);
+                  }));
+              })(e));
           },
           z = (e) => {
             if (!((e) => e.syncKey && "string" == typeof e.syncKey)(e))
               throw new Error(
                 "The current instance of Bespoke.js is invalid for Marp bespoke presenter plugin."
               );
-            Object.defineProperties(e, {
+            (Object.defineProperties(e, {
               openPresenterView: { enumerable: !0, value: G },
               presenterUrl: { enumerable: !0, get: Q },
             }),
@@ -7660,7 +6721,7 @@ a {
                     t.ctrlKey ||
                     t.metaKey ||
                     (t.preventDefault(), e.openPresenterView());
-                });
+                }));
           };
         function G() {
           const { max: e, floor: t } = Math,
@@ -7674,7 +6735,11 @@ a {
         }
         function Q() {
           const e = new URLSearchParams(location.search);
-          return e.set("view", "presenter"), e.set("sync", this.syncKey), m(e);
+          return (
+            e.set("view", "presenter"),
+            e.set("sync", this.syncKey),
+            m(e)
+          );
         }
         const Z = (e) => {
             const t = g();
@@ -7706,7 +6771,7 @@ a {
               const r = (e) => {
                   const t = n;
                   try {
-                    return (n = !0), e();
+                    return ((n = !0), e());
                   } finally {
                     n = t;
                   }
@@ -7747,7 +6812,7 @@ a {
                     n
                   );
                 };
-              e.on("fragment", ({ index: e, fragmentIndex: r }) => {
+              (e.on("fragment", ({ index: e, fragmentIndex: r }) => {
                 n ||
                   v(
                     { f: 0 === r || r.toString() },
@@ -7761,17 +6826,17 @@ a {
                   );
               }),
                 setTimeout(() => {
-                  o(),
+                  (o(),
                     window.addEventListener("hashchange", () =>
                       r(() => {
-                        o({ fragment: !1 }), v({ f: void 0 });
+                        (o({ fragment: !1 }), v({ f: void 0 }));
                       })
                     ),
                     window.addEventListener("popstate", () => {
                       n || r(() => o());
                     }),
-                    (n = !1);
-                }, 0);
+                    (n = !1));
+                }, 0));
             };
           },
           re = (e = {}) => {
@@ -7781,8 +6846,8 @@ a {
                 Math.random().toString(36).slice(2),
               n = `bespoke-marp-sync-${t}`;
             var r;
-            (r = { marpBespokeSyncKey: t }),
-              v({}, { setter: (e, ...t) => i({ ...e, ...r }, ...t) });
+            ((r = { marpBespokeSyncKey: t }),
+              v({}, { setter: (e, ...t) => i({ ...e, ...r }, ...t) }));
             const o = () => {
                 const e = y(n);
                 return e ? JSON.parse(e) : Object.create(null);
@@ -7790,20 +6855,20 @@ a {
               a = (e) => {
                 const t = o(),
                   r = { ...t, ...e(t) };
-                return b(n, JSON.stringify(r)), r;
+                return (b(n, JSON.stringify(r)), r);
               },
               s = () => {
-                window.removeEventListener("pageshow", s),
-                  a((e) => ({ reference: (e.reference || 0) + 1 }));
+                (window.removeEventListener("pageshow", s),
+                  a((e) => ({ reference: (e.reference || 0) + 1 })));
               };
             return (e) => {
-              s(),
+              (s(),
                 Object.defineProperty(e, "syncKey", {
                   value: t,
                   enumerable: !0,
-                });
+                }));
               let r = !0;
-              setTimeout(() => {
+              (setTimeout(() => {
                 e.on("fragment", (e) => {
                   r &&
                     a(() => ({
@@ -7821,24 +6886,24 @@ a {
                       n.fragmentIndex !== o.fragmentIndex
                     )
                       try {
-                        (r = !1),
+                        ((r = !1),
                           e.slide(o.index, {
                             fragment: o.fragmentIndex,
                             forSync: !0,
-                          });
+                          }));
                       } finally {
                         r = !0;
                       }
                   }
-                });
+                }));
               const i = () => {
                 const { reference: e } = o();
                 void 0 === e || e <= 1 ? w(n) : a(() => ({ reference: e - 1 }));
               };
-              window.addEventListener("pagehide", (e) => {
-                e.persisted && window.addEventListener("pageshow", s), i();
+              (window.addEventListener("pagehide", (e) => {
+                (e.persisted && window.addEventListener("pageshow", s), i());
               }),
-                e.on("destroy", i);
+                e.on("destroy", i));
             };
           },
           { PI: oe, abs: ae, sqrt: ie, atan2: se } = Math,
@@ -7855,7 +6920,7 @@ a {
                     y: e.pageY - (t.top + t.bottom) / 2,
                   };
                 };
-              o.addEventListener(
+              (o.addEventListener(
                 "touchstart",
                 ({ touches: e }) => {
                   r = 1 === e.length ? a(e[0]) : void 0;
@@ -7869,8 +6934,8 @@ a {
                       const t = a(e.touches[0]),
                         n = t.x - r.x,
                         o = t.y - r.y;
-                      (r.delta = ie(ae(n) ** 2 + ae(o) ** 2)),
-                        (r.radian = se(n, o));
+                      ((r.delta = ie(ae(n) ** 2 + ae(o) ** 2)),
+                        (r.radian = se(n, o)));
                     } else r = void 0;
                 }),
                 o.addEventListener(
@@ -7879,20 +6944,20 @@ a {
                     if (r) {
                       if (r.delta && r.delta >= t && r.radian) {
                         const t = ((r.radian - e + oe) % (2 * oe)) - oe;
-                        n[t < 0 ? "next" : "prev"](), o.stopPropagation();
+                        (n[t < 0 ? "next" : "prev"](), o.stopPropagation());
                       }
                       r = void 0;
                     }
                   },
                   ce
-                );
+                ));
             },
           de = new Map();
-        de.clear(),
+        (de.clear(),
           de.set("none", {
             backward: { both: void 0, incoming: void 0, outgoing: void 0 },
             forward: { both: void 0, incoming: void 0, outgoing: void 0 },
-          });
+          }));
         const ue = { both: "", outgoing: "outgoing-", incoming: "incoming-" },
           fe = { forward: "", backward: "-backward" },
           me = (e) => `--marp-bespoke-transition-animation-${e}`,
@@ -7904,9 +6969,9 @@ a {
               const n = {},
                 r = document.createElement("div"),
                 o = (e) => {
-                  r.remove(), t(e);
+                  (r.remove(), t(e));
                 };
-              r.addEventListener("animationstart", () => o(n)),
+              (r.addEventListener("animationstart", () => o(n)),
                 Object.assign(r.style, {
                   animationName: e,
                   animationDuration: "1s",
@@ -7915,15 +6980,15 @@ a {
                   position: "absolute",
                   pointerEvents: "none",
                 }),
-                document.body.appendChild(r);
+                document.body.appendChild(r));
               const a = getComputedStyle(r).getPropertyValue(ge("duration"));
-              a && Number.parseFloat(a) >= 0 && (n.defaultDuration = a),
+              (a && Number.parseFloat(a) >= 0 && (n.defaultDuration = a),
                 ((e, t) => {
                   requestAnimationFrame(() => {
-                    (e.style.animationPlayState = "running"),
-                      requestAnimationFrame(() => t(void 0));
+                    ((e.style.animationPlayState = "running"),
+                      requestAnimationFrame(() => t(void 0)));
                   });
-                })(r, o);
+                })(r, o));
             }),
           ye = async (e) =>
             de.has(e)
@@ -7936,8 +7001,8 @@ a {
                       const s = `marp-${o}transition${i}-${e}`;
                       n.push(
                         he(s).then((e) => {
-                          (t[a] = t[a] || {}),
-                            (t[a][r] = e ? { ...e, name: s } : void 0);
+                          ((t[a] = t[a] || {}),
+                            (t[a][r] = e ? { ...e, name: s } : void 0));
                         })
                       );
                     }
@@ -7956,7 +7021,8 @@ a {
                 if (r.both) {
                   const e = n(r.both);
                   return (
-                    "incoming" === t && (e[me("direction")] = "reverse"), e
+                    "incoming" === t && (e[me("direction")] = "reverse"),
+                    e
                   );
                 }
               })();
@@ -8003,7 +7069,7 @@ a {
             if (!document.startViewTransition) return;
             const t = (t) => (void 0 !== t && (e._tD = t), e._tD);
             let n;
-            t(!1),
+            (t(!1),
               ((...e) => {
                 CSS.registerProperty({
                   name: ge("duration"),
@@ -8036,7 +7102,7 @@ a {
                     (e) => e.slice(0, -1) + "!important" + e.slice(-1)
                   );
                 });
-              });
+              }));
             const r =
               (n, { back: r, cond: o }) =>
               (a) => {
@@ -8060,7 +7126,8 @@ a {
                     if (be(n)) {
                       if (!t) return;
                       return (
-                        (n = await ye(`__builtin__${e}`)), be(n) ? void 0 : n
+                        (n = await ye(`__builtin__${e}`)),
+                        be(n) ? void 0 : n
                       );
                     }
                     return n;
@@ -8084,7 +7151,7 @@ a {
                       const o = document.getElementById(ke);
                       o && o.remove();
                       const i = document.createElement("style");
-                      (i.id = ke),
+                      ((i.id = ke),
                         document.head.appendChild(i),
                         ((e, t) => {
                           const n = [
@@ -8122,7 +7189,7 @@ a {
                           );
                         })(r, { backward: c(), duration: u.duration }).forEach(
                           (e) => i.sheet?.insertRule(e)
-                        );
+                        ));
                       const s = document.documentElement.classList;
                       s.add(Ee);
                       let l = !1;
@@ -8130,21 +7197,21 @@ a {
                           l || (n(a), (l = !0), s.remove(Ee));
                         },
                         f = () => {
-                          t(!1), i.remove(), s.remove(Ee);
+                          (t(!1), i.remove(), s.remove(Ee));
                         };
                       try {
                         t(!0);
                         const e = document.startViewTransition(d);
-                        t(e), e.finished.finally(f);
+                        (t(e), e.finished.finally(f));
                       } catch (e) {
-                        console.error(e), d(), f();
+                        (console.error(e), d(), f());
                       }
                     }
                   ),
                   !1)
                 );
               };
-            e.on(
+            (e.on(
               "prev",
               r((t) => e.prev({ ...t, [$e]: !0 }), {
                 back: !0,
@@ -8173,7 +7240,7 @@ a {
               }, 0),
               e.on("fragment", (e) => {
                 n = e;
-              });
+              }));
           };
         let Ie;
         const Me = () => (
@@ -8199,7 +7266,7 @@ a {
             };
             for (const e of ["visibilitychange", "fullscreenchange"])
               document.addEventListener(e, t);
-            return (e = await Oe()), e;
+            return ((e = await Oe()), e);
           };
         ((e = document.getElementById(":$p")) => {
           (() => {
@@ -8209,7 +7276,7 @@ a {
           const t =
             ((e) => {
               const t = p(e);
-              return v({ [e]: void 0 }), t;
+              return (v({ [e]: void 0 }), t);
             })("sync") || void 0;
           o.from(
             e,

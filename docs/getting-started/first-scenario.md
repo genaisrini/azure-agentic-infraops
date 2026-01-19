@@ -259,12 +259,12 @@ You've completed your first agentic workflow!
 
 ## Next Steps
 
-| Your Goal                     | Next Step                                                         |
-| ----------------------------- | ----------------------------------------------------------------- |
-| Try another beginner scenario | [S02 Terraform Baseline](../../scenarios/S02-terraform-baseline/) |
-| Learn advanced workflow       | [S03 Agentic Workflow](../../scenarios/S03-agentic-workflow/)     |
-| Understand all agents         | [Agents Overview](../reference/agents-overview.md)                |
-| Explore all scenarios         | [Scenarios Index](../../scenarios/)                               |
+| Your Goal                    | Next Step                                                          |
+| ---------------------------- | ------------------------------------------------------------------ |
+| Learn advanced workflow      | [S02 Agentic Workflow](../../scenarios/S02-agentic-workflow/)      |
+| Try documentation automation | [S03 Documentation](../../scenarios/S03-documentation-generation/) |
+| Understand all agents        | [Agents Overview](../reference/agents-overview.md)                 |
+| Explore all scenarios        | [Scenarios Index](../../scenarios/)                                |
 
 ---
 

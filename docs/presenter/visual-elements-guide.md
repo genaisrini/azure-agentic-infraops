@@ -10,16 +10,16 @@ This guide specifies exactly where to insert images, screenshots, and diagrams i
 
 ### Images to Prepare
 
-| Asset                         | Source                                 | Slides Used |
-| ----------------------------- | -------------------------------------- | ----------- |
-| `copilot-logo.png`            | GitHub assets                          | 1, 25       |
-| `copilot-chat-screenshot.png` | VS Code screenshot                     | 3           |
-| `ecommerce_architecture.png`  | `scenarios/scenario-output/ecommerce/` | 11, 12      |
-| `agent-workflow-diagram.png`  | Create from Mermaid                    | 9           |
-| `vscode-plan-agent.png`       | VS Code screenshot                     | 9, 23       |
-| `waf-scores.png`              | Demo output screenshot                 | 10          |
-| `cost-breakdown-chart.png`    | Create pie chart                       | 13          |
-| `portfolio-collage.png`       | Project screenshots                    | 15          |
+| Asset                         | Source                    | Slides Used |
+| ----------------------------- | ------------------------- | ----------- |
+| `copilot-logo.png`            | GitHub assets             | 1, 25       |
+| `copilot-chat-screenshot.png` | VS Code screenshot        | 3           |
+| `ecommerce_architecture.png`  | `agent-output/ecommerce/` | 11, 12      |
+| `agent-workflow-diagram.png`  | Create from Mermaid       | 9           |
+| `vscode-plan-agent.png`       | VS Code screenshot        | 9, 23       |
+| `waf-scores.png`              | Demo output screenshot    | 10          |
+| `cost-breakdown-chart.png`    | Create pie chart          | 13          |
+| `portfolio-collage.png`       | Project screenshots       | 15          |
 
 ---
 
@@ -66,7 +66,7 @@ flowchart LR
 
 **Right side (40%):** `ecommerce_architecture.png`
 
-- File location: `scenarios/scenario-output/ecommerce/ecommerce_architecture.png`
+- File location: `agent-output/ecommerce/ecommerce_architecture.png`
 - This is the Python-generated architecture diagram
 
 ---
@@ -116,26 +116,22 @@ flowchart LR
 ### From VS Code (Recommended Captures)
 
 1. **Copilot Chat View**
-
    - Open VS Code
    - Open Copilot Chat panel
    - Ask: "Create a Bicep template for a storage account with private endpoint"
    - Screenshot the response
 
 2. **Agent Selection**
-
    - Open Chat
    - Click agent dropdown
    - Show available agents (Plan, azure-principal-architect, etc.)
    - Screenshot with dropdown visible
 
 3. **Plan Agent Output**
-
    - Use @plan with e-commerce scenario
    - Screenshot the plan output with checkboxes
 
 4. **Inline Suggestions**
-
    - Open a .bicep file
    - Type partial resource block
    - Show ghost text suggestion
@@ -238,6 +234,6 @@ docs/presenter/
     ├── github-copilot-for-itpros.pptx
     └── github-copilot-for-itpros.pdf
 
-scenarios/scenario-output/ecommerce/
+agent-output/ecommerce/
 └── ecommerce_architecture.png             # Already exists
 ```

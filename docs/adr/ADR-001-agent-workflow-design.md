@@ -77,13 +77,13 @@ With optional artifact phases:
 
 ### Mitigations
 
-- Created `docs/workflow/WORKFLOW.md` with detailed workflow documentation
+- Created `docs/reference/workflow.md` with detailed workflow documentation
 - Added workflow diagrams to agent prompts
 - Agents prompt for approval before major actions
 - `copilot-instructions.md` includes workflow quick reference
 
 ## References
 
-- [docs/workflow/WORKFLOW.md](../workflow/WORKFLOW.md) - Full workflow documentation
+- [docs/reference/workflow.md](../reference/workflow.md) - Full workflow documentation
 - [.github/agents/](../../.github/agents/) - Agent definitions
 - [.github/copilot-instructions.md](../../.github/copilot-instructions.md) - Copilot guidance

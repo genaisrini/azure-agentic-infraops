@@ -41,7 +41,6 @@ These documents were generated from the following agentic workflow outputs:
 ## 4. Related Resources
 
 - **Infrastructure Code**: [`infra/bicep/ecommerce/`](../../infra/bicep/ecommerce/)
-- **Legacy Outputs**: [`scenarios/scenario-output/ecommerce/`](../../scenarios/scenario-output/ecommerce/)
 - **ADRs**: See `*-adr-*.md` files in this folder (if generated)
 
 ## 5. Quick Links

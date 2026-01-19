@@ -8,14 +8,12 @@ Azure environments through coordinated AI agents.
 ### High-Priority Contributions
 
 1. **Agent Improvements**
-
    - Enhancements to existing agents (`.github/agents/*.agent.md`)
    - Better prompts and handoff patterns
    - Additional validation checks
 
 2. **Documentation**
-
-   - Workflow improvements (`docs/workflow/WORKFLOW.md`)
+   - Workflow improvements (`docs/reference/workflow.md`)
    - Better examples and use cases
    - Troubleshooting guides
 

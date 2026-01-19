@@ -20,27 +20,28 @@
 
 ### The Story
 
-> *"Let me introduce Elena Rodriguez. She's a Cloud Infrastructure Engineer at Meridian Financial
+> _"Let me introduce Elena Rodriguez. She's a Cloud Infrastructure Engineer at Meridian Financial
 > with 10 years of VMware experience. Her team has been running vSphere clusters, managing NSX
-> firewall rules, and automating with PowerCLI.*
+> firewall rules, and automating with PowerCLI._
 >
-> *Now Elena has her first Azure project: deploy a secure network and storage foundation for a
+> _Now Elena has her first Azure project: deploy a secure network and storage foundation for a
 > new customer-facing application. She's heard about Bicep but never written a line of it. She has
-> two weeks to deliver.*
+> two weeks to deliver._
 >
-> *How would Elena traditionally approach this?*
-> - *Search Azure docs (30+ minutes reading)*
-> - *Find sample templates (hit-or-miss quality)*
-> - *Copy-paste-modify (trial and error)*
-> - *Debug deployment errors (Google each one)*
+> _How would Elena traditionally approach this?_
 >
-> *Let's see how Copilot transforms this experience by becoming her learning partner."*
+> - _Search Azure docs (30+ minutes reading)_
+> - _Find sample templates (hit-or-miss quality)_
+> - _Copy-paste-modify (trial and error)_
+> - _Debug deployment errors (Google each one)_
+>
+> _Let's see how Copilot transforms this experience by becoming her learning partner."_
 
 ### Key Point
 
-> *"The goal isn't just to generate templates - Elena could find templates online. The goal is to
+> _"The goal isn't just to generate templates - Elena could find templates online. The goal is to
 > **build understanding** so she can maintain, troubleshoot, and extend her infrastructure
-> independently."*
+> independently."_
 
 ---
 
@@ -48,8 +49,8 @@
 
 ### Teaching Moment
 
-> *"Elena starts where any engineer should - understanding the tools before using them.
-> Watch how she uses Copilot not as a code generator, but as a knowledgeable colleague."*
+> _"Elena starts where any engineer should - understanding the tools before using them.
+> Watch how she uses Copilot not as a code generator, but as a knowledgeable colleague."_
 
 ### Live Demo
 
@@ -71,8 +72,9 @@ hundreds of lines long and seemed really complex.
 ```
 
 **Teaching Moment**:
-> *"Notice Elena isn't asking 'generate a template.' She's building foundational knowledge.
-> This 2-minute investment pays off throughout the project."*
+
+> _"Notice Elena isn't asking 'generate a template.' She's building foundational knowledge.
+> This 2-minute investment pays off throughout the project."_
 
 ### Key Concepts Introduced
 
@@ -88,8 +90,8 @@ hundreds of lines long and seemed really complex.
 
 ### Teaching Moment
 
-> *"Now Elena maps her VMware knowledge to Azure. This is critical - she's not starting
-> from zero, she's translating concepts she already understands."*
+> _"Now Elena maps her VMware knowledge to Azure. This is critical - she's not starting
+> from zero, she's translating concepts she already understands."_
 
 ### Live Demo
 
@@ -108,18 +110,19 @@ up in VMware with separate port groups. What would that look like in Azure netwo
 ```
 
 **Key Teaching Moment**:
-> *"Watch what Copilot does here. It doesn't just give subnet ranges - it explains **why**
+
+> _"Watch what Copilot does here. It doesn't just give subnet ranges - it explains **why**
 > you'd separate tiers and how NSGs control traffic between them. Elena learns the architecture
-> pattern, not just the syntax."*
+> pattern, not just the syntax."_
 
 ### Concept Mapping (Show This)
 
-| VMware | Azure | What Elena Learns |
-|--------|-------|-------------------|
+| VMware             | Azure           | What Elena Learns          |
+| ------------------ | --------------- | -------------------------- |
 | Distributed Switch | Virtual Network | Network isolation boundary |
-| Port Group | Subnet | Traffic segmentation |
-| NSX Firewall Rule | NSG Rule | Layer 4 filtering |
-| VLAN | Subnet + NSG | Microsegmentation |
+| Port Group         | Subnet          | Traffic segmentation       |
+| NSX Firewall Rule  | NSG Rule        | Layer 4 filtering          |
+| VLAN               | Subnet + NSG    | Microsegmentation          |
 
 ---
 
@@ -127,8 +130,8 @@ up in VMware with separate port groups. What would that look like in Azure netwo
 
 ### Teaching Moment
 
-> *"Now Elena writes her first Bicep. But watch - she doesn't ask 'generate a VNet.'
-> She asks Copilot to **teach her** while building."*
+> _"Now Elena writes her first Bicep. But watch - she doesn't ask 'generate a VNet.'
+> She asks Copilot to **teach her** while building."_
 
 ### Live Demo
 
@@ -141,6 +144,7 @@ explain each part as we go? I want to understand what I'm writing, not just copy
 ```
 
 **Copilot explains as it builds**:
+
 - `param` decorators and validation
 - `resource` keyword and API versions
 - Properties and their purposes
@@ -149,12 +153,14 @@ explain each part as we go? I want to understand what I'm writing, not just copy
 ### Key Walkthrough Points
 
 **When Copilot shows parameters**:
-> *"See the `@description` decorators? These aren't just comments - they appear in the
-> deployment UI. Elena learns documentation best practices immediately."*
+
+> _"See the `@description` decorators? These aren't just comments - they appear in the
+> deployment UI. Elena learns documentation best practices immediately."_
 
 **When Copilot shows the VNet resource**:
-> *"Notice the API version `2023-05-01`. Copilot uses current versions automatically.
-> If Elena copied an old template from StackOverflow, it might use deprecated properties."*
+
+> _"Notice the API version `2023-05-01`. Copilot uses current versions automatically.
+> If Elena copied an old template from StackOverflow, it might use deprecated properties."_
 
 ### Security Extension
 
@@ -165,8 +171,9 @@ I do that in Azure?
 ```
 
 **Teaching Moment**:
-> *"This is where Copilot shines as a security teacher. Watch it explain the 'deny by default'
-> philosophy and show how to build explicit allow rules."*
+
+> _"This is where Copilot shines as a security teacher. Watch it explain the 'deny by default'
+> philosophy and show how to build explicit allow rules."_
 
 ---
 
@@ -174,8 +181,8 @@ I do that in Azure?
 
 ### Teaching Moment
 
-> *"Elena needs storage for application data. Again, she doesn't just ask for code -
-> she asks Copilot to explain security considerations."*
+> _"Elena needs storage for application data. Again, she doesn't just ask for code -
+> she asks Copilot to explain security considerations."_
 
 ### Live Demo
 
@@ -187,6 +194,7 @@ information, so security is critical. What settings should I configure and why?
 ```
 
 **Copilot covers**:
+
 - HTTPS only enforcement
 - TLS 1.2 minimum
 - Public access restrictions
@@ -195,12 +203,13 @@ information, so security is critical. What settings should I configure and why?
 
 ### Key Security Points
 
-> *"Watch Copilot explain **why** each setting matters:*
-> - *`supportsHttpsTrafficOnly: true` - prevents man-in-the-middle attacks*
-> - *`allowBlobPublicAccess: false` - no accidental data leaks*
-> - *`minimumTlsVersion: 'TLS1_2'` - compliance requirement*
+> _"Watch Copilot explain **why** each setting matters:_
 >
-> *Elena learns security rationale, not just syntax."*
+> - _`supportsHttpsTrafficOnly: true` - prevents man-in-the-middle attacks_
+> - _`allowBlobPublicAccess: false` - no accidental data leaks_
+> - _`minimumTlsVersion: 'TLS1_2'` - compliance requirement_
+>
+> _Elena learns security rationale, not just syntax."_
 
 ### Private Endpoint Discussion
 
@@ -210,8 +219,9 @@ segment in VMware where only certain VMs can access it?
 ```
 
 **Teaching Moment**:
-> *"This VMware-to-Azure mapping is exactly how experienced engineers learn fastest.
-> Elena understands the **concept** through familiar terms, then learns the Azure implementation."*
+
+> _"This VMware-to-Azure mapping is exactly how experienced engineers learn fastest.
+> Elena understands the **concept** through familiar terms, then learns the Azure implementation."_
 
 ---
 
@@ -219,8 +229,8 @@ segment in VMware where only certain VMs can access it?
 
 ### Teaching Moment
 
-> *"Elena now has network.bicep and storage.bicep. How does she tie them together
-> and set up her project for team collaboration?"*
+> _"Elena now has network.bicep and storage.bicep. How does she tie them together
+> and set up her project for team collaboration?"_
 
 ### Live Demo
 
@@ -233,6 +243,7 @@ What's the equivalent pattern in Bicep?
 ```
 
 **Copilot explains**:
+
 - Module concept (like calling functions)
 - Parameter passing between modules
 - Output chaining
@@ -255,8 +266,9 @@ so my team can collaborate and automate deployments?
 ```
 
 **Teaching Moment**:
-> *"Elena learns the professional pattern: separate modules, parameter files per environment,
-> outputs for downstream automation. This is how Azure teams work."*
+
+> _"Elena learns the professional pattern: separate modules, parameter files per environment,
+> outputs for downstream automation. This is how Azure teams work."_
 
 ### Final Structure Review
 
@@ -295,15 +307,17 @@ az deployment group create \
 
 ### Value Recap
 
-> *"Let's review what Elena accomplished in 30 minutes:*
+> _"Let's review what Elena accomplished in 30 minutes:_
 >
 > **Traditional Approach** (45-60 minutes):
+>
 > - Search docs and samples: 20 min
 > - Copy-paste-modify: 15 min
 > - Debug errors: 15 min
 > - No deep understanding
 >
 > **Conversation Approach** (30 minutes):
+>
 > - Understood Bicep fundamentals: 5 min
 > - Mapped VMware → Azure concepts: 5 min
 > - Built network with NSGs: 7 min
@@ -311,25 +325,25 @@ az deployment group create \
 > - Learned module organization: 8 min
 >
 > **The difference**: Elena can now troubleshoot her own code, explain it to teammates,
-> and adapt it for future projects. She built **knowledge**, not just templates."*
+> and adapt it for future projects. She built **knowledge**, not just templates."\*
 
 ### Key Metrics
 
-| Metric | Traditional | Conversation | Improvement |
-|--------|-------------|--------------|-------------|
-| Time to first deployment | 45-60 min | 30 min | 50% faster |
-| Understanding gained | Minimal | Complete | Invaluable |
-| Future project time | 30-45 min | 10-15 min | 67% faster |
-| Security coverage | Hit-or-miss | Comprehensive | ✅ |
-| Can maintain independently | Limited | Yes | ✅ |
+| Metric                     | Traditional | Conversation  | Improvement |
+| -------------------------- | ----------- | ------------- | ----------- |
+| Time to first deployment   | 45-60 min   | 30 min        | 50% faster  |
+| Understanding gained       | Minimal     | Complete      | Invaluable  |
+| Future project time        | 30-45 min   | 10-15 min     | 67% faster  |
+| Security coverage          | Hit-or-miss | Comprehensive | ✅          |
+| Can maintain independently | Limited     | Yes           | ✅          |
 
 ### Call to Action
 
-> *"Elena's journey shows how Copilot transforms IaC learning. The value isn't in generating
-> templates faster - it's in building **understanding** so engineers become self-sufficient.*
+> _"Elena's journey shows how Copilot transforms IaC learning. The value isn't in generating
+> templates faster - it's in building **understanding** so engineers become self-sufficient._
 >
-> *Next: Try this yourself. Start with your own scenario, map your existing knowledge,
-> and let Copilot teach you while you build."*
+> _Next: Try this yourself. Start with your own scenario, map your existing knowledge,
+> and let Copilot teach you while you build."_
 
 ---
 
@@ -338,6 +352,7 @@ az deployment group create \
 ### If Copilot Gives Generic Responses
 
 **Reset with context**:
+
 ```
 I have 10 years of VMware experience - vSphere, NSX, PowerCLI. I'm learning Azure
 and Bicep for my first Azure project. Can you help me understand [concept] in terms
@@ -352,12 +367,13 @@ What's the difference between Bicep and ARM templates? When would I use one vs t
 
 ### If Participant Asks About Terraform
 
-> *"Great question. Terraform is another excellent IaC tool - we cover it in S02. Bicep is
-> Azure-native and sometimes has features before Terraform. Choose based on your team's needs."*
+> _"Great question. Terraform is another excellent IaC tool - we cover it in S02. Bicep is
+> Azure-native and sometimes has features before Terraform. Choose based on your team's needs."_
 
 ### If Deployment Fails
 
 Show the error to Copilot:
+
 ```
 I'm getting this deployment error: [paste error]. Can you explain what it means
 and how to fix it?
@@ -368,21 +384,24 @@ and how to fix it?
 ## Post-Demo Resources
 
 ### For Participants
+
 - `examples/copilot-bicep-conversation.md` - Full conversation transcript
 - `solution/` - Reference Bicep templates
 - `validation/` - Deployment and verification scripts
 
 ### For Presenters
+
 - `prompts/effective-prompts.md` - Prompt patterns for each phase
 - `scenario/requirements.md` - Elena's business requirements
 - `scenario/architecture.md` - Target architecture diagram
 
 ### Extended Learning
+
 - [Azure Bicep Documentation](https://learn.microsoft.com/azure/azure-resource-manager/bicep/)
-- [S02: Terraform Baseline](../S02-terraform-baseline/) - Multi-cloud alternative
-- [S03: Agentic Workflow](../S03-agentic-workflow/) - Enterprise patterns
+- [S02: Agentic Workflow](../S02-agentic-workflow/) - Full agent workflow patterns
+- [S03: Documentation Generation](../S03-documentation-generation/) - Documentation automation
 
 ---
 
-*This demo script guides presenters through a 30-minute conversation-based learning experience
-for Azure Bicep fundamentals. Focus on teaching, not just generating.*
+_This demo script guides presenters through a 30-minute conversation-based learning experience
+for Azure Bicep fundamentals. Focus on teaching, not just generating._

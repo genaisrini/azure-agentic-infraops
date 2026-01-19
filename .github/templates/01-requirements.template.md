@@ -79,23 +79,27 @@ Checklist for:
 - Public endpoints acceptable
 - WAF required
 
-## Cost Constraints
+## Budget
 
-### Budget
+Table showing:
 
-Table showing Period, Budget, and Hard/Soft Limit.
+| Field           | Value                                        |
+| --------------- | -------------------------------------------- |
+| Monthly Budget  | {approximate amount, e.g., ~$50}             |
+| Annual Budget   | {optional}                                   |
+| Hard/Soft Limit | {hard = cannot exceed, soft = can negotiate} |
 
-### Cost Optimization Priorities
+> **Note**: The Azure Pricing MCP server generates detailed cost estimates during
+> architecture assessment (Step 2). Provide an approximate budget here.
 
-Checklist of priorities (e.g., minimize compute costs, consumption-based pricing, reserved instances, spot instances).
+### Cost Optimization Priorities (Optional)
 
-### FinOps Considerations
+Checklist of priorities if known:
 
-Guidance on:
-
-- Cost alerts
-- Tagging strategy
-- Cost monitoring tools
+- [ ] Minimize compute costs
+- [ ] Prefer consumption-based pricing
+- [ ] Reserved instances acceptable
+- [ ] Spot instances acceptable for non-critical workloads
 
 ## Operational Requirements
 

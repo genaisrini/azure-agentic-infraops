@@ -97,9 +97,7 @@ This compliance matrix maps the static-webapp-test security controls to Azure Se
 | NS-4       | Deploy intrusion detection     | ❌     | Not implemented (budget)   |
 | NS-5       | Deploy DDoS protection         | ⚠️     | Basic DDoS (Azure default) |
 
----
-
-## Security Controls Summary
+### Security Controls Summary
 
 | Category          | Implemented | Partial | Not Implemented | N/A   |
 | ----------------- | ----------- | ------- | --------------- | ----- |

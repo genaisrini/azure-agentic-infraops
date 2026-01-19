@@ -1,6 +1,6 @@
 # Documentation Hub
 
-> **Agentic InfraOps v3.7.8** |
+> **Agentic InfraOps v3.11.0** |
 > 🔗 [aka.ms/agenticinfraops](https://aka.ms/agenticinfraops)
 
 Welcome to the Agentic InfraOps documentation center. Choose your path based on experience level.
@@ -56,7 +56,7 @@ flowchart LR
 | ---- | -------------------------------------------------------------- | ------ |
 | 1    | [Reference: Workflow](reference/workflow.md)                   | 5 min  |
 | 2    | [Reference: Agents Overview](reference/agents-overview.md)     | 5 min  |
-| 3    | Run [S03-agentic-workflow](../scenarios/S03-agentic-workflow/) | 30 min |
+| 3    | Run [S02-agentic-workflow](../scenarios/S02-agentic-workflow/) | 30 min |
 | 4    | [Reference: Bicep Patterns](reference/bicep-patterns.md)       | 10 min |
 
 📚 **Deep Dive**: [ADR-003 AVM-First](adr/ADR-003-avm-first-approach.md) | [ADR-004 Regions](adr/ADR-004-region-defaults.md)
@@ -94,7 +94,7 @@ flowchart LR
 
 | Section                                      | Description                           |
 | -------------------------------------------- | ------------------------------------- |
-| [Workflow Guide](workflow/WORKFLOW.md)       | Complete 7-step workflow with Mermaid |
+| [Workflow Guide](reference/workflow.md)      | Complete 7-step workflow with Mermaid |
 | [Architecture Decisions](adr/)               | ADRs documenting design choices       |
 | [Cost Estimates](cost-estimates/)            | Azure pricing examples                |
 | [Diagrams](diagrams/)                        | Generated architecture diagrams       |

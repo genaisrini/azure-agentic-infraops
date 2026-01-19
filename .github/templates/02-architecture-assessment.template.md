@@ -8,7 +8,7 @@ Table validating presence of:
 
 - NFRs (SLA, RTO, RPO)
 - Compliance requirements
-- Cost constraints
+- Budget (approximate - MCP generates detailed estimates)
 - Scale requirements
 
 Status indicators: ✅ Defined / ⚠️ Partial / ❌ Missing

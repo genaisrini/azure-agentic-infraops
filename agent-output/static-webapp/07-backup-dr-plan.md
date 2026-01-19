@@ -101,13 +101,11 @@ az sql db list-restore-points \
    ```
 
 3. **Verify restored data**
-
    - Connect to restored database
    - Validate data integrity
    - Run application tests
 
 4. **Switch application to restored database**
-
    - Update connection string in SWA configuration
    - Or rename databases
 
@@ -121,12 +119,10 @@ az sql db list-restore-points \
 **Procedure:**
 
 1. **Identify last working deployment**
-
    - Check GitHub Actions history
    - Find last successful build
 
 2. **Rollback deployment**
-
    - Go to GitHub Actions
    - Select last successful workflow run
    - Click "Re-run all jobs"
@@ -142,12 +138,10 @@ az sql db list-restore-points \
 **Procedure:**
 
 1. **Assess impact**
-
    - Confirm regional outage via Azure Status
    - Determine expected recovery time
 
 2. **Decision point**
-
    - If Azure recovery expected < 4 hours: Wait
    - If longer: Proceed with manual recovery
 
@@ -172,11 +166,9 @@ az sql db list-restore-points \
    - Update any custom domain records
    - Notify users of new endpoint
 
----
+### 3.4 Disaster Recovery Architecture
 
-## 3. Disaster Recovery Architecture
-
-### 3.4 Current Architecture (Single Region)
+#### 3.4.1 Current Architecture (Single Region)
 
 ```
 ┌─────────────────────────────────────────┐
@@ -194,7 +186,7 @@ az sql db list-restore-points \
 └─────────────────────────────────────────┘
 ```
 
-### 3.5 Recommended Production Architecture (If Upgraded)
+#### 3.4.2 Recommended Production Architecture (If Upgraded)
 
 ```
 ┌────────────────────────────────────────────────────────────────┐
@@ -207,7 +199,6 @@ az sql db list-restore-points \
 │  └──────────────────┘           └──────────────────┘          │
 │                                                                │
 └────────────────────────────────────────────────────────────────┘
-```
 
 ---
 
@@ -299,3 +290,4 @@ az sql db list-restore-points \
 - [Operations Runbook](./07-operations-runbook.md)
 - [Design Document](./07-design-document.md)
 - [Resource Inventory](./07-resource-inventory.md)
+```

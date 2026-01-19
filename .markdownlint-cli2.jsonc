@@ -9,7 +9,7 @@
       "tables": false,
       "headings": true,
       "strict": false,
-      "stern": false
+      "stern": false,
     },
     "MD001": false,
     "MD009": false,
@@ -31,7 +31,7 @@
     "MD046": false,
     "MD051": false,
     "MD058": false,
-    "MD060": false
+    "MD060": false,
   },
   "globs": ["**/*.md"],
   "ignores": [
@@ -50,7 +50,7 @@
     "coverage/**",
     "docs/audit-checklists/**",
     "docs/presenter/**",
-    "scenarios/scenario-output/**",
+    "agent-output/**",
     "scenarios/**/solution/**",
     "scenarios/**/examples/**",
     "scenarios/**/sample-app/**",
@@ -60,6 +60,6 @@
     "scenarios/**/agents/**",
     "scenarios/**/validation/**",
     "scenarios/**/DEMO-SCRIPT.md",
-    "scenarios/S08-sbom-generator/README.md"
-  ]
+    "scenarios/S08-sbom-generator/README.md",
+  ],
 }

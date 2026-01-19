@@ -203,7 +203,7 @@ The core Agentic InfraOps workflow: `project-planner` → `azure-principal-archi
 `bicep-plan` → `bicep-implement` → Deploy → As-Built Artifacts. Each step has an approval gate before proceeding.
 Steps 3 (Design Artifacts) and 7 (As-Built Artifacts) are optional for generating diagrams and ADRs.
 
-📁 **See**: [Workflow Guide](workflow/WORKFLOW.md)
+📁 **See**: [Workflow Guide](reference/workflow.md)
 
 ### Project Planner
 

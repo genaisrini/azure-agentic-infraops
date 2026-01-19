@@ -45,6 +45,6 @@ The agent will create a Python script and generate the corresponding image.
 
 ## Related Documentation
 
-- [S09 Diagrams as Code](../../scenarios/S09-diagrams-as-code/) - Hands-on scenario for diagram generation
+- [S07 Diagrams as Code](../../scenarios/S07-diagrams-as-code/) - Hands-on scenario for diagram generation
 - [Visual Elements Guide](../presenter/visual-elements-guide.md) - Using diagrams in presentations
 - [Diagram Generator Agent](../../.github/agents/diagram-generator.agent.md) - Agent definition

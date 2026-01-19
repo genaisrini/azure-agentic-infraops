@@ -33,7 +33,7 @@
   "MD060": false,
   "ignores": [
     "**/.venv/**",
-    "scenarios/scenario-output/**",
+    "agent-output/**",
     "scenarios/**/solution/outputs/**",
     "scenarios/**/examples/**",
     "scenarios/**/sample-app/**"

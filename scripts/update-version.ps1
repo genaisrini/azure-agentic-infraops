@@ -69,11 +69,6 @@ $VersionFiles = @(
         Replace = "> **Version $NewVersion**"
     },
     @{
-        Path    = 'scenarios/S11-quick-demos/README.md'
-        Pattern = '> \*\*Version \d+\.\d+\.\d+\*\*'
-        Replace = "> **Version $NewVersion**"
-    },
-    @{
         Path    = 'infra/bicep/contoso-patient-portal/README.md'
         Pattern = '> \*\*Version \d+\.\d+\.\d+\*\*'
         Replace = "> **Version $NewVersion**"

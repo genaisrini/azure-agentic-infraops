@@ -11,7 +11,7 @@ const ARTIFACT_HEADINGS = {
     "## Functional Requirements",
     "## Non-Functional Requirements (NFRs)",
     "## Compliance & Security Requirements",
-    "## Cost Constraints",
+    "## Budget",
     "## Operational Requirements",
     "## Regional Preferences",
   ],

@@ -66,7 +66,6 @@ jobs:
             ["docs/guides/getting-started-journey.md"]='s/> \*\*Version [0-9]+\.[0-9]+\.[0-9]+\*\*/> **Version '"$VERSION"'**/'
             ["docs/presenter/README.md"]='s/> \*\*Version [0-9]+\.[0-9]+\.[0-9]+\*\*/> **Version '"$VERSION"'**/'
             ["scenarios/README.md"]='s/> \*\*Version [0-9]+\.[0-9]+\.[0-9]+\*\*/> **Version '"$VERSION"'**/'
-            ["scenarios/S11-quick-demos/README.md"]='s/> \*\*Version [0-9]+\.[0-9]+\.[0-9]+\*\*/> **Version '"$VERSION"'**/'
             ["infra/bicep/contoso-patient-portal/README.md"]='s/> \*\*Version [0-9]+\.[0-9]+\.[0-9]+\*\*/> **Version '"$VERSION"'**/'
             [".devcontainer/README.md"]='s/> \*\*Version [0-9]+\.[0-9]+\.[0-9]+\*\*/> **Version '"$VERSION"'**/'
           )
@@ -114,7 +113,6 @@ jobs:
             - `docs/guides/getting-started-journey.md`
             - `docs/presenter/README.md`
             - `scenarios/README.md`
-            - `scenarios/S11-quick-demos/README.md`
             - `infra/bicep/contoso-patient-portal/README.md`
             - `.devcontainer/README.md`
 

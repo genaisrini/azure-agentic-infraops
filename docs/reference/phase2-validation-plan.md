@@ -122,7 +122,7 @@ npm run lint:md -- agent-output/simple-web-api/*.md
 If all validations pass:
 
 - ✅ Phase 2 complete
-- Ready for Phase 3 (repeat with second scenario or regenerate S03)
+- Ready for Phase 3 (repeat with second scenario or regenerate S02)
 - Can consider ratcheting to `standard` strictness after Phase 3
 
 If any warnings/failures:
@@ -140,13 +140,13 @@ If any warnings/failures:
 - Step 5: 5 min
 - **Total: ~50 minutes**
 
-## Alternative: Skip to S03 Regeneration?
+## Alternative: Skip to S02 Regeneration?
 
 If you prefer to test with full complexity immediately:
 
-- Use S03 prompts in `scenarios/S03-agentic-workflow/prompts/`
+- Use S02 prompts in `scenarios/S02-agentic-workflow/prompts/`
 - Regenerate all artifacts to new folder `agent-output/contoso-patient-portal-v2/`
 - Compare against existing implementation
 - Estimate: 2-3 hours full workflow
 
-**Recommendation: Start with minimal validation (this plan), then tackle S03 for Phase 3.**
+**Recommendation: Start with minimal validation (this plan), then tackle S02 for Phase 3.**

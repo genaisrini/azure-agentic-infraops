@@ -257,7 +257,7 @@ Four specialized agents. @plan is built into VS Code. The architect assesses aga
 
 **Traditional:** 24+ hours → **With Agents:** 60 min = **96% time saved**
 
-![bg right:40% 95%](../scenarios/scenario-output/ecommerce/ecommerce_architecture.png)
+![bg right:40% 95%](../../agent-output/ecommerce/ecommerce_architecture.png)
 
 <!--
 SPEAKER NOTES:
@@ -290,7 +290,7 @@ Notice steps 3 and 4. The Pricing MCP queries Azure APIs for real costs. We disc
 
 ## What Gets Deployed
 
-![bg right:55% 95%](../scenarios/scenario-output/ecommerce/ecommerce_architecture.png)
+![bg right:55% 95%](../../agent-output/ecommerce/ecommerce_architecture.png)
 
 - 🌐 **Networking:** Front Door Premium + WAF, Private Endpoints
 - 💻 **Compute:** 2× App Service Plans (P1v4), Azure Functions
@@ -587,7 +587,7 @@ Day 1: explain code - zero risk. Day 2: documentation - safe and useful. Day 3: 
 | Resource            | Link                                             |
 | ------------------- | ------------------------------------------------ |
 | **Repository**      | github.com/jonathan-vella/azure-agentic-infraops |
-| **S04 Demo**        | scenarios/S04-ecommerce-platform/                |
+| **S02 Demo**        | scenarios/S02-agentic-workflow/                  |
 | **Microsoft Learn** | learn.microsoft.com/copilot                      |
 | **GitHub Docs**     | docs.github.com/copilot                          |
 
