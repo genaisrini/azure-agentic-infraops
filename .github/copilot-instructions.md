@@ -19,8 +19,6 @@
 - Agent definitions: `.github/agents/*.agent.md`
 - Shared defaults: `.github/agents/_shared/defaults.md` (regions, tags, AVM, security)
 - Plan requirements: `.github/prompts/plan-requirements.prompt.md` (comprehensive NFR capture)
-- Workflow guide: `docs/reference/workflow.md`
-- Reference docs: `docs/reference/` (defaults, workflow, agents-overview, bicep-patterns)
 - Line endings: `.gitattributes` (use `* text=auto eol=lf` for cross-platform)
 
 ## Repository Purpose
@@ -54,8 +52,6 @@ graph LR
 | 7    | `workload-documentation-generator`   | `07-*.md`                       |
 
 **How to use agents**: `Ctrl+Alt+I` → select agent from picker → type prompt → wait for approval before next step
-
-📖 **Full workflow details**: `docs/reference/workflow.md`
 
 ## Project Structure
 
@@ -154,9 +150,6 @@ code azure-agentic-infraops
 ## References
 
 - **Shared Defaults**: `.github/agents/_shared/defaults.md`
-- **Workflow Guide**: `docs/reference/workflow.md`
-- **Bicep Patterns**: `docs/reference/bicep-patterns.md`
-- **Agents Overview**: `docs/reference/agents-overview.md`
 - **Troubleshooting**: `docs/guides/troubleshooting.md`
 
 ---
