@@ -7,7 +7,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [4.0.0] - 2026-01-19
 
-- refactor: modernize scenarios folder - consolidate from 11 to 8 scenarios
+### BREAKING CHANGES
+
+- **Scenario renumbering** - All scenario numbers have changed (11 → 8 scenarios)
+  - S02-terraform-baseline: DELETED
+  - S04-ecommerce-platform: DELETED
+  - S11-quick-demos: DELETED
+  - S03-agentic-workflow → S02-agentic-workflow
+  - S05-documentation-generation → S03-documentation-generation
+  - S06-service-validation → S04-service-validation
+  - S07-troubleshooting → S05-troubleshooting
+  - S08-sbom-generator → S06-sbom-generator
+  - S09-diagrams-as-code → S07-diagrams-as-code
+  - S10-coding-agent → S08-coding-agent
+
+### Changed
+
+- **Docs consolidation** - `docs/workflow/WORKFLOW.md` → `docs/reference/workflow.md`
+- **Removed duplicate guides** - Cleaned up redundant documentation files
+- **Budget terminology** - Changed "Cost Constraints" to "Budget" throughout
+- **Updated ~50 files** with new scenario numbers and paths
+
+### Removed
+
+- `scenarios/scenario-output/` - Replaced by `agent-output/`
+- `docs/workflow/` folder - Merged into `docs/reference/`
+- `docs/audit-checklists/` folder
+- `docs/cost-estimates/` folder
+- `infra/bicep/contoso-patient-portal/` - Legacy example
 
 ## [3.11.0] - 2026-01-14
 
