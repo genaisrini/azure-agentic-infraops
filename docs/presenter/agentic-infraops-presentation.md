@@ -25,8 +25,6 @@ style: |
   .azure-orange { color: #D83B01; }
   .small { font-size: 0.8em; }
   .center { text-align: center; }
-  .columns { display: flex; gap: 2em; }
-  .column { flex: 1; }
 ---
 
 <!-- _class: lead -->
@@ -49,30 +47,39 @@ style: |
 
 **AI-powered infrastructure development** using coordinated GitHub Copilot agents
 
-- Transform requirements → deploy-ready templates
-- Aligned with Azure Well-Architected Framework
-- Uses Azure Verified Modules (AVM)
-- Real-time pricing via MCP integration
-
-🔗 **aka.ms/agenticinfraops**
-
----
-
-# The Evolution of Infrastructure Development
-
-| Era         | Approach              | Time to Deploy |
-| ----------- | --------------------- | -------------- |
-| Manual      | Click-ops in portal   | Days           |
-| Scripted    | ARM/Bicep templates   | Hours          |
-| **Agentic** | AI-coordinated agents | **Minutes**    |
-
-> "From clicking buttons to describing intent"
+| Benefit                 | Description                                        |
+| ----------------------- | -------------------------------------------------- |
+| 🤖 **AI-Orchestrated**  | Specialized agents per phase—no context overload   |
+| 🏛️ **Well-Architected** | Built-in Azure WAF & Verified Modules alignment    |
+| 📋 **Traceable**        | Every decision documented: requirements → deployed |
+| 🔄 **Repeatable**       | Same workflow for any Azure workload               |
 
 ---
 
 # The 7-Step Agentic Workflow
 
-![width:1100px](infographics/generated/workflow-diagram.png)
+```mermaid
+%%{init: {'theme':'neutral'}}%%
+flowchart LR
+    REQ["🎯 Requirements"] --> S1["1️⃣ Project<br/>Planner"]
+    S1 --> S2["2️⃣ Azure<br/>Architect"]
+    S2 --> S3["3️⃣ Design<br/>Artifacts"]
+    S3 --> S4["4️⃣ Bicep<br/>Plan"]
+    S4 --> S5["5️⃣ Bicep<br/>Implement"]
+    S5 --> S6["6️⃣ Deploy"]
+    S6 --> S7["7️⃣ Docs"]
+    S7 --> OUT["✅ Production"]
+```
+
+| Step | Agent                              | Output                          |
+| ---- | ---------------------------------- | ------------------------------- |
+| 1    | `Project Planning`                 | `01-requirements.md`            |
+| 2    | `Azure Architecture`               | `02-architecture-assessment.md` |
+| 3    | `Archiecture Diagrams & Decisions` | `03-des-*` diagrams, ADRs       |
+| 4    | `Infra-as-Code Planning`           | `04-implementation-plan.md`     |
+| 5    | `Bicep code generation`            | `infra/bicep/*` templates       |
+| 6    | `Deployment`                       | `06-deployment-summary.md`      |
+| 7    | `Documentation`                    | `07-*` runbooks, inventory      |
 
 ---
 
@@ -80,119 +87,71 @@ style: |
 
 ![width:900px](infographics/generated/demo-workflow.gif)
 
-_30-second animated demo showing the complete workflow_
+_30-second animated demo showing the complete 7-step workflow_
 
 ---
 
-# Step 1: @plan (Requirements)
+# Key Agents (8 Custom Agents)
 
-**Built-in Plan Agent** gathers requirements
-
-```
-@plan Create a HIPAA-compliant patient portal with
-      Azure App Service and SQL Database
-```
-
-✅ Captures business requirements
-✅ Identifies compliance needs  
-✅ Creates implementation plan
-✅ Estimates costs
-
----
-
-# Step 2: azure-principal-architect
-
-**Custom Agent** provides WAF assessment
-
-- Security evaluation (9/10)
-- Reliability review (8/10)
-- Performance analysis (8/10)
-- Cost optimization (7/10)
-- Operational excellence (8/10)
-
-⚠️ **NO CODE OUTPUT** - Architecture guidance only
+| Agent                              | Step | Purpose                                         |
+| ---------------------------------- | ---- | ----------------------------------------------- |
+| `project-planner`                  | 1    | Gather NFRs, constraints, business context      |
+| `azure-principal-architect`        | 2    | WAF assessment, service selection (**NO CODE**) |
+| `diagram-generator`                | 3, 7 | Create architecture diagrams (Python Diagrams)  |
+| `adr-generator`                    | 3, 7 | Document architectural decisions (ADRs)         |
+| `bicep-plan`                       | 4    | Governance discovery, AVM module selection      |
+| `bicep-implement`                  | 5    | Generate AVM-compliant Bicep code               |
+| `deploy`                           | 6    | Execute deployments, what-if analysis           |
+| `workload-documentation-generator` | 7    | Create runbooks, inventory, DR plans            |
 
 ---
 
-![bg right:50%](infographics/generated/waf-scorecard.png)
+![bg right:50%](infographics/generated/waf-scorecard-web.png)
 
 # Well-Architected Alignment
 
 Every design is scored against Azure WAF pillars
 
-**Overall Score: 8.0/10**
+**Agents ensure compliance with:**
 
-Agents ensure compliance with:
+- ✅ Azure Security Benchmark
+- ✅ Reliability best practices
+- ✅ Performance targets
+- ✅ Cost constraints
+- ✅ Operational excellence
 
-- Azure Security Benchmark
-- Reliability best practices
-- Performance targets
-- Cost constraints
-
----
-
-# Step 4: bicep-plan
-
-**Custom Agent** creates implementation plan
-
-- Discovers Azure Policy constraints
-- Selects Azure Verified Modules (AVM)
-- Maps resource dependencies
-- Generates machine-readable plan
-- Stored in `agent-output/{project}/`
-
-```
-📁 agent-output/{project}/
-   ├── 04-governance-constraints.md
-   └── 04-implementation-plan.md
-```
+> Architecture assessment before any code is written
 
 ---
 
-# Step 5: bicep-implement
+# 💰 Azure Pricing MCP
 
-**Custom Agent** generates deploy-ready code
+**Real-time pricing** integrated into architecture phase
 
-- Creates Bicep templates from plan
-- Uses Azure Verified Modules
-- Validates with `bicep build` and `lint`
-- Ready for `az deployment`
+| Tool                     | Purpose                   |
+| ------------------------ | ------------------------- |
+| `azure_price_search`     | Query retail prices       |
+| `azure_region_recommend` | Find cost-optimal regions |
+| `azure_cost_estimate`    | Calculate monthly costs   |
+| `azure_sku_discovery`    | List available SKUs       |
 
-```bash
-# One-command deployment
-az deployment group create \
-  --resource-group rg-patient-portal \
-  --template-file main.bicep
-```
+> Accurate cost estimates before you write any code
 
 ---
 
-# 💰 Azure Pricing MCP Integration
-
-**Real-time pricing data** during architecture phase
-
-| Tool                     | Purpose                 |
-| ------------------------ | ----------------------- |
-| `azure_price_search`     | Query retail prices     |
-| `azure_region_recommend` | Find cheapest regions   |
-| `azure_cost_estimate`    | Calculate monthly costs |
-| `azure_sku_discovery`    | List available SKUs     |
-
-> No more guessing costs!
-
----
-
-![bg right:50%](infographics/generated/roi-calculator.png)
+![bg right:50%](infographics/generated/roi-calculator-web.png)
 
 # ROI: The Business Case
 
 **$19/user/month** investment
 
-- **Week 1**: Break-even
-- **39:1**: Annual ROI
-- **8 hours/week**: Time saved
+| Metric     | Value        |
+| ---------- | ------------ |
+| Break-even | Week 1       |
+| Annual ROI | **39:1**     |
+| Time saved | 8 hours/week |
 
-> 416 hours saved per IT Pro annually
+> **416 hours saved** per IT Pro annually
 
 ---
 
@@ -200,173 +159,80 @@ az deployment group create \
 
 ![bg right:55%](infographics/generated/time-savings-infographic-web.png)
 
-| Task              | Before | After | Savings  |
-| ----------------- | ------ | ----- | -------- |
-| IaC Development   | 6.0h   | 1.5h  | **-75%** |
-| Documentation     | 4.0h   | 0.5h  | **-88%** |
-| Troubleshooting   | 3.0h   | 1.0h  | **-67%** |
-| Code Review       | 2.0h   | 0.5h  | **-75%** |
-| Learning New Tech | 5.0h   | 2.0h  | **-60%** |
+| Task            | Before | After | Savings  |
+| --------------- | ------ | ----- | -------- |
+| IaC Development | 6.0h   | 1.5h  | **-75%** |
+| Documentation   | 4.0h   | 0.5h  | **-88%** |
+| Troubleshooting | 3.0h   | 1.0h  | **-67%** |
+| Code Review     | 2.0h   | 0.5h  | **-75%** |
 
 ---
 
-# Before vs After: The Transformation
+# Before vs After
 
 ![width:1100px](infographics/generated/before-after-poster-web.png)
 
 ---
 
-# E-Commerce Platform Demo
-
-**Scenario**: Multi-tier e-commerce with PCI-DSS alignment
-
-**Components** (61 resources):
-
-- Azure Front Door Premium + WAF
-- App Service (zone-redundant P1v4)
-- Azure SQL Database
-- Azure Cognitive Search
-- Service Bus Premium
-- Private endpoints throughout
-
-**Monthly Cost**: ~$1,595
-
----
-
-# Demo: Architecture Diagram
-
-![width:950px](../diagrams/ecommerce/ecommerce_architecture.png)
-
-_Generated with `diagram-generator` agent using Python Diagrams library_
-
----
-
-# Objection: "Will AI Replace Me?"
-
-## ❌ Myth: Copilot replaces IT Pros
-
-## ✅ Reality: Copilot **amplifies** IT Pros
-
-| Role      | Before              | After                |
-| --------- | ------------------- | -------------------- |
-| Expert    | Write code          | Review + guide AI    |
-| Mid-level | Copy/paste patterns | Design + customize   |
-| Newcomer  | Learn basics        | Learn best practices |
-
-> "The best IT Pros will be those who master AI collaboration"
-
----
-
-# Objection: "Is It Secure?"
-
-**Enterprise-Grade Security:**
-
-- ✅ No code retained after response
-- ✅ No training on your code
-- ✅ SOC 2 Type II compliant
-- ✅ Enterprise proxy support
-- ✅ IP indemnity included
-
-_GitHub Copilot Business/Enterprise only_
-
----
-
-# Objection: "Code Quality?"
-
-**Built-in Guardrails:**
-
-1. **WAF Assessment** before code
-2. **AVM Modules** (tested, maintained)
-3. **Bicep lint** validation
-4. **Human approval** at each step
-5. **Enterprise policies** enforced
-
-> "Trust but verify" - every step requires approval
-
----
-
 # Getting Started
 
-## 1. Clone the Repository
+## 1. Clone & Open
 
 ```bash
 git clone https://github.com/jonathan-vella/azure-agentic-infraops
 code azure-agentic-infraops
+# F1 → "Dev Containers: Reopen in Container"
 ```
 
-## 2. Open in Dev Container
+## 2. Start the Workflow
 
-- F1 → "Dev Containers: Reopen in Container"
-
-## 3. Start the Workflow
-
-- Open Copilot Chat → Select `@plan`
+1. Press `Ctrl+Alt+I` to open Copilot Chat
+2. Select agent from picker (e.g., `project-planner`)
+3. Describe your requirements
+4. Wait for approval before next step
 
 ---
 
-# Quick Start Prompts
+# Example Prompts
 
 **E-Commerce Platform:**
 
-```
-@plan Create a PCI-DSS compliant e-commerce platform
-with Azure Front Door, App Service, and SQL Database
+```text
+Create a PCI-DSS compliant e-commerce platform with
+Azure Front Door, App Service, and SQL Database
 ```
 
-**Patient Portal:**
+**Healthcare Portal:**
 
-```
-@plan Create a HIPAA-compliant patient portal with
+```text
+Create a HIPAA-compliant patient portal with
 secure access to medical records
 ```
 
 **Data Analytics:**
 
-```
-@plan Create a data analytics platform with
+```text
+Create a data analytics platform with
 Azure Synapse and Power BI integration
 ```
 
 ---
 
-# Scenarios Available
+# Security & Trust
 
-| #   | Scenario                 | Duration | Difficulty   |
-| --- | ------------------------ | -------- | ------------ |
-| S01 | Bicep Baseline           | 30 min   | Beginner     |
-| S02 | Terraform Baseline       | 30 min   | Beginner     |
-| S03 | Agentic Workflow         | 45 min   | Advanced     |
-| S04 | Documentation Generation | 20 min   | Beginner     |
-| S05 | Service Validation       | 30 min   | Intermediate |
+| Concern        | Answer                               |
+| -------------- | ------------------------------------ |
+| Code retention | ❌ No code retained after response   |
+| Training       | ❌ Not trained on your code          |
+| Compliance     | ✅ SOC 2 Type II compliant           |
+| Approval       | ✅ Human approval at every step      |
+| Quality        | ✅ WAF + AVM + Bicep lint validation |
 
-_10 total scenarios from beginner to advanced_
-
----
-
-# Resources
-
-📖 **Documentation**: [docs/README.md](../README.md)
-📋 **Workflow Guide**: [docs/reference/workflow.md](../reference/workflow.md)
-💰 **Pricing MCP**: [mcp/azure-pricing-mcp/](../../mcp/azure-pricing-mcp/)
-🎯 **Scenarios**: [scenarios/](../../scenarios/)
-
-**GitHub**: github.com/jonathan-vella/azure-agentic-infraops
-**Shortlink**: **aka.ms/agenticinfraops**
+> "Trust but verify" - every agent step requires your approval
 
 ---
 
-# Q&A
-
-## Common Questions
-
-- **"What models are supported?"** - Claude, GPT-4o, o1
-- **"Can I use my own agents?"** - Yes, `.agent.md` files
-- **"Terraform support?"** - Yes, S02 scenario
-- **"Multi-cloud?"** - Azure-focused, extensible
-
----
-
-# Executive Summary (One Slide)
+# Executive Summary
 
 ![width:1100px](infographics/generated/executive-one-slide-web.png)
 
@@ -383,30 +249,3 @@ _10 total scenarios from beginner to advanced_
 🔗 **aka.ms/agenticinfraops**
 
 **Questions?** Open a GitHub Discussion
-
----
-
-# Appendix: Agent Files
-
-Located in `.github/agents/`:
-
-| Agent                       | Purpose                 |
-| --------------------------- | ----------------------- |
-| `azure-principal-architect` | WAF assessment          |
-| `bicep-plan`                | Implementation planning |
-| `bicep-implement`           | Code generation         |
-| `diagram-generator`         | Architecture diagrams   |
-| `adr-generator`             | Decision records        |
-
----
-
-# Appendix: Color Palette
-
-| Color      | Hex       | Usage             |
-| ---------- | --------- | ----------------- |
-| Azure Blue | `#0078D4` | Primary, headers  |
-| Green      | `#107C10` | Success, planning |
-| Purple     | `#5C2D91` | Implementation    |
-| Orange     | `#D83B01` | Architecture      |
-| Yellow     | `#FFB900` | Warnings          |
-| Gray       | `#201F1E` | Body text         |

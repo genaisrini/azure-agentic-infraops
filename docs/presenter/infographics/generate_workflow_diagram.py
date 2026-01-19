@@ -72,10 +72,10 @@ def create_workflow_diagram():
     steps = [
         {
             'num': '1',
-            'title': '@plan',
+            'title': 'project-\nplanner',
             'subtitle': 'Requirements',
-            'agent': 'Built-in',
-            'desc': ['Gather requirements', 'Cost estimation'],
+            'agent': 'Custom Agent',
+            'desc': ['Gather requirements', 'NFR capture'],
             'color': COLORS['step1'],
             'border': COLORS['step1_border'],
             'icon': '📋'
@@ -122,23 +122,23 @@ def create_workflow_diagram():
         },
         {
             'num': '6',
-            'title': 'Deploy',
+            'title': 'deploy',
             'subtitle': 'To Azure',
-            'agent': 'CLI/PowerShell',
-            'desc': ['Deploy resources', 'Verify deployment'],
+            'agent': 'Custom Agent',
+            'desc': ['What-if analysis', 'Deploy resources'],
             'color': '#FFF3E0',  # Light orange
             'border': '#F57C00',
             'icon': '🚀'
         },
         {
             'num': '7',
-            'title': 'As-Built\nArtifacts',
-            'subtitle': '-ab suffix',
-            'agent': 'Optional',
-            'desc': ['As-built diagrams', 'Final ADRs'],
+            'title': 'workload-docs\n+ diagrams',
+            'subtitle': 'As-Built',
+            'agent': 'Custom Agents',
+            'desc': ['Runbooks, inventory', 'As-built diagrams'],
             'color': '#E3F2FD',  # Light blue
             'border': '#1976D2',
-            'icon': '📊'
+            'icon': '📚'
         }
     ]
 
