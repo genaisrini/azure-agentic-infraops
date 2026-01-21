@@ -10,7 +10,9 @@ exec 2>&1
 # Create directories
 echo "📂 Creating cache directories..."
 mkdir -p "${HOME}/.cache"
-chmod 755 "${HOME}/.cache"
+# Fix ownership if needed (may be owned by root from previous installs)
+sudo chown -R vscode:vscode "${HOME}/.cache" 2>/dev/null || true
+chmod 755 "${HOME}/.cache" 2>/dev/null || true
 
 # Configure Git safe directory (for mounted volumes)
 echo "🔐 Configuring Git..."
@@ -24,6 +26,9 @@ export PATH="${HOME}/.local/bin:${PATH}"
 # Install Python packages using uv (10-100x faster than pip)
 echo "🐍 Installing Python packages with uv..."
 if command -v uv &> /dev/null; then
+    # Create uv cache directory with proper permissions
+    mkdir -p "${HOME}/.cache/uv" 2>/dev/null || true
+    chmod -R 755 "${HOME}/.cache/uv" 2>/dev/null || true
     uv pip install --system --quiet diagrams matplotlib pillow checkov 2>&1 || echo "  ⚠️  Installation had issues, continuing..."
     echo "  ✅ Python packages installed (diagrams, matplotlib, pillow, checkov)"
 else
@@ -94,11 +99,8 @@ if [ -d "$MCP_DIR" ]; then
     # Always install/upgrade package in editable mode for proper entry points
     echo "  Installing MCP server package..."
     cd "$MCP_DIR"
-    if command -v uv &> /dev/null; then
-        uv pip install --python "$MCP_DIR/.venv/bin/python" --quiet -e . 2>&1 || true
-    else
-        "$MCP_DIR/.venv/bin/pip" install --quiet -e . 2>&1 | tail -1 || true
-    fi
+    # Use pip for editable installs to avoid uv symlink issues
+    "$MCP_DIR/.venv/bin/pip" install --quiet -e . 2>&1 | tail -1 || true
     cd - > /dev/null
     echo "  ✅ Azure Pricing MCP installed"
     
