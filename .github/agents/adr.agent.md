@@ -320,14 +320,14 @@ graph TD
 
 **7-Step Workflow Overview:**
 
-| Step | Phase                | This Agent's Role                           |
-| ---- | -------------------- | ------------------------------------------- |
-| 1    | Plan                 | —                                           |
-| 2    | Architect            | Caller (triggers Step 3)                    |
-| 3    | **Design Artifacts** | Generate `-des` ADRs (proposed decisions)   |
-| 4    | Bicep Plan           | —                                           |
-| 5    | Bicep Code           | —                                           |
-| 6    | Deploy               | Caller (triggers Step 7)                    |
+| Step | Phase                  | This Agent's Role                           |
+| ---- | ---------------------- | ------------------------------------------- |
+| 1    | Plan                   | —                                           |
+| 2    | Architect              | Caller (triggers Step 3)                    |
+| 3    | **Design Artifacts**   | Generate `-des` ADRs (proposed decisions)   |
+| 4    | Bicep Plan             | —                                           |
+| 5    | Bicep Code             | —                                           |
+| 6    | Deploy                 | Caller (triggers Step 7)                    |
 | 7    | **As-Built Artifacts** | Generate `-ab` ADRs (implemented decisions) |
 
 ### Artifact Suffix Convention
