@@ -18,10 +18,18 @@ git config --global --add safe.directory "${PWD}"
 git config --global core.autocrlf input
 # Note: lefthook setup moved to postStartCommand (runs every container start)
 
-# Install Python packages
-echo "🐍 Installing Python packages..."
-pip3 install --quiet --user diagrams matplotlib pillow checkov 2>&1 | tail -1 || echo "  ⚠️  Installation had issues, continuing..."
-echo "  ✅ Python packages installed (diagrams, matplotlib, pillow, checkov)"
+# Ensure uv is on PATH (installed via onCreateCommand)
+export PATH="${HOME}/.local/bin:${PATH}"
+
+# Install Python packages using uv (10-100x faster than pip)
+echo "🐍 Installing Python packages with uv..."
+if command -v uv &> /dev/null; then
+    uv pip install --system --quiet diagrams matplotlib pillow checkov 2>&1 || echo "  ⚠️  Installation had issues, continuing..."
+    echo "  ✅ Python packages installed (diagrams, matplotlib, pillow, checkov)"
+else
+    echo "  ⚠️  uv not found, falling back to pip..."
+    pip3 install --quiet --user diagrams matplotlib pillow checkov 2>&1 | tail -1 || true
+fi
 
 # Verify markdownlint-cli2 (installed globally via postCreateCommand)
 echo "📝 Verifying markdownlint-cli2..."
@@ -86,8 +94,11 @@ if [ -d "$MCP_DIR" ]; then
     # Always install/upgrade package in editable mode for proper entry points
     echo "  Installing MCP server package..."
     cd "$MCP_DIR"
-    "$MCP_DIR/.venv/bin/pip" install --quiet --upgrade pip 2>&1 | tail -1 || true
-    "$MCP_DIR/.venv/bin/pip" install --quiet -e . 2>&1 | tail -1 || true
+    if command -v uv &> /dev/null; then
+        uv pip install --python "$MCP_DIR/.venv/bin/python" --quiet -e . 2>&1 || true
+    else
+        "$MCP_DIR/.venv/bin/pip" install --quiet -e . 2>&1 | tail -1 || true
+    fi
     cd - > /dev/null
     echo "  ✅ Azure Pricing MCP installed"
     
@@ -120,6 +131,7 @@ printf "  %-15s %s\n" "PowerShell:" "$(pwsh --version 2>/dev/null || echo '❌ n
 printf "  %-15s %s\n" "Python:" "$(python3 --version 2>/dev/null || echo '❌ not installed')"
 printf "  %-15s %s\n" "Node.js:" "$(node --version 2>/dev/null || echo '❌ not installed')"
 printf "  %-15s %s\n" "GitHub CLI:" "$(gh --version 2>/dev/null | head -n1 || echo '❌ not installed')"
+printf "  %-15s %s\n" "uv:" "$(uv --version 2>/dev/null || echo '❌ not installed')"
 printf "  %-15s %s\n" "Checkov:" "$(checkov --version 2>/dev/null || echo '❌ not installed')"
 printf "  %-15s %s\n" "markdownlint:" "$(markdownlint-cli2 --version 2>/dev/null || echo '❌ not installed')"
 

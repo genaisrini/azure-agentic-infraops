@@ -24,7 +24,8 @@
 
   // Lifecycle commands - use object format for parallel execution where possible
   "onCreateCommand": {
-    "apt-packages": "sudo apt-get update && sudo apt-get install -y graphviz dos2unix"
+    "apt-packages": "sudo apt-get update && sudo apt-get install -y graphviz dos2unix",
+    "install-uv": "curl -LsSf https://astral.sh/uv/install.sh | sh"
   },
   "postCreateCommand": {
     "npm-install": "npm install",
@@ -38,8 +39,8 @@
   // Environment variables for Python optimization
   "containerEnv": {
     "PYTHONDONTWRITEBYTECODE": "1",
-    "PIP_DISABLE_PIP_VERSION_CHECK": "1",
-    "PIP_NO_CACHE_DIR": "0"
+    "UV_CACHE_DIR": "/home/vscode/.cache/uv",
+    "PATH": "${localEnv:HOME}/.local/bin:${containerEnv:PATH}"
   },
 
   "remoteEnv": {
@@ -114,8 +115,8 @@
       "type": "bind"
     },
     {
-      "source": "devcontainer-pip-cache-${devcontainerId}",
-      "target": "/home/vscode/.cache/pip",
+      "source": "devcontainer-uv-cache-${devcontainerId}",
+      "target": "/home/vscode/.cache/uv",
       "type": "volume"
     }
   ],
