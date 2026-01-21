@@ -372,7 +372,7 @@ Stay current with the latest benchmarks and pricing:
 ## Next Steps
 
 - [Prerequisites](prerequisites.md) - Ensure your environment is ready
-- [Quick Start](QUICKSTART.md) - Get started in 10 minutes
+- [Quick Start](../getting-started/quickstart.md) - Get started in 10 minutes
 - [S01 Bicep Baseline](../../scenarios/S01-bicep-baseline/) - Start your first scenario
 
 ---

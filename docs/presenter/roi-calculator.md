@@ -295,7 +295,6 @@ Break-Even Hours = $19 / Hourly_Rate
 ## 📚 Resources
 
 - [Time Savings Evidence](time-savings-evidence.md) — Detailed methodology
-- [Demo Delivery Guide](demo-delivery-guide.md) — Presenting to stakeholders
 - [GitHub Copilot Pricing](https://github.com/features/copilot) — Official pricing page
 - [Objection Handling](objection-handling.md) — Address budget concerns
 

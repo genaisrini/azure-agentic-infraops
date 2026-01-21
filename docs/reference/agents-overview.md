@@ -1,6 +1,6 @@
 # Agents Overview
 
-> **Version 3.7.8** | Complete reference for all agents in the Agentic InfraOps workflow
+> **Version 5.3.0** | Complete reference for all agents in the Agentic InfraOps workflow
 
 This document provides a comprehensive overview of all agents in Agentic InfraOps, covering the complete 8-phase
 infrastructure development and operations workflow. Each agent is designed for a specific purpose in the lifecycle

@@ -257,5 +257,4 @@ When handling objections, follow this structure:
 
 - [ROI Calculator](roi-calculator.md) - Build a custom business case
 - [Time Savings Evidence](time-savings-evidence.md) - Methodology and data
-- [Demo Delivery Guide](demo-delivery-guide.md) - Live demo techniques
 - [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/) - Security documentation

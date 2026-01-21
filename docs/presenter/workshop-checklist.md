@@ -312,6 +312,4 @@ Use this before, during, and after your sessions to ensure smooth delivery.
 **📖 See Also:**
 
 - [Character Reference](character-reference.md) - Scenario personas
-- [Demo Delivery Guide](demo-delivery-guide.md) - Presentation tips
-- [Feedback Survey](feedback-survey.md) - Post-workshop survey template
 - [Troubleshooting Guide](../guides/troubleshooting.md) - Common issues and solutions

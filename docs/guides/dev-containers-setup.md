@@ -486,7 +486,7 @@ Personalize your container with dotfiles:
 
 ## Next Steps
 
-- [Quick Start](quickstart.md) — Run your first demo
+- [Quick Start](../getting-started/quickstart.md) — Run your first demo
 - [Prerequisites](prerequisites.md) — Full requirements reference
 - [Troubleshooting](troubleshooting.md) — More solutions
 - [VS Code Dev Containers Documentation](https://code.visualstudio.com/docs/devcontainers/containers)
