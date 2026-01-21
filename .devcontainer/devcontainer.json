@@ -11,14 +11,26 @@
       "version": "latest"
     },
     "ghcr.io/devcontainers/features/python:1": {
-      "version": "3.12"
+      "version": "3.12",
+      "installTools": false
     },
     "ghcr.io/devcontainers/features/node:1": {
       "version": "lts"
+    },
+    "ghcr.io/devcontainers/features/github-cli:1": {
+      "version": "latest"
     }
   },
 
-  "postCreateCommand": "set -e; sudo apt-get update; sudo apt-get install -y graphviz dos2unix; pip install --user diagrams matplotlib pillow; npm install; npm install -g markdownlint-cli2; az config set auto-upgrade.enable=no --only-show-errors 2>/dev/null || true; az extension add --name azure-devops --only-show-errors 2>/dev/null || true; bash .devcontainer/post-create.sh",
+  // Lifecycle commands - use object format for parallel execution where possible
+  "onCreateCommand": {
+    "apt-packages": "sudo apt-get update && sudo apt-get install -y graphviz dos2unix"
+  },
+  "postCreateCommand": {
+    "npm-install": "npm install",
+    "npm-global": "npm install -g markdownlint-cli2",
+    "post-create": "bash .devcontainer/post-create.sh"
+  },
 
   "remoteEnv": {
     "AZURE_DEFAULTS_LOCATION": "swedencentral"
@@ -29,7 +41,6 @@
       "extensions": [
         "GitHub.copilot",
         "GitHub.copilot-chat",
-        "ms-vscode.vscode-node-azure-pack",
         "ms-azuretools.vscode-azureresourcegroups",
         "ms-azuretools.vscode-bicep",
         "ms-vscode.powershell",

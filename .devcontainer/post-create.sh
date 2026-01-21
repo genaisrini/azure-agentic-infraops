@@ -26,12 +26,10 @@ else
     echo "  ⚠️  lefthook not found (run npm install to set up hooks)"
 fi
 
-# Verify Python packages (installed via pip or should be)
-echo "🐍 Verifying Python packages..."
-python3 -c "import checkov; import diagrams" 2>/dev/null && echo "  ✅ checkov and diagrams available" || {
-    echo "  Installing checkov and diagrams..."
-    pip3 install --quiet --user checkov diagrams 2>&1 | tail -1 || echo "  ⚠️  Installation had issues, continuing..."
-}
+# Install Python packages
+echo "🐍 Installing Python packages..."
+pip3 install --quiet --user diagrams matplotlib pillow checkov 2>&1 | tail -1 || echo "  ⚠️  Installation had issues, continuing..."
+echo "  ✅ Python packages installed (diagrams, matplotlib, pillow, checkov)"
 
 # Verify markdownlint-cli2 (installed globally via postCreateCommand)
 echo "📝 Verifying markdownlint-cli2..."
@@ -66,20 +64,10 @@ pwsh -NoProfile -Command "
     Write-Host '✅ PowerShell modules installed'
 " || echo "⚠️  Warning: PowerShell module installation incomplete"
 
-# Install GitHub CLI (not in universal:2 image)
-echo "📦 Installing GitHub CLI..."
-if ! command -v gh &> /dev/null; then
-    curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
-    sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg
-    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
-    sudo apt-get update && sudo apt-get install -y gh 2>&1 | tail -3
-else
-    echo "  ✅ GitHub CLI already installed"
-fi
-
-# Verify utilities (installed via devcontainer postCreateCommand)
+# Verify utilities (installed via devcontainer features and onCreateCommand)
 echo "🛠️  Verifying utilities..."
-command -v dot &> /dev/null && echo "  ✅ graphviz available" || echo "  ⚠️  graphviz not found (required for S08)"
+command -v gh &> /dev/null && echo "  ✅ GitHub CLI available" || echo "  ⚠️  GitHub CLI not found"
+command -v dot &> /dev/null && echo "  ✅ graphviz available" || echo "  ⚠️  graphviz not found (required for diagrams)"
 command -v dos2unix &> /dev/null && echo "  ✅ dos2unix available" || echo "  ⚠️  dos2unix not found"
 
 # Setup Azure Pricing MCP Server
