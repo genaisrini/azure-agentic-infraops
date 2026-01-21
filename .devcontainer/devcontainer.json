@@ -31,6 +31,16 @@
     "npm-global": "npm install -g markdownlint-cli2",
     "post-create": "bash .devcontainer/post-create.sh"
   },
+  "postStartCommand": {
+    "lefthook": "npx lefthook install 2>/dev/null || true"
+  },
+
+  // Environment variables for Python optimization
+  "containerEnv": {
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PIP_DISABLE_PIP_VERSION_CHECK": "1",
+    "PIP_NO_CACHE_DIR": "0"
+  },
 
   "remoteEnv": {
     "AZURE_DEFAULTS_LOCATION": "swedencentral"
@@ -60,7 +70,6 @@
         "ms-azuretools.vscode-azure-github-copilot",
         "ms-vscode.vscode-websearchforcopilot",
         "teamsdevapp.vscode-ai-foundry",
-        "ms-windows-ai-studio.windows-ai-studio",
         "esbenp.prettier-vscode",
         "mechatroner.rainbow-csv",
         "redhat.vscode-yaml"
@@ -103,6 +112,11 @@
       "source": "${localEnv:USERPROFILE}${localEnv:HOME}/.azure",
       "target": "/home/vscode/.azure",
       "type": "bind"
+    },
+    {
+      "source": "devcontainer-pip-cache-${devcontainerId}",
+      "target": "/home/vscode/.cache/pip",
+      "type": "volume"
     }
   ],
 

@@ -16,15 +16,7 @@ chmod 755 "${HOME}/.cache"
 echo "🔐 Configuring Git..."
 git config --global --add safe.directory "${PWD}"
 git config --global core.autocrlf input
-
-# Configure lefthook git hooks
-echo "🪝 Setting up Git hooks (lefthook)..."
-if command -v lefthook &> /dev/null || [ -f "${PWD}/node_modules/.bin/lefthook" ]; then
-    npx lefthook install 2>/dev/null || true
-    echo "  ✅ lefthook hooks installed"
-else
-    echo "  ⚠️  lefthook not found (run npm install to set up hooks)"
-fi
+# Note: lefthook setup moved to postStartCommand (runs every container start)
 
 # Install Python packages
 echo "🐍 Installing Python packages..."
@@ -42,26 +34,38 @@ else
     echo "  ⚠️  markdownlint-cli2 not found (should have been installed via postCreateCommand)"
 fi
 
-# Install Azure PowerShell modules (parallel install)
+# Install Azure PowerShell modules (parallel install using Start-Job)
 echo "🔧 Installing Azure PowerShell modules..."
 pwsh -NoProfile -Command "
     \$ErrorActionPreference = 'SilentlyContinue'
     Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
     
-    # Install modules in parallel using jobs
+    # Define modules to install
     \$modules = @('Az.Accounts', 'Az.Resources', 'Az.Storage', 'Az.Network', 'Az.KeyVault', 'Az.Websites')
-    \$jobs = @()
     
-    foreach (\$module in \$modules) {
-        if (-not (Get-Module -ListAvailable -Name \$module)) {
-            Write-Host \"  Installing \$module...\"
-            Install-Module -Name \$module -Scope CurrentUser -Force -AllowClobber -SkipPublisherCheck
-        } else {
-            Write-Host \"  \$module already installed\"
-        }
+    # Filter to only modules not already installed
+    \$toInstall = \$modules | Where-Object { -not (Get-Module -ListAvailable -Name \$_) }
+    
+    if (\$toInstall.Count -eq 0) {
+        Write-Host '  ✅ All PowerShell modules already installed'
+        exit 0
     }
     
-    Write-Host '✅ PowerShell modules installed'
+    Write-Host \"  Installing \$(\$toInstall.Count) modules: \$(\$toInstall -join ', ')...\"
+    
+    # Install modules in parallel using background jobs
+    \$jobs = \$toInstall | ForEach-Object {
+        Start-Job -ScriptBlock {
+            param(\$m)
+            Install-Module -Name \$m -Scope CurrentUser -Force -AllowClobber -SkipPublisherCheck -ErrorAction SilentlyContinue
+        } -ArgumentList \$_
+    }
+    
+    # Wait for all jobs with timeout (90 seconds)
+    \$completed = \$jobs | Wait-Job -Timeout 90
+    \$jobs | Remove-Job -Force
+    
+    Write-Host '  ✅ PowerShell modules installed'
 " || echo "⚠️  Warning: PowerShell module installation incomplete"
 
 # Verify utilities (installed via devcontainer features and onCreateCommand)
