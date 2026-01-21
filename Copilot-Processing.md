@@ -59,19 +59,42 @@ Files already had version headers (4 files - no change needed):
 
 - [x] Updated agents-overview.md: "8-phase" → "7-step workflow" (3 locations)
 
-### Phase 6: Validation 🔄
+### Phase 6: Validation ✅
 
-- [ ] Run npm run lint:md
-- [ ] Run npm run lint:links
-- [ ] Commit and push
+- [x] Run npm run lint:md (0 errors)
+- [x] npm run lint:links passed earlier (link-check has Node.js 24 bug in pre-commit)
+- [x] Committed and pushed
 
 ---
 
 ## Summary
 
-_To be completed after all phases._
+**All phases completed successfully.**
+
+| Category                | Changes                                                 |
+| ----------------------- | ------------------------------------------------------- |
+| Version headers added   | 15 files (guides/, presenter/, getting-started/)        |
+| Version headers updated | 1 file (workshop-checklist.md: 3.6.0 → 5.3.0)           |
+| Model names fixed       | TL;DR updated to real models, disclaimer added          |
+| Terminology fixed       | 3 instances of "8-phase" → "7-step workflow"            |
+| Footer removed          | "December 2025" date removed from copilot-model-selection.md |
 
 **Branch**: `fix/docs-improvements`
+
+**Known Issues**:
+
+- `markdown-link-check` has a bug with Node.js v24 (program.opts().ignore undefined)
+- Character-reference.md has scenario number mismatches (S09-S11 don't exist, character-scenario mapping incorrect) - separate fix needed
+
+**Next Steps**:
+
+1. Create PR: https://github.com/jonathan-vella/azure-agentic-infraops/pull/new/fix/docs-improvements
+2. Review and merge
+3. Delete this file after merge
+
+---
+
+_Please review this summary and delete this file before merging._
 
 ## Execution Summary
 
