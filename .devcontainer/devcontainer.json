@@ -11,7 +11,7 @@
       "version": "latest"
     },
     "ghcr.io/devcontainers/features/python:1": {
-      "version": "3.12",
+      "version": "3.13",
       "installTools": false
     },
     "ghcr.io/devcontainers/features/node:1": {
@@ -39,8 +39,8 @@
   // Environment variables for Python optimization
   "containerEnv": {
     "PYTHONDONTWRITEBYTECODE": "1",
-    "UV_CACHE_DIR": "/home/vscode/.cache/uv",
-    "PATH": "${localEnv:HOME}/.local/bin:${containerEnv:PATH}"
+    "PYTHONUNBUFFERED": "1",
+    "UV_CACHE_DIR": "/home/vscode/.cache/uv"
   },
 
   "remoteEnv": {
