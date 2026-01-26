@@ -3,6 +3,11 @@
 Thank you for your interest in contributing! Agentic InfraOps revolutionizes how IT Pros build
 Azure environments through coordinated AI agents.
 
+This file is the quick contributor entrypoint.
+The canonical, detailed contributor workflow (branch protection, PR flow, automation, versioning) is:
+
+- [Development Workflow Guide](docs/guides/development-workflow.md)
+
 ## 🎯 What We're Looking For
 
 ### High-Priority Contributions
@@ -28,6 +33,14 @@ Azure environments through coordinated AI agents.
 
 1. **Check existing issues** - Someone might already be working on it
 2. **Open an issue** - Discuss your idea before investing time
+
+### Branching and PRs (Canonical)
+
+This repo uses a protected `main` branch.
+Contributions land via pull requests with required checks and review.
+
+- Workflow details: [Development Workflow Guide](docs/guides/development-workflow.md)
+- Agent workflow details: [Agent Workflow Reference](docs/reference/workflow.md)
 
 ### Code Standards
 
@@ -57,6 +70,9 @@ This repository uses [markdownlint](https://github.com/DavidAnson/markdownlint) 
 # Check for issues
 npm run lint:md
 
+# Check links (docs/ only; excludes docs/_superseded)
+npm run lint:links
+
 # Auto-fix issues
 npm run lint:md:fix
 ```
@@ -83,7 +99,11 @@ git checkout -b fix/issue-description
 
 - Follow the guidelines above
 - Test any Bicep changes with `bicep build` and `bicep lint`
-- Validate markdown with `npm run lint:md`
+- Validate markdown and links with `npm run lint:md` and `npm run lint:links`
+
+For the full local-to-PR flow, see:
+
+- [Development Workflow Guide](docs/guides/development-workflow.md)
 
 ### 4. Commit & Push
 
@@ -92,6 +112,8 @@ git add .
 git commit -m "feat: add diagram generator improvements"
 git push origin feature/your-feature-name
 ```
+
+Note: commit message format is enforced by hooks and CI.
 
 ## 📝 Commit Message Format (Required)
 
@@ -176,6 +198,7 @@ Before submitting:
 - [ ] Code follows repository standards
 - [ ] Documentation updated if needed
 - [ ] Markdown files pass linting (`npm run lint:md`)
+- [ ] Docs links pass checks (`npm run lint:links`)
 - [ ] No hardcoded secrets or subscription IDs
 - [ ] Links work correctly
 
