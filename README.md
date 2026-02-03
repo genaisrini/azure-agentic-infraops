@@ -61,7 +61,7 @@
 
 ## 🚀 About The Project
 
-> **Version 7.4.0** | [Version info](VERSION.md) | [Changelog](CHANGELOG.md)
+> **Version 8.0.0** | [Version info](VERSION.md) | [Changelog](CHANGELOG.md)
 
 IT Pro–focused workflow for building and operating Azure environments with guardrailed AI agents.
 
@@ -125,16 +125,16 @@ graph LR
     classDef diagnose fill:#EF4444,stroke:#DC2626,color:#fff
 ```
 
-| Step | Phase          | Agent(s)           | Output     | Description                                |
-| :--: | -------------- | ------------------ | ---------- | ------------------------------------------ |
-|  1   | Requirements   | `@requirements`    | `01-*`     | Gather and refine project requirements     |
-|  2   | Architecture   | `@architect` 🧩 💰 | `02-*`     | WAF assessment and design decisions        |
-|  3   | Design         | `@diagram`, `@adr` | `03-des-*` | Diagrams and Architecture Decision Records |
-|  4   | Planning       | `@bicep-plan` 🧩   | `04-*`     | Implementation planning with governance    |
-|  5   | Implementation | `@bicep-code`      | `05-*`     | Generate AVM-first Bicep templates         |
-|  6   | Deployment     | `@deploy`          | `06-*`     | Azure resource provisioning                |
-|  7   | Documentation  | `@docs`            | `07-*`     | As-built documentation suite               |
-|  —   | Validation     | `@diagnose` 🧩     | `08-*`     | Resource health & troubleshooting          |
+| Step | Phase          | Agent/Skill           | Output     | Description                                |
+| :--: | -------------- | --------------------- | ---------- | ------------------------------------------ |
+|  1   | Requirements   | `@requirements`       | `01-*`     | Gather and refine project requirements     |
+|  2   | Architecture   | `@architect` 🧩 💰    | `02-*`     | WAF assessment and design decisions        |
+|  3   | Design         | Skills: diagrams, adr | `03-des-*` | Diagrams and Architecture Decision Records |
+|  4   | Planning       | `@bicep-plan` 🧩      | `04-*`     | Implementation planning with governance    |
+|  5   | Implementation | `@bicep-code`         | `05-*`     | Generate AVM-first Bicep templates         |
+|  6   | Deployment     | `@deploy`             | `06-*`     | Azure resource provisioning                |
+|  7   | Documentation  | Skill: workload-docs  | `07-*`     | As-built documentation suite               |
+|  —   | Validation     | `@diagnose` 🧩        | `08-*`     | Resource health & troubleshooting          |
 
 > **🧩** = Azure MCP Server integration | **💰** = Pricing MCP add-on | Steps 3, 7 & Validation are optional
 
@@ -175,7 +175,7 @@ Type: `Create a web app with Azure App Service and SQL Database`
 
 Each agent asks for approval before proceeding. Say `yes` to continue, or provide feedback to refine.
 
-📖 **[Full Quick Start Guide →](docs/getting-started/quickstart.md)**
+📖 **[Full Quick Start Guide →](docs/quickstart.md)**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -240,9 +240,9 @@ Architecture diagrams as code using [mingrammer/diagrams](https://github.com/min
 ```
 ├── 📁 .devcontainer/          # Dev container configuration
 ├── 📁 .github/
-│   ├── 📁 agents/             # 9 Copilot agents for the 7-step workflow
+│   ├── 📁 agents/             # 6 Copilot agents for the 7-step workflow
 │   ├── 📁 instructions/       # Guardrails and coding standards
-│   ├── 📁 skills/             # Agent skills (preflight, diagrams)
+│   ├── 📁 skills/             # 9 agent skills (diagrams, ADR, docs, preflight)
 │   ├── 📁 templates/          # Artifact output templates
 │   └── 📁 workflows/          # CI/CD and drift guard workflows
 ├── 📁 agent-output/           # Generated artifacts per project
