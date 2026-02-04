@@ -591,12 +591,16 @@ Are there any components we missed? Let's review:
 
 - 📖 Review [examples/copilot-sbom-conversation.md](./examples/copilot-sbom-conversation.md) for complete example
 - 📝 Check [prompts/effective-prompts.md](./prompts/effective-prompts.md) for conversation starters
-- 💬 Ask in [GitHub Discussions](../../discussions) for conversation tips
-- 🐛 Report issues in [GitHub Issues](../../issues) if Copilot gives incorrect SBOM guidance
+- 💬 Ask in [GitHub Discussions][discussions] for conversation tips
+- 🐛 Report issues in [GitHub Issues][issues] if Copilot gives incorrect SBOM guidance
+
+[discussions]: https://github.com/jonathan-vella/azure-agentic-infraops/discussions
+[issues]: https://github.com/jonathan-vella/azure-agentic-infraops/issues
 
 ---
 
-📖 **For general issues** (Dev Container, Azure auth, Copilot problems), see the [Troubleshooting Guide](../../docs/guides/troubleshooting.md).
+📖 **For general issues** (Dev Container, Azure auth, Copilot problems),
+see the [Troubleshooting Guide](../../docs/troubleshooting.md).
 
 ## Next Steps
 
