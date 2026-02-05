@@ -82,11 +82,11 @@ Before deployment, the Bicep Code agent runs a TDD-style validation:
 
 | Agent | Role | Model |
 |-------|------|-------|
-| InfraOps Conductor | Master orchestrator | Claude Opus 4.5 |
-| Requirements | Requirements gathering | Claude Opus 4.5 |
-| Architect | WAF assessment | Claude Opus 4.5 |
+| InfraOps Conductor | Master orchestrator | Claude Opus 4.6 |
+| Requirements | Requirements gathering | Claude Opus 4.6 |
+| Architect | WAF assessment | Claude Opus 4.6 |
 | Design | Diagrams & ADRs | Claude Sonnet 4.5 |
-| Bicep Plan | Implementation planning | Claude Opus 4.5 |
+| Bicep Plan | Implementation planning | Claude Opus 4.6 |
 | Bicep Code | Template generation | Claude Sonnet 4.5 |
 | Deploy | Azure deployment | Claude Sonnet 4.5 |
 | Diagnose | Troubleshooting | Claude Sonnet 4.5 |
@@ -107,7 +107,7 @@ Before deployment, the Bicep Code agent runs a TDD-style validation:
 ---
 name: My Agent
 description: What this agent does
-model: ["Claude Opus 4.5 (copilot)", "Claude Sonnet 4.5 (copilot)"]
+model: ["Claude Opus 4.6 (copilot)", "Claude Sonnet 4.5 (copilot)"]
 user-invokable: true
 agents: ["Agent1", "Agent2"]  # Agents this can delegate to
 tools: [...]

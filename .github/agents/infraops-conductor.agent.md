@@ -1,11 +1,7 @@
 ---
 name: InfraOps Conductor
-description: >
-  Master orchestrator for the 7-step Azure infrastructure workflow. Coordinates specialized agents
-  (Requirements, Architect, Design, Bicep Plan, Bicep Code, Deploy) through the complete development cycle
-  with mandatory human approval gates. Maintains context efficiency by delegating to subagents
-  and preserves human-in-the-loop control at critical decision points.
-model: ["Claude Opus 4.5"]
+description: Master orchestrator for the 7-step Azure infrastructure workflow. Coordinates specialized agents (Requirements, Architect, Design, Bicep Plan, Bicep Code, Deploy) through the complete development cycle with mandatory human approval gates. Maintains context efficiency by delegating to subagents and preserves human-in-the-loop control at critical decision points.
+model: ["Claude Opus 4.6"]
 argument-hint: Describe the Azure infrastructure project you want to build end-to-end
 user-invokable: true
 agents: ["*"]
@@ -38,12 +34,12 @@ handoffs:
     agent: Requirements
     prompt: Gather comprehensive infrastructure requirements for this project. Save to 01-requirements.md.
     send: false
-    model: "Claude Opus 4.5 (copilot)"
+    model: "Claude Opus 4.6 (copilot)"
   - label: "Step 2: Architecture Assessment"
     agent: Architect
     prompt: Create a WAF assessment with cost estimates based on the requirements. Save to 02-architecture-assessment.md.
     send: true
-    model: "Claude Opus 4.5 (copilot)"
+    model: "Claude Opus 4.6 (copilot)"
   - label: "Step 3: Design Artifacts"
     agent: Design
     prompt: Generate architecture diagrams and ADRs based on the architecture assessment. This step is optional - you can skip to Step 4.
@@ -298,8 +294,8 @@ Different agents use different models optimized for their tasks:
 
 | Agent | Model | Rationale |
 |-------|-------|-----------|
-| Requirements | Claude Opus 4.5 | Deep understanding of complex requirements |
-| Architect | Claude Opus 4.5 | WAF analysis and cost optimization |
+| Requirements | Claude Opus 4.6 | Deep understanding of complex requirements |
+| Architect | Claude Opus 4.6 | WAF analysis and cost optimization |
 | Bicep Plan | Claude Sonnet 4.5 | Efficient planning |
 | Bicep Code | Claude Sonnet 4.5 | Code generation |
 | bicep-lint-subagent | Claude Haiku 4.5 | Fast validation |

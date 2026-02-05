@@ -62,7 +62,7 @@ handoffs:
 > [!IMPORTANT]
 > **Model selection is intentional and must not be changed without explicit approval.**
 
-Agents that specify `Claude Opus 4.5` as priority model do so deliberately:
+Agents that specify `Claude Opus 4.6` as priority model do so deliberately:
 
 - **Opus-first agents** (requirements, architect, bicep-plan) require advanced reasoning
   for accurate planning decisions, WAF assessments, and governance discovery
