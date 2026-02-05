@@ -6,34 +6,64 @@ Transform Azure infrastructure requirements into deploy-ready Bicep code using c
 AI agents and reusable skills, aligned with Azure Well-Architected Framework (WAF) and
 Azure Verified Modules (AVM).
 
+## What's New: VS Code 1.109 Agent Orchestration
+
+This project now implements the **Conductor pattern** from VS Code 1.109:
+
+- **InfraOps Conductor**: Master orchestrator with mandatory human approval gates
+- **Validation Subagents**: TDD-style Bicep validation (lint → what-if → review)
+- **New Frontmatter**: `user-invokable`, `agents` list, model fallbacks
+- **Skills GA**: Skills are now generally available with enhanced discovery
+
+See [orchestration-helper skill](../.github/skills/orchestration-helper/SKILL.md) for details.
+
 ## Quick Links
 
 | Resource                              | Description                   |
 | ------------------------------------- | ----------------------------- |
 | [Quickstart](quickstart.md)           | Get running in 10 minutes     |
 | [Workflow](workflow.md)               | 7-step agent + skill workflow |
+| [Dev Containers](dev-containers.md)   | Docker setup and alternatives |
+| [Copilot Tips](copilot-tips.md)       | Best practices for prompting  |
 | [Troubleshooting](troubleshooting.md) | Common issues and solutions   |
 | [Glossary](GLOSSARY.md)               | Terms and definitions         |
 | [Scenarios](../scenarios/)            | Hands-on learning             |
 
 ---
 
-## Agents (6)
+## Agents (7 + 3 Subagents)
 
 Agents are interactive AI assistants for specific workflow phases. Invoke via `Ctrl+Shift+A`.
 
-| Agent          | Phase | Purpose                                                      |
-| -------------- | ----- | ------------------------------------------------------------ |
-| `requirements` | 1     | Gather infrastructure requirements → `01-requirements.md`    |
-| `architect`    | 2     | WAF assessment and design → `02-architecture-assessment.md`  |
-| `bicep-plan`   | 4     | Implementation planning → `04-implementation-plan.md`        |
-| `bicep-code`   | 5     | Bicep template generation → `infra/bicep/{project}/`         |
-| `deploy`       | 6     | Azure deployment → `06-deployment-summary.md`                |
-| `diagnose`     | 8     | Post-deployment diagnostics → `08-resource-health-report.md` |
+### Conductor (Master Orchestrator)
+
+| Agent | Persona | Purpose |
+|-------|---------|---------|
+| `InfraOps Conductor` | 🎼 Maestro | Orchestrates all 7 steps with mandatory approval gates |
+
+### Primary Agents (User-Invokable)
+
+| Agent | Persona | Phase | Purpose |
+|-------|---------|-------|---------|
+| `requirements` | 📜 Scribe | 1 | Gather infrastructure requirements |
+| `architect` | 🏛️ Oracle | 2 | WAF assessment and design |
+| `design` | 🎨 Artisan | 3 | Diagrams and ADRs |
+| `bicep-plan` | 📐 Strategist | 4 | Implementation planning |
+| `bicep-code` | ⚒️ Forge | 5 | Bicep template generation |
+| `deploy` | 🚀 Envoy | 6 | Azure deployment |
+| `diagnose` | 🔍 Sentinel | — | Post-deployment diagnostics |
+
+### Validation Subagents (Conductor-Invoked)
+
+| Subagent               | Purpose                                | Returns                    |
+| ---------------------- | -------------------------------------- | -------------------------- |
+| `bicep-lint-subagent`   | Bicep syntax validation                | PASS/FAIL with diagnostics |
+| `bicep-whatif-subagent` | Deployment preview (what-if analysis)  | Change summary, violations |
+| `bicep-review-subagent` | Code review against AVM standards      | APPROVED/NEEDS_REVISION/FAILED |
 
 ---
 
-## Skills (9)
+## Skills (10)
 
 Skills are reusable capabilities that agents invoke or that activate automatically based on prompts.
 
@@ -55,15 +85,16 @@ Skills are reusable capabilities that agents invoke or that activate automatical
 
 ### Tool Integration (Category 3)
 
-| Skill                 | Purpose                    | Triggers                         |
-| --------------------- | -------------------------- | -------------------------------- |
-| `gh-cli`              | GitHub CLI reference       | "gh command", "github cli"       |
-| `git-commit`          | Commit message conventions | "commit", "conventional commit"  |
-| `make-skill-template` | Create new skills          | "create skill", "scaffold skill" |
+| Skill                 | Purpose                         | Triggers                                      |
+| --------------------- | ------------------------------- | --------------------------------------------- |
+| `gh-cli`              | GitHub CLI reference            | "gh command", "github cli"                    |
+| `git-commit`          | Commit message conventions      | "commit", "conventional commit"               |
+| `make-skill-template` | Create new skills               | "create skill", "scaffold skill"              |
+| `orchestration-helper`| Conductor pattern documentation | "how does conductor work", "agent orchestration" |
 
 ---
 
-## 7-Step Workflow
+## 7-Step Workflow (with Conductor)
 
 ```
 Requirements → Architecture → Design → Planning → Implementation → Deploy → Documentation
