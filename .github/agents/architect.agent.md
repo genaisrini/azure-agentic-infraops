@@ -1,7 +1,7 @@
 ---
 name: Architect
 description: Expert Architect providing guidance using Azure Well-Architected Framework principles and Microsoft best practices. Evaluates all decisions against WAF pillars (Security, Reliability, Performance, Cost, Operations) with Microsoft documentation lookups. Automatically generates cost estimates using Azure Pricing MCP tools. Saves WAF assessments and cost estimates to markdown documentation files.
-model: ["Claude Opus 4.5"]
+model: ["Claude Opus 4.6"]
 user-invokable: true
 agents: ["*"]
 tools:
@@ -50,7 +50,7 @@ handoffs:
     agent: Bicep Plan
     prompt: Create a detailed Bicep implementation plan based on the architecture assessment and recommendations above. Include all Azure resources, dependencies, and implementation tasks. Skip diagram/ADR generation.
     send: true
-    model: "Claude Opus 4.5 (copilot)"
+    model: "Claude Opus 4.6 (copilot)"
   - label: ▶ Generate Architecture Diagram
     agent: Architect
     prompt: Use the azure-diagrams skill to generate a Python architecture diagram for the assessed design. Include all Azure resources, network topology, and data flow. Save as 03-des-diagram.py.

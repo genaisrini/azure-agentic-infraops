@@ -1,7 +1,7 @@
 ---
 description: "Quick demo: Static Web App requirements (interactive wizard)"
 agent: "Requirements"
-model: "Claude Opus 4.5"
+model: "Claude Opus 4.6"
 tools:
   - edit/createFile
 ---
