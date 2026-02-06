@@ -39,16 +39,14 @@ It includes all required tools, extensions, and configurations to build Azure in
 - **matplotlib**, **pillow** - Image processing
 - **checkov** - Infrastructure security scanner
 
-### VS Code Extensions (27 Pre-installed)
+### VS Code Extensions (24 Pre-installed)
 
 - ✅ **GitHub Copilot** + Copilot Chat + Mermaid Diagrams
-- ✅ **Azure Tools** (Bicep, Resource Groups, Container Apps, Static Web Apps, Terraform, CLI)
-- ✅ **HashiCorp Terraform** language support
+- ✅ **Azure Tools** (Bicep, Resource Groups, Container Apps, Static Web Apps, CLI)
 - ✅ **PowerShell** language support
 - ✅ **Markdown** (Mermaid diagrams, GitHub preview, linting, Prettier formatting)
-- ✅ **Kubernetes & Docker** tools (AKS, Docker)
+- ✅ **Kubernetes & Container** tools (AKS, Container Tools)
 - ✅ **GitHub** (Actions, Pull Requests, Azure Copilot)
-- ✅ **AI Foundry** + AI Toolkit extensions
 
 ## 🚀 Quick Start
 
@@ -83,7 +81,7 @@ az login
 az account set --subscription "<your-subscription-id>"
 
 # 3. Verify tools are installed (auto-displayed after setup)
-terraform version && az bicep version && pwsh --version
+az bicep version && pwsh --version
 
 # 4. Explore demos and infrastructure
 cd scenarios/ && ls -la
@@ -96,7 +94,6 @@ cd ../infra/bicep/ && tree -L 2
 
 | Variable                  | Value                           | Purpose                                        |
 | ------------------------- | ------------------------------- | ---------------------------------------------- |
-| `TF_PLUGIN_CACHE_DIR`     | `/home/vscode/.terraform-cache` | Speeds up Terraform provider downloads         |
 | `AZURE_DEFAULTS_LOCATION` | `swedencentral`                 | Default Azure region (matches repo guidelines) |
 
 ### Azure Credentials Mount

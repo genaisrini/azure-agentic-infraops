@@ -114,7 +114,7 @@ dedicated prompt. This reduces hallucinations as the context fills up.
   <img
     src="docs/presenter/infographics/generated/agent-workflow-sequence.png"
     alt="Agent workflow sequence diagram"
-    width="700" />
+    width="900" />
 </div>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
